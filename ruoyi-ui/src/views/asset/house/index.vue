@@ -1,5 +1,124 @@
 <template>
   <div class="app-container">
+    <!-- Statistics Section -->
+    <el-card class="box-card statistics-card" shadow="hover" v-loading="statsLoading">
+      <div slot="header" class="clearfix">
+        <span>House Asset Statistics</span>
+        <el-select
+          v-model="statsProjectId"
+          placeholder="All Projects"
+          clearable
+          size="small"
+          style="float: right; width: 200px;"
+          @change="loadStatistics"
+        >
+          <el-option
+            v-for="item in projectOptions"
+            :key="item.id"
+            :label="item.projectName"
+            :value="item.id"
+          />
+        </el-select>
+      </div>
+      <div v-if="statsError" class="stats-error">
+        <i class="el-icon-warning-outline"></i>
+        <span>{{ statsError }}</span>
+        <el-button type="text" @click="loadStatistics">Retry</el-button>
+      </div>
+      <el-row :gutter="20" v-else>
+        <!-- Total Count Card -->
+        <el-col :xs="24" :sm="12" :md="6" :lg="6">
+          <div class="stat-item">
+            <div class="stat-icon" style="background: #409EFF;">
+              <i class="el-icon-office-building"></i>
+            </div>
+            <div class="stat-content">
+              <div class="stat-value">{{ statistics.totalCount || 0 }}</div>
+              <div class="stat-label">Total Houses</div>
+            </div>
+          </div>
+        </el-col>
+        <!-- Self Use Card -->
+        <el-col :xs="24" :sm="12" :md="6" :lg="6">
+          <div class="stat-item">
+            <div class="stat-icon" style="background: #67C23A;">
+              <i class="el-icon-house"></i>
+            </div>
+            <div class="stat-content">
+              <div class="stat-value">{{ statistics.selfUseCount || 0 }}</div>
+              <div class="stat-label">Self Use</div>
+              <el-progress
+                :percentage="statistics.selfUseRate || 0"
+                :stroke-width="6"
+                :show-text="false"
+                color="#67C23A"
+              ></el-progress>
+              <div class="stat-rate">{{ (statistics.selfUseRate || 0).toFixed(1) }}%</div>
+            </div>
+          </div>
+        </el-col>
+        <!-- Rent Card -->
+        <el-col :xs="24" :sm="12" :md="6" :lg="6">
+          <div class="stat-item">
+            <div class="stat-icon" style="background: #E6A23C;">
+              <i class="el-icon-money"></i>
+            </div>
+            <div class="stat-content">
+              <div class="stat-value">{{ statistics.rentCount || 0 }}</div>
+              <div class="stat-label">Rented Out</div>
+              <el-progress
+                :percentage="statistics.rentRate || 0"
+                :stroke-width="6"
+                :show-text="false"
+                color="#E6A23C"
+              ></el-progress>
+              <div class="stat-rate">{{ (statistics.rentRate || 0).toFixed(1) }}%</div>
+            </div>
+          </div>
+        </el-col>
+        <!-- Idle Card -->
+        <el-col :xs="24" :sm="12" :md="6" :lg="6">
+          <div class="stat-item">
+            <div class="stat-icon" style="background: #909399;">
+              <i class="el-icon-question"></i>
+            </div>
+            <div class="stat-content">
+              <div class="stat-value">{{ statistics.idleCount || 0 }}</div>
+              <div class="stat-label">Idle</div>
+              <el-progress
+                :percentage="statistics.idleRate || 0"
+                :stroke-width="6"
+                :show-text="false"
+                color="#909399"
+              ></el-progress>
+              <div class="stat-rate">{{ (statistics.idleRate || 0).toFixed(1) }}%</div>
+            </div>
+          </div>
+        </el-col>
+      </el-row>
+      <!-- Area Statistics Row -->
+      <el-row :gutter="20" style="margin-top: 20px;" v-if="!statsError">
+        <el-col :xs="24" :sm="12" :md="8">
+          <div class="area-stat">
+            <span class="area-label">Total Area:</span>
+            <span class="area-value">{{ formatArea(statistics.totalBuildingArea) }}</span>
+          </div>
+        </el-col>
+        <el-col :xs="24" :sm="12" :md="8">
+          <div class="area-stat">
+            <span class="area-label">Rented Area:</span>
+            <span class="area-value">{{ formatArea(statistics.rentArea) }}</span>
+          </div>
+        </el-col>
+        <el-col :xs="24" :sm="12" :md="8">
+          <div class="area-stat">
+            <span class="area-label">Total Rent Income:</span>
+            <span class="area-value rent-income">¥{{ formatMoney(statistics.totalRentIncome) }}</span>
+          </div>
+        </el-col>
+      </el-row>
+    </el-card>
+
     <!-- Search/Filter Area -->
     <el-form :model="queryParams" ref="queryForm" size="small" :inline="true" v-show="showSearch" label-width="68px">
       <el-form-item label="Asset Name" prop="assetName">
@@ -432,7 +551,7 @@
 </template>
 
 <script>
-import { getHouseAssetList, getHouseAsset, addHouseAsset, updateHouseAsset, deleteHouseAsset } from "@/api/asset/house";
+import { getHouseAssetList, getHouseAsset, addHouseAsset, updateHouseAsset, deleteHouseAsset, getHouseStatistics } from "@/api/asset/house";
 
 export default {
   name: "HouseAsset",
@@ -443,6 +562,14 @@ export default {
       loading: true,
       // Form loading state
       formLoading: false,
+      // Statistics loading state
+      statsLoading: false,
+      // Statistics error
+      statsError: null,
+      // Statistics data
+      statistics: {},
+      // Statistics project filter
+      statsProjectId: null,
       // Selected IDs
       ids: [],
       // Single selection
@@ -513,6 +640,7 @@ export default {
   created() {
     this.getList();
     this.loadProjectOptions();
+    this.loadStatistics();
   },
   methods: {
     /** Query house list */
@@ -690,7 +818,120 @@ export default {
         path: '/maintenance/order',
         query: { assetId: this.detail.id }
       });
+    },
+    /** Load statistics */
+    loadStatistics() {
+      this.statsLoading = true;
+      this.statsError = null;
+      getHouseStatistics(this.statsProjectId).then(response => {
+        this.statistics = response.data || {};
+        this.statsLoading = false;
+      }).catch(error => {
+        this.statsError = 'Failed to load statistics';
+        this.statsLoading = false;
+        console.error('Statistics load error:', error);
+      });
+    },
+    /** Format area value */
+    formatArea(value) {
+      if (!value && value !== 0) return '-';
+      return value.toLocaleString() + ' sqm';
+    },
+    /** Format money value */
+    formatMoney(value) {
+      if (!value && value !== 0) return '0.00';
+      return value.toLocaleString('zh-CN', { minimumFractionDigits: 2, maximumFractionDigits: 2 });
     }
   }
 };
 </script>
+
+<style scoped>
+.statistics-card {
+  margin-bottom: 20px;
+}
+
+.stat-item {
+  display: flex;
+  align-items: flex-start;
+  padding: 15px;
+  background: #fafafa;
+  border-radius: 4px;
+  margin-bottom: 10px;
+}
+
+.stat-icon {
+  width: 48px;
+  height: 48px;
+  border-radius: 8px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-right: 15px;
+  flex-shrink: 0;
+}
+
+.stat-icon i {
+  font-size: 24px;
+  color: #fff;
+}
+
+.stat-content {
+  flex: 1;
+  min-width: 0;
+}
+
+.stat-value {
+  font-size: 28px;
+  font-weight: 600;
+  color: #303133;
+  line-height: 1.2;
+}
+
+.stat-label {
+  font-size: 14px;
+  color: #909399;
+  margin-top: 4px;
+}
+
+.stat-rate {
+  font-size: 12px;
+  color: #606266;
+  margin-top: 4px;
+}
+
+.area-stat {
+  padding: 10px 15px;
+  background: #f5f7fa;
+  border-radius: 4px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.area-label {
+  color: #909399;
+  font-size: 14px;
+}
+
+.area-value {
+  font-size: 16px;
+  font-weight: 500;
+  color: #303133;
+}
+
+.area-value.rent-income {
+  color: #E6A23C;
+}
+
+.stats-error {
+  text-align: center;
+  padding: 20px;
+  color: #F56C6C;
+}
+
+.stats-error i {
+  font-size: 24px;
+  margin-right: 8px;
+}
+</style>
