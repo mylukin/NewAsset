@@ -1,0 +1,53 @@
+{
+  "featureId": "office.frontend-list",
+  "runNumber": 1,
+  "timestamp": "2025-12-14T13:30:15.434Z",
+  "commitHash": "21b22e40e2dd9a0344d51837085d80a5ec14f574",
+  "changedFiles": [
+    "ai/progress.log",
+    "ai/tasks/index.json",
+    "ai/tasks/office/05-frontend-api.md",
+    "ai/verification/index.json",
+    "ai/verification/office.frontend-api/001.json",
+    "ai/verification/office.frontend-api/001.md",
+    "ai/verification/results.json",
+    "ruoyi-ui/src/api/asset/office.js",
+    "ai/tasks/office/06-frontend-list.md"
+  ],
+  "diffSummary": "9 files changed",
+  "automatedChecks": [],
+  "criteriaResults": [
+    {
+      "criterion": "Create `/src/views/asset/office/index.vue`",
+      "index": 0,
+      "satisfied": true,
+      "confidence": 0.8
+    },
+    {
+      "criterion": "Implement search filters: project, useDeptId, officeType, dutyUserId, status",
+      "index": 1,
+      "satisfied": true,
+      "confidence": 0.8
+    },
+    {
+      "criterion": "Data table columns:",
+      "index": 2,
+      "satisfied": true,
+      "confidence": 0.8
+    },
+    {
+      "criterion": "Action buttons: Add, Edit, Delete, View, Initiate Maintenance, Export",
+      "index": 3,
+      "satisfied": true,
+      "confidence": 0.8
+    },
+    {
+      "criterion": "Permission control with v-hasPermi",
+      "index": 4,
+      "satisfied": true,
+      "confidence": 0.8
+    }
+  ],
+  "verdict": "pass",
+  "verifiedBy": "strategy-framework"
+}

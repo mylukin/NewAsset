@@ -1,6 +1,6 @@
 {
   "version": "2.0.0",
-  "updatedAt": "2025-12-14T13:28:18.083Z",
+  "updatedAt": "2025-12-14T13:30:21.860Z",
   "metadata": {
     "projectGoal": "基于 ai/tasks 创建一个资产管理系统",
     "createdAt": "2025-12-14T10:00:00Z",
@@ -136,7 +136,7 @@
       "filePath": "parking/06-frontend-api.md"
     },
     "office.frontend-list": {
-      "status": "failing",
+      "status": "passing",
       "priority": 53,
       "module": "office",
       "description": "Create Office Asset List Page",
