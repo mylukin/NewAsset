@@ -3,7 +3,7 @@ id: office.frontend-form
 module: office
 priority: 54
 status: failing
-version: 6
+version: 7
 origin: manual
 dependsOn:
   - office.frontend-api

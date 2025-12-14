@@ -3,7 +3,7 @@ id: parking.frontend-list
 module: parking
 priority: 35
 status: failing
-version: 6
+version: 7
 origin: manual
 dependsOn:
   - parking.frontend-api

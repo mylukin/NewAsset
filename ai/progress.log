@@ -25,3 +25,5 @@
 2025-12-14T11:56:07.721Z STEP feature=core.project-init status=passing tests="./ai/init.sh check" summary="Completed core.project-init"
 2025-12-14T11:57:13.952Z VERIFY feature=core.asset-base-entity action=pass summary="Verified core.asset-base-entity: pass"
 2025-12-14T11:57:19.798Z STEP feature=core.asset-base-entity status=passing tests="./ai/init.sh check" summary="Completed core.asset-base-entity"
+2025-12-14T11:57:54.107Z VERIFY feature=core.database-schema action=pass summary="Verified core.database-schema: pass"
+2025-12-14T11:58:00.199Z STEP feature=core.database-schema status=passing tests="./ai/init.sh check" summary="Completed core.database-schema"

@@ -3,7 +3,7 @@ id: parking.statistics
 module: parking
 priority: 33
 status: failing
-version: 6
+version: 7
 origin: manual
 dependsOn:
   - parking.service
