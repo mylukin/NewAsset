@@ -44,8 +44,17 @@
       "totalRuns": 1,
       "passCount": 1,
       "failCount": 0
+    },
+    "core.code-generator": {
+      "featureId": "core.code-generator",
+      "latestRun": 1,
+      "latestTimestamp": "2025-12-14T12:01:03.417Z",
+      "latestVerdict": "pass",
+      "totalRuns": 1,
+      "passCount": 1,
+      "failCount": 0
     }
   },
-  "updatedAt": "2025-12-14T11:59:07.303Z",
+  "updatedAt": "2025-12-14T12:01:03.419Z",
   "version": "2.0.0"
 }

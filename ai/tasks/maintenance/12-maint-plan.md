@@ -3,7 +3,7 @@ id: maintenance.maint-plan
 module: maintenance
 priority: 68
 status: failing
-version: 8
+version: 9
 origin: manual
 dependsOn:
   - maintenance.order-workflow-service
