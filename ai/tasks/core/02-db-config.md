@@ -3,7 +3,7 @@ id: core.db-config
 module: core
 priority: 2
 status: failing
-version: 3
+version: 5
 origin: manual
 dependsOn:
   - core.project-init
@@ -22,6 +22,55 @@ verification:
   verifiedBy: strategy-framework
   commitHash: 24bccb585c03e114b5a49a4b53bd27b6ea22cc5d
   summary: 8/8 criteria satisfied
+tddGuidance:
+  generatedAt: '2025-12-14T11:53:25.798Z'
+  generatedBy: claude
+  forVersion: 5
+  suggestedTestFiles:
+    unit:
+      - ruoyi-asset/src/test/java/com/ruoyi/asset/config/DatabaseConfigTest.java
+      - >-
+        ruoyi-asset/src/test/java/com/ruoyi/asset/config/DataSourceConfigurationTest.java
+    e2e: []
+  unitTestCases:
+    - name: shouldHaveSqliteJdbcDriverDependency
+      assertions:
+        - assertNotNull(Class.forName("org.sqlite.JDBC"))
+        - assertTrue(sqliteDriverAvailable)
+    - name: shouldLoadDevProfileWithSqliteDataSource
+      assertions:
+        - >-
+          assertEquals("jdbc:sqlite:data/ruoyi-asset-dev.db",
+          dataSource.getUrl())
+        - 'assertEquals("org.sqlite.JDBC", dataSource.getDriverClassName())'
+    - name: shouldLoadProdProfileWithMysqlDataSource
+      assertions:
+        - 'assertTrue(dataSource.getUrl().startsWith("jdbc:mysql://"))'
+        - >-
+          assertEquals("com.mysql.cj.jdbc.Driver",
+          dataSource.getDriverClassName())
+    - name: shouldConfigureMyBatisForSqlDialectDifferences
+      assertions:
+        - assertNotNull(sqlSessionFactory.getConfiguration())
+        - assertTrue(mybatisConfigSupportsMultipleDialects)
+    - name: shouldExcludeDataDirectoryFromGit
+      assertions:
+        - assertTrue(gitignoreContent.contains("data/"))
+        - assertFalse(gitTracksDataDirectory)
+    - name: shouldHaveDataDirectoryWithGitkeep
+      assertions:
+        - assertTrue(Files.exists(Paths.get("data/.gitkeep")))
+        - assertTrue(Files.isDirectory(Paths.get("data")))
+    - name: shouldStartApplicationWithDevProfile
+      assertions:
+        - assertDoesNotThrow(() -> applicationContext.getBean(DataSource.class))
+        - assertTrue(applicationContext.isActive())
+    - name: shouldStartApplicationWithProdProfile
+      assertions:
+        - assertDoesNotThrow(() -> applicationContext.getBean(DataSource.class))
+        - assertTrue(applicationContext.isActive())
+  e2eScenarios: []
+  frameworkHint: junit5-spring-boot-test
 ---
 # Configure Dual-Database Infrastructure (SQLite Dev / MySQL Prod)
 
@@ -33,20 +82,12 @@ The system requires different database backends for development and production e
 
 1. Add SQLite JDBC driver dependency to `ruoyi-asset/pom.xml`
 2. Create `application-dev.yml` with SQLite datasource configuration:
-   - Database file path: `./data/dev.db`
-   - SQLite-specific Druid settings
-   - Enable SQL logging for development
 3. Create/verify `application-prod.yml` with MySQL datasource configuration
 4. Configure MyBatis to handle SQL dialect differences:
-   - Create `MybatisConfig.java` with dialect detection
-   - Set up conditional SQL execution based on active profile
 5. Create `.gitignore` entry for `data/` directory (SQLite files)
 6. Create `data/.gitkeep` to ensure directory exists
 7. Verify application starts successfully with both profiles:
-   - `spring.profiles.active=dev` uses SQLite
-   - `spring.profiles.active=prod` uses MySQL
 8. Document database switching in README or module documentation
-
 ## Technical Notes
 
 - Reference: Spring Boot multi-datasource configuration
