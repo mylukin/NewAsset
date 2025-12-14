@@ -1,6 +1,6 @@
 {
   "version": "2.0.0",
-  "updatedAt": "2025-12-14T04:43:50.300Z",
+  "updatedAt": "2025-12-14T04:48:48.519Z",
   "metadata": {
     "projectGoal": "基于 ai/tasks 创建一个资产管理系统",
     "createdAt": "2025-12-14T12:00:00Z",
@@ -173,7 +173,7 @@
       "description": "Implement order list with role-based filtering"
     },
     "maintenance.order-entity": {
-      "status": "failing",
+      "status": "passing",
       "priority": 1,
       "module": "maintenance",
       "description": "Create maintenance work order entity with status enum"

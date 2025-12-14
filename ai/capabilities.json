@@ -17,13 +17,12 @@
       "Java",
       "Spring Boot",
       "Maven",
-      "Bash",
-      "YAML",
       "XML",
-      "Markdown",
+      "YAML",
+      "Bash",
       "JSON"
     ],
-    "detectedAt": "2025-12-14T04:42:58.538Z",
+    "detectedAt": "2025-12-14T04:47:50.757Z",
     "testInfo": {
       "available": true,
       "command": "mvn test",
@@ -96,7 +95,7 @@
       }
     ]
   },
-  "commitHash": "7a73a02e5aecd82a6d1cf7d82dedc138b68e2602",
+  "commitHash": "99d44a3fc8de217441e606236299a06f6b0cee9d",
   "trackedFiles": [
     "pom.xml",
     "ruoyi-admin/pom.xml",
@@ -105,7 +104,7 @@
     "ruoyi-modules/pom.xml",
     "ruoyi-modules/ruoyi-asset/pom.xml",
     "ruoyi-modules/ruoyi-asset/src/main/resources/application.yml",
-    "ai/init.sh",
-    "ai/capabilities.json"
+    "ai/capabilities.json",
+    "ai/init.sh"
   ]
 }
