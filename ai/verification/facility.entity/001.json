@@ -1,0 +1,53 @@
+{
+  "featureId": "facility.entity",
+  "runNumber": 1,
+  "timestamp": "2025-12-14T12:34:56.537Z",
+  "commitHash": "17e8145d0ca1ee01ea31e3b89511fa03963c5b48",
+  "changedFiles": [
+    "ai/progress.log",
+    "ai/tasks/house/10-frontend-statistics.md",
+    "ai/tasks/index.json",
+    "ai/verification/house.frontend-statistics/001.json",
+    "ai/verification/house.frontend-statistics/001.md",
+    "ai/verification/index.json",
+    "ai/verification/results.json",
+    "ruoyi-ui/src/views/asset/house/index.vue",
+    "ai/tasks/facility/01-entity.md"
+  ],
+  "diffSummary": "9 files changed",
+  "automatedChecks": [],
+  "criteriaResults": [
+    {
+      "criterion": "Create `AssetFacility` entity referencing `Asset` base",
+      "index": 0,
+      "satisfied": true,
+      "confidence": 0.8
+    },
+    {
+      "criterion": "Map extension fields from `t_asset_facility`:",
+      "index": 1,
+      "satisfied": true,
+      "confidence": 0.8
+    },
+    {
+      "criterion": "Create VO classes for list and detail views",
+      "index": 2,
+      "satisfied": true,
+      "confidence": 0.8
+    },
+    {
+      "criterion": "Create DTO classes for create and update operations",
+      "index": 3,
+      "satisfied": true,
+      "confidence": 0.8
+    },
+    {
+      "criterion": "Add validation annotations for required fields",
+      "index": 4,
+      "satisfied": true,
+      "confidence": 0.8
+    }
+  ],
+  "verdict": "pass",
+  "verifiedBy": "strategy-framework"
+}

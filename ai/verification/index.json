@@ -188,8 +188,17 @@
       "totalRuns": 1,
       "passCount": 1,
       "failCount": 0
+    },
+    "facility.entity": {
+      "featureId": "facility.entity",
+      "latestRun": 1,
+      "latestTimestamp": "2025-12-14T12:34:56.537Z",
+      "latestVerdict": "pass",
+      "totalRuns": 1,
+      "passCount": 1,
+      "failCount": 0
     }
   },
-  "updatedAt": "2025-12-14T12:31:59.782Z",
+  "updatedAt": "2025-12-14T12:34:56.539Z",
   "version": "2.0.0"
 }
