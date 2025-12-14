@@ -3,7 +3,7 @@ id: office.entity
 module: office
 priority: 48
 status: failing
-version: 17
+version: 18
 origin: manual
 dependsOn:
   - core.asset-base-entity

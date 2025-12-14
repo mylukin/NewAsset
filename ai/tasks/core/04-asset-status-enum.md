@@ -3,7 +3,7 @@ id: core.asset-status-enum
 module: core
 priority: 4
 status: passing
-version: 18
+version: 19
 origin: manual
 dependsOn:
   - core.project-init

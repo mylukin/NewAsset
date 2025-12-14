@@ -3,7 +3,7 @@ id: venue.usage-statistics
 module: venue
 priority: 47
 status: failing
-version: 17
+version: 18
 origin: manual
 dependsOn:
   - venue.service

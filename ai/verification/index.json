@@ -125,8 +125,17 @@
       "totalRuns": 1,
       "passCount": 1,
       "failCount": 0
+    },
+    "house.controller": {
+      "featureId": "house.controller",
+      "latestRun": 1,
+      "latestTimestamp": "2025-12-14T12:19:20.187Z",
+      "latestVerdict": "pass",
+      "totalRuns": 1,
+      "passCount": 1,
+      "failCount": 0
     }
   },
-  "updatedAt": "2025-12-14T12:18:06.114Z",
+  "updatedAt": "2025-12-14T12:19:20.191Z",
   "version": "2.0.0"
 }

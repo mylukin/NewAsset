@@ -3,7 +3,7 @@ id: core.attachment-service
 module: core
 priority: 7
 status: passing
-version: 18
+version: 19
 origin: manual
 dependsOn:
   - core.database-schema
