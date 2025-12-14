@@ -134,8 +134,17 @@
       "totalRuns": 1,
       "passCount": 1,
       "failCount": 0
+    },
+    "house.statistics": {
+      "featureId": "house.statistics",
+      "latestRun": 1,
+      "latestTimestamp": "2025-12-14T12:22:29.819Z",
+      "latestVerdict": "pass",
+      "totalRuns": 1,
+      "passCount": 1,
+      "failCount": 0
     }
   },
-  "updatedAt": "2025-12-14T12:19:20.191Z",
+  "updatedAt": "2025-12-14T12:22:29.823Z",
   "version": "2.0.0"
 }

@@ -3,6 +3,7 @@ package com.ruoyi.asset.mapper;
 import com.ruoyi.asset.domain.entity.AssetHouse;
 import com.ruoyi.asset.domain.vo.AssetHouseDetailVO;
 import com.ruoyi.asset.domain.vo.AssetHouseListVO;
+import com.ruoyi.asset.domain.vo.HouseStatisticsVO;
 import org.apache.ibatis.annotations.Mapper;
 import org.apache.ibatis.annotations.Param;
 
@@ -65,6 +66,14 @@ public interface AssetHouseMapper {
      * @return affected rows
      */
     int deleteAssetHouseByIds(@Param("ids") Long[] ids);
+
+    /**
+     * Get house asset statistics
+     *
+     * @param projectId optional project ID filter (null for all projects)
+     * @return statistics VO
+     */
+    HouseStatisticsVO selectHouseStatistics(@Param("projectId") Long projectId);
 
     /**
      * Query parameters for house asset list

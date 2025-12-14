@@ -7,6 +7,7 @@ import com.ruoyi.asset.domain.entity.AssetHouse;
 import com.ruoyi.asset.domain.enums.AssetStatusEnum;
 import com.ruoyi.asset.domain.vo.AssetHouseDetailVO;
 import com.ruoyi.asset.domain.vo.AssetHouseListVO;
+import com.ruoyi.asset.domain.vo.HouseStatisticsVO;
 import com.ruoyi.asset.domain.vo.LocationInfo;
 import com.ruoyi.asset.mapper.AssetHouseMapper;
 import com.ruoyi.asset.mapper.AssetHouseMapper.AssetHouseQuery;
@@ -204,5 +205,14 @@ public class AssetHouseServiceImpl implements IAssetHouseService {
         Long operatorId = 1L;
         assetStatusService.changeStatus(id, statusEnum, reason, operatorId);
         return 1;
+    }
+
+    @Override
+    public HouseStatisticsVO getHouseStatistics(Long projectId) {
+        HouseStatisticsVO statistics = assetHouseMapper.selectHouseStatistics(projectId);
+        if (statistics != null) {
+            statistics.calculateRates();
+        }
+        return statistics;
     }
 }

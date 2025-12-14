@@ -3,7 +3,7 @@ id: venue.service
 module: venue
 priority: 41
 status: failing
-version: 18
+version: 19
 origin: manual
 dependsOn:
   - venue.mapper

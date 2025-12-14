@@ -4,6 +4,7 @@ import com.ruoyi.asset.domain.dto.AssetHouseCreateDTO;
 import com.ruoyi.asset.domain.dto.AssetHouseUpdateDTO;
 import com.ruoyi.asset.domain.vo.AssetHouseDetailVO;
 import com.ruoyi.asset.domain.vo.AssetHouseListVO;
+import com.ruoyi.asset.domain.vo.HouseStatisticsVO;
 import com.ruoyi.asset.mapper.AssetHouseMapper.AssetHouseQuery;
 
 import java.util.List;
@@ -70,4 +71,12 @@ public interface IAssetHouseService {
      * @return affected rows
      */
     int changeStatus(Long id, String newStatus, String reason);
+
+    /**
+     * Get house asset statistics
+     *
+     * @param projectId optional project ID filter
+     * @return statistics VO with calculated rates
+     */
+    HouseStatisticsVO getHouseStatistics(Long projectId);
 }

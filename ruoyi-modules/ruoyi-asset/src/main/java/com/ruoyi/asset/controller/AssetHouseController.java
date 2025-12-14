@@ -4,6 +4,7 @@ import com.ruoyi.asset.domain.dto.AssetHouseCreateDTO;
 import com.ruoyi.asset.domain.dto.AssetHouseUpdateDTO;
 import com.ruoyi.asset.domain.vo.AssetHouseDetailVO;
 import com.ruoyi.asset.domain.vo.AssetHouseListVO;
+import com.ruoyi.asset.domain.vo.HouseStatisticsVO;
 import com.ruoyi.asset.mapper.AssetHouseMapper.AssetHouseQuery;
 import com.ruoyi.asset.service.IAssetHouseService;
 import com.ruoyi.common.core.web.controller.BaseController;
@@ -125,5 +126,18 @@ public class AssetHouseController extends BaseController {
             @ApiParam(value = "Reason for change")
             @RequestParam(required = false) String reason) {
         return toAjax(assetHouseService.changeStatus(id, status, reason));
+    }
+
+    /**
+     * Get house asset statistics
+     */
+    @ApiOperation("Get house asset statistics")
+    @PreAuthorize("@ss.hasPermi('asset:house:list')")
+    @GetMapping("/statistics")
+    public AjaxResult getStatistics(
+            @ApiParam(value = "Project ID filter (optional)")
+            @RequestParam(required = false) Long projectId) {
+        HouseStatisticsVO statistics = assetHouseService.getHouseStatistics(projectId);
+        return success(statistics);
     }
 }

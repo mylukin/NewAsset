@@ -264,4 +264,44 @@
         </foreach>
     </delete>
 
+    <!-- Result map for statistics -->
+    <resultMap id="HouseStatisticsResult" type="com.ruoyi.asset.domain.vo.HouseStatisticsVO">
+        <result property="totalCount" column="total_count"/>
+        <result property="selfUseCount" column="self_use_count"/>
+        <result property="rentCount" column="rent_count"/>
+        <result property="idleCount" column="idle_count"/>
+        <result property="totalBuildingArea" column="total_building_area"/>
+        <result property="selfUseArea" column="self_use_area"/>
+        <result property="rentArea" column="rent_area"/>
+        <result property="idleArea" column="idle_area"/>
+        <result property="totalRentIncome" column="total_rent_income"/>
+        <result property="inUseCount" column="in_use_count"/>
+        <result property="maintainingCount" column="maintaining_count"/>
+        <result property="pendingDisposalCount" column="pending_disposal_count"/>
+    </resultMap>
+
+    <!-- Get house asset statistics using efficient SQL aggregation -->
+    <select id="selectHouseStatistics" resultMap="HouseStatisticsResult">
+        SELECT
+            COUNT(*) as total_count,
+            SUM(CASE WHEN h.current_usage = 'self' THEN 1 ELSE 0 END) as self_use_count,
+            SUM(CASE WHEN h.current_usage = 'rent' THEN 1 ELSE 0 END) as rent_count,
+            SUM(CASE WHEN h.current_usage = 'idle' OR h.current_usage IS NULL THEN 1 ELSE 0 END) as idle_count,
+            COALESCE(SUM(h.building_area), 0) as total_building_area,
+            COALESCE(SUM(CASE WHEN h.current_usage = 'self' THEN h.building_area ELSE 0 END), 0) as self_use_area,
+            COALESCE(SUM(CASE WHEN h.current_usage = 'rent' THEN h.building_area ELSE 0 END), 0) as rent_area,
+            COALESCE(SUM(CASE WHEN h.current_usage = 'idle' OR h.current_usage IS NULL THEN h.building_area ELSE 0 END), 0) as idle_area,
+            COALESCE(SUM(CASE WHEN h.current_usage = 'rent' THEN h.rent_total ELSE 0 END), 0) as total_rent_income,
+            SUM(CASE WHEN a.status = 'in_use' THEN 1 ELSE 0 END) as in_use_count,
+            SUM(CASE WHEN a.status = 'maintaining' THEN 1 ELSE 0 END) as maintaining_count,
+            SUM(CASE WHEN a.status = 'pending_disposal' THEN 1 ELSE 0 END) as pending_disposal_count
+        FROM t_asset a
+        INNER JOIN t_asset_house h ON a.id = h.asset_id
+        WHERE a.del_flag = '0'
+        AND a.asset_type = 'house'
+        <if test="projectId != null">
+            AND a.project_id = #{projectId}
+        </if>
+    </select>
+
 </mapper>
