@@ -261,3 +261,22 @@ CREATE TABLE t_asset_maint_plan_asset (
     FOREIGN KEY (plan_id) REFERENCES t_asset_maint_plan(id) ON DELETE CASCADE,
     FOREIGN KEY (asset_id) REFERENCES t_asset(id) ON DELETE CASCADE
 );
+
+-- -------------------------------------------
+-- Table: t_asset_status_log (Asset Status Change Log)
+-- -------------------------------------------
+DROP TABLE IF EXISTS t_asset_status_log;
+CREATE TABLE t_asset_status_log (
+    id INTEGER PRIMARY KEY,
+    asset_id INTEGER NOT NULL,
+    before_status TEXT NOT NULL,
+    after_status TEXT NOT NULL,
+    reason TEXT,
+    maint_order_id INTEGER,
+    operator_id INTEGER,
+    change_time TEXT DEFAULT (datetime('now')),
+    FOREIGN KEY (asset_id) REFERENCES t_asset(id) ON DELETE CASCADE
+);
+
+CREATE INDEX idx_status_log_asset ON t_asset_status_log(asset_id);
+CREATE INDEX idx_status_log_maint_order ON t_asset_status_log(maint_order_id);

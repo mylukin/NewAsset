@@ -271,4 +271,23 @@ CREATE TABLE `t_asset_maint_plan_asset` (
     CONSTRAINT `fk_plan_asset_asset` FOREIGN KEY (`asset_id`) REFERENCES `t_asset` (`id`) ON DELETE CASCADE
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci COMMENT='Maintenance plan asset relation';
 
+-- -------------------------------------------
+-- Table: t_asset_status_log (Asset Status Change Log)
+-- -------------------------------------------
+DROP TABLE IF EXISTS `t_asset_status_log`;
+CREATE TABLE `t_asset_status_log` (
+    `id` BIGINT NOT NULL AUTO_INCREMENT COMMENT 'Primary key',
+    `asset_id` BIGINT NOT NULL COMMENT 'Asset ID (FK)',
+    `before_status` VARCHAR(32) NOT NULL COMMENT 'Status before change',
+    `after_status` VARCHAR(32) NOT NULL COMMENT 'Status after change',
+    `reason` VARCHAR(500) DEFAULT NULL COMMENT 'Change reason',
+    `maint_order_id` BIGINT DEFAULT NULL COMMENT 'Related maintenance order ID',
+    `operator_id` BIGINT DEFAULT NULL COMMENT 'Operator user ID',
+    `change_time` DATETIME DEFAULT CURRENT_TIMESTAMP COMMENT 'Change time',
+    PRIMARY KEY (`id`),
+    KEY `idx_status_log_asset` (`asset_id`),
+    KEY `idx_status_log_maint_order` (`maint_order_id`),
+    CONSTRAINT `fk_status_log_asset` FOREIGN KEY (`asset_id`) REFERENCES `t_asset` (`id`) ON DELETE CASCADE
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci COMMENT='Asset status change log';
+
 SET FOREIGN_KEY_CHECKS = 1;

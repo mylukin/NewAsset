@@ -53,8 +53,17 @@
       "totalRuns": 1,
       "passCount": 1,
       "failCount": 0
+    },
+    "core.state-machine": {
+      "featureId": "core.state-machine",
+      "latestRun": 1,
+      "latestTimestamp": "2025-12-14T12:02:52.096Z",
+      "latestVerdict": "pass",
+      "totalRuns": 1,
+      "passCount": 1,
+      "failCount": 0
     }
   },
-  "updatedAt": "2025-12-14T12:01:03.419Z",
+  "updatedAt": "2025-12-14T12:02:52.099Z",
   "version": "2.0.0"
 }

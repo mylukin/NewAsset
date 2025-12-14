@@ -3,7 +3,7 @@ id: house.service
 module: house
 priority: 12
 status: failing
-version: 9
+version: 10
 origin: manual
 dependsOn:
   - house.mapper
