@@ -1,6 +1,6 @@
 {
   "version": "2.0.0",
-  "updatedAt": "2025-12-14T13:04:45.025Z",
+  "updatedAt": "2025-12-14T13:06:28.228Z",
   "metadata": {
     "projectGoal": "基于 ai/tasks 创建一个资产管理系统",
     "createdAt": "2025-12-14T10:00:00Z",
@@ -157,7 +157,7 @@
       "filePath": "dashboard/03-frontend-api.md"
     },
     "parking.frontend-statistics": {
-      "status": "failing",
+      "status": "passing",
       "priority": 38,
       "module": "parking",
       "description": "Create Parking Asset Statistics View",
