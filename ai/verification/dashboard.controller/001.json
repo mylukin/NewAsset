@@ -1,0 +1,55 @@
+{
+  "featureId": "dashboard.controller",
+  "runNumber": 1,
+  "timestamp": "2025-12-14T14:00:07.702Z",
+  "commitHash": "15c2465eacc23f5169fb87e26ee4aa879d35e6e8",
+  "changedFiles": [
+    "ai/progress.log",
+    "ai/tasks/dashboard/01-dashboard-service.md",
+    "ai/tasks/index.json",
+    "ai/verification/dashboard.service/001.json",
+    "ai/verification/dashboard.service/001.md",
+    "ai/verification/index.json",
+    "ai/verification/results.json",
+    "ruoyi-modules/ruoyi-asset/src/main/java/com/ruoyi/asset/domain/vo/DashboardVO.java",
+    "ruoyi-modules/ruoyi-asset/src/main/java/com/ruoyi/asset/service/IDashboardService.java",
+    "ruoyi-modules/ruoyi-asset/src/main/java/com/ruoyi/asset/service/impl/DashboardServiceImpl.java",
+    "ai/tasks/dashboard/02-dashboard-controller.md"
+  ],
+  "diffSummary": "11 files changed",
+  "automatedChecks": [],
+  "criteriaResults": [
+    {
+      "criterion": "Create `DashboardController`",
+      "index": 0,
+      "satisfied": true,
+      "confidence": 0.8
+    },
+    {
+      "criterion": "Implement endpoints:",
+      "index": 1,
+      "satisfied": true,
+      "confidence": 0.8
+    },
+    {
+      "criterion": "All endpoints support projectId filter parameter",
+      "index": 2,
+      "satisfied": true,
+      "confidence": 0.8
+    },
+    {
+      "criterion": "Add appropriate permission checks",
+      "index": 3,
+      "satisfied": true,
+      "confidence": 0.8
+    },
+    {
+      "criterion": "Return optimized response for dashboard widgets",
+      "index": 4,
+      "satisfied": true,
+      "confidence": 0.8
+    }
+  ],
+  "verdict": "pass",
+  "verifiedBy": "strategy-framework"
+}
