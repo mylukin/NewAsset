@@ -449,8 +449,17 @@
       "totalRuns": 1,
       "passCount": 1,
       "failCount": 0
+    },
+    "office.mapper": {
+      "featureId": "office.mapper",
+      "latestRun": 1,
+      "latestTimestamp": "2025-12-14T13:25:23.040Z",
+      "latestVerdict": "pass",
+      "totalRuns": 1,
+      "passCount": 1,
+      "failCount": 0
     }
   },
-  "updatedAt": "2025-12-14T13:23:45.536Z",
+  "updatedAt": "2025-12-14T13:25:23.042Z",
   "version": "2.0.0"
 }

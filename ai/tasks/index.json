@@ -1,6 +1,6 @@
 {
   "version": "2.0.0",
-  "updatedAt": "2025-12-14T13:23:51.035Z",
+  "updatedAt": "2025-12-14T13:25:28.745Z",
   "metadata": {
     "projectGoal": "基于 ai/tasks 创建一个资产管理系统",
     "createdAt": "2025-12-14T10:00:00Z",
@@ -108,7 +108,7 @@
       "filePath": "parking/03-service.md"
     },
     "office.mapper": {
-      "status": "failing",
+      "status": "passing",
       "priority": 49,
       "module": "office",
       "description": "Create Office Asset Mapper",
