@@ -503,8 +503,17 @@
       "totalRuns": 1,
       "passCount": 1,
       "failCount": 0
+    },
+    "office.frontend-detail": {
+      "featureId": "office.frontend-detail",
+      "latestRun": 1,
+      "latestTimestamp": "2025-12-14T13:31:25.386Z",
+      "latestVerdict": "pass",
+      "totalRuns": 1,
+      "passCount": 1,
+      "failCount": 0
     }
   },
-  "updatedAt": "2025-12-14T13:30:55.786Z",
+  "updatedAt": "2025-12-14T13:31:25.388Z",
   "version": "2.0.0"
 }
