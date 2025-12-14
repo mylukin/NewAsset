@@ -1,0 +1,47 @@
+{
+  "featureId": "maintenance.frontend-api",
+  "runNumber": 1,
+  "timestamp": "2025-12-14T13:45:09.234Z",
+  "commitHash": "2e7ee549df30ccbdf7b6e404de8809706d8723f1",
+  "changedFiles": [
+    "ai/progress.log",
+    "ai/tasks/index.json",
+    "ai/tasks/maintenance/06-order-controller.md",
+    "ai/verification/index.json",
+    "ai/verification/maintenance.order-controller/001.json",
+    "ai/verification/maintenance.order-controller/001.md",
+    "ai/verification/results.json",
+    "ruoyi-modules/ruoyi-asset/src/main/java/com/ruoyi/asset/controller/AssetMaintOrderController.java",
+    "ai/tasks/maintenance/07-frontend-api.md"
+  ],
+  "diffSummary": "9 files changed",
+  "automatedChecks": [],
+  "criteriaResults": [
+    {
+      "criterion": "Create `/src/api/asset/maintOrder.js`",
+      "index": 0,
+      "satisfied": true,
+      "confidence": 0.8
+    },
+    {
+      "criterion": "Implement API functions:",
+      "index": 1,
+      "satisfied": true,
+      "confidence": 0.8
+    },
+    {
+      "criterion": "Use RuoYi request utility",
+      "index": 2,
+      "satisfied": true,
+      "confidence": 0.8
+    },
+    {
+      "criterion": "Export all functions",
+      "index": 3,
+      "satisfied": true,
+      "confidence": 0.8
+    }
+  ],
+  "verdict": "pass",
+  "verifiedBy": "strategy-framework"
+}
