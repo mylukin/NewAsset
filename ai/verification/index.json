@@ -593,8 +593,17 @@
       "totalRuns": 1,
       "passCount": 1,
       "failCount": 0
+    },
+    "maintenance.frontend-form": {
+      "featureId": "maintenance.frontend-form",
+      "latestRun": 1,
+      "latestTimestamp": "2025-12-14T13:47:22.463Z",
+      "latestVerdict": "pass",
+      "totalRuns": 1,
+      "passCount": 1,
+      "failCount": 0
     }
   },
-  "updatedAt": "2025-12-14T13:46:55.264Z",
+  "updatedAt": "2025-12-14T13:47:22.465Z",
   "version": "2.0.0"
 }
