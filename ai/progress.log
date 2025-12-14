@@ -53,3 +53,5 @@
 2025-12-14T12:22:35.996Z STEP feature=house.statistics status=passing tests="./ai/init.sh check" summary="Completed house.statistics"
 2025-12-14T12:23:39.765Z VERIFY feature=house.frontend-api action=pass summary="Verified house.frontend-api: pass"
 2025-12-14T12:23:45.615Z STEP feature=house.frontend-api status=passing tests="./ai/init.sh check" summary="Completed house.frontend-api"
+2025-12-14T12:25:25.691Z VERIFY feature=house.frontend-list action=pass summary="Verified house.frontend-list: pass"
+2025-12-14T12:25:31.190Z STEP feature=house.frontend-list status=passing tests="./ai/init.sh check" summary="Completed house.frontend-list"

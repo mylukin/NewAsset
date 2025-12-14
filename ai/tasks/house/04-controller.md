@@ -3,7 +3,7 @@ id: house.controller
 module: house
 priority: 13
 status: passing
-version: 21
+version: 22
 origin: manual
 dependsOn:
   - house.service

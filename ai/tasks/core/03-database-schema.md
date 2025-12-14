@@ -3,7 +3,7 @@ id: core.database-schema
 module: core
 priority: 3
 status: passing
-version: 22
+version: 23
 origin: manual
 dependsOn:
   - core.project-init

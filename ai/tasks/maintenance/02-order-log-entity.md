@@ -3,7 +3,7 @@ id: maintenance.order-log-entity
 module: maintenance
 priority: 58
 status: failing
-version: 20
+version: 21
 origin: manual
 dependsOn:
   - maintenance.order-entity

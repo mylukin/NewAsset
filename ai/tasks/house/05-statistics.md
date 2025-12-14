@@ -3,7 +3,7 @@ id: house.statistics
 module: house
 priority: 14
 status: passing
-version: 21
+version: 22
 origin: manual
 dependsOn:
   - house.service

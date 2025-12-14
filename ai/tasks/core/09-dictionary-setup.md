@@ -3,7 +3,7 @@ id: core.dictionary-setup
 module: core
 priority: 9
 status: passing
-version: 21
+version: 22
 origin: manual
 dependsOn:
   - core.project-init

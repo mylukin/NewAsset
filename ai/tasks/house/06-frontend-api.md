@@ -3,7 +3,7 @@ id: house.frontend-api
 module: house
 priority: 15
 status: passing
-version: 21
+version: 22
 origin: manual
 dependsOn:
   - house.controller
