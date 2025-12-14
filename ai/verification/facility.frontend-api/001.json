@@ -1,0 +1,47 @@
+{
+  "featureId": "facility.frontend-api",
+  "runNumber": 1,
+  "timestamp": "2025-12-14T12:41:01.445Z",
+  "commitHash": "f8a0a0533e4b66e71bd54453584b5ba18829acd6",
+  "changedFiles": [
+    "ai/progress.log",
+    "ai/tasks/facility/04-controller.md",
+    "ai/tasks/index.json",
+    "ai/verification/facility.controller/001.json",
+    "ai/verification/facility.controller/001.md",
+    "ai/verification/index.json",
+    "ai/verification/results.json",
+    "ruoyi-modules/ruoyi-asset/src/main/java/com/ruoyi/asset/controller/AssetFacilityController.java",
+    "ai/tasks/facility/05-frontend-api.md"
+  ],
+  "diffSummary": "9 files changed",
+  "automatedChecks": [],
+  "criteriaResults": [
+    {
+      "criterion": "Create `/src/api/asset/facility.js`",
+      "index": 0,
+      "satisfied": true,
+      "confidence": 0.8
+    },
+    {
+      "criterion": "Implement API functions:",
+      "index": 1,
+      "satisfied": true,
+      "confidence": 0.8
+    },
+    {
+      "criterion": "Use RuoYi request utility",
+      "index": 2,
+      "satisfied": true,
+      "confidence": 0.8
+    },
+    {
+      "criterion": "Export all functions",
+      "index": 3,
+      "satisfied": true,
+      "confidence": 0.8
+    }
+  ],
+  "verdict": "pass",
+  "verifiedBy": "strategy-framework"
+}
