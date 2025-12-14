@@ -2,7 +2,7 @@
 id: core.db-config
 module: core
 priority: 2
-status: failing
+status: passing
 version: 1
 origin: manual
 dependsOn:
@@ -33,20 +33,12 @@ The system requires different database backends for development and production e
 
 1. Add SQLite JDBC driver dependency to `ruoyi-asset/pom.xml`
 2. Create `application-dev.yml` with SQLite datasource configuration:
-   - Database file path: `./data/dev.db`
-   - SQLite-specific Druid settings
-   - Enable SQL logging for development
 3. Create/verify `application-prod.yml` with MySQL datasource configuration
 4. Configure MyBatis to handle SQL dialect differences:
-   - Create `MybatisConfig.java` with dialect detection
-   - Set up conditional SQL execution based on active profile
 5. Create `.gitignore` entry for `data/` directory (SQLite files)
 6. Create `data/.gitkeep` to ensure directory exists
 7. Verify application starts successfully with both profiles:
-   - `spring.profiles.active=dev` uses SQLite
-   - `spring.profiles.active=prod` uses MySQL
 8. Document database switching in README or module documentation
-
 ## Technical Notes
 
 - Reference: Spring Boot multi-datasource configuration

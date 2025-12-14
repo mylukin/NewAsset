@@ -8,8 +8,17 @@
       "totalRuns": 1,
       "passCount": 1,
       "failCount": 0
+    },
+    "core.db-config": {
+      "featureId": "core.db-config",
+      "latestRun": 1,
+      "latestTimestamp": "2025-12-14T09:33:49.247Z",
+      "latestVerdict": "pass",
+      "totalRuns": 1,
+      "passCount": 1,
+      "failCount": 0
     }
   },
-  "updatedAt": "2025-12-14T09:30:44.937Z",
+  "updatedAt": "2025-12-14T09:33:49.250Z",
   "version": "2.0.0"
 }

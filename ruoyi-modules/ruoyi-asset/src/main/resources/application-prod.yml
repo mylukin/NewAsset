@@ -1,0 +1,43 @@
+# Production profile - MySQL datasource
+spring:
+  datasource:
+    driver-class-name: com.mysql.cj.jdbc.Driver
+    url: jdbc:mysql://localhost:3306/ruoyi_asset?useUnicode=true&characterEncoding=utf8&zeroDateTimeBehavior=convertToNull&useSSL=true&serverTimezone=GMT%2B8
+    username: root
+    password: ${DB_PASSWORD:password}
+    type: com.alibaba.druid.pool.DruidDataSource
+    druid:
+      # Initial pool size
+      initial-size: 5
+      # Minimum idle connections
+      min-idle: 10
+      # Maximum active connections
+      max-active: 20
+      # Maximum wait time for connection
+      max-wait: 60000
+      # Connection validation
+      test-on-borrow: false
+      test-on-return: false
+      test-while-idle: true
+      validation-query: SELECT 1
+      # Eviction settings
+      time-between-eviction-runs-millis: 60000
+      min-evictable-idle-time-millis: 300000
+      # Monitor settings
+      stat-view-servlet:
+        enabled: true
+        url-pattern: /druid/*
+        login-username: admin
+        login-password: admin123
+      filter:
+        stat:
+          enabled: true
+          log-slow-sql: true
+          slow-sql-millis: 1000
+        wall:
+          enabled: true
+
+# Database dialect configuration
+asset:
+  database:
+    dialect: mysql

@@ -1,0 +1,30 @@
+# Development profile - SQLite datasource
+spring:
+  datasource:
+    driver-class-name: org.sqlite.JDBC
+    url: jdbc:sqlite:data/asset-dev.db
+    # SQLite doesn't require username/password
+    username:
+    password:
+    type: com.alibaba.druid.pool.DruidDataSource
+    druid:
+      # Initial pool size
+      initial-size: 1
+      # Minimum idle connections
+      min-idle: 1
+      # Maximum active connections (SQLite is single-threaded, keep low)
+      max-active: 5
+      # Maximum wait time for connection
+      max-wait: 60000
+      # SQLite specific: disable validation query as SQLite doesn't support it well
+      test-on-borrow: false
+      test-on-return: false
+      test-while-idle: false
+      # Connection timeout
+      time-between-eviction-runs-millis: 60000
+      min-evictable-idle-time-millis: 300000
+
+# Database dialect configuration
+asset:
+  database:
+    dialect: sqlite

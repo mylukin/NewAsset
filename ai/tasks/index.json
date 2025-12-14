@@ -1,21 +1,14 @@
 {
   "version": "2.0.0",
-  "updatedAt": "2025-12-14T09:30:50.048Z",
+  "updatedAt": "2025-12-14T09:33:54.557Z",
   "metadata": {
     "projectGoal": "基于 ai/tasks 创建一个资产管理系统",
     "createdAt": "2025-12-14T10:00:00Z",
-    "updatedAt": "2025-12-14T09:30:44.940Z",
+    "updatedAt": "2025-12-14T09:33:49.254Z",
     "version": "1.0.0",
     "tddMode": "recommended"
   },
   "features": {
-    "core.db-config": {
-      "status": "failing",
-      "priority": 2,
-      "module": "core",
-      "description": "Configure Dual-Database Infrastructure (SQLite Dev / MySQL Prod)",
-      "filePath": "core/02-db-config.md"
-    },
     "core.database-schema": {
       "status": "failing",
       "priority": 3,
@@ -78,13 +71,6 @@
       "module": "house",
       "description": "Create House Asset Service",
       "filePath": "house/03-service.md"
-    },
-    "house.frontend-list": {
-      "status": "failing",
-      "priority": 16,
-      "module": "house",
-      "description": "Create House Asset List Page",
-      "filePath": "house/07-frontend-list.md"
     },
     "core.data-permission": {
       "status": "failing",
@@ -219,6 +205,13 @@
       "description": "Create Facility Asset Detail Drawer",
       "filePath": "facility/08-frontend-detail.md"
     },
+    "house.frontend-list": {
+      "status": "failing",
+      "priority": 16,
+      "module": "house",
+      "description": "Create House Asset List Page",
+      "filePath": "house/07-frontend-list.md"
+    },
     "parking.frontend-api": {
       "status": "failing",
       "priority": 34,
@@ -303,19 +296,19 @@
       "description": "Create Parking Asset List Page",
       "filePath": "parking/07-frontend-list.md"
     },
-    "facility.frontend-form": {
-      "status": "failing",
-      "priority": 26,
-      "module": "facility",
-      "description": "Create Facility Asset Form Dialog",
-      "filePath": "facility/07-frontend-form.md"
-    },
     "venue.controller": {
       "status": "failing",
       "priority": 42,
       "module": "venue",
       "description": "Create Venue Asset Controller",
       "filePath": "venue/04-controller.md"
+    },
+    "facility.frontend-form": {
+      "status": "failing",
+      "priority": 26,
+      "module": "facility",
+      "description": "Create Facility Asset Form Dialog",
+      "filePath": "facility/07-frontend-form.md"
     },
     "venue.frontend-form": {
       "status": "failing",
@@ -520,13 +513,6 @@
       "description": "Create Dashboard Controller",
       "filePath": "dashboard/02-dashboard-controller.md"
     },
-    "dashboard.management-home": {
-      "status": "failing",
-      "priority": 72,
-      "module": "dashboard",
-      "description": "Create Management Dashboard Home Page",
-      "filePath": "dashboard/04-management-home.md"
-    },
     "dashboard.asset-manager-home": {
       "status": "failing",
       "priority": 74,
@@ -535,11 +521,25 @@
       "filePath": "dashboard/06-asset-manager-home.md"
     },
     "core.project-init": {
-      "status": "passing",
+      "status": "failing",
       "priority": 1,
       "module": "core",
       "description": "Initialize ruoyi-asset Module Structure",
       "filePath": "core/01-project-init.md"
+    },
+    "dashboard.management-home": {
+      "status": "failing",
+      "priority": 72,
+      "module": "dashboard",
+      "description": "Create Management Dashboard Home Page",
+      "filePath": "dashboard/04-management-home.md"
+    },
+    "core.db-config": {
+      "status": "passing",
+      "priority": 2,
+      "module": "core",
+      "description": "Configure Dual-Database Infrastructure (SQLite Dev / MySQL Prod)",
+      "filePath": "core/02-db-config.md"
     }
   }
 }

@@ -1,30 +1,29 @@
 {
   "version": "1.0.0",
   "capabilities": {
-    "hasTests": false,
-    "testCommand": "",
+    "hasTests": true,
+    "testCommand": "mvn test",
     "testFramework": "junit",
-    "hasTypeCheck": false,
-    "typeCheckCommand": "",
+    "hasTypeCheck": true,
+    "typeCheckCommand": "mvn compile -DskipTests",
     "hasLint": false,
     "lintCommand": "",
-    "hasBuild": false,
-    "buildCommand": "",
+    "hasBuild": true,
+    "buildCommand": "mvn package -DskipTests",
     "hasGit": true,
     "source": "ai-discovered",
-    "confidence": 0.3,
+    "confidence": 0.8833333333333333,
     "languages": [
-      "java",
-      "vue"
+      "java"
     ],
-    "detectedAt": "2025-12-14T09:26:52.450Z",
+    "detectedAt": "2025-12-14T09:32:11.639Z",
     "testInfo": {
-      "available": false,
-      "command": "",
+      "available": true,
+      "command": "mvn test",
       "framework": "junit",
-      "confidence": 0.3,
-      "selectiveFileTemplate": "",
-      "selectiveNameTemplate": "",
+      "confidence": 0.75,
+      "selectiveFileTemplate": "mvn test -Dtest={files}",
+      "selectiveNameTemplate": "mvn test -Dtest=\"*#{pattern}\"",
       "packageManager": "maven"
     },
     "e2eInfo": {
@@ -37,9 +36,9 @@
       "fileTemplate": ""
     },
     "typeCheckInfo": {
-      "available": false,
-      "command": "",
-      "confidence": 0
+      "available": true,
+      "command": "mvn compile -DskipTests",
+      "confidence": 0.95
     },
     "lintInfo": {
       "available": false,
@@ -47,14 +46,23 @@
       "confidence": 0
     },
     "buildInfo": {
-      "available": false,
-      "command": "",
-      "confidence": 0.3
+      "available": true,
+      "command": "mvn package -DskipTests",
+      "confidence": 0.95
     }
   },
-  "commitHash": "b0bbe8671d8f5cacd72b2dcca3c4e6231b324cd8",
+  "commitHash": "616546d0e84a58b118c4e567100c63601c01d02b",
   "trackedFiles": [
-    "ai/capabilities.json",
-    "ai/tasks/index.json"
+    "pom.xml",
+    "ruoyi-api/pom.xml",
+    "ruoyi-common/pom.xml",
+    "ruoyi-modules/pom.xml",
+    "ruoyi-modules/ruoyi-asset/pom.xml",
+    "ruoyi-common/ruoyi-common-core/pom.xml",
+    "ruoyi-common/ruoyi-common-datascope/pom.xml",
+    "ruoyi-common/ruoyi-common-log/pom.xml",
+    "ruoyi-common/ruoyi-common-security/pom.xml",
+    "ruoyi-common/ruoyi-common-swagger/pom.xml",
+    "ruoyi-api/ruoyi-api-system/pom.xml"
   ]
 }

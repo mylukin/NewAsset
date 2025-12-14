@@ -8,3 +8,17 @@ dist/
 __pycache__/
 .next/
 target/
+
+# Database files (SQLite)
+data/*.db
+data/*.sqlite
+!data/.gitkeep
+
+# IDE
+.idea/
+*.iml
+.vscode/
+
+# Logs
+logs/
+*.log
