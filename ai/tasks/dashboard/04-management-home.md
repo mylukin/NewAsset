@@ -3,7 +3,7 @@ id: dashboard.management-home
 module: dashboard
 priority: 72
 status: failing
-version: 16
+version: 17
 origin: manual
 dependsOn:
   - dashboard.frontend-api

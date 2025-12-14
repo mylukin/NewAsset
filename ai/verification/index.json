@@ -116,8 +116,17 @@
       "totalRuns": 1,
       "passCount": 1,
       "failCount": 0
+    },
+    "house.service": {
+      "featureId": "house.service",
+      "latestRun": 1,
+      "latestTimestamp": "2025-12-14T12:18:06.110Z",
+      "latestVerdict": "pass",
+      "totalRuns": 1,
+      "passCount": 1,
+      "failCount": 0
     }
   },
-  "updatedAt": "2025-12-14T12:16:01.582Z",
+  "updatedAt": "2025-12-14T12:18:06.114Z",
   "version": "2.0.0"
 }
