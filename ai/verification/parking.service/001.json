@@ -1,0 +1,54 @@
+{
+  "featureId": "parking.service",
+  "runNumber": 1,
+  "timestamp": "2025-12-14T12:55:30.154Z",
+  "commitHash": "7ad0f29cfc8feb5866d058c7cfa9943ce720a23c",
+  "changedFiles": [
+    "ai/progress.log",
+    "ai/tasks/index.json",
+    "ai/tasks/parking/02-mapper.md",
+    "ai/verification/index.json",
+    "ai/verification/parking.mapper/001.json",
+    "ai/verification/parking.mapper/001.md",
+    "ai/verification/results.json",
+    "ruoyi-modules/ruoyi-asset/src/main/java/com/ruoyi/asset/mapper/AssetParkingMapper.java",
+    "ruoyi-modules/ruoyi-asset/src/main/resources/mapper/asset/AssetParkingMapper.xml",
+    "ai/tasks/parking/03-service.md"
+  ],
+  "diffSummary": "10 files changed",
+  "automatedChecks": [],
+  "criteriaResults": [
+    {
+      "criterion": "Create `IAssetParkingService` interface",
+      "index": 0,
+      "satisfied": true,
+      "confidence": 0.8
+    },
+    {
+      "criterion": "Create `AssetParkingServiceImpl` implementation",
+      "index": 1,
+      "satisfied": true,
+      "confidence": 0.8
+    },
+    {
+      "criterion": "Implement standard CRUD methods with code generation",
+      "index": 2,
+      "satisfied": true,
+      "confidence": 0.8
+    },
+    {
+      "criterion": "Add @DataScope for project filtering",
+      "index": 3,
+      "satisfied": true,
+      "confidence": 0.8
+    },
+    {
+      "criterion": "Use @Transactional for write operations",
+      "index": 4,
+      "satisfied": true,
+      "confidence": 0.8
+    }
+  ],
+  "verdict": "pass",
+  "verifiedBy": "strategy-framework"
+}
