@@ -233,8 +233,17 @@
       "totalRuns": 1,
       "passCount": 1,
       "failCount": 0
+    },
+    "facility.frontend-list": {
+      "featureId": "facility.frontend-list",
+      "latestRun": 1,
+      "latestTimestamp": "2025-12-14T12:42:56.908Z",
+      "latestVerdict": "pass",
+      "totalRuns": 1,
+      "passCount": 1,
+      "failCount": 0
     }
   },
-  "updatedAt": "2025-12-14T12:41:01.449Z",
+  "updatedAt": "2025-12-14T12:42:56.916Z",
   "version": "2.0.0"
 }
