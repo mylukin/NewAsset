@@ -521,8 +521,17 @@
       "totalRuns": 1,
       "passCount": 1,
       "failCount": 0
+    },
+    "maintenance.order-entity": {
+      "featureId": "maintenance.order-entity",
+      "latestRun": 1,
+      "latestTimestamp": "2025-12-14T13:37:23.626Z",
+      "latestVerdict": "pass",
+      "totalRuns": 1,
+      "passCount": 1,
+      "failCount": 0
     }
   },
-  "updatedAt": "2025-12-14T13:35:15.201Z",
+  "updatedAt": "2025-12-14T13:37:23.628Z",
   "version": "2.0.0"
 }
