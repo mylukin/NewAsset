@@ -3,7 +3,7 @@ id: core.project-init
 module: core
 priority: 1
 status: failing
-version: 2
+version: 3
 origin: manual
 dependsOn: []
 supersedes: []
@@ -15,10 +15,10 @@ testRequirements:
     required: false
     pattern: tests/core/**/*.test.*
 verification:
-  verifiedAt: '2025-12-14T09:39:05.366Z'
+  verifiedAt: '2025-12-14T10:10:10.538Z'
   verdict: pass
   verifiedBy: strategy-framework
-  commitHash: af2ce4aaa7d95b4305d3f08eaac2597d47b5ef1d
+  commitHash: f6cd7de1865ec147cd3afed46dadd3974c835d0f
   summary: 7/7 criteria satisfied
 ---
 # Initialize ruoyi-asset Module Structure

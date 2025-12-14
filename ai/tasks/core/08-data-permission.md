@@ -3,7 +3,7 @@ id: core.data-permission
 module: core
 priority: 8
 status: failing
-version: 2
+version: 3
 origin: manual
 dependsOn:
   - core.project-init

@@ -3,7 +3,7 @@ id: core.db-config
 module: core
 priority: 2
 status: failing
-version: 2
+version: 3
 origin: manual
 dependsOn:
   - core.project-init
