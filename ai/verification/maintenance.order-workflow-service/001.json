@@ -1,0 +1,56 @@
+{
+  "featureId": "maintenance.order-workflow-service",
+  "runNumber": 1,
+  "timestamp": "2025-12-14T13:41:55.867Z",
+  "commitHash": "113d1451b62e139f18de4400c4bc5213e3b67a56",
+  "changedFiles": [
+    "ai/progress.log",
+    "ai/tasks/index.json",
+    "ai/tasks/maintenance/03-order-mapper.md",
+    "ai/verification/index.json",
+    "ai/verification/maintenance.order-mapper/001.json",
+    "ai/verification/maintenance.order-mapper/001.md",
+    "ai/verification/results.json",
+    "ruoyi-modules/ruoyi-asset/src/main/java/com/ruoyi/asset/mapper/AssetMaintLogMapper.java",
+    "ruoyi-modules/ruoyi-asset/src/main/java/com/ruoyi/asset/mapper/AssetMaintOrderMapper.java",
+    "ruoyi-modules/ruoyi-asset/src/main/resources/mapper/asset/AssetMaintLogMapper.xml",
+    "ruoyi-modules/ruoyi-asset/src/main/resources/mapper/asset/AssetMaintOrderMapper.xml",
+    "ai/tasks/maintenance/04-order-workflow-service.md"
+  ],
+  "diffSummary": "12 files changed",
+  "automatedChecks": [],
+  "criteriaResults": [
+    {
+      "criterion": "Create `MaintOrderWorkflowService` in `com.ruoyi.asset.service.rule`",
+      "index": 0,
+      "satisfied": true,
+      "confidence": 0.8
+    },
+    {
+      "criterion": "Implement workflow methods:",
+      "index": 1,
+      "satisfied": true,
+      "confidence": 0.8
+    },
+    {
+      "criterion": "Each method must:",
+      "index": 2,
+      "satisfied": true,
+      "confidence": 0.8
+    },
+    {
+      "criterion": "Define valid transitions:",
+      "index": 3,
+      "satisfied": true,
+      "confidence": 0.8
+    },
+    {
+      "criterion": "Integrate with AssetStatusService for status restoration on close",
+      "index": 4,
+      "satisfied": true,
+      "confidence": 0.8
+    }
+  ],
+  "verdict": "pass",
+  "verifiedBy": "strategy-framework"
+}

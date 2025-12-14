@@ -548,8 +548,17 @@
       "totalRuns": 1,
       "passCount": 1,
       "failCount": 0
+    },
+    "maintenance.order-workflow-service": {
+      "featureId": "maintenance.order-workflow-service",
+      "latestRun": 1,
+      "latestTimestamp": "2025-12-14T13:41:55.867Z",
+      "latestVerdict": "pass",
+      "totalRuns": 1,
+      "passCount": 1,
+      "failCount": 0
     }
   },
-  "updatedAt": "2025-12-14T13:40:23.777Z",
+  "updatedAt": "2025-12-14T13:41:55.870Z",
   "version": "2.0.0"
 }
