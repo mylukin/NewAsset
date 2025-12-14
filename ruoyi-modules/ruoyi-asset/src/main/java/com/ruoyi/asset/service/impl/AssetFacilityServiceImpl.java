@@ -7,6 +7,7 @@ import com.ruoyi.asset.domain.entity.AssetFacility;
 import com.ruoyi.asset.domain.enums.AssetStatusEnum;
 import com.ruoyi.asset.domain.vo.AssetFacilityDetailVO;
 import com.ruoyi.asset.domain.vo.AssetFacilityListVO;
+import com.ruoyi.asset.domain.vo.FacilityWarrantyExpiringVO;
 import com.ruoyi.asset.domain.vo.LocationInfo;
 import com.ruoyi.asset.mapper.AssetFacilityMapper;
 import com.ruoyi.asset.mapper.AssetFacilityMapper.AssetFacilityQuery;
@@ -196,5 +197,10 @@ public class AssetFacilityServiceImpl implements IAssetFacilityService {
         Long operatorId = 1L;
         assetStatusService.changeStatus(id, statusEnum, reason, operatorId);
         return 1;
+    }
+
+    @Override
+    public List<FacilityWarrantyExpiringVO> getExpiringFacilities(int daysAhead, Long projectId) {
+        return assetFacilityMapper.selectExpiringFacilities(daysAhead, projectId);
     }
 }

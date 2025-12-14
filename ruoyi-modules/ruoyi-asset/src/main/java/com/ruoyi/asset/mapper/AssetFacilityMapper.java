@@ -3,6 +3,7 @@ package com.ruoyi.asset.mapper;
 import com.ruoyi.asset.domain.entity.AssetFacility;
 import com.ruoyi.asset.domain.vo.AssetFacilityDetailVO;
 import com.ruoyi.asset.domain.vo.AssetFacilityListVO;
+import com.ruoyi.asset.domain.vo.FacilityWarrantyExpiringVO;
 import org.apache.ibatis.annotations.Mapper;
 import org.apache.ibatis.annotations.Param;
 
@@ -64,6 +65,15 @@ public interface AssetFacilityMapper {
      * @return affected rows
      */
     int deleteAssetFacilityByIds(@Param("ids") Long[] ids);
+
+    /**
+     * Query facilities with warranty expiring within specified days
+     *
+     * @param daysAhead number of days to look ahead
+     * @param projectId optional project filter
+     * @return list of facilities with expiring warranty
+     */
+    List<FacilityWarrantyExpiringVO> selectExpiringFacilities(@Param("daysAhead") int daysAhead, @Param("projectId") Long projectId);
 
     /**
      * Query parameters for facility asset list

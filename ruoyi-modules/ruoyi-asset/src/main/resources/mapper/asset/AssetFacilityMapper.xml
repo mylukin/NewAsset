@@ -226,4 +226,54 @@
         </foreach>
     </delete>
 
+    <!-- Result map for warranty expiring view -->
+    <resultMap id="FacilityWarrantyExpiringResult" type="com.ruoyi.asset.domain.vo.FacilityWarrantyExpiringVO">
+        <id property="id" column="id"/>
+        <result property="assetCode" column="asset_code"/>
+        <result property="assetName" column="asset_name"/>
+        <result property="projectId" column="project_id"/>
+        <result property="projectName" column="project_name"/>
+        <result property="building" column="building"/>
+        <result property="floor" column="floor"/>
+        <result property="facilityType" column="facility_type"/>
+        <result property="facilityTypeLabel" column="facility_type_label"/>
+        <result property="equipmentNo" column="equipment_no"/>
+        <result property="maintOrg" column="maint_org"/>
+        <result property="maintPhone" column="maint_phone"/>
+        <result property="warrantyExpireDate" column="warranty_expire_date"/>
+        <result property="daysRemaining" column="days_remaining"/>
+    </resultMap>
+
+    <!-- Query facilities with warranty expiring within specified days -->
+    <select id="selectExpiringFacilities" resultMap="FacilityWarrantyExpiringResult">
+        SELECT
+            a.id,
+            a.asset_code,
+            a.asset_name,
+            a.project_id,
+            p.project_name,
+            a.building,
+            a.floor,
+            f.facility_type,
+            dft.dict_label as facility_type_label,
+            f.equipment_no,
+            f.maint_org,
+            f.maint_phone,
+            a.warranty_expire_date,
+            DATEDIFF(a.warranty_expire_date, CURDATE()) as days_remaining
+        FROM t_asset a
+        INNER JOIN t_asset_facility f ON a.id = f.asset_id
+        LEFT JOIN sys_project p ON a.project_id = p.id
+        LEFT JOIN sys_dict_data dft ON dft.dict_type = 'facility_type' AND dft.dict_value = f.facility_type
+        WHERE a.del_flag = '0'
+        AND a.asset_type = 'facility'
+        AND a.warranty_expire_date IS NOT NULL
+        AND a.warranty_expire_date >= CURDATE()
+        AND a.warranty_expire_date &lt;= DATE_ADD(CURDATE(), INTERVAL #{daysAhead} DAY)
+        <if test="projectId != null">
+            AND a.project_id = #{projectId}
+        </if>
+        ORDER BY a.warranty_expire_date ASC
+    </select>
+
 </mapper>

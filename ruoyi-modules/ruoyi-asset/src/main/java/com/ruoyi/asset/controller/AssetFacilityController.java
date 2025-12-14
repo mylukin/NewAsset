@@ -4,6 +4,7 @@ import com.ruoyi.asset.domain.dto.AssetFacilityCreateDTO;
 import com.ruoyi.asset.domain.dto.AssetFacilityUpdateDTO;
 import com.ruoyi.asset.domain.vo.AssetFacilityDetailVO;
 import com.ruoyi.asset.domain.vo.AssetFacilityListVO;
+import com.ruoyi.asset.domain.vo.FacilityWarrantyExpiringVO;
 import com.ruoyi.asset.mapper.AssetFacilityMapper.AssetFacilityQuery;
 import com.ruoyi.asset.service.IAssetFacilityService;
 import com.ruoyi.common.core.web.controller.BaseController;
@@ -125,5 +126,20 @@ public class AssetFacilityController extends BaseController {
             @ApiParam(value = "Reason for change")
             @RequestParam(required = false) String reason) {
         return toAjax(assetFacilityService.changeStatus(id, status, reason));
+    }
+
+    /**
+     * Get facilities with warranty expiring within specified days
+     */
+    @ApiOperation("Get facilities with expiring warranty")
+    @PreAuthorize("@ss.hasPermi('asset:facility:list')")
+    @GetMapping("/expiring")
+    public AjaxResult getExpiringFacilities(
+            @ApiParam(value = "Days ahead to check", defaultValue = "30")
+            @RequestParam(defaultValue = "30") int daysAhead,
+            @ApiParam(value = "Project ID filter")
+            @RequestParam(required = false) Long projectId) {
+        List<FacilityWarrantyExpiringVO> list = assetFacilityService.getExpiringFacilities(daysAhead, projectId);
+        return success(list);
     }
 }

@@ -4,6 +4,7 @@ import com.ruoyi.asset.domain.dto.AssetFacilityCreateDTO;
 import com.ruoyi.asset.domain.dto.AssetFacilityUpdateDTO;
 import com.ruoyi.asset.domain.vo.AssetFacilityDetailVO;
 import com.ruoyi.asset.domain.vo.AssetFacilityListVO;
+import com.ruoyi.asset.domain.vo.FacilityWarrantyExpiringVO;
 import com.ruoyi.asset.mapper.AssetFacilityMapper.AssetFacilityQuery;
 
 import java.util.List;
@@ -70,4 +71,13 @@ public interface IAssetFacilityService {
      * @return affected rows
      */
     int changeStatus(Long id, String newStatus, String reason);
+
+    /**
+     * Get facilities with warranty expiring within specified days
+     *
+     * @param daysAhead number of days to look ahead
+     * @param projectId optional project filter
+     * @return list of facilities with expiring warranty
+     */
+    List<FacilityWarrantyExpiringVO> getExpiringFacilities(int daysAhead, Long projectId);
 }

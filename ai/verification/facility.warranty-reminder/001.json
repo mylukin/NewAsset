@@ -1,0 +1,64 @@
+{
+  "featureId": "facility.warranty-reminder",
+  "runNumber": 1,
+  "timestamp": "2025-12-14T12:50:08.936Z",
+  "commitHash": "55bdfe4f64ac6d8af13dc5c8759d3fe8b898cefb",
+  "changedFiles": [
+    "ai/progress.log",
+    "ai/tasks/facility/08-frontend-detail.md",
+    "ai/tasks/index.json",
+    "ai/verification/facility.frontend-detail/001.json",
+    "ai/verification/facility.frontend-detail/001.md",
+    "ai/verification/index.json",
+    "ai/verification/results.json",
+    "ruoyi-ui/src/views/asset/facility/index.vue",
+    "ai/tasks/facility/09-warranty-reminder.md",
+    "ruoyi-modules/ruoyi-asset/src/main/java/com/ruoyi/asset/controller/AssetFacilityController.java",
+    "ruoyi-modules/ruoyi-asset/src/main/java/com/ruoyi/asset/mapper/AssetFacilityMapper.java",
+    "ruoyi-modules/ruoyi-asset/src/main/java/com/ruoyi/asset/service/IAssetFacilityService.java",
+    "ruoyi-modules/ruoyi-asset/src/main/java/com/ruoyi/asset/service/impl/AssetFacilityServiceImpl.java",
+    "ruoyi-modules/ruoyi-asset/src/main/resources/mapper/asset/AssetFacilityMapper.xml"
+  ],
+  "diffSummary": "14 files changed",
+  "automatedChecks": [],
+  "criteriaResults": [
+    {
+      "criterion": "Add mapper method: `selectExpiringFacilities(int daysAhead)`",
+      "index": 0,
+      "satisfied": true,
+      "confidence": 0.8
+    },
+    {
+      "criterion": "Add service method: `getExpiringFacilities(int daysAhead)`",
+      "index": 1,
+      "satisfied": true,
+      "confidence": 0.8
+    },
+    {
+      "criterion": "Add controller endpoint: `GET /asset/facility/expiring`",
+      "index": 2,
+      "satisfied": true,
+      "confidence": 0.8
+    },
+    {
+      "criterion": "Return list of facilities with warranty expiring within N days",
+      "index": 3,
+      "satisfied": true,
+      "confidence": 0.8
+    },
+    {
+      "criterion": "Include expiry date and days remaining in response",
+      "index": 4,
+      "satisfied": true,
+      "confidence": 0.8
+    },
+    {
+      "criterion": "Support project filter",
+      "index": 5,
+      "satisfied": true,
+      "confidence": 0.8
+    }
+  ],
+  "verdict": "pass",
+  "verifiedBy": "strategy-framework"
+}

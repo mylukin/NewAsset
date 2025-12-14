@@ -260,8 +260,17 @@
       "totalRuns": 1,
       "passCount": 1,
       "failCount": 0
+    },
+    "facility.warranty-reminder": {
+      "featureId": "facility.warranty-reminder",
+      "latestRun": 1,
+      "latestTimestamp": "2025-12-14T12:50:08.936Z",
+      "latestVerdict": "pass",
+      "totalRuns": 1,
+      "passCount": 1,
+      "failCount": 0
     }
   },
-  "updatedAt": "2025-12-14T12:46:51.445Z",
+  "updatedAt": "2025-12-14T12:50:08.938Z",
   "version": "2.0.0"
 }
