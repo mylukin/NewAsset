@@ -278,8 +278,17 @@
       "totalRuns": 1,
       "passCount": 1,
       "failCount": 0
+    },
+    "parking.mapper": {
+      "featureId": "parking.mapper",
+      "latestRun": 1,
+      "latestTimestamp": "2025-12-14T12:54:11.489Z",
+      "latestVerdict": "pass",
+      "totalRuns": 1,
+      "passCount": 1,
+      "failCount": 0
     }
   },
-  "updatedAt": "2025-12-14T12:52:38.955Z",
+  "updatedAt": "2025-12-14T12:54:11.491Z",
   "version": "2.0.0"
 }

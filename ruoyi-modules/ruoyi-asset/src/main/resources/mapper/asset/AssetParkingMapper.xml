@@ -1,0 +1,261 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.ruoyi.asset.mapper.AssetParkingMapper">
+
+    <!-- Result map for list view -->
+    <resultMap id="AssetParkingListResult" type="com.ruoyi.asset.domain.vo.AssetParkingListVO">
+        <id property="id" column="id"/>
+        <result property="assetCode" column="asset_code"/>
+        <result property="assetName" column="asset_name"/>
+        <result property="status" column="status"/>
+        <result property="statusLabel" column="status_label"/>
+        <result property="projectId" column="project_id"/>
+        <result property="projectName" column="project_name"/>
+        <result property="building" column="building"/>
+        <result property="floor" column="floor"/>
+        <result property="locationDesc" column="location_desc"/>
+        <result property="originalValue" column="original_value"/>
+        <result property="netValue" column="net_value"/>
+        <result property="parkingNo" column="parking_no"/>
+        <result property="parkingZone" column="parking_zone"/>
+        <result property="parkingZoneLabel" column="parking_zone_label"/>
+        <result property="parkingType" column="parking_type"/>
+        <result property="parkingTypeLabel" column="parking_type_label"/>
+        <result property="area" column="area"/>
+        <result property="currentUser" column="current_user"/>
+        <result property="plateNo" column="plate_no"/>
+        <result property="rentPrice" column="rent_price"/>
+    </resultMap>
+
+    <!-- Result map for detail view -->
+    <resultMap id="AssetParkingDetailResult" type="com.ruoyi.asset.domain.vo.AssetParkingDetailVO">
+        <id property="id" column="id"/>
+        <result property="assetCode" column="asset_code"/>
+        <result property="assetName" column="asset_name"/>
+        <result property="assetType" column="asset_type"/>
+        <result property="projectId" column="project_id"/>
+        <result property="projectName" column="project_name"/>
+        <result property="building" column="building"/>
+        <result property="floor" column="floor"/>
+        <result property="roomNo" column="room_no"/>
+        <result property="locationDesc" column="location_desc"/>
+        <result property="ownershipType" column="ownership_type"/>
+        <result property="ownershipTypeLabel" column="ownership_type_label"/>
+        <result property="ownerOrg" column="owner_org"/>
+        <result property="useDeptId" column="use_dept_id"/>
+        <result property="useDeptName" column="use_dept_name"/>
+        <result property="dutyUserId" column="duty_user_id"/>
+        <result property="dutyUserName" column="duty_user_name"/>
+        <result property="status" column="status"/>
+        <result property="statusLabel" column="status_label"/>
+        <result property="purchaseDate" column="purchase_date"/>
+        <result property="startUseDate" column="start_use_date"/>
+        <result property="originalValue" column="original_value"/>
+        <result property="depreciationMethod" column="depreciation_method"/>
+        <result property="depreciationMethodLabel" column="depreciation_method_label"/>
+        <result property="netValue" column="net_value"/>
+        <result property="brand" column="brand"/>
+        <result property="model" column="model"/>
+        <result property="supplier" column="supplier"/>
+        <result property="warrantyExpireDate" column="warranty_expire_date"/>
+        <result property="remark" column="remark"/>
+        <result property="createTime" column="create_time"/>
+        <result property="updateTime" column="update_time"/>
+        <result property="parkingNo" column="parking_no"/>
+        <result property="parkingZone" column="parking_zone"/>
+        <result property="parkingZoneLabel" column="parking_zone_label"/>
+        <result property="parkingType" column="parking_type"/>
+        <result property="parkingTypeLabel" column="parking_type_label"/>
+        <result property="area" column="area"/>
+        <result property="currentUser" column="current_user"/>
+        <result property="plateNo" column="plate_no"/>
+        <result property="rentPrice" column="rent_price"/>
+        <result property="contractNo" column="contract_no"/>
+    </resultMap>
+
+    <!-- Query parking asset list with filters -->
+    <select id="selectAssetParkingList" parameterType="com.ruoyi.asset.mapper.AssetParkingMapper$AssetParkingQuery" resultMap="AssetParkingListResult">
+        SELECT
+            a.id,
+            a.asset_code,
+            a.asset_name,
+            a.status,
+            ds.dict_label as status_label,
+            a.project_id,
+            p.project_name,
+            a.building,
+            a.floor,
+            a.location_desc,
+            a.original_value,
+            a.net_value,
+            pk.parking_no,
+            pk.parking_zone,
+            dpz.dict_label as parking_zone_label,
+            pk.parking_type,
+            dpt.dict_label as parking_type_label,
+            pk.area,
+            pk.current_user,
+            pk.plate_no,
+            pk.rent_price
+        FROM t_asset a
+        INNER JOIN t_asset_parking pk ON a.id = pk.asset_id
+        LEFT JOIN sys_project p ON a.project_id = p.id
+        LEFT JOIN sys_dict_data ds ON ds.dict_type = 'asset_status' AND ds.dict_value = a.status
+        LEFT JOIN sys_dict_data dpz ON dpz.dict_type = 'parking_zone' AND dpz.dict_value = pk.parking_zone
+        LEFT JOIN sys_dict_data dpt ON dpt.dict_type = 'parking_type' AND dpt.dict_value = pk.parking_type
+        WHERE a.del_flag = '0'
+        AND a.asset_type = 'parking'
+        <if test="projectId != null">
+            AND a.project_id = #{projectId}
+        </if>
+        <if test="building != null and building != ''">
+            AND a.building LIKE CONCAT('%', #{building}, '%')
+        </if>
+        <if test="floor != null and floor != ''">
+            AND a.floor = #{floor}
+        </if>
+        <if test="status != null and status != ''">
+            AND a.status = #{status}
+        </if>
+        <if test="parkingZone != null and parkingZone != ''">
+            AND pk.parking_zone = #{parkingZone}
+        </if>
+        <if test="parkingNo != null and parkingNo != ''">
+            AND pk.parking_no LIKE CONCAT('%', #{parkingNo}, '%')
+        </if>
+        <if test="parkingType != null and parkingType != ''">
+            AND pk.parking_type = #{parkingType}
+        </if>
+        <if test="assetName != null and assetName != ''">
+            AND a.asset_name LIKE CONCAT('%', #{assetName}, '%')
+        </if>
+        <if test="assetCode != null and assetCode != ''">
+            AND a.asset_code LIKE CONCAT('%', #{assetCode}, '%')
+        </if>
+        <if test="currentUser != null and currentUser != ''">
+            AND pk.current_user LIKE CONCAT('%', #{currentUser}, '%')
+        </if>
+        <if test="plateNo != null and plateNo != ''">
+            AND pk.plate_no LIKE CONCAT('%', #{plateNo}, '%')
+        </if>
+        <!-- Data scope filtering -->
+        <if test="dataScope != null and dataScope != ''">
+            ${dataScope}
+        </if>
+        ORDER BY a.create_time DESC
+    </select>
+
+    <!-- Query parking asset detail by ID -->
+    <select id="selectAssetParkingById" parameterType="java.lang.Long" resultMap="AssetParkingDetailResult">
+        SELECT
+            a.id,
+            a.asset_code,
+            a.asset_name,
+            a.asset_type,
+            a.project_id,
+            p.project_name,
+            a.building,
+            a.floor,
+            a.room_no,
+            a.location_desc,
+            a.ownership_type,
+            dot.dict_label as ownership_type_label,
+            a.owner_org,
+            a.use_dept_id,
+            d.dept_name as use_dept_name,
+            a.duty_user_id,
+            u.nick_name as duty_user_name,
+            a.status,
+            ds.dict_label as status_label,
+            a.purchase_date,
+            a.start_use_date,
+            a.original_value,
+            a.depreciation_method,
+            ddm.dict_label as depreciation_method_label,
+            a.net_value,
+            a.brand,
+            a.model,
+            a.supplier,
+            a.warranty_expire_date,
+            a.remark,
+            a.create_time,
+            a.update_time,
+            pk.parking_no,
+            pk.parking_zone,
+            dpz.dict_label as parking_zone_label,
+            pk.parking_type,
+            dpt.dict_label as parking_type_label,
+            pk.area,
+            pk.current_user,
+            pk.plate_no,
+            pk.rent_price,
+            pk.contract_no
+        FROM t_asset a
+        INNER JOIN t_asset_parking pk ON a.id = pk.asset_id
+        LEFT JOIN sys_project p ON a.project_id = p.id
+        LEFT JOIN sys_dept d ON a.use_dept_id = d.dept_id
+        LEFT JOIN sys_user u ON a.duty_user_id = u.user_id
+        LEFT JOIN sys_dict_data ds ON ds.dict_type = 'asset_status' AND ds.dict_value = a.status
+        LEFT JOIN sys_dict_data dot ON dot.dict_type = 'ownership_type' AND dot.dict_value = a.ownership_type
+        LEFT JOIN sys_dict_data ddm ON ddm.dict_type = 'depreciation_method' AND ddm.dict_value = a.depreciation_method
+        LEFT JOIN sys_dict_data dpz ON dpz.dict_type = 'parking_zone' AND dpz.dict_value = pk.parking_zone
+        LEFT JOIN sys_dict_data dpt ON dpt.dict_type = 'parking_type' AND dpt.dict_value = pk.parking_type
+        WHERE a.id = #{id}
+        AND a.del_flag = '0'
+    </select>
+
+    <!-- Insert parking asset extension -->
+    <insert id="insertAssetParking" parameterType="com.ruoyi.asset.domain.entity.AssetParking">
+        INSERT INTO t_asset_parking (
+            asset_id,
+            parking_no,
+            parking_zone,
+            parking_type,
+            area,
+            current_user,
+            plate_no,
+            rent_price,
+            contract_no
+        ) VALUES (
+            #{assetId},
+            #{parkingNo},
+            #{parkingZone},
+            #{parkingType},
+            #{area},
+            #{currentUser},
+            #{plateNo},
+            #{rentPrice},
+            #{contractNo}
+        )
+    </insert>
+
+    <!-- Update parking asset extension -->
+    <update id="updateAssetParking" parameterType="com.ruoyi.asset.domain.entity.AssetParking">
+        UPDATE t_asset_parking
+        <set>
+            <if test="parkingNo != null">parking_no = #{parkingNo},</if>
+            <if test="parkingZone != null">parking_zone = #{parkingZone},</if>
+            <if test="parkingType != null">parking_type = #{parkingType},</if>
+            <if test="area != null">area = #{area},</if>
+            <if test="currentUser != null">current_user = #{currentUser},</if>
+            <if test="plateNo != null">plate_no = #{plateNo},</if>
+            <if test="rentPrice != null">rent_price = #{rentPrice},</if>
+            <if test="contractNo != null">contract_no = #{contractNo},</if>
+        </set>
+        WHERE asset_id = #{assetId}
+    </update>
+
+    <!-- Delete parking asset extension by ID -->
+    <delete id="deleteAssetParkingById" parameterType="java.lang.Long">
+        DELETE FROM t_asset_parking WHERE asset_id = #{id}
+    </delete>
+
+    <!-- Batch delete parking asset extensions -->
+    <delete id="deleteAssetParkingByIds" parameterType="java.lang.Long">
+        DELETE FROM t_asset_parking WHERE asset_id IN
+        <foreach item="id" collection="ids" open="(" separator="," close=")">
+            #{id}
+        </foreach>
+    </delete>
+
+</mapper>

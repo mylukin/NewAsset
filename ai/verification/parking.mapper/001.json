@@ -1,0 +1,63 @@
+{
+  "featureId": "parking.mapper",
+  "runNumber": 1,
+  "timestamp": "2025-12-14T12:54:11.489Z",
+  "commitHash": "c17ed6a922e2666ed5b205fdb8182393489c6fd5",
+  "changedFiles": [
+    "ai/progress.log",
+    "ai/tasks/index.json",
+    "ai/tasks/parking/01-entity.md",
+    "ai/verification/index.json",
+    "ai/verification/parking.entity/001.json",
+    "ai/verification/parking.entity/001.md",
+    "ai/verification/results.json",
+    "ruoyi-modules/ruoyi-asset/src/main/java/com/ruoyi/asset/domain/dto/AssetParkingCreateDTO.java",
+    "ruoyi-modules/ruoyi-asset/src/main/java/com/ruoyi/asset/domain/dto/AssetParkingUpdateDTO.java",
+    "ruoyi-modules/ruoyi-asset/src/main/java/com/ruoyi/asset/domain/entity/AssetParking.java",
+    "ruoyi-modules/ruoyi-asset/src/main/java/com/ruoyi/asset/domain/vo/AssetParkingDetailVO.java",
+    "ruoyi-modules/ruoyi-asset/src/main/java/com/ruoyi/asset/domain/vo/AssetParkingListVO.java",
+    "ai/tasks/parking/02-mapper.md"
+  ],
+  "diffSummary": "13 files changed",
+  "automatedChecks": [],
+  "criteriaResults": [
+    {
+      "criterion": "Create `AssetParkingMapper` interface",
+      "index": 0,
+      "satisfied": true,
+      "confidence": 0.8
+    },
+    {
+      "criterion": "Create XML mapper file",
+      "index": 1,
+      "satisfied": true,
+      "confidence": 0.8
+    },
+    {
+      "criterion": "Implement methods:",
+      "index": 2,
+      "satisfied": true,
+      "confidence": 0.8
+    },
+    {
+      "criterion": "Support filters: projectId, parkingZone, parkingNo, parkingType, status",
+      "index": 3,
+      "satisfied": true,
+      "confidence": 0.8
+    },
+    {
+      "criterion": "Include data scope filtering",
+      "index": 4,
+      "satisfied": true,
+      "confidence": 0.8
+    },
+    {
+      "criterion": "Join with base asset table",
+      "index": 5,
+      "satisfied": true,
+      "confidence": 0.8
+    }
+  ],
+  "verdict": "pass",
+  "verifiedBy": "strategy-framework"
+}
