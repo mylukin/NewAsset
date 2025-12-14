@@ -1,0 +1,47 @@
+{
+  "featureId": "venue.entity",
+  "runNumber": 1,
+  "timestamp": "2025-12-14T13:09:05.873Z",
+  "commitHash": "33327c77817a5c000eb155ec7fb548aafebf5c7f",
+  "changedFiles": [
+    "ai/progress.log",
+    "ai/tasks/index.json",
+    "ai/tasks/parking/10-frontend-statistics.md",
+    "ai/verification/index.json",
+    "ai/verification/parking.frontend-statistics/001.json",
+    "ai/verification/parking.frontend-statistics/001.md",
+    "ai/verification/results.json",
+    "ruoyi-ui/src/views/asset/parking/statistics.vue",
+    "ai/tasks/venue/01-entity.md"
+  ],
+  "diffSummary": "9 files changed",
+  "automatedChecks": [],
+  "criteriaResults": [
+    {
+      "criterion": "Create `AssetVenue` entity referencing `Asset` base",
+      "index": 0,
+      "satisfied": true,
+      "confidence": 0.8
+    },
+    {
+      "criterion": "Map extension fields from `t_asset_venue`:",
+      "index": 1,
+      "satisfied": true,
+      "confidence": 0.8
+    },
+    {
+      "criterion": "Create VO and DTO classes",
+      "index": 2,
+      "satisfied": true,
+      "confidence": 0.8
+    },
+    {
+      "criterion": "Add validation annotations",
+      "index": 3,
+      "satisfied": true,
+      "confidence": 0.8
+    }
+  ],
+  "verdict": "pass",
+  "verifiedBy": "strategy-framework"
+}

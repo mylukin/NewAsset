@@ -99,3 +99,5 @@
 2025-12-14T13:04:45.025Z STEP feature=parking.frontend-detail status=passing tests="./ai/init.sh check" summary="Completed parking.frontend-detail"
 2025-12-14T13:06:21.149Z VERIFY feature=parking.frontend-statistics action=pass summary="Verified parking.frontend-statistics: pass"
 2025-12-14T13:06:28.310Z STEP feature=parking.frontend-statistics status=passing tests="./ai/init.sh check" summary="Completed parking.frontend-statistics"
+2025-12-14T13:09:05.908Z VERIFY feature=venue.entity action=pass summary="Verified venue.entity: pass"
+2025-12-14T13:09:13.307Z STEP feature=venue.entity status=passing tests="./ai/init.sh check" summary="Completed venue.entity"

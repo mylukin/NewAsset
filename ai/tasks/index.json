@@ -1,6 +1,6 @@
 {
   "version": "2.0.0",
-  "updatedAt": "2025-12-14T13:06:28.228Z",
+  "updatedAt": "2025-12-14T13:09:13.300Z",
   "metadata": {
     "projectGoal": "基于 ai/tasks 创建一个资产管理系统",
     "createdAt": "2025-12-14T10:00:00Z",
@@ -409,7 +409,7 @@
       "filePath": "office/08-frontend-detail.md"
     },
     "venue.entity": {
-      "status": "failing",
+      "status": "passing",
       "priority": 39,
       "module": "venue",
       "description": "Create Venue Asset Entity",

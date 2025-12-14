@@ -359,8 +359,17 @@
       "totalRuns": 1,
       "passCount": 1,
       "failCount": 0
+    },
+    "venue.entity": {
+      "featureId": "venue.entity",
+      "latestRun": 1,
+      "latestTimestamp": "2025-12-14T13:09:05.873Z",
+      "latestVerdict": "pass",
+      "totalRuns": 1,
+      "passCount": 1,
+      "failCount": 0
     }
   },
-  "updatedAt": "2025-12-14T13:06:21.130Z",
+  "updatedAt": "2025-12-14T13:09:05.879Z",
   "version": "2.0.0"
 }
