@@ -15,9 +15,7 @@ testRequirements:
     pattern: tests/api/**/*.test.*
 ---
 # Expose REST endpoints for asset CRUD, attachments, tags, and AI task triggers with request validation.
-> 提供资产增删改查、附件、标签与 AI 任务触发的 REST 接口，并做请求校验。
 
 ## Acceptance Criteria
 
 1. Expose REST endpoints for asset CRUD, attachments, tags, and AI task triggers with request validation.
-> 提供资产增删改查、附件、标签与 AI 任务触发的 REST 接口，并做请求校验。 works as expected

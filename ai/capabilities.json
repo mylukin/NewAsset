@@ -14,6 +14,8 @@
     "source": "ai-discovered",
     "confidence": 0.1,
     "languages": [
+      "Bash",
+      "JSON",
       "Markdown",
       "Java",
       "Spring Boot",
@@ -23,7 +25,7 @@
       "MySQL",
       "RuoYi-Vue"
     ],
-    "detectedAt": "2025-12-14T04:12:04.144Z",
+    "detectedAt": "2025-12-14T04:26:52.562Z",
     "testInfo": {
       "available": false,
       "command": "",
@@ -31,7 +33,7 @@
       "confidence": 0.1,
       "selectiveFileTemplate": "",
       "selectiveNameTemplate": "",
-      "packageManager": "unknown"
+      "packageManager": "pnpm"
     },
     "e2eInfo": {
       "available": false,
@@ -56,15 +58,56 @@
       "available": false,
       "command": "",
       "confidence": 0.1
-    }
+    },
+    "customRules": [
+      {
+        "id": "harness.bootstrap",
+        "description": "Install project dependencies via pnpm (requires a future pnpm workspace/package.json to exist).",
+        "command": "./ai/init.sh bootstrap",
+        "type": "custom"
+      },
+      {
+        "id": "harness.check.fast",
+        "description": "Run unified verification in fast mode (delegates to agent-foreman; intended to run typecheck + lint + selective tests based on git diff).",
+        "command": "./ai/init.sh check",
+        "type": "custom"
+      },
+      {
+        "id": "harness.check.full",
+        "description": "Run unified verification in full mode (delegates to agent-foreman; intended to run all tests + build + E2E when configured).",
+        "command": "./ai/init.sh check --full",
+        "type": "custom"
+      },
+      {
+        "id": "harness.check.task",
+        "description": "Run task-scoped verification (delegates to agent-foreman).",
+        "command": "./ai/init.sh check <task_id>",
+        "type": "custom"
+      },
+      {
+        "id": "harness.status",
+        "description": "Show task index status summary from ai/tasks/index.json.",
+        "command": "./ai/init.sh status",
+        "type": "custom"
+      },
+      {
+        "id": "agent-foreman.check",
+        "description": "Direct unified verification entrypoint (used by the harness script).",
+        "command": "agent-foreman check",
+        "type": "custom"
+      }
+    ]
   },
+  "commitHash": "ea8553f8ade20d0b18da9a96bc741ceba48fa61e",
   "trackedFiles": [
-    ".env",
-    ".gitignore",
-    "docs/PRD.md",
-    "docs/TECH.md",
+    "ai/init.sh",
+    ".claude/rules/00-overview.md",
+    ".claude/rules/01-workflow.md",
+    ".claude/rules/02-rules.md",
+    ".claude/rules/03-commands.md",
+    ".claude/rules/05-tdd.md",
     "ai/tasks/index.json",
-    "ai/tasks/platform/repo.bootstrap.md",
-    "ai/tasks/platform/testing.contract.md"
+    "ai/capabilities.json",
+    ".env"
   ]
 }

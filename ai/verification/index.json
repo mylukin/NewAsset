@@ -1,0 +1,15 @@
+{
+  "features": {
+    "core.project-init": {
+      "featureId": "core.project-init",
+      "latestRun": 1,
+      "latestTimestamp": "2025-12-14T04:30:44.570Z",
+      "latestVerdict": "needs_review",
+      "totalRuns": 1,
+      "passCount": 0,
+      "failCount": 0
+    }
+  },
+  "updatedAt": "2025-12-14T04:30:44.575Z",
+  "version": "2.0.0"
+}

@@ -15,9 +15,7 @@ testRequirements:
     pattern: tests/ui/**/*.test.*
 ---
 # Build a web UI for asset list/detail/edit flows with role-aware navigation.
-> 构建资产列表/详情/编辑流程的 Web UI，并根据角色控制导航与权限。
 
 ## Acceptance Criteria
 
 1. Build a web UI for asset list/detail/edit flows with role-aware navigation.
-> 构建资产列表/详情/编辑流程的 Web UI，并根据角色控制导航与权限。 works as expected
