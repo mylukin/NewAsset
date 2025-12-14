@@ -1,44 +1,43 @@
 ---
 id: core.code-generator
 module: core
-priority: 3
+priority: 5
 status: failing
 version: 1
 origin: manual
-dependsOn: [core.database-schema, core.asset-base-entity]
+dependsOn:
+  - core.database-schema
+  - core.asset-status-enum
 supersedes: []
-tags: [backend, service]
+tags:
+  - service
+  - p0
 testRequirements:
   unit:
-    required: true
+    required: false
     pattern: "tests/core/**/*.test.*"
 ---
-# Implement Asset Code Generator
+# Implement Asset Code Generator Service
 
 ## Context
 
-The asset code generator creates unique, configurable asset codes based on rules defined in `t_asset_code_rule`. This is a critical component for asset identification.
+Each asset requires a unique code generated according to configurable rules. The generator must handle concurrent requests safely and support different patterns per asset type.
 
 ## Acceptance Criteria
 
-1. Create `AssetCodeRule` entity mapping `t_asset_code_rule`
-2. Create `AssetCodeSeq` entity mapping `t_asset_code_seq`
-3. Create `AssetCodeRuleMapper` and `AssetCodeSeqMapper`
-4. Create `LocationInfo` value object for location parameters (building, floor, etc.)
-5. Implement `AssetCodeRuleService`:
-   - `getRuleByAssetType(AssetTypeEnum type)` - get active rule for asset type
-   - Cache rules using Spring Cache
-6. Implement `AssetCodeSequenceRepository`:
-   - `getNextSequence(Long ruleId, Long projectId, Integer year)` - with optimistic lock
-7. Implement `AssetCodeGenerator`:
-   - `generate(AssetTypeEnum type, Long projectId, LocationInfo location)` - main generation method
-   - Parse pattern template and replace placeholders ({PROJECT}, {TYPE}, {BUILDING}, {FLOOR}, {SEQ})
-   - Handle sequence number padding (e.g., 4-digit with leading zeros)
-8. Implement retry logic for concurrent generation conflicts (max 3 retries)
-9. Throw `ServiceException` when no valid rule exists
+1. Create `AssetCodeRuleService` to manage code rules from `t_asset_code_rule`
+2. Create `AssetCodeSequenceRepository` for sequence management with `t_asset_code_seq`
+3. Create `AssetCodeGenerator` with method `generate(AssetType type, Long projectId, LocationInfo locationInfo)`
+4. Support pattern placeholders: `{PROJECT}`, `{TYPE}`, `{BUILDING}`, `{FLOOR}`, `{SEQ}`
+5. Implement optimistic locking for concurrent sequence generation
+6. Handle sequence reset by project/year scope
+7. Implement retry logic on unique constraint violation (max N retries)
+8. Add code preview functionality for admin validation
+9. Cache rules for performance
 
 ## Technical Notes
 
-- Reference: TECH.md section 5.1
-- Pattern: Optimistic locking with version field
-- Use `@Transactional` to ensure atomicity
+- Reference: TECH.md Section 5.1
+- Pattern: Template pattern for code generation
+- Concurrency: Optimistic lock with version field or SELECT FOR UPDATE
+- Location: `com.ruoyi.asset.service.rule.AssetCodeGenerator`

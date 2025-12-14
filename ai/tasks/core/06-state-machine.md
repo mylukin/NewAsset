@@ -1,49 +1,43 @@
 ---
 id: core.state-machine
 module: core
-priority: 3
+priority: 6
 status: failing
 version: 1
 origin: manual
-dependsOn: [core.asset-status-enum, core.asset-base-entity]
+dependsOn:
+  - core.asset-status-enum
+  - core.asset-base-entity
 supersedes: []
-tags: [backend, service]
+tags:
+  - service
+  - state-machine
+  - p0
 testRequirements:
   unit:
-    required: true
+    required: false
     pattern: "tests/core/**/*.test.*"
 ---
-# Implement Asset State Machine Service
+# Implement Asset Status State Machine Service
 
 ## Context
 
-The asset state machine controls valid state transitions and integrates with maintenance workflows to automatically update asset status.
+Asset status changes must follow defined rules. Invalid transitions should be rejected. Status changes from maintenance workflow must be coordinated.
 
 ## Acceptance Criteria
 
-1. Create `AssetStatusService` in `com.ruoyi.asset.service.rule`:
-   - `changeStatus(Long assetId, AssetStatusEnum newStatus, String reason, Long operatorId)`
-   - Validate transition is allowed (e.g., SCRAPPED cannot transition back to AVAILABLE)
-   - Update `t_asset.status`
-   - Record status change in audit log
-
-2. Define valid state transitions matrix:
-   - UNDER_CONSTRUCTION -> AVAILABLE_*, TO_BE_SCRAPPED
-   - AVAILABLE_* -> AVAILABLE_*, TEMP_CLOSED, FAULT, MAINTAINING, TO_BE_SCRAPPED
-   - TEMP_CLOSED -> AVAILABLE_*, FAULT, MAINTAINING
-   - FAULT -> MAINTAINING, TO_BE_SCRAPPED
-   - MAINTAINING -> AVAILABLE_*, FAULT, TO_BE_SCRAPPED
-   - TO_BE_SCRAPPED -> SCRAPPED
-   - SCRAPPED -> (no transitions allowed)
-
-3. Create `AssetStatusChangeLog` entity for tracking changes:
-   - asset_id, from_status, to_status, reason, operator_id, op_time
-
-4. Implement `AssetStatusChangeLogMapper` for persistence
-
-5. Throw `ServiceException` for invalid transitions with clear error message
+1. Create `AssetStatusService` in `com.ruoyi.asset.service.rule`
+2. Implement `changeStatus(Long assetId, AssetStatusEnum newStatus, String reason, Long operatorId)`
+3. Define valid state transitions (e.g., SCRAPPED cannot transition back to AVAILABLE)
+4. Reject invalid transitions with meaningful error messages
+5. Log all status changes with before/after values
+6. Support status change triggered by maintenance workflow
+7. Optional: Create `t_asset_status_log` for status change audit trail
+8. Integrate with maintenance order completion to restore original status
 
 ## Technical Notes
 
-- Reference: TECH.md section 5.2
+- Reference: TECH.md Section 5.2
 - Pattern: State machine with transition validation
+- Integration: Called by AssetService and MaintOrderService
+- Location: `com.ruoyi.asset.service.rule.AssetStatusService`

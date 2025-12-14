@@ -1,37 +1,40 @@
 ---
 id: core.asset-base-entity
 module: core
-priority: 2
+priority: 3
 status: failing
 version: 1
 origin: manual
-dependsOn: [core.database-schema]
+dependsOn:
+  - core.database-schema
 supersedes: []
-tags: [backend, entity]
+tags:
+  - entity
+  - p0
 testRequirements:
   unit:
-    required: true
+    required: false
     pattern: "tests/core/**/*.test.*"
 ---
-# Create Base Asset Entity
+# Create Base Asset Entity and Common Fields
 
 ## Context
 
-The `Asset` entity is the core domain object that represents all types of assets. It contains common fields shared across house, parking, facility, venue, and office assets.
+All asset types share common fields defined in `t_asset`. A base entity class provides reusable field definitions and mapping for all asset types.
 
 ## Acceptance Criteria
 
 1. Create `Asset` entity class in `com.ruoyi.asset.domain.entity`
-2. Map all fields from `t_asset` table:
-   - Use `@TableName("t_asset")` for MyBatis-Plus or XML mapping
-   - Include all common fields as per PRD section 4.3
-3. Extend RuoYi's `BaseEntity` for audit fields
-4. Add proper validation annotations (@NotBlank, @Size, etc.)
-5. Create `AssetTypeEnum` enum for asset types (HOUSE, PARKING, FACILITY, VENUE, OFFICE)
-6. Create `OwnershipTypeEnum` for ownership types
-7. Override `toString()` for logging purposes
+2. Map all common fields: id, assetCode, assetName, assetType, projectId, building, floor, roomNo, locationDesc
+3. Map ownership fields: ownershipType, ownerOrg, useDeptId, dutyUserId
+4. Map value fields: purchaseDate, startUseDate, originalValue, depreciationMethod, depreciationAmount, netValue
+5. Map supplier fields: brand, model, supplier, warrantyExpireDate
+6. Include status field with proper enum mapping
+7. Extend RuoYi `BaseEntity` for audit fields
+8. Add proper validation annotations (@NotBlank, @Size, etc.)
 
 ## Technical Notes
 
-- Reference: TECH.md section 4.1.1
-- Pattern: JPA/MyBatis entity mapping with RuoYi conventions
+- Reference: TECH.md Section 4.1.1
+- Pattern: JPA/MyBatis entity with Lombok
+- File: `com.ruoyi.asset.domain.entity.Asset`

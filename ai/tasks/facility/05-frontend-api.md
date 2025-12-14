@@ -1,37 +1,38 @@
 ---
 id: facility.frontend-api
 module: facility
-priority: 13
+priority: 24
 status: failing
 version: 1
 origin: manual
-dependsOn: [facility.controller]
+dependsOn:
+  - facility.controller
 supersedes: []
-tags: [frontend, api, P0]
+tags:
+  - frontend
+  - api
+  - p0
 testRequirements:
   unit:
     required: false
-    pattern: ""
+    pattern: "tests/facility/**/*.test.*"
 ---
 # Create Facility Asset Frontend API Module
 
 ## Context
 
-Frontend API module for facility asset operations.
+Axios API module for facility asset frontend communication.
 
 ## Acceptance Criteria
 
 1. Create `/src/api/asset/facility.js`
-
 2. Implement API functions:
-   - `listFacility(query)` - GET /asset/facility/list
-   - `getFacility(id)` - GET /asset/facility/{id}
-   - `addFacility(data)` - POST /asset/facility
-   - `updateFacility(data)` - PUT /asset/facility
-   - `delFacility(ids)` - DELETE /asset/facility/{ids}
-   - `exportFacility(query)` - POST /asset/facility/export
+   - listFacility, getFacility, addFacility, updateFacility, delFacility, exportFacility
+3. Use RuoYi request utility
+4. Export all functions
 
 ## Technical Notes
 
-- Reference: TECH.md section 7.3
-- Same pattern as house.js
+- Reference: TECH.md Section 7.3
+- Pattern: RuoYi API module
+- File: `ruoyi-ui/src/api/asset/facility.js`

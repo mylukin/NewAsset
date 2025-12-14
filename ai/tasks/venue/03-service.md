@@ -1,36 +1,38 @@
 ---
 id: venue.service
 module: venue
-priority: 14
+priority: 41
 status: failing
 version: 1
 origin: manual
-dependsOn: [venue.mapper, core.code-generator]
+dependsOn:
+  - venue.mapper
+  - core.code-generator
 supersedes: []
-tags: [backend, service, P0]
+tags:
+  - service
+  - p0
 testRequirements:
   unit:
-    required: true
+    required: false
     pattern: "tests/venue/**/*.test.*"
 ---
 # Create Venue Asset Service
 
 ## Context
 
-Business logic for venue assets.
+Service layer for venue asset business logic.
 
 ## Acceptance Criteria
 
-1. Create `IVenueAssetService` interface:
-   - Standard CRUD methods
-   - `updateVenueStatus(Long assetId, VenueStatusEnum status)` - update availability
-
-2. Create `VenueAssetServiceImpl`
-
-3. Implement status update logic:
-   - Validate status transition
-   - Record change in log
+1. Create `IAssetVenueService` interface
+2. Create `AssetVenueServiceImpl` implementation
+3. Implement standard CRUD methods with code generation
+4. Add @DataScope for project filtering
+5. Use @Transactional for write operations
 
 ## Technical Notes
 
-- Reference: PRD section 6.5.2
+- Reference: PRD Section 6.5
+- Pattern: Service + Mapper pattern
+- Location: `com.ruoyi.asset.service.impl.AssetVenueServiceImpl`

@@ -1,50 +1,41 @@
 ---
 id: venue.frontend-list
 module: venue
-priority: 15
+priority: 44
 status: failing
 version: 1
 origin: manual
-dependsOn: [venue.frontend-api]
+dependsOn:
+  - venue.frontend-api
 supersedes: []
-tags: [frontend, vue, P0]
+tags:
+  - frontend
+  - vue
+  - p0
 testRequirements:
   unit:
     required: false
-    pattern: ""
+    pattern: "tests/venue/**/*.test.*"
 ---
 # Create Venue Asset List Page
 
 ## Context
 
-Venue asset list page with filtering and availability display.
+Vue component for venue asset list.
 
 ## Acceptance Criteria
 
 1. Create `/src/views/asset/venue/index.vue`
-
-2. Implement search filters:
-   - Project selector
-   - Venue Type (篮球场/羽毛球馆/会议室/活动室)
-   - Current Venue Status (可预约/占用/维护中)
-   - Search/Reset buttons
-
-3. Implement action toolbar with permissions
-
-4. Implement data table with columns:
-   - Asset Code
-   - Venue Name
-   - Project
-   - Location
-   - Venue Type
-   - Capacity
-   - Use Mode (免费/收费)
-   - Current Status (with color tag)
-   - Open Time
+2. Implement search filters: project, venueType, currentVenueStatus, status
+3. Data table columns:
+   - Asset code, venue name, project
+   - Venue type, capacity, use mode
+   - Open time, current status
    - Actions
-
-5. Quick status toggle button in row
+4. Action buttons: Add, Edit, Delete, View, Initiate Maintenance, Export
+5. Permission control with v-hasPermi
 
 ## Technical Notes
 
-- Reference: PRD section 6.5.2
+- Reference: PRD Section 6.5.2
+- Pattern: RuoYi list page

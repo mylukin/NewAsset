@@ -1,52 +1,40 @@
 ---
 id: parking.frontend-list
 module: parking
-priority: 9
+priority: 35
 status: failing
 version: 1
 origin: manual
-dependsOn: [parking.frontend-api]
+dependsOn:
+  - parking.frontend-api
 supersedes: []
-tags: [frontend, vue, P0]
+tags:
+  - frontend
+  - vue
+  - p0
 testRequirements:
   unit:
     required: false
-    pattern: ""
+    pattern: "tests/parking/**/*.test.*"
 ---
 # Create Parking Asset List Page
 
 ## Context
 
-Parking asset list page with filtering, statistics, and CRUD operations.
+Vue component for parking asset list.
 
 ## Acceptance Criteria
 
 1. Create `/src/views/asset/parking/index.vue`
-
-2. Implement search filters:
-   - Project selector
-   - Parking Zone (地上/地下/编号)
-   - Parking No
-   - Parking Type (固定/临停)
-   - Status selector
-   - Search/Reset buttons
-
-3. Implement action toolbar with permissions
-
-4. Implement data table with columns:
-   - Asset Code
-   - Parking No
-   - Project
-   - Zone
-   - Type
-   - Status
-   - Current User
-   - Plate No
-   - Rent Price
+2. Implement search filters: project, parkingZone, parkingNo, parkingType, status
+3. Data table columns:
+   - Asset code, parking no, zone, type, area
+   - Status, current user, plate no, rent price
    - Actions
-
-5. Optionally show statistics cards above table
+4. Action buttons: Add, Edit, Delete, View, Initiate Maintenance, Export
+5. Permission control with v-hasPermi
 
 ## Technical Notes
 
-- Reference: PRD section 6.4.2
+- Reference: PRD Section 6.4.2
+- Pattern: RuoYi list page

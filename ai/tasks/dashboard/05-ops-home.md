@@ -1,46 +1,45 @@
 ---
 id: dashboard.ops-home
 module: dashboard
-priority: 16
+priority: 73
 status: failing
 version: 1
 origin: manual
-dependsOn: [dashboard.frontend-api]
+dependsOn:
+  - dashboard.frontend-api
 supersedes: []
-tags: [frontend, vue, P0]
+tags:
+  - frontend
+  - vue
+  - p0
 testRequirements:
   unit:
     required: false
-    pattern: ""
+    pattern: "tests/dashboard/**/*.test.*"
 ---
-# Create Operations Staff Dashboard Page
+# Create Operations Dashboard Home Page
 
 ## Context
 
-Dashboard for maintenance/operations staff showing their pending work and statistics.
+Dashboard for operations/maintenance staff showing their work queue and statistics.
 
 ## Acceptance Criteria
 
-1. Create `/src/views/dashboard/OpsHome.vue`
-
-2. Implement "My Pending Orders" section:
-   - List of orders waiting for action
-   - Sorted by priority (urgent first), then create time
-   - Columns: Order No, Asset, Priority (tag), Status, Require Finish Time
-   - Direct action buttons: Accept (if WAIT_ACCEPT), Start (if accepted)
-   - Click to view order detail
-
-3. Implement my statistics cards:
-   - Orders Completed This Month
-   - Orders In Progress
-   - Pending Accept Count
-
-4. Implement optional:
-   - Calendar view of due orders
-   - Quick accept button
-
-5. Highlight overdue items in red
+1. Create `/src/views/asset/dashboard/ops.vue`
+2. Implement pending orders list:
+   - Default sort by priority (urgent first)
+   - Show order no, asset, priority, create time
+   - Quick action buttons (Accept, Start)
+3. Implement my monthly stats:
+   - Completed orders count
+   - In-progress orders count
+   - Simple progress indicator
+4. Quick link to full order list
+5. Auto-refresh every 5 minutes
+6. Highlight urgent orders
 
 ## Technical Notes
 
-- Reference: PRD section 7.1 point 2
+- Reference: PRD Section 7.1 Point 2
+- Pattern: Work queue dashboard
+- Components: el-table with action buttons

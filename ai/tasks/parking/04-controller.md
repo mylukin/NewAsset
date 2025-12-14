@@ -1,44 +1,41 @@
 ---
 id: parking.controller
 module: parking
-priority: 8
+priority: 32
 status: failing
 version: 1
 origin: manual
-dependsOn: [parking.service]
+dependsOn:
+  - parking.service
 supersedes: []
-tags: [backend, controller, P0]
+tags:
+  - controller
+  - api
+  - p0
 testRequirements:
   unit:
-    required: true
+    required: false
     pattern: "tests/parking/**/*.test.*"
 ---
 # Create Parking Asset Controller
 
 ## Context
 
-RESTful API endpoints for parking asset operations.
+RESTful API controller for parking asset management.
 
 ## Acceptance Criteria
 
-1. Create `ParkingAssetController`:
-   - Base path: `/asset/parking`
-
+1. Create `AssetParkingController`
 2. Implement endpoints:
-   - `GET /asset/parking/list`
-   - `GET /asset/parking/{id}`
-   - `POST /asset/parking`
-   - `PUT /asset/parking`
-   - `DELETE /asset/parking/{ids}`
-   - `POST /asset/parking/export`
-   - `GET /asset/parking/statistics` - get utilization stats
-   - `GET /asset/parking/statistics/by-zone` - grouped by zone
-
-3. Add permission annotations:
-   - `asset:parking:*`
-
-4. Add `@Log` annotations
+   - GET /asset/parking/list, GET /asset/parking/{id}
+   - POST /asset/parking, PUT /asset/parking
+   - DELETE /asset/parking/{ids}, POST /asset/parking/export
+3. Add permission annotations: `asset:parking:*`
+4. Add operation logging
+5. Return standard response format
 
 ## Technical Notes
 
-- Reference: TECH.md section 6.1
+- Reference: TECH.md Section 6
+- Pattern: RuoYi BaseController
+- Permissions: asset:parking:list, query, add, edit, remove, export

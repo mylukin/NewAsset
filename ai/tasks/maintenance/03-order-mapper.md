@@ -1,49 +1,47 @@
 ---
 id: maintenance.order-mapper
 module: maintenance
-priority: 6
+priority: 59
 status: failing
 version: 1
 origin: manual
-dependsOn: [maintenance.order-entity, maintenance.order-log-entity]
+dependsOn:
+  - maintenance.order-entity
+  - maintenance.order-log-entity
 supersedes: []
-tags: [backend, mapper, P0]
+tags:
+  - mapper
+  - database
+  - p0
 testRequirements:
   unit:
-    required: true
+    required: false
     pattern: "tests/maintenance/**/*.test.*"
 ---
 # Create Maintenance Order Mapper
 
 ## Context
 
-Database access for maintenance order CRUD and workflow operations.
+MyBatis mappers for maintenance order and log CRUD operations.
 
 ## Acceptance Criteria
 
-1. Create `MaintenanceOrderMapper` interface
-
-2. Create `MaintenanceOrderMapper.xml`
-
-3. Implement query methods:
-   - `selectOrderList(MaintenanceOrderQueryDTO query)` - filters: project, assetType, status, priority, handlerId
-   - `selectOrderById(Long id)`
-   - `selectOrderByOrderNo(String orderNo)`
-   - `selectOrdersByAssetId(Long assetId)` - for asset detail page
-   - `selectMyPendingOrders(Long handlerId)` - for ops dashboard
-   - `countOpenOrdersByAssetId(Long assetId)` - check before asset delete
-
-4. Implement write methods:
-   - `insertOrder(MaintenanceOrder order)`
-   - `updateOrder(MaintenanceOrder order)`
-   - `updateOrderStatus(Long id, String status, Long handlerId)`
-
-5. Create `MaintenanceOrderLogMapper`:
-   - `insertLog(MaintenanceOrderLog log)`
-   - `selectLogsByOrderId(Long orderId)` - for order timeline
-
-6. Include data permission for project-based access
+1. Create `AssetMaintOrderMapper` interface and XML
+2. Implement order methods:
+   - selectMaintOrderList (with asset and project joins)
+   - selectMaintOrderById (with full details)
+   - insertMaintOrder, updateMaintOrder
+   - deleteMaintOrderByIds
+3. Create `AssetMaintLogMapper` interface and XML
+4. Implement log methods:
+   - selectLogsByOrderId (for timeline display)
+   - insertMaintLog
+5. Support filters: projectId, assetType, status, priority, handlerId, requesterId, dateRange
+6. Include data scope filtering
+7. Join with asset and user tables for display names
 
 ## Technical Notes
 
-- Reference: TECH.md section 4.2
+- Reference: TECH.md Section 4.2
+- Pattern: MyBatis XML mapper with joins
+- Index usage: (project_id, status), (current_handler_id, status)

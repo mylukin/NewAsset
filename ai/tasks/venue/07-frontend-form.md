@@ -1,45 +1,40 @@
 ---
 id: venue.frontend-form
 module: venue
-priority: 15
+priority: 45
 status: failing
 version: 1
 origin: manual
-dependsOn: [venue.frontend-api]
+dependsOn:
+  - venue.frontend-api
 supersedes: []
-tags: [frontend, vue, P0]
+tags:
+  - frontend
+  - vue
+  - p0
 testRequirements:
   unit:
     required: false
-    pattern: ""
+    pattern: "tests/venue/**/*.test.*"
 ---
-# Create Venue Asset Form Component
+# Create Venue Asset Form Dialog
 
 ## Context
 
-Form component for creating and editing venue assets.
+Vue dialog for creating and editing venue assets.
 
 ## Acceptance Criteria
 
-1. Create `/src/views/asset/venue/components/VenueForm.vue`
-
-2. Implement form fields:
-   - Project (required)
-   - Asset Name / Venue Name (required)
-   - Location (Building, Floor)
-   - Venue Type (required)
-   - Capacity (required)
-   - Use Mode (required)
-   - Open Time Description (text)
-   - Current Venue Status
-   - Ownership Type
-   - Duty Person
-   - Remark
-
-3. Implement validation rules
-
-4. Support create/edit modes
+1. Create form dialog component
+2. Form fields:
+   - Basic: assetName, projectId, building, floor, locationDesc
+   - Venue: venueType, capacity, useMode, openTimeDesc, currentVenueStatus
+   - Common: brand, model, supplier, originalValue, remark
+3. Auto-generated asset code display
+4. Form validation
+5. Add and edit modes
 
 ## Technical Notes
 
-- Reference: PRD section 6.5.2 point 2
+- Reference: PRD Section 6.5.2
+- Pattern: el-dialog with el-form

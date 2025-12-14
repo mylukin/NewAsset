@@ -1,19 +1,23 @@
 ---
 id: dashboard.management-home
 module: dashboard
-priority: 16
+priority: 72
 status: failing
 version: 1
 origin: manual
-dependsOn: [dashboard.frontend-api]
+dependsOn:
+  - dashboard.frontend-api
 supersedes: []
-tags: [frontend, vue, P0]
+tags:
+  - frontend
+  - vue
+  - p0
 testRequirements:
   unit:
     required: false
-    pattern: ""
+    pattern: "tests/dashboard/**/*.test.*"
 ---
-# Create Management Dashboard Page
+# Create Management Dashboard Home Page
 
 ## Context
 
@@ -21,34 +25,22 @@ Dashboard for management and operations roles showing key metrics and recent act
 
 ## Acceptance Criteria
 
-1. Create `/src/views/dashboard/ManagementHome.vue`
-
-2. Implement project selector at top
-
-3. Implement metric cards row:
-   - Total Assets (with icon)
-   - House Vacancy Rate (%)
-   - Parking Vacancy Rate (%)
-   - New Orders This Month
-   - Open Orders (clickable to order list)
-
-4. Implement recent orders table:
-   - Top 10 recent maintenance orders
-   - Columns: Order No, Asset, Priority, Status, Create Time
-   - Click to view order detail
-
-5. Implement asset distribution chart:
-   - Pie or donut chart by asset type
-   - Use ECharts or similar
-
-6. Implement quick actions:
-   - View all assets
-   - View all orders
-
-7. Style with appropriate colors:
-   - High vacancy rates in warning color
-   - Open orders count in alert color if high
+1. Create `/src/views/asset/dashboard/management.vue`
+2. Implement metric cards:
+   - Total asset count (with breakdown by type)
+   - House vacancy rate (with trend indicator)
+   - Parking vacancy rate
+   - This month new orders count
+   - Current open orders count
+3. Implement recent orders table (Top 10)
+4. Add project selector to filter all data
+5. Auto-refresh on project change
+6. Use ECharts for pie chart of asset distribution
+7. Loading states for each widget
+8. Responsive layout for 1920x1080
 
 ## Technical Notes
 
-- Reference: PRD section 7.1 point 1
+- Reference: PRD Section 7.1 Point 1
+- Pattern: Dashboard with cards and charts
+- Components: el-card, ECharts

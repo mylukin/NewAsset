@@ -1,50 +1,39 @@
 ---
 id: maintenance.frontend-api
 module: maintenance
-priority: 7
+priority: 63
 status: failing
 version: 1
 origin: manual
-dependsOn: [maintenance.order-controller]
+dependsOn:
+  - maintenance.order-controller
 supersedes: []
-tags: [frontend, api, P0]
+tags:
+  - frontend
+  - api
+  - p0
 testRequirements:
   unit:
     required: false
-    pattern: ""
+    pattern: "tests/maintenance/**/*.test.*"
 ---
 # Create Maintenance Order Frontend API Module
 
 ## Context
 
-Frontend API module for maintenance order operations including workflow actions.
+Axios API module for maintenance order frontend.
 
 ## Acceptance Criteria
 
 1. Create `/src/api/asset/maintOrder.js`
-
-2. Implement CRUD API functions:
-   ```javascript
-   listOrder(query)
-   getOrder(id)
-   addOrder(data)
-   updateOrder(data)
-   getMyPendingOrders()
-   getOrdersByAsset(assetId)
-   exportOrder(query)
-   ```
-
-3. Implement workflow API functions:
-   ```javascript
-   assignOrder(id, handlerId)
-   acceptOrder(id)
-   startOrder(id)
-   completeOrder(id, data) // data: { result, attachments }
-   confirmOrder(id, data) // data: { accepted, reason }
-   rejectOrder(id, reason)
-   cancelOrder(id, reason)
-   ```
+2. Implement API functions:
+   - listMaintOrder, getMaintOrder, addMaintOrder, exportMaintOrder
+   - assignOrder, acceptOrder, startOrder, completeOrder, confirmOrder, cancelOrder
+   - getMyPendingOrders, getOrdersByAsset
+3. Use RuoYi request utility
+4. Export all functions
 
 ## Technical Notes
 
-- Reference: TECH.md section 7.3
+- Reference: TECH.md Section 7.3
+- File: `ruoyi-ui/src/api/asset/maintOrder.js`

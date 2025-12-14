@@ -1,42 +1,42 @@
 ---
 id: facility.service
 module: facility
-priority: 12
+priority: 22
 status: failing
 version: 1
 origin: manual
-dependsOn: [facility.mapper, core.code-generator]
+dependsOn:
+  - facility.mapper
+  - core.code-generator
 supersedes: []
-tags: [backend, service, P0]
+tags:
+  - service
+  - p0
 testRequirements:
   unit:
-    required: true
+    required: false
     pattern: "tests/facility/**/*.test.*"
 ---
 # Create Facility Asset Service
 
 ## Context
 
-The service layer handles business logic for facility assets.
+Service layer for facility asset business logic with code generation integration.
 
 ## Acceptance Criteria
 
-1. Create `IFacilityAssetService` interface:
-   - `List<FacilityAssetVO> selectFacilityAssetList(FacilityAssetQueryDTO query)`
-   - `FacilityAssetVO selectFacilityAssetById(Long assetId)`
-   - `Long insertFacilityAsset(FacilityAssetCreateDTO dto)`
-   - `int updateFacilityAsset(FacilityAssetUpdateDTO dto)`
-   - `int deleteFacilityAssetByIds(Long[] assetIds)`
-   - `List<FacilityAssetVO> selectExpiringWarranty(int days)` - for P1 reminder feature
-
-2. Create `FacilityAssetServiceImpl`
-
-3. Implement CRUD with code generation and transaction support
-
-4. Implement warranty expiry check:
-   - Find facilities where warranty_expire_date is within N days
+1. Create `IAssetFacilityService` interface
+2. Create `AssetFacilityServiceImpl` implementation
+3. Implement standard CRUD methods:
+   - selectAssetFacilityList, selectAssetFacilityById
+   - insertAssetFacility (with code generation)
+   - updateAssetFacility, deleteAssetFacilityByIds
+4. Integrate AssetCodeGenerator for code generation
+5. Add @DataScope for project filtering
+6. Use @Transactional for write operations
 
 ## Technical Notes
 
-- Reference: PRD section 6.3.2
-- Same pattern as HouseAssetService
+- Reference: PRD Section 6.3
+- Pattern: Service + Mapper pattern
+- Location: `com.ruoyi.asset.service.impl.AssetFacilityServiceImpl`

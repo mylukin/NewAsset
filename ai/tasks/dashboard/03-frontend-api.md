@@ -1,35 +1,45 @@
 ---
 id: dashboard.frontend-api
 module: dashboard
-priority: 16
+priority: 71
 status: failing
 version: 1
 origin: manual
-dependsOn: [dashboard.controller]
+dependsOn:
+  - dashboard.controller
 supersedes: []
-tags: [frontend, api, P0]
+tags:
+  - frontend
+  - api
+  - p0
 testRequirements:
   unit:
     required: false
-    pattern: ""
+    pattern: "tests/dashboard/**/*.test.*"
 ---
 # Create Dashboard Frontend API Module
 
 ## Context
 
-Frontend API for dashboard data.
+Axios API module for dashboard data retrieval.
 
 ## Acceptance Criteria
 
 1. Create `/src/api/asset/dashboard.js`
-
 2. Implement API functions:
-   ```javascript
-   getManagementDashboard(projectId)
-   getAssetManagerDashboard(projectId)
-   getOpsDashboard()
-   ```
+   - getAssetSummary(projectId)
+   - getVacancyRates(projectId)
+   - getMaintSummary(projectId)
+   - getRecentOrders(projectId, limit)
+   - getMyPendingOrders()
+   - getMyStats()
+   - getIncompleteAssets(projectId)
+   - getRecentAssets(projectId, limit)
+   - getAssetDistribution(projectId)
+3. Use RuoYi request utility
+4. Export all functions
 
 ## Technical Notes
 
-- Reference: TECH.md section 7.3
+- Reference: TECH.md Section 7.3
+- File: `ruoyi-ui/src/api/asset/dashboard.js`

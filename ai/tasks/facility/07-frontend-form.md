@@ -1,61 +1,41 @@
 ---
 id: facility.frontend-form
 module: facility
-priority: 13
+priority: 26
 status: failing
 version: 1
 origin: manual
-dependsOn: [facility.frontend-api]
+dependsOn:
+  - facility.frontend-api
 supersedes: []
-tags: [frontend, vue, P0]
+tags:
+  - frontend
+  - vue
+  - p0
 testRequirements:
   unit:
     required: false
-    pattern: ""
+    pattern: "tests/facility/**/*.test.*"
 ---
-# Create Facility Asset Form Component
+# Create Facility Asset Form Dialog
 
 ## Context
 
-Form component for creating and editing facility assets.
+Vue dialog for creating and editing facility assets.
 
 ## Acceptance Criteria
 
-1. Create `/src/views/asset/facility/components/FacilityForm.vue`
-
+1. Create form dialog component
 2. Implement form fields:
-
-   **Basic Info:**
-   - Project (required)
-   - Asset Name (required)
-   - Building, Floor
-   - Location Description
-   - Ownership Type
-   - Use Department
-   - Duty Person
-   - Status
-
-   **Facility Specific:**
-   - Facility Type (required, dropdown)
-   - Install Position Description
-   - Equipment No (original manufacturer number)
-   - Maintenance Org
-   - Maintenance Phone
-
-   **Value & Warranty:**
-   - Purchase Date
-   - Original Value
-   - Warranty Expire Date
-   - Brand/Model
-   - Supplier
-
-   **Other:**
-   - Remark
-
-3. Implement validation rules
-
-4. Support create/edit modes
+   - Basic: assetName, projectId, building, floor, locationDesc
+   - Facility: facilityType, installPosition, equipmentNo
+   - Maintenance: maintOrg, maintPhone, warrantyExpireDate
+   - Common: brand, model, supplier, originalValue, remark
+3. Show auto-generated asset code
+4. Add validation rules
+5. Support add and edit modes
 
 ## Technical Notes
 
-- Reference: PRD section 6.3.2
+- Reference: PRD Section 6.3.2
+- Pattern: el-dialog with el-form

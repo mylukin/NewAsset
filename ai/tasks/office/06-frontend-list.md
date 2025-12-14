@@ -1,53 +1,41 @@
 ---
 id: office.frontend-list
 module: office
-priority: 11
+priority: 53
 status: failing
 version: 1
 origin: manual
-dependsOn: [office.frontend-api]
+dependsOn:
+  - office.frontend-api
 supersedes: []
-tags: [frontend, vue, P0]
+tags:
+  - frontend
+  - vue
+  - p0
 testRequirements:
   unit:
     required: false
-    pattern: ""
+    pattern: "tests/office/**/*.test.*"
 ---
 # Create Office Asset List Page
 
 ## Context
 
-Office asset list page with filtering by type and department.
+Vue component for office asset list.
 
 ## Acceptance Criteria
 
 1. Create `/src/views/asset/office/index.vue`
-
-2. Implement search filters:
-   - Project selector
-   - Use Department selector
-   - Office Type (家具/IT设备/其他)
-   - Duty Person selector
-   - Status selector
-   - Search/Reset buttons
-
-3. Implement action toolbar with permissions
-
-4. Implement data table with columns:
-   - Asset Code
-   - Asset Name
-   - Project
-   - Department
-   - Office Type
-   - Workplace No
-   - Use User
-   - Serial No (for IT)
-   - Status
-   - Duty Person
+2. Implement search filters: project, useDeptId, officeType, dutyUserId, status
+3. Data table columns:
+   - Asset code, name, project, department
+   - Office type, workplace no, use user
+   - Serial no, status
    - Actions
-
-5. Conditional columns based on office type
+4. Action buttons: Add, Edit, Delete, View, Initiate Maintenance, Export
+5. Permission control with v-hasPermi
 
 ## Technical Notes
 
-- Reference: PRD section 6.6.2
+- Reference: PRD Section 6.6.2
+- Pattern: RuoYi list page

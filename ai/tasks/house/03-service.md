@@ -1,58 +1,47 @@
 ---
 id: house.service
 module: house
-priority: 4
+priority: 12
 status: failing
 version: 1
 origin: manual
-dependsOn: [house.mapper, core.code-generator, core.state-machine]
+dependsOn:
+  - house.mapper
+  - core.code-generator
+  - core.state-machine
 supersedes: []
-tags: [backend, service, P0]
+tags:
+  - service
+  - p0
 testRequirements:
   unit:
-    required: true
+    required: false
     pattern: "tests/house/**/*.test.*"
 ---
 # Create House Asset Service
 
 ## Context
 
-The service layer handles business logic for house assets including CRUD operations, code generation, and validation.
+Service layer for house asset business logic, coordinating code generation, status management, and CRUD operations.
 
 ## Acceptance Criteria
 
-1. Create `IHouseAssetService` interface:
-   - `List<HouseAssetVO> selectHouseAssetList(HouseAssetQueryDTO query)`
-   - `HouseAssetVO selectHouseAssetById(Long assetId)`
-   - `Long insertHouseAsset(HouseAssetCreateDTO dto)`
-   - `int updateHouseAsset(HouseAssetUpdateDTO dto)`
-   - `int deleteHouseAssetByIds(Long[] assetIds)`
-   - `HouseAssetVO copyHouseAsset(Long sourceAssetId)` - for same-floor copy
-
-2. Create `HouseAssetServiceImpl`:
-
-3. Implement `insertHouseAsset`:
-   - Validate input DTO
-   - Call `AssetCodeGenerator.generate()` for asset code
-   - Insert into both `t_asset` and `t_asset_house` in transaction
-   - Return new asset ID
-
-4. Implement `updateHouseAsset`:
-   - Validate asset exists and user has permission
-   - Update both base and extension tables
-   - Record changes in audit log for key fields
-
-5. Implement `deleteHouseAssetByIds`:
-   - Soft delete (set del_flag = '2')
-   - Check for active maintenance orders before delete
-
-6. Implement `copyHouseAsset`:
-   - Create copy with new asset code
-   - Useful for same-floor multi-unit scenarios
-
-7. Use `@DataScope` for project-based access control
+1. Create `IAssetHouseService` interface
+2. Create `AssetHouseServiceImpl` implementation
+3. Implement methods:
+   - `selectAssetHouseList(AssetHouse query)` - list with pagination
+   - `selectAssetHouseById(Long id)` - get detail
+   - `insertAssetHouse(AssetHouse house)` - create with auto-generated code
+   - `updateAssetHouse(AssetHouse house)` - update with change logging
+   - `deleteAssetHouseByIds(Long[] ids)` - soft delete
+   - `copyAssetHouse(Long sourceId)` - copy for same-floor scenarios
+4. Integrate `AssetCodeGenerator` for code generation on insert
+5. Integrate `AssetStatusService` for status changes
+6. Add @DataScope annotation for project-based filtering
+7. Use @Transactional for insert/update operations
 
 ## Technical Notes
 
-- Reference: TECH.md section 6.4
-- Use `@Transactional` for multi-table operations
+- Reference: PRD Section 6.2.2 (copy feature)
+- Pattern: Service + Mapper pattern with domain service integration
+- Location: `com.ruoyi.asset.service.impl.AssetHouseServiceImpl`

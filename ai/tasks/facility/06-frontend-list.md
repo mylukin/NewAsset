@@ -1,56 +1,42 @@
 ---
 id: facility.frontend-list
 module: facility
-priority: 13
+priority: 25
 status: failing
 version: 1
 origin: manual
-dependsOn: [facility.frontend-api]
+dependsOn:
+  - facility.frontend-api
 supersedes: []
-tags: [frontend, vue, P0]
+tags:
+  - frontend
+  - vue
+  - p0
 testRequirements:
   unit:
     required: false
-    pattern: ""
+    pattern: "tests/facility/**/*.test.*"
 ---
 # Create Facility Asset List Page
 
 ## Context
 
-The facility asset list page with filtering and CRUD operations.
+Vue component for displaying facility asset list with search and actions.
 
 ## Acceptance Criteria
 
 1. Create `/src/views/asset/facility/index.vue`
-
-2. Implement search filters:
-   - Project selector
-   - Building input
-   - Floor input
-   - Facility Type selector (dict: facility_type)
-   - Status selector
-   - Search/Reset buttons
-
-3. Implement action toolbar:
-   - Add, Export, Batch Delete buttons with permissions
-
-4. Implement data table with columns:
-   - Asset Code
-   - Asset Name
-   - Project
-   - Location (Building/Floor)
-   - Facility Type
-   - Equipment No
-   - Status
-   - Maintenance Org
-   - Warranty Expire Date
-   - Actions
-
-5. Implement pagination
-
-6. Row actions: View, Edit, Delete, Initiate Maintenance
+2. Implement search filters: project, building, floor, facilityType, status
+3. Implement data table with columns:
+   - Asset code, name, project, building, floor
+   - Facility type, equipment no, status
+   - Maintenance org, actions
+4. Action buttons: Add, Edit, Delete, View, Initiate Maintenance, Export
+5. Use permission directive for access control
+6. Support Excel export
 
 ## Technical Notes
 
-- Reference: PRD section 6.3.2
-- Same pattern as house list page
+- Reference: PRD Section 6.3.2
+- Pattern: RuoYi list page
+- Components: el-table, el-pagination

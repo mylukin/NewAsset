@@ -1,62 +1,49 @@
 ---
 id: house.frontend-detail
 module: house
-priority: 5
+priority: 18
 status: failing
 version: 1
 origin: manual
-dependsOn: [house.frontend-api]
+dependsOn:
+  - house.frontend-api
 supersedes: []
-tags: [frontend, vue, P0]
+tags:
+  - frontend
+  - vue
+  - p0
 testRequirements:
   unit:
     required: false
-    pattern: ""
+    pattern: "tests/house/**/*.test.*"
 ---
-# Create House Asset Detail Page
+# Create House Asset Detail Page/Drawer
 
 ## Context
 
-The detail page shows comprehensive information about a house asset including maintenance history and attachments.
+Detail view showing all house asset information, maintenance records, and attachments with action buttons.
 
 ## Acceptance Criteria
 
-1. Create `/src/views/asset/house/detail.vue` (or drawer component):
-
+1. Create detail drawer or modal component
 2. Implement tabbed layout:
-
-   **Tab 1: Basic Information**
-   - Display all asset fields in description list format
-   - Asset code prominently displayed
-   - Status with colored tag
-   - Edit button (with permission)
-
-   **Tab 2: Maintenance Records**
-   - List of historical maintenance orders for this asset
-   - Columns: Order No, Type, Status, Create Time, Handler
-   - Link to order detail
-   - "Initiate Maintenance" button
-
-   **Tab 3: Attachments**
-   - List of uploaded files
-   - Preview for images
-   - Download link for documents
-   - Upload button (with permission)
-   - Delete button (with permission)
-
-3. Show breadcrumb navigation
-
-4. Handle loading and error states
-
-5. Quick actions in header:
-   - Edit
-   - Copy (create similar)
+   - Tab 1: Basic Info - all asset and extension fields
+   - Tab 2: Maintenance Records - list from maintenance module
+   - Tab 3: Attachments - uploaded files with preview/download
+3. Display fields with proper formatting:
+   - Dates formatted, numbers with units
+   - Status with colored badges
+   - Dictionary values with labels
+4. Action buttons:
+   - Edit (with permission)
    - Initiate Maintenance
-   - Back to list
-
-6. Display audit info (created by, updated by, timestamps)
+   - Upload Attachment
+   - Copy Asset
+5. Show asset code prominently
+6. Link to related maintenance orders
 
 ## Technical Notes
 
-- Reference: PRD section 6.2.2 point 3
-- Can use drawer or full page based on UX preference
+- Reference: PRD Section 6.2.2 Point 3
+- Pattern: el-drawer with el-tabs
+- Integration: Call maintenance API for records

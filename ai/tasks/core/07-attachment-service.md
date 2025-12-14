@@ -1,49 +1,45 @@
 ---
 id: core.attachment-service
 module: core
-priority: 3
+priority: 7
 status: failing
 version: 1
 origin: manual
-dependsOn: [core.database-schema]
+dependsOn:
+  - core.database-schema
 supersedes: []
-tags: [backend, service]
+tags:
+  - service
+  - file-upload
+  - p0
 testRequirements:
   unit:
-    required: true
+    required: false
     pattern: "tests/core/**/*.test.*"
 ---
-# Implement Asset Attachment Service
+# Create Asset Attachment Service
 
 ## Context
 
-Assets and maintenance orders support file attachments (photos, contracts, documents). This service handles upload, download, and management of these files.
+Assets and maintenance orders support file attachments (photos, contracts, documents). A unified attachment service handles upload, storage, and retrieval.
 
 ## Acceptance Criteria
 
-1. Create `AssetAttachment` entity mapping `t_asset_attachment`:
-   - id, asset_id, file_name, file_path, file_type, file_size
-   - upload_by, upload_time, remark
-
-2. Create `AssetAttachmentMapper` with CRUD operations
-
-3. Create `AssetAttachmentService`:
-   - `upload(Long assetId, MultipartFile file)` - save file and create record
-   - `download(Long attachmentId)` - return file stream
+1. Create `AssetAttachment` entity mapping `t_asset_attachment`
+2. Create `AssetAttachmentMapper` for CRUD operations
+3. Create `AssetAttachmentService` with methods:
+   - `upload(Long assetId, MultipartFile file)` - upload and save attachment
+   - `list(Long assetId)` - get all attachments for an asset
+   - `download(Long attachmentId)` - retrieve file for download
    - `delete(Long attachmentId)` - soft delete attachment
-   - `listByAssetId(Long assetId)` - get all attachments for an asset
-
-4. Create `AssetAttachmentController`:
-   - `POST /asset/attachment/upload` - upload file
-   - `GET /asset/attachment/{id}` - download file
-   - `DELETE /asset/attachment/{id}` - delete attachment
-   - `GET /asset/attachment/list/{assetId}` - list attachments
-
-5. Integrate with RuoYi's file storage configuration
-6. Support multiple file upload
-7. Validate file types and sizes (configurable limits)
+4. Integrate with RuoYi file upload infrastructure
+5. Support multiple file types (images, PDF, documents)
+6. Store file metadata: fileName, filePath, fileType, fileSize, uploadBy, uploadTime
+7. Add file size and type validation
 
 ## Technical Notes
 
-- Reference: PRD section 4.5
-- Use RuoYi's existing file upload utilities
+- Reference: PRD Section 4.5, RuoYi file upload components
+- Pattern: Service + Mapper pattern
+- Storage: Use RuoYi configured file storage path
+- Location: `com.ruoyi.asset.service.AssetAttachmentService`

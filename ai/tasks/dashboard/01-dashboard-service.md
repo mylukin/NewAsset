@@ -1,52 +1,50 @@
 ---
 id: dashboard.service
 module: dashboard
-priority: 16
+priority: 69
 status: failing
 version: 1
 origin: manual
-dependsOn: [house.statistics, parking.statistics, maintenance.order-crud-service]
+dependsOn:
+  - house.statistics
+  - parking.statistics
+  - maintenance.order-crud-service
 supersedes: []
-tags: [backend, service, P0]
+tags:
+  - service
+  - p0
 testRequirements:
   unit:
-    required: true
+    required: false
     pattern: "tests/dashboard/**/*.test.*"
 ---
 # Create Dashboard Service
 
 ## Context
 
-Aggregate statistics from all asset modules for dashboard display.
+Unified service aggregating statistics from all asset modules for dashboard display.
 
 ## Acceptance Criteria
 
-1. Create `IDashboardService` interface:
-   - `DashboardMetrics getManagementMetrics(Long projectId)` - for management/ops
-   - `DashboardMetrics getAssetManagerMetrics(Long projectId)` - for asset managers
-   - `OpsDashboardMetrics getOpsMetrics(Long userId)` - for ops staff
-
-2. Create `DashboardMetrics` VO for management view:
-   - `totalAssetCount` - total assets across all types
-   - `houseVacancyRate` - house vacancy rate
-   - `parkingVacancyRate` - parking vacancy rate
-   - `newOrdersThisMonth` - new maintenance orders this month
-   - `openOrderCount` - unclosed orders
-   - `recentOrders` - List of recent orders (top 10)
-   - `assetCountByType` - Map for asset distribution
-
-3. Create `AssetManagerMetrics` VO:
-   - `incompleteAssets` - assets missing key fields
-   - `recentAssets` - recently added assets
-   - `assetCountByCategory` - pie chart data
-
-4. Create `OpsDashboardMetrics` VO:
-   - `myPendingOrders` - orders waiting for me
-   - `myCompletedThisMonth` - completed count
-   - `myInProgressCount` - in progress count
-
-5. Implement caching (5-minute TTL) for expensive aggregations
+1. Create `IDashboardService` interface
+2. Create `DashboardServiceImpl` implementation
+3. Implement methods for management dashboard:
+   - `getAssetSummary(Long projectId)` - total assets by type
+   - `getHouseVacancyRate(Long projectId)` - house vacancy metrics
+   - `getParkingVacancyRate(Long projectId)` - parking vacancy metrics
+   - `getMaintOrderSummary(Long projectId)` - current month orders, open orders
+   - `getRecentMaintOrders(Long projectId, int limit)` - recent orders list
+4. Implement methods for ops dashboard:
+   - `getMyPendingOrders(Long userId)` - pending work queue
+   - `getMyMonthlyStats(Long userId)` - completed/in-progress counts
+5. Implement methods for asset manager dashboard:
+   - `getIncompleteAssets(Long projectId)` - assets missing key fields
+   - `getRecentAssets(Long projectId, int limit)` - recently added
+   - `getAssetCountByType(Long projectId)` - pie chart data
+6. Apply data scope filtering
 
 ## Technical Notes
 
-- Reference: PRD section 7.1
+- Reference: PRD Section 7
+- Pattern: Aggregation service calling other services
+- Location: `com.ruoyi.asset.service.impl.DashboardServiceImpl`

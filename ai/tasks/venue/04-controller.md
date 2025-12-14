@@ -1,43 +1,41 @@
 ---
 id: venue.controller
 module: venue
-priority: 14
+priority: 42
 status: failing
 version: 1
 origin: manual
-dependsOn: [venue.service]
+dependsOn:
+  - venue.service
 supersedes: []
-tags: [backend, controller, P0]
+tags:
+  - controller
+  - api
+  - p0
 testRequirements:
   unit:
-    required: true
+    required: false
     pattern: "tests/venue/**/*.test.*"
 ---
 # Create Venue Asset Controller
 
 ## Context
 
-RESTful API endpoints for venue asset operations.
+RESTful API controller for venue asset management.
 
 ## Acceptance Criteria
 
-1. Create `VenueAssetController`:
-   - Base path: `/asset/venue`
-
+1. Create `AssetVenueController`
 2. Implement endpoints:
-   - `GET /asset/venue/list`
-   - `GET /asset/venue/{id}`
-   - `POST /asset/venue`
-   - `PUT /asset/venue`
-   - `DELETE /asset/venue/{ids}`
-   - `POST /asset/venue/export`
-   - `PUT /asset/venue/{id}/status` - update venue status
-
-3. Add permission annotations:
-   - `asset:venue:*`
-
-4. Add `@Log` annotations
+   - GET /asset/venue/list, GET /asset/venue/{id}
+   - POST /asset/venue, PUT /asset/venue
+   - DELETE /asset/venue/{ids}, POST /asset/venue/export
+3. Add permission annotations: `asset:venue:*`
+4. Add operation logging
+5. Return standard response format
 
 ## Technical Notes
 
-- Reference: TECH.md section 6.1
+- Reference: TECH.md Section 6
+- Pattern: RuoYi BaseController
+- Permissions: asset:venue:list, query, add, edit, remove, export

@@ -1,43 +1,41 @@
 ---
 id: office.mapper
 module: office
-priority: 10
+priority: 49
 status: failing
 version: 1
 origin: manual
-dependsOn: [office.entity]
+dependsOn:
+  - office.entity
 supersedes: []
-tags: [backend, mapper, P0]
+tags:
+  - mapper
+  - database
+  - p0
 testRequirements:
   unit:
-    required: true
+    required: false
     pattern: "tests/office/**/*.test.*"
 ---
 # Create Office Asset Mapper
 
 ## Context
 
-Database access for office asset CRUD operations.
+MyBatis mapper for office asset CRUD operations.
 
 ## Acceptance Criteria
 
-1. Create `OfficeAssetMapper` interface
-
-2. Create `OfficeAssetMapper.xml`
-
-3. Implement query methods:
-   - `selectOfficeAssetList(OfficeAssetQueryDTO query)` - filters: project, useDeptId, officeType, dutyUserId (责任人)
-   - `selectOfficeAssetById(Long assetId)`
-   - `selectOfficeAssetByCode(String assetCode)`
-   - `selectOfficeAssetBySerialNo(String serialNo)` - for IT asset lookup
-
-4. Implement write methods:
-   - `insertOfficeAsset(OfficeAsset office)`
-   - `updateOfficeAsset(OfficeAsset office)`
-   - `deleteOfficeAssetByAssetId(Long assetId)`
-
-5. Support joined queries with base asset table
+1. Create `AssetOfficeMapper` interface
+2. Create XML mapper file
+3. Implement methods:
+   - selectAssetOfficeList, selectAssetOfficeById
+   - insertAssetOffice, updateAssetOffice, deleteAssetOfficeByIds
+4. Support filters: projectId, useDeptId, officeType, dutyUserId, status
+5. Include data scope filtering
+6. Join with base asset table
 
 ## Technical Notes
 
-- Similar pattern to other asset mappers
+- Reference: TECH.md Section 4.1.2
+- Pattern: MyBatis XML mapper
+- Location: `resources/mapper/asset/AssetOfficeMapper.xml`

@@ -1,42 +1,42 @@
 ---
 id: maintenance.asset-maint-history
 module: maintenance
-priority: 7
+priority: 67
 status: failing
 version: 1
 origin: manual
-dependsOn: [maintenance.order-crud-service]
+dependsOn:
+  - maintenance.order-crud-service
 supersedes: []
-tags: [backend, frontend, P0]
+tags:
+  - integration
+  - p0
 testRequirements:
   unit:
-    required: true
+    required: false
     pattern: "tests/maintenance/**/*.test.*"
 ---
-# Implement Asset Maintenance History
+# Integrate Maintenance History into Asset Detail Pages
 
 ## Context
 
-Display maintenance history on asset detail pages and support filtering/export.
+Each asset detail page should display its maintenance history from the maintenance module.
 
 ## Acceptance Criteria
 
-1. Backend:
-   - Add endpoint `GET /asset/{id}/maint-history` - get maintenance orders for asset
-   - Support filters: orderType, status, dateRange
-   - Support export
-
-2. Frontend - Asset Detail Integration:
-   - Add "Maintenance Records" tab to all asset detail pages
-   - Show list of orders with columns: Order No, Type, Status, Create Time, Handler
-   - Click to view order detail
-   - "Initiate Maintenance" button
-
-3. Create reusable component:
-   - `/src/components/asset/MaintHistoryList.vue`
-   - Props: assetId
-   - Used in house/parking/facility/venue/office detail pages
+1. Create reusable component: `AssetMaintHistory.vue`
+2. Accept assetId as prop
+3. Display list of related maintenance orders:
+   - Order no, type, status, create time
+   - Brief description, handler
+4. Support filtering by status and type
+5. Link to full order detail
+6. Support Excel export of history
+7. Integrate into all asset detail drawers:
+   - house, parking, facility, venue, office
 
 ## Technical Notes
 
-- Reference: PRD section 6.1.2 point 2
+- Reference: PRD Section 6.1.2 Point 2
+- Pattern: Reusable component
+- API: GET /asset/maint/order/asset/{assetId}

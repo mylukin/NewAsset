@@ -7,39 +7,32 @@ version: 1
 origin: manual
 dependsOn: []
 supersedes: []
-tags: [backend, setup]
+tags:
+  - infrastructure
+  - p0
 testRequirements:
   unit:
     required: false
-    pattern: ""
+    pattern: "tests/core/**/*.test.*"
 ---
-# Initialize ruoyi-asset Module
+# Initialize ruoyi-asset Module Structure
 
 ## Context
 
-The asset management system is built on top of RuoYi-Vue framework. We need to create a new `ruoyi-asset` module to house all asset-related business logic.
+The Asset Management System requires a new module `ruoyi-asset` within the RuoYi-Vue framework. This module will house all asset-related business logic following the established package structure.
 
 ## Acceptance Criteria
 
-1. Create `ruoyi-asset` Maven module under `ruoyi-modules/`
-2. Configure `pom.xml` with proper dependencies (ruoyi-common, ruoyi-framework)
-3. Create package structure:
-   - `com.ruoyi.asset.config`
-   - `com.ruoyi.asset.domain.entity`
-   - `com.ruoyi.asset.domain.vo`
-   - `com.ruoyi.asset.domain.enums`
-   - `com.ruoyi.asset.mapper`
-   - `com.ruoyi.asset.service`
-   - `com.ruoyi.asset.service.impl`
-   - `com.ruoyi.asset.service.rule`
-   - `com.ruoyi.asset.controller`
-   - `com.ruoyi.asset.util`
-   - `com.ruoyi.asset.constant`
-4. Add module to parent `pom.xml`
-5. Create `application.yml` with MyBatis mapper scanning configuration
-6. Verify module compiles without errors
+1. Create `ruoyi-modules/ruoyi-asset` Maven module with proper pom.xml dependencies
+2. Set up package structure: `com.ruoyi.asset.{config,domain,mapper,service,controller,util,constant}`
+3. Create sub-packages: `domain.entity`, `domain.vo`, `domain.enums`, `service.impl`, `service.rule`
+4. Configure MyBatis mapper scanning for the asset module
+5. Add module dependency to parent pom.xml
+6. Create basic module configuration class `AssetConfig.java`
+7. Verify module compiles and starts with RuoYi application
 
 ## Technical Notes
 
-- Reference: RuoYi-Vue module structure
-- Pattern: Spring Boot multi-module project
+- Reference: RuoYi existing module structure (`ruoyi-system`)
+- Pattern: Standard Spring Boot module configuration
+- File: `ruoyi-modules/ruoyi-asset/pom.xml`

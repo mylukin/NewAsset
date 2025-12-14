@@ -1,48 +1,41 @@
 ---
 id: parking.frontend-form
 module: parking
-priority: 9
+priority: 36
 status: failing
 version: 1
 origin: manual
-dependsOn: [parking.frontend-api]
+dependsOn:
+  - parking.frontend-api
 supersedes: []
-tags: [frontend, vue, P0]
+tags:
+  - frontend
+  - vue
+  - p0
 testRequirements:
   unit:
     required: false
-    pattern: ""
+    pattern: "tests/parking/**/*.test.*"
 ---
-# Create Parking Asset Form Component
+# Create Parking Asset Form Dialog
 
 ## Context
 
-Form component for creating and editing parking assets.
+Vue dialog for creating and editing parking assets.
 
 ## Acceptance Criteria
 
-1. Create `/src/views/asset/parking/components/ParkingForm.vue`
-
-2. Implement form fields:
-   - Project (required)
-   - Asset Name
-   - Parking No (required)
-   - Parking Zone (required)
-   - Parking Type (required)
-   - Area (optional)
-   - Current User (optional)
-   - Plate No (optional)
-   - Rent Price (optional)
-   - Contract No (optional)
-   - Ownership Type
-   - Duty Person
-   - Status
-   - Remark
-
-3. Implement validation rules
-
-4. Support create/edit modes
+1. Create form dialog component
+2. Form fields:
+   - Basic: assetName, projectId, parkingZone
+   - Parking: parkingNo, parkingType, area
+   - Usage: currentUser, plateNo, rentPrice, contractNo
+   - Common: brand, model, supplier, originalValue, remark
+3. Auto-generated asset code display
+4. Form validation
+5. Add and edit modes
 
 ## Technical Notes
 
-- Reference: PRD section 6.4.2 point 2
+- Reference: PRD Section 6.4.2
+- Pattern: el-dialog with el-form

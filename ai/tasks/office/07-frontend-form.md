@@ -1,55 +1,42 @@
 ---
 id: office.frontend-form
 module: office
-priority: 11
+priority: 54
 status: failing
 version: 1
 origin: manual
-dependsOn: [office.frontend-api]
+dependsOn:
+  - office.frontend-api
 supersedes: []
-tags: [frontend, vue, P0]
+tags:
+  - frontend
+  - vue
+  - p0
 testRequirements:
   unit:
     required: false
-    pattern: ""
+    pattern: "tests/office/**/*.test.*"
 ---
-# Create Office Asset Form Component
+# Create Office Asset Form Dialog
 
 ## Context
 
-Form component for creating and editing office assets with dynamic fields based on type.
+Vue dialog for creating and editing office assets.
 
 ## Acceptance Criteria
 
-1. Create `/src/views/asset/office/components/OfficeForm.vue`
-
-2. Implement common form fields:
-   - Project (required)
-   - Asset Name (required)
-   - Office Type (required)
-   - Use Department
-   - Workplace No
-   - Use User
-   - Duty Person
-   - Status
-   - Ownership Type
-   - Purchase Date
-   - Original Value
-   - Brand/Model
-   - Supplier
-   - Warranty Expire Date
-   - Remark
-
-3. Implement IT-specific fields (shown when officeType = 'IT_EQUIPMENT'):
-   - Serial No / Asset Tag No
-   - OS Info
-   - Config Description
-
-4. Implement validation rules
-
-5. Support create/edit modes
+1. Create form dialog component
+2. Form fields:
+   - Basic: assetName, projectId, useDeptId, dutyUserId
+   - Office: officeType, workplaceNo, useUser, serialNo
+   - IT-specific: osInfo, configDesc (show when officeType is IT设备)
+   - Common: brand, model, supplier, originalValue, remark
+3. Conditional field display based on officeType
+4. Auto-generated asset code display
+5. Form validation
 
 ## Technical Notes
 
-- Reference: PRD section 6.6.2 point 2
-- Use v-if for conditional fields
+- Reference: PRD Section 6.6.2
+- Pattern: el-dialog with el-form
+- Conditional: v-if for IT-specific fields

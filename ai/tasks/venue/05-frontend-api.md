@@ -1,37 +1,37 @@
 ---
 id: venue.frontend-api
 module: venue
-priority: 15
+priority: 43
 status: failing
 version: 1
 origin: manual
-dependsOn: [venue.controller]
+dependsOn:
+  - venue.controller
 supersedes: []
-tags: [frontend, api, P0]
+tags:
+  - frontend
+  - api
+  - p0
 testRequirements:
   unit:
     required: false
-    pattern: ""
+    pattern: "tests/venue/**/*.test.*"
 ---
 # Create Venue Asset Frontend API Module
 
 ## Context
 
-Frontend API module for venue asset operations.
+Axios API module for venue asset frontend.
 
 ## Acceptance Criteria
 
 1. Create `/src/api/asset/venue.js`
-
 2. Implement API functions:
-   - `listVenue(query)`
-   - `getVenue(id)`
-   - `addVenue(data)`
-   - `updateVenue(data)`
-   - `delVenue(ids)`
-   - `exportVenue(query)`
-   - `updateVenueStatus(id, status)` - update availability
+   - listVenue, getVenue, addVenue, updateVenue, delVenue, exportVenue
+3. Use RuoYi request utility
+4. Export all functions
 
 ## Technical Notes
 
-- Reference: TECH.md section 7.3
+- Reference: TECH.md Section 7.3
+- File: `ruoyi-ui/src/api/asset/venue.js`

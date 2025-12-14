@@ -1,37 +1,37 @@
 ---
 id: office.frontend-api
 module: office
-priority: 11
+priority: 52
 status: failing
 version: 1
 origin: manual
-dependsOn: [office.controller]
+dependsOn:
+  - office.controller
 supersedes: []
-tags: [frontend, api, P0]
+tags:
+  - frontend
+  - api
+  - p0
 testRequirements:
   unit:
     required: false
-    pattern: ""
+    pattern: "tests/office/**/*.test.*"
 ---
 # Create Office Asset Frontend API Module
 
 ## Context
 
-Frontend API module for office asset operations.
+Axios API module for office asset frontend.
 
 ## Acceptance Criteria
 
 1. Create `/src/api/asset/office.js`
-
 2. Implement API functions:
-   - `listOffice(query)`
-   - `getOffice(id)`
-   - `addOffice(data)`
-   - `updateOffice(data)`
-   - `delOffice(ids)`
-   - `exportOffice(query)`
-   - `getOfficeConditionStats(projectId, deptId)` - P1
+   - listOffice, getOffice, addOffice, updateOffice, delOffice, exportOffice
+3. Use RuoYi request utility
+4. Export all functions
 
 ## Technical Notes
 
-- Reference: TECH.md section 7.3
+- Reference: TECH.md Section 7.3
+- File: `ruoyi-ui/src/api/asset/office.js`

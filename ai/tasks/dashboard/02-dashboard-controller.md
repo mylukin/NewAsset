@@ -1,41 +1,47 @@
 ---
 id: dashboard.controller
 module: dashboard
-priority: 16
+priority: 70
 status: failing
 version: 1
 origin: manual
-dependsOn: [dashboard.service]
+dependsOn:
+  - dashboard.service
 supersedes: []
-tags: [backend, controller, P0]
+tags:
+  - controller
+  - api
+  - p0
 testRequirements:
   unit:
-    required: true
+    required: false
     pattern: "tests/dashboard/**/*.test.*"
 ---
 # Create Dashboard Controller
 
 ## Context
 
-API endpoints for dashboard data based on user role.
+RESTful API endpoints for dashboard data retrieval.
 
 ## Acceptance Criteria
 
-1. Create `DashboardController`:
-   - Base path: `/asset/dashboard`
-
+1. Create `DashboardController`
 2. Implement endpoints:
-   - `GET /asset/dashboard/management` - management/ops dashboard data
-   - `GET /asset/dashboard/asset-manager` - asset manager dashboard data
-   - `GET /asset/dashboard/ops` - operations staff dashboard data
-
-3. Role-based access:
-   - Management endpoint: requires `dashboard:management:view`
-   - Asset manager endpoint: requires `dashboard:assetmanager:view`
-   - Ops endpoint: requires `dashboard:ops:view`
-
-4. Support project filter parameter
+   - GET /asset/dashboard/summary - asset counts summary
+   - GET /asset/dashboard/vacancy - vacancy rates (house + parking)
+   - GET /asset/dashboard/maint-summary - maintenance order summary
+   - GET /asset/dashboard/recent-orders - recent maintenance orders
+   - GET /asset/dashboard/my-pending - ops pending queue
+   - GET /asset/dashboard/my-stats - ops monthly stats
+   - GET /asset/dashboard/incomplete-assets - assets needing attention
+   - GET /asset/dashboard/recent-assets - recently added assets
+   - GET /asset/dashboard/asset-distribution - asset count by type
+3. All endpoints support projectId filter parameter
+4. Add appropriate permission checks
+5. Return optimized response for dashboard widgets
 
 ## Technical Notes
 
-- Reference: PRD section 7.1
+- Reference: PRD Section 7.1
+- Pattern: RuoYi BaseController
+- Permissions: Varies by role-based dashboard

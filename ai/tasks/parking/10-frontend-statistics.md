@@ -1,40 +1,43 @@
 ---
 id: parking.frontend-statistics
 module: parking
-priority: 9
+priority: 38
 status: failing
 version: 1
 origin: manual
-dependsOn: [parking.statistics, parking.frontend-api]
+dependsOn:
+  - parking.frontend-api
+  - parking.statistics
 supersedes: []
-tags: [frontend, vue, P0]
+tags:
+  - frontend
+  - statistics
+  - p0
 testRequirements:
   unit:
     required: false
-    pattern: ""
+    pattern: "tests/parking/**/*.test.*"
 ---
 # Create Parking Asset Statistics View
 
 ## Context
 
-Display parking utilization statistics with zone breakdown.
+Statistics dashboard for parking utilization metrics.
 
 ## Acceptance Criteria
 
-1. Create statistics view (integrated or separate page)
-
-2. Implement statistics cards:
-   - Total Parking Count
-   - Self-Use Count & Ratio
-   - Rented Count & Ratio
-   - Idle Count & Ratio
-
-3. Add project and zone selectors
-
-4. Implement bar/pie chart for zone comparison
-
-5. Show utilization rate by zone
+1. Create statistics component
+2. Display metric cards:
+   - Total parking count
+   - Self-use count with percentage
+   - Rent count with percentage
+   - Idle count with vacancy rate
+3. Filter by project and parking zone
+4. Visual indicators (progress bars or charts)
+5. Auto-refresh on filter change
 
 ## Technical Notes
 
-- Reference: PRD section 6.4.2 point 4
+- Reference: PRD Section 6.4.2 Point 4
+- Pattern: Dashboard cards
+- Optional: ECharts visualization

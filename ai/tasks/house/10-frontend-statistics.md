@@ -1,51 +1,44 @@
 ---
 id: house.frontend-statistics
 module: house
-priority: 5
+priority: 19
 status: failing
 version: 1
 origin: manual
-dependsOn: [house.statistics, house.frontend-api]
+dependsOn:
+  - house.frontend-api
+  - house.statistics
 supersedes: []
-tags: [frontend, vue, P0]
+tags:
+  - frontend
+  - statistics
+  - p0
 testRequirements:
   unit:
     required: false
-    pattern: ""
+    pattern: "tests/house/**/*.test.*"
 ---
 # Create House Asset Statistics View
 
 ## Context
 
-Display statistical overview of house assets with key metrics and visualizations.
+Statistics dashboard showing house asset metrics like vacancy rates and usage distribution.
 
 ## Acceptance Criteria
 
-1. Create `/src/views/asset/house/statistics.vue` (or integrate into list page):
-
-2. Implement statistics cards:
-   - Total House Count (总房源数量)
-   - Self-Use Count & Ratio (自用数量/占比)
-   - Rented Count & Ratio (出租数量/占比)
-   - Idle Count & Ratio (空置数量/占比) - highlight if > threshold
-
+1. Create statistics component (can be in index.vue or separate)
+2. Display metric cards:
+   - Total house count
+   - Self-use count with percentage
+   - Rent count with percentage
+   - Idle count with vacancy rate
 3. Add project selector to filter statistics
-
-4. Implement pie chart for usage distribution:
-   - Self-use vs Rented vs Idle
-   - Use ECharts or similar library
-
-5. Optionally add trend line if historical data available (P1)
-
-6. Refresh button to reload statistics
-
-7. Style cards with appropriate colors:
-   - Green for positive indicators
-   - Red/Yellow for concerning metrics (high vacancy)
-
-8. Make statistics cards clickable to filter list
+4. Use visual indicators (progress bars or pie charts)
+5. Auto-refresh on project change
+6. Handle loading and error states
 
 ## Technical Notes
 
-- Reference: PRD section 6.2.2 point 4
-- Consider using dashboard component library
+- Reference: PRD Section 6.2.2 Point 4
+- Pattern: Dashboard cards with metrics
+- Optional: Use ECharts for pie chart visualization

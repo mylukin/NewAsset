@@ -1,41 +1,44 @@
 ---
 id: parking.entity
 module: parking
-priority: 8
+priority: 29
 status: failing
 version: 1
 origin: manual
-dependsOn: [core.asset-base-entity]
+dependsOn:
+  - core.asset-base-entity
 supersedes: []
-tags: [backend, entity, P0]
+tags:
+  - entity
+  - p0
 testRequirements:
   unit:
-    required: true
+    required: false
     pattern: "tests/parking/**/*.test.*"
 ---
 # Create Parking Asset Entity
 
 ## Context
 
-Parking assets represent parking spaces with rental and usage information.
+Parking assets represent parking spaces with usage status and rental information.
 
 ## Acceptance Criteria
 
-1. Create `ParkingAsset` entity in `com.ruoyi.asset.domain.entity`:
-   - Map to `t_asset_parking` table (asset_id as PK/FK)
-
-2. Include parking-specific fields:
-   - `parkingNo` (车位编号) - String
-   - `parkingZone` (车库区域) - String (地上/地下/编号)
-   - `parkingType` (车位类型) - String (dict: parking_type, 固定/临停)
-   - `area` (车位面积) - BigDecimal (optional)
-   - `currentUser` (当前使用人) - String
-   - `plateNo` (车牌号) - String
-   - `rentPrice` (包月金额/租金) - BigDecimal
-   - `contractNo` (合同编号) - String
-
-3. Create `ParkingAssetVO`, `ParkingAssetCreateDTO`, `ParkingAssetUpdateDTO`
+1. Create `AssetParking` entity referencing `Asset` base
+2. Map extension fields from `t_asset_parking`:
+   - parkingNo (车位编号)
+   - parkingZone (车库区域: 地上/地下/编号)
+   - parkingType (车位类型: 固定/临停)
+   - area (车位面积)
+   - currentUser (当前使用人)
+   - plateNo (车牌号)
+   - rentPrice (租金/包月金额)
+   - contractNo (合同编号)
+3. Create VO and DTO classes
+4. Add validation annotations
 
 ## Technical Notes
 
-- Reference: TECH.md section 4.1.2 (t_asset_parking)
+- Reference: TECH.md Section 4.1.2 (t_asset_parking)
+- Pattern: One-to-one extension table
+- Location: `com.ruoyi.asset.domain.entity.AssetParking`

@@ -1,42 +1,41 @@
 ---
 id: venue.mapper
 module: venue
-priority: 14
+priority: 40
 status: failing
 version: 1
 origin: manual
-dependsOn: [venue.entity]
+dependsOn:
+  - venue.entity
 supersedes: []
-tags: [backend, mapper, P0]
+tags:
+  - mapper
+  - database
+  - p0
 testRequirements:
   unit:
-    required: true
+    required: false
     pattern: "tests/venue/**/*.test.*"
 ---
 # Create Venue Asset Mapper
 
 ## Context
 
-Database access for venue asset CRUD operations.
+MyBatis mapper for venue asset CRUD operations.
 
 ## Acceptance Criteria
 
-1. Create `VenueAssetMapper` interface
-
-2. Create `VenueAssetMapper.xml`
-
-3. Implement query methods:
-   - `selectVenueAssetList(VenueAssetQueryDTO query)` - filters: project, venueType, currentVenueStatus
-   - `selectVenueAssetById(Long assetId)`
-   - `selectVenueAssetByCode(String assetCode)`
-
-4. Implement write methods:
-   - `insertVenueAsset(VenueAsset venue)`
-   - `updateVenueAsset(VenueAsset venue)`
-   - `deleteVenueAssetByAssetId(Long assetId)`
-
-5. Support joined queries with base asset table
+1. Create `AssetVenueMapper` interface
+2. Create XML mapper file
+3. Implement methods:
+   - selectAssetVenueList, selectAssetVenueById
+   - insertAssetVenue, updateAssetVenue, deleteAssetVenueByIds
+4. Support filters: projectId, venueType, currentVenueStatus, status
+5. Include data scope filtering
+6. Join with base asset table
 
 ## Technical Notes
 
-- Similar pattern to other asset mappers
+- Reference: TECH.md Section 4.1.2
+- Pattern: MyBatis XML mapper
+- Location: `resources/mapper/asset/AssetVenueMapper.xml`

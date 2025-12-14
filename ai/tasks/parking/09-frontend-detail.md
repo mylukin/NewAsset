@@ -1,37 +1,39 @@
 ---
 id: parking.frontend-detail
 module: parking
-priority: 9
+priority: 37
 status: failing
 version: 1
 origin: manual
-dependsOn: [parking.frontend-api]
+dependsOn:
+  - parking.frontend-api
 supersedes: []
-tags: [frontend, vue, P0]
+tags:
+  - frontend
+  - vue
+  - p0
 testRequirements:
   unit:
     required: false
-    pattern: ""
+    pattern: "tests/parking/**/*.test.*"
 ---
-# Create Parking Asset Detail Page
+# Create Parking Asset Detail Drawer
 
 ## Context
 
-Detail page for parking assets.
+Detail view for parking assets with maintenance records.
 
 ## Acceptance Criteria
 
-1. Create `/src/views/asset/parking/detail.vue`
-
-2. Implement tabbed layout:
-   - Tab 1: Basic Info + Usage Info
+1. Create detail drawer component
+2. Tabbed layout:
+   - Tab 1: Basic Info
    - Tab 2: Maintenance Records
    - Tab 3: Attachments
-
-3. Display usage status prominently
-
-4. Quick actions: Edit, Initiate Maintenance
+3. Action buttons: Edit, Initiate Maintenance
+4. Display usage info prominently (plate no, current user)
 
 ## Technical Notes
 
-- Reference: PRD section 6.4.2 point 3
+- Reference: PRD Section 6.4.2 Point 3
+- Pattern: el-drawer with el-tabs

@@ -1,42 +1,39 @@
 ---
 id: facility.frontend-detail
 module: facility
-priority: 13
+priority: 27
 status: failing
 version: 1
 origin: manual
-dependsOn: [facility.frontend-api]
+dependsOn:
+  - facility.frontend-api
 supersedes: []
-tags: [frontend, vue, P0]
+tags:
+  - frontend
+  - vue
+  - p0
 testRequirements:
   unit:
     required: false
-    pattern: ""
+    pattern: "tests/facility/**/*.test.*"
 ---
-# Create Facility Asset Detail Page
+# Create Facility Asset Detail Drawer
 
 ## Context
 
-Detail page showing comprehensive facility asset information.
+Detail view for facility assets with maintenance records and attachments.
 
 ## Acceptance Criteria
 
-1. Create `/src/views/asset/facility/detail.vue`
-
+1. Create detail drawer component
 2. Implement tabbed layout:
-   - Tab 1: Basic Information
+   - Tab 1: Basic Info - all fields
    - Tab 2: Maintenance Records
    - Tab 3: Attachments
-
-3. Display warranty status prominently:
-   - Green if valid
-   - Yellow if expiring soon (within 30 days)
-   - Red if expired
-
-4. Quick actions: Edit, Initiate Maintenance
-
-5. Show audit info
+3. Action buttons: Edit, Initiate Maintenance, Upload Attachment
+4. Display maintenance org contact prominently for quick access
 
 ## Technical Notes
 
-- Reference: PRD section 6.3.2 point 3
+- Reference: PRD Section 6.3.2 Point 3
+- Pattern: el-drawer with el-tabs

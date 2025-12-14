@@ -1,72 +1,50 @@
 ---
 id: maintenance.frontend-list
 module: maintenance
-priority: 7
+priority: 64
 status: failing
 version: 1
 origin: manual
-dependsOn: [maintenance.frontend-api]
+dependsOn:
+  - maintenance.frontend-api
 supersedes: []
-tags: [frontend, vue, P0]
+tags:
+  - frontend
+  - vue
+  - p0
 testRequirements:
   unit:
     required: false
-    pattern: ""
+    pattern: "tests/maintenance/**/*.test.*"
 ---
 # Create Maintenance Order List Page
 
 ## Context
 
-Maintenance order list with filtering by status, priority, and role-based views.
+Vue component for maintenance order list with workflow actions.
 
 ## Acceptance Criteria
 
 1. Create `/src/views/asset/maint/orderList.vue`
-
 2. Implement search filters:
-   - Project selector
-   - Asset type selector
-   - Order status (multi-select)
-   - Priority selector
-   - Handler selector (for admins)
-   - Create date range
-   - Search/Reset buttons
-
-3. Implement quick filter tabs:
-   - All Orders
-   - Pending Assign
-   - Pending Accept
-   - Processing
-   - Pending Confirm
-   - Closed
-
-4. Implement action toolbar:
-   - Create Order button
-   - Export button
-
-5. Implement data table with columns:
-   - Order No
-   - Asset Code
-   - Asset Name
-   - Project
-   - Order Type
-   - Priority (with color)
-   - Status (with color tag)
-   - Handler
-   - Requester
-   - Create Time
-   - Require Finish Time
-   - Actions (context-sensitive based on status)
-
-6. Row actions based on status and role:
-   - View Detail (always)
-   - Assign (when WAIT_ASSIGN and has permission)
-   - Accept (when WAIT_ACCEPT and is assigned handler)
-   - Complete (when PROCESSING and is handler)
-   - Confirm/Reject (when WAIT_CONFIRM and has permission)
-   - Cancel (when not closed)
+   - Project, asset type, order status, priority
+   - Handler, requester, date range
+3. Data table columns:
+   - Order no, asset code, asset name, project
+   - Fault type, priority, status
+   - Handler, requester, create time, require finish time
+   - Actions
+4. Action buttons based on status and role:
+   - View detail
+   - Assign (for admin when WAIT_ASSIGN)
+   - Accept (for handler when WAIT_ACCEPT)
+   - Complete (for handler when PROCESSING)
+   - Confirm/Reject (for verifier when WAIT_CONFIRM)
+   - Cancel (with permission)
+5. Status displayed with colored badges
+6. Sort by create time and require finish time
 
 ## Technical Notes
 
-- Reference: PRD section 6.1.2
-- TECH.md section 7.2
+- Reference: PRD Section 6.1.2
+- Pattern: RuoYi list page with workflow actions

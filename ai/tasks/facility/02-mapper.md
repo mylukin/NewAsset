@@ -1,45 +1,43 @@
 ---
 id: facility.mapper
 module: facility
-priority: 12
+priority: 21
 status: failing
 version: 1
 origin: manual
-dependsOn: [facility.entity]
+dependsOn:
+  - facility.entity
 supersedes: []
-tags: [backend, mapper, P0]
+tags:
+  - mapper
+  - database
+  - p0
 testRequirements:
   unit:
-    required: true
+    required: false
     pattern: "tests/facility/**/*.test.*"
 ---
 # Create Facility Asset Mapper
 
 ## Context
 
-The mapper provides database access for facility asset CRUD operations.
+MyBatis mapper for facility asset CRUD operations with base asset table join.
 
 ## Acceptance Criteria
 
-1. Create `FacilityAssetMapper` interface
-
-2. Create `FacilityAssetMapper.xml` with SQL mappings
-
-3. Implement query methods:
-   - `selectFacilityAssetList(FacilityAssetQueryDTO query)` - with filters: project, building, floor, facilityType, status
-   - `selectFacilityAssetById(Long assetId)`
-   - `selectFacilityAssetByCode(String assetCode)`
-
-4. Implement write methods:
-   - `insertFacilityAsset(FacilityAsset facility)`
-   - `updateFacilityAsset(FacilityAsset facility)`
-   - `deleteFacilityAssetByAssetId(Long assetId)`
-
-5. Support joined queries with base asset table
-
-6. Include data permission placeholder
+1. Create `AssetFacilityMapper` interface
+2. Create corresponding XML mapper file
+3. Implement methods:
+   - `selectAssetFacilityList(AssetFacility query)` - paginated list
+   - `selectAssetFacilityById(Long id)` - detail with base asset
+   - `insertAssetFacility(AssetFacility facility)` - insert both tables
+   - `updateAssetFacility(AssetFacility facility)` - update both tables
+   - `deleteAssetFacilityByIds(Long[] ids)` - soft delete
+4. Support filters: projectId, building, floor, facilityType, status
+5. Include data scope filtering
 
 ## Technical Notes
 
-- Reference: TECH.md section 6.4
-- Similar pattern to HouseAssetMapper
+- Reference: TECH.md Section 4.1.2
+- Pattern: MyBatis XML mapper with join
+- Location: `resources/mapper/asset/AssetFacilityMapper.xml`

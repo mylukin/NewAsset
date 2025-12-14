@@ -1,52 +1,48 @@
 ---
 id: maintenance.frontend-form
 module: maintenance
-priority: 7
+priority: 65
 status: failing
 version: 1
 origin: manual
-dependsOn: [maintenance.frontend-api]
+dependsOn:
+  - maintenance.frontend-api
 supersedes: []
-tags: [frontend, vue, P0]
+tags:
+  - frontend
+  - vue
+  - p0
 testRequirements:
   unit:
     required: false
-    pattern: ""
+    pattern: "tests/maintenance/**/*.test.*"
 ---
-# Create Maintenance Order Form Component
+# Create Maintenance Order Form Dialog
 
 ## Context
 
-Form for creating maintenance orders with asset selection and attachment support.
+Vue dialog for creating maintenance orders with asset selection.
 
 ## Acceptance Criteria
 
-1. Create `/src/views/asset/maint/components/OrderForm.vue`
-
-2. Implement form fields:
-   - Asset (required, asset selector component)
-     - Auto-fill from asset detail if opened from asset page
-     - Search by code or name
-     - Show asset info preview on selection
-   - Project (auto-filled from asset, read-only)
-   - Order Type (required, dropdown: 故障/报修/巡检/维保)
-   - Fault Type (dropdown based on order type)
-   - Title (required)
-   - Description (required, textarea)
-   - Priority (required, dropdown)
-   - Require Finish Time (date picker)
-   - Change Asset Status checkbox (optional)
-   - Attachments (multi-file upload)
-
-3. Implement asset selector component:
-   - Search input
-   - Recent assets dropdown
-   - Asset info preview (code, name, location, status)
-
-4. Implement validation rules
-
-5. Support mode when opened from asset detail (asset pre-selected)
+1. Create order creation dialog
+2. Form fields:
+   - Asset selection (searchable dropdown with asset code/name)
+   - Auto-populated: project, asset location
+   - Order type (fault/repair/inspection)
+   - Fault type (dictionary)
+   - Title
+   - Description (textarea)
+   - Priority (一般/重要/紧急)
+   - Require finish time (datetime picker)
+   - Change asset status checkbox (optional)
+   - Attachments (photo upload)
+3. Support creation from asset detail page (pre-filled asset)
+4. Validation for required fields
+5. Preview order number generation
 
 ## Technical Notes
 
-- Reference: PRD section 6.1.2 (New Order)
+- Reference: PRD Section 6.1.2 (新建工单)
+- Pattern: el-dialog with el-form
+- Asset selector: Custom component with search

@@ -1,40 +1,38 @@
 ---
 id: parking.service
 module: parking
-priority: 8
+priority: 31
 status: failing
 version: 1
 origin: manual
-dependsOn: [parking.mapper, core.code-generator]
+dependsOn:
+  - parking.mapper
+  - core.code-generator
 supersedes: []
-tags: [backend, service, P0]
+tags:
+  - service
+  - p0
 testRequirements:
   unit:
-    required: true
+    required: false
     pattern: "tests/parking/**/*.test.*"
 ---
 # Create Parking Asset Service
 
 ## Context
 
-Business logic for parking assets including statistics.
+Service layer for parking asset business logic.
 
 ## Acceptance Criteria
 
-1. Create `IParkingAssetService` interface:
-   - Standard CRUD methods
-   - `ParkingAssetStatistics getStatistics(Long projectId, String parkingZone)`
-   - `List<ParkingAssetStatistics> getStatisticsByProject()`
-
-2. Create `ParkingAssetServiceImpl`
-
-3. Implement statistics:
-   - Total parking count
-   - Self-use count/ratio
-   - Rented count/ratio
-   - Idle count/ratio
-   - Group by project and zone
+1. Create `IAssetParkingService` interface
+2. Create `AssetParkingServiceImpl` implementation
+3. Implement standard CRUD methods with code generation
+4. Add @DataScope for project filtering
+5. Use @Transactional for write operations
 
 ## Technical Notes
 
-- Reference: PRD section 6.4.2 point 4
+- Reference: PRD Section 6.4
+- Pattern: Service + Mapper pattern
+- Location: `com.ruoyi.asset.service.impl.AssetParkingServiceImpl`

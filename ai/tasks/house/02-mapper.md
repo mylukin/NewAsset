@@ -1,53 +1,44 @@
 ---
 id: house.mapper
 module: house
-priority: 4
+priority: 11
 status: failing
 version: 1
 origin: manual
-dependsOn: [house.entity]
+dependsOn:
+  - house.entity
 supersedes: []
-tags: [backend, mapper, P0]
+tags:
+  - mapper
+  - database
+  - p0
 testRequirements:
   unit:
-    required: true
+    required: false
     pattern: "tests/house/**/*.test.*"
 ---
 # Create House Asset Mapper
 
 ## Context
 
-The mapper provides database access for house asset CRUD operations with support for complex queries and joins.
+MyBatis mapper for house asset CRUD operations, joining base asset table with house extension table.
 
 ## Acceptance Criteria
 
-1. Create `HouseAssetMapper` interface in `com.ruoyi.asset.mapper`
-
-2. Create `HouseAssetMapper.xml` with SQL mappings:
-
-3. Implement query methods:
-   - `selectHouseAssetList(HouseAssetQueryDTO query)` - paginated list with filters
-   - `selectHouseAssetById(Long assetId)` - single house with base asset info
-   - `selectHouseAssetByCode(String assetCode)` - lookup by asset code
-
-4. Implement write methods:
-   - `insertHouseAsset(HouseAsset houseAsset)` - insert extension record
-   - `updateHouseAsset(HouseAsset houseAsset)` - update extension fields
-   - `deleteHouseAssetByAssetId(Long assetId)` - soft delete
-
-5. Support joined queries with `t_asset` base table:
-   ```sql
-   SELECT a.*, h.*
-   FROM t_asset a
-   LEFT JOIN t_asset_house h ON a.id = h.asset_id
-   WHERE a.asset_type = 'HOUSE' AND a.del_flag = '0'
-   ```
-
-6. Include data permission placeholder `${params.dataScope}`
-
-7. Support sorting by create_time, building_area, rent_total
+1. Create `AssetHouseMapper` interface in `com.ruoyi.asset.mapper`
+2. Create corresponding XML mapper file
+3. Implement methods:
+   - `selectAssetHouseList(AssetHouse query)` - paginated list with filters
+   - `selectAssetHouseById(Long id)` - detail with joined base asset
+   - `insertAssetHouse(AssetHouse house)` - insert both base and extension
+   - `updateAssetHouse(AssetHouse house)` - update both tables
+   - `deleteAssetHouseByIds(Long[] ids)` - soft delete
+4. Support data scope filtering via `${params.dataScope}`
+5. Include filters: projectId, building, floor, status, houseType, currentUsage, areaRange
+6. Join query to include asset base fields
 
 ## Technical Notes
 
-- Reference: TECH.md section 6.4
-- Use MyBatis XML for complex joins
+- Reference: TECH.md Section 6.4
+- Pattern: MyBatis XML mapper with join queries
+- Location: `resources/mapper/asset/AssetHouseMapper.xml`

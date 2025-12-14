@@ -1,63 +1,53 @@
 ---
 id: house.frontend-list
 module: house
-priority: 5
+priority: 16
 status: failing
 version: 1
 origin: manual
-dependsOn: [house.frontend-api]
+dependsOn:
+  - house.frontend-api
 supersedes: []
-tags: [frontend, vue, P0]
+tags:
+  - frontend
+  - vue
+  - p0
 testRequirements:
   unit:
     required: false
-    pattern: ""
+    pattern: "tests/house/**/*.test.*"
 ---
 # Create House Asset List Page
 
 ## Context
 
-The house asset list page displays all house assets with filtering, pagination, and action buttons.
+Vue component for displaying house asset list with search, filter, and actions.
 
 ## Acceptance Criteria
 
-1. Create `/src/views/asset/house/index.vue`:
-
-2. Implement search/filter section:
-   - Project selector (dropdown)
-   - Building input
-   - Floor input
-   - Status selector (dict: asset_status)
-   - Ownership type selector (dict: asset_ownership_type)
-   - Area range inputs (min/max)
-   - Search and Reset buttons
-
-3. Implement action toolbar:
-   - Add button (with permission `asset:house:add`)
-   - Export button (with permission `asset:house:export`)
-   - Batch delete button (with permission `asset:house:remove`)
-
-4. Implement data table with columns:
-   - Asset Code (资产编码)
-   - Asset Name (资产名称)
-   - Project (所属项目)
-   - Building/Floor/Room (位置)
-   - Building Area (建筑面积)
-   - Status (使用状态) - with tag color
-   - Current Usage (当前用途)
-   - Duty Person (责任人)
-   - Create Time (创建时间)
-   - Actions: View, Edit, Delete, Initiate Maintenance
-
-5. Implement pagination component
-
-6. Use RuoYi's `v-hasPermi` directive for button permissions
-
-7. Support column show/hide configuration (optional P1)
-
-8. Implement row click to show detail drawer/dialog
+1. Create `/src/views/asset/house/index.vue`
+2. Implement search/filter area:
+   - Project selector (dict)
+   - Building/Floor inputs
+   - Status dropdown (dict: asset_status)
+   - House type dropdown (dict: house_type)
+   - Current usage dropdown
+   - Area range inputs
+3. Implement data table with columns:
+   - Asset code, Asset name, Project, Building, Floor, Room
+   - Area (building/inner), House type, Status, Current usage
+   - Duty user, Actions
+4. Implement action buttons:
+   - Add (with permission check)
+   - Edit, Delete, View detail
+   - Initiate maintenance
+   - Export to Excel
+5. Use RuoYi table components and pagination
+6. Apply `v-hasPermi` directive for permission control
+7. Support column show/hide configuration
 
 ## Technical Notes
 
-- Reference: TECH.md section 7.2
-- Use Element UI table, form, pagination components
+- Reference: TECH.md Section 7.2
+- Pattern: RuoYi list page pattern
+- Components: el-table, el-pagination, dict components

@@ -1,45 +1,40 @@
 ---
 id: core.asset-status-enum
 module: core
-priority: 2
+priority: 4
 status: failing
 version: 1
 origin: manual
-dependsOn: [core.project-init]
+dependsOn:
+  - core.project-init
 supersedes: []
-tags: [backend, enum]
+tags:
+  - enum
+  - state-machine
+  - p0
 testRequirements:
   unit:
-    required: true
+    required: false
     pattern: "tests/core/**/*.test.*"
 ---
-# Create Asset Status Enum
+# Create Asset Status Enum and State Machine Enums
 
 ## Context
 
-The unified asset status machine defines all possible states an asset can be in. This enum is critical for state management and workflow integration.
+The system uses a unified asset status machine with defined states and valid transitions. Enums provide type-safe status handling.
 
 ## Acceptance Criteria
 
-1. Create `AssetStatusEnum` in `com.ruoyi.asset.domain.enums` with values:
-   - `UNDER_CONSTRUCTION` - 在建/未投入使用
-   - `AVAILABLE_SELF` - 可用-自用
-   - `AVAILABLE_RENT` - 可用-对外出租
-   - `AVAILABLE_IDLE` - 可用-空置
-   - `TEMP_CLOSED` - 暂停使用
-   - `FAULT` - 故障/停用
-   - `MAINTAINING` - 维修中
-   - `TO_BE_SCRAPPED` - 计划报废
-   - `SCRAPPED` - 已报废
-
-2. Include code and description fields for each enum value
-3. Provide utility methods:
-   - `getByCode(String code)`
-   - `getDescription()`
-   - `isAvailable()` - returns true for AVAILABLE_* states
-   - `canTransitionTo(AssetStatusEnum target)` - validates state transitions
+1. Create `AssetStatusEnum` with all states: UNDER_CONSTRUCTION, AVAILABLE_SELF, AVAILABLE_RENT, AVAILABLE_IDLE, TEMP_CLOSED, FAULT, MAINTAINING, TO_BE_SCRAPPED, SCRAPPED
+2. Create `AssetTypeEnum`: HOUSE, PARKING, FACILITY, VENUE, OFFICE
+3. Create `MaintOrderStatusEnum`: WAIT_ASSIGN, WAIT_ACCEPT, PROCESSING, WAIT_CONFIRM, CLOSED, CANCELED
+4. Create `MaintOperationType`: CREATE, ASSIGN, ACCEPT, START_HANDLE, COMPLETE, CONFIRM, REJECT, CANCEL
+5. Each enum should have code and description fields
+6. Include utility methods for code/description lookup
+7. Register enums with dictionary system if applicable
 
 ## Technical Notes
 
-- Reference: PRD section 4.4, TECH.md section 5.2.1
-- Pattern: Java enum with static lookup methods
+- Reference: TECH.md Section 5.2.1, PRD Section 4.4
+- Pattern: Java enum with code/desc pattern
+- Location: `com.ruoyi.asset.domain.enums`

@@ -1,38 +1,38 @@
 ---
 id: parking.frontend-api
 module: parking
-priority: 9
+priority: 34
 status: failing
 version: 1
 origin: manual
-dependsOn: [parking.controller]
+dependsOn:
+  - parking.controller
 supersedes: []
-tags: [frontend, api, P0]
+tags:
+  - frontend
+  - api
+  - p0
 testRequirements:
   unit:
     required: false
-    pattern: ""
+    pattern: "tests/parking/**/*.test.*"
 ---
 # Create Parking Asset Frontend API Module
 
 ## Context
 
-Frontend API module for parking asset operations.
+Axios API module for parking asset frontend.
 
 ## Acceptance Criteria
 
 1. Create `/src/api/asset/parking.js`
-
 2. Implement API functions:
-   - `listParking(query)`
-   - `getParking(id)`
-   - `addParking(data)`
-   - `updateParking(data)`
-   - `delParking(ids)`
-   - `exportParking(query)`
-   - `getParkingStatistics(projectId, zone)`
-   - `getParkingStatisticsByZone(projectId)`
+   - listParking, getParking, addParking, updateParking
+   - delParking, exportParking, getParkingStatistics
+3. Use RuoYi request utility
+4. Export all functions
 
 ## Technical Notes
 
-- Reference: TECH.md section 7.3
+- Reference: TECH.md Section 7.3
+- File: `ruoyi-ui/src/api/asset/parking.js`
