@@ -1,6 +1,6 @@
 {
   "version": "2.0.0",
-  "updatedAt": "2025-12-14T13:47:28.375Z",
+  "updatedAt": "2025-12-14T13:48:55.248Z",
   "metadata": {
     "projectGoal": "基于 ai/tasks 创建一个资产管理系统",
     "createdAt": "2025-12-14T10:00:00Z",
@@ -346,7 +346,7 @@
       "filePath": "facility/09-warranty-reminder.md"
     },
     "maintenance.frontend-detail": {
-      "status": "failing",
+      "status": "passing",
       "priority": 66,
       "module": "maintenance",
       "description": "Create Maintenance Order Detail Page",
