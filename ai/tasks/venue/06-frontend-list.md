@@ -3,7 +3,7 @@ id: venue.frontend-list
 module: venue
 priority: 44
 status: failing
-version: 1
+version: 2
 origin: manual
 dependsOn:
   - venue.frontend-api

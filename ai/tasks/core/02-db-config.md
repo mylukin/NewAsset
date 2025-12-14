@@ -3,7 +3,7 @@ id: core.db-config
 module: core
 priority: 2
 status: failing
-version: 1
+version: 2
 origin: manual
 dependsOn:
   - core.project-init
@@ -17,10 +17,10 @@ testRequirements:
     required: false
     pattern: tests/core/**/*.test.*
 verification:
-  verifiedAt: '2025-12-14T09:39:11.059Z'
+  verifiedAt: '2025-12-14T10:09:23.936Z'
   verdict: pass
   verifiedBy: strategy-framework
-  commitHash: bde5c7ccba598325d269aacf3627d3059a3ed48a
+  commitHash: 24bccb585c03e114b5a49a4b53bd27b6ea22cc5d
   summary: 8/8 criteria satisfied
 ---
 # Configure Dual-Database Infrastructure (SQLite Dev / MySQL Prod)
