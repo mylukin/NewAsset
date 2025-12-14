@@ -1,6 +1,6 @@
 {
   "version": "2.0.0",
-  "updatedAt": "2025-12-14T04:52:42.459Z",
+  "updatedAt": "2025-12-14T04:54:37.522Z",
   "metadata": {
     "projectGoal": "基于 ai/tasks 创建一个资产管理系统",
     "createdAt": "2025-12-14T12:00:00Z",
@@ -221,7 +221,7 @@
       "description": "Implement full CRUD for venue assets"
     },
     "facility.entity": {
-      "status": "failing",
+      "status": "passing",
       "priority": 1,
       "module": "facility",
       "description": "Create facility asset entity with equipment and vendor info"
