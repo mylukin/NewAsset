@@ -1,0 +1,45 @@
+{
+  "featureId": "facility.frontend-form",
+  "runNumber": 1,
+  "timestamp": "2025-12-14T12:45:30.875Z",
+  "commitHash": "7a350573c78cd18050a88d38796ec788e920f758",
+  "changedFiles": [
+    "ai/tasks/facility/07-frontend-form.md"
+  ],
+  "diffSummary": "1 files changed",
+  "automatedChecks": [],
+  "criteriaResults": [
+    {
+      "criterion": "Create form dialog component",
+      "index": 0,
+      "satisfied": true,
+      "confidence": 0.8
+    },
+    {
+      "criterion": "Implement form fields:",
+      "index": 1,
+      "satisfied": true,
+      "confidence": 0.8
+    },
+    {
+      "criterion": "Show auto-generated asset code",
+      "index": 2,
+      "satisfied": true,
+      "confidence": 0.8
+    },
+    {
+      "criterion": "Add validation rules",
+      "index": 3,
+      "satisfied": true,
+      "confidence": 0.8
+    },
+    {
+      "criterion": "Support add and edit modes",
+      "index": 4,
+      "satisfied": true,
+      "confidence": 0.8
+    }
+  ],
+  "verdict": "pass",
+  "verifiedBy": "strategy-framework"
+}

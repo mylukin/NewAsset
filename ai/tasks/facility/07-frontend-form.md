@@ -2,8 +2,8 @@
 id: facility.frontend-form
 module: facility
 priority: 26
-status: failing
-version: 21
+status: passing
+version: 23
 origin: manual
 dependsOn:
   - facility.frontend-api
@@ -16,6 +16,12 @@ testRequirements:
   unit:
     required: false
     pattern: tests/facility/**/*.test.*
+verification:
+  verifiedAt: '2025-12-14T12:45:30.875Z'
+  verdict: pass
+  verifiedBy: strategy-framework
+  commitHash: 7a350573c78cd18050a88d38796ec788e920f758
+  summary: 5/5 criteria satisfied
 tddGuidance:
   generatedAt: '2025-12-14T12:43:28.712Z'
   generatedBy: claude
