@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.ruoyi.asset.mapper.AssetMaintPlanAssetMapper">
+
+    <!-- Query asset IDs by plan ID -->
+    <select id="selectAssetIdsByPlanId" parameterType="java.lang.Long" resultType="java.lang.Long">
+        SELECT asset_id FROM t_asset_maint_plan_asset WHERE plan_id = #{planId}
+    </select>
+
+    <!-- Batch insert plan-asset relations -->
+    <insert id="batchInsert">
+        INSERT INTO t_asset_maint_plan_asset (plan_id, asset_id) VALUES
+        <foreach item="item" collection="list" separator=",">
+            (#{item.planId}, #{item.assetId})
+        </foreach>
+    </insert>
+
+    <!-- Delete relations by plan ID -->
+    <delete id="deleteByPlanId" parameterType="java.lang.Long">
+        DELETE FROM t_asset_maint_plan_asset WHERE plan_id = #{planId}
+    </delete>
+
+    <!-- Count assets in plan -->
+    <select id="countByPlanId" parameterType="java.lang.Long" resultType="int">
+        SELECT COUNT(*) FROM t_asset_maint_plan_asset WHERE plan_id = #{planId}
+    </select>
+
+</mapper>

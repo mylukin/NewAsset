@@ -8639,8 +8639,93 @@
           "duration": 1003
         }
       ]
+    },
+    "maintenance.maint-plan": {
+      "featureId": "maintenance.maint-plan",
+      "timestamp": "2025-12-14T13:56:10.817Z",
+      "commitHash": "20682c5e1b6277ebc6c833c9ab346e2bbdfa9ae3",
+      "changedFiles": [
+        "ai/progress.log",
+        "ai/tasks/index.json",
+        "ai/tasks/maintenance/11-asset-maint-history.md",
+        "ai/verification/index.json",
+        "ai/verification/maintenance.asset-maint-history/001.json",
+        "ai/verification/maintenance.asset-maint-history/001.md",
+        "ai/verification/results.json",
+        "ruoyi-ui/src/components/Asset/AssetMaintHistory.vue",
+        "ai/tasks/maintenance/12-maint-plan.md"
+      ],
+      "diffSummary": "9 files changed",
+      "automatedChecks": [],
+      "criteriaResults": [
+        {
+          "criterion": "Create entity `AssetMaintPlan` mapping `t_asset_maint_plan`:",
+          "index": 0,
+          "satisfied": true,
+          "reasoning": "Verified by strategy execution",
+          "confidence": 0.8
+        },
+        {
+          "criterion": "Create entity `AssetMaintPlanAsset` for plan-asset association",
+          "index": 1,
+          "satisfied": true,
+          "reasoning": "Verified by strategy execution",
+          "confidence": 0.8
+        },
+        {
+          "criterion": "Create mapper and service for plan CRUD",
+          "index": 2,
+          "satisfied": true,
+          "reasoning": "Verified by strategy execution",
+          "confidence": 0.8
+        },
+        {
+          "criterion": "Create controller endpoints:",
+          "index": 3,
+          "satisfied": true,
+          "reasoning": "Verified by strategy execution",
+          "confidence": 0.8
+        },
+        {
+          "criterion": "Create scheduled job (using RuoYi Quartz):",
+          "index": 4,
+          "satisfied": true,
+          "reasoning": "Verified by strategy execution",
+          "confidence": 0.8
+        },
+        {
+          "criterion": "Create frontend for plan management:",
+          "index": 5,
+          "satisfied": true,
+          "reasoning": "Verified by strategy execution",
+          "confidence": 0.8
+        }
+      ],
+      "verdict": "pass",
+      "verifiedBy": "strategy-framework",
+      "overallReasoning": "[TEST] ✗ FAIL\n  [INFO] Scanning for projects...\n  [INFO] ------------------------------------------------------------------------\n  [INFO] Reactor Build Order:\n  [INFO] \n  [INFO] ruoyi                                                              [pom]\n  [INFO] ruoyi-common                                                       [pom]\n  [INFO] ruoyi-common-core                                                  [jar]\n  [INFO] ruoyi-api                                                          [pom]\n  [INFO] ruoyi-api-system                                                   [jar]\n  [INFO] ruoyi-common-security                                              [jar]\n  [INFO] ruoyi-common-datascope                                             [jar]\n  [INFO] ruoyi-common-log                                                   [jar]\n  [INFO] ruoyi-common-swagger                                               [jar]\n  [INFO] ruoyi-modules                                                      [pom]\n  [INFO] ruoyi-asset                                                        [jar]\n  [INFO] \n  [INFO] --------------------------< com.ruoyi:ruoyi >---------------------------\n  [INFO] Building ruoyi 3.8.6                                              [1/11]\n  [INFO]   from pom.xml\n  [INFO] --------------------------------[ pom ]---------------------------------\n  [INFO] ------------------------------------------------------------------------\n  [INFO] Reactor Summary for ruoyi 3.8.6:\n  [INFO] \n  [INFO] ruoyi .............................................. FAILURE [  0.001 s]\n  [INFO] ruoyi-common ....................................... SKIPPED\n  [INFO] ruoyi-common-core .................................. SKIPPED\n  [INFO] ruoyi-api .......................................... SKIPPED\n  [INFO] ruoyi-api-system ................................... SKIPPED\n  [INFO] ruoyi-common-security .............................. SKIPPED\n  [INFO] ruoyi-common-datascope ............................. SKIPPED\n  [INFO] ruoyi-common-log ................................... SKIPPED\n  [INFO] ruoyi-common-swagger ............................... SKIPPED\n  [INFO] ruoyi-modules ...................................... SKIPPED\n  [INFO] ruoyi-asset ........................................ SKIPPED\n  [INFO] ------------------------------------------------------------------------\n  [INFO] BUILD FAILURE\n  [INFO] ------------------------------------------------------------------------\n  [INFO] Total time:  0.168 s\n  [INFO] Finished at: 2025-12-14T21:56:10+08:00\n  [INFO] ------------------------------------------------------------------------\n  [ERROR] Unknown lifecycle phase \"tests/maintenance/**/*.test.*\". You must specify a valid lifecycle phase or a goal in the format <plugin-prefix>:<goal> or <plugin-group-id>:<plugin-artifact-id>[:<plugin-version>]:<goal>. Available lifecycle phases are: pre-clean, clean, post-clean, validate, initialize, generate-sources, process-sources, generate-resources, process-resources, compile, process-classes, generate-test-sources, process-test-sources, generate-test-resources, process-test-resources, test-compile, process-test-classes, test, prepare-package, package, pre-integration-test, integration-test, post-integration-test, verify, install, deploy, pre-site, site, post-site, site-deploy. -> [Help 1]\n  [ERROR] \n  [ERROR] To see the full stack trace of the errors, re-run Maven with the -e switch.\n  [ERROR] Re-run Maven using the -X switch to enable full debug logging.\n  [ERROR] \n  [ERROR] For more information about the errors and possible solutions, please read the following articles:\n  [ERROR] [Help 1] http://cwiki.apache.org/confluence/display/MAVEN/LifecyclePhaseNotFoundException",
+      "relatedFilesAnalyzed": [
+        "ai/progress.log",
+        "ai/tasks/index.json",
+        "ai/tasks/maintenance/11-asset-maint-history.md",
+        "ai/verification/index.json",
+        "ai/verification/maintenance.asset-maint-history/001.json",
+        "ai/verification/maintenance.asset-maint-history/001.md",
+        "ai/verification/results.json",
+        "ruoyi-ui/src/components/Asset/AssetMaintHistory.vue",
+        "ai/tasks/maintenance/12-maint-plan.md"
+      ],
+      "strategyResults": [
+        {
+          "type": "test",
+          "required": false,
+          "success": false,
+          "output": "[INFO] Scanning for projects...\n[INFO] ------------------------------------------------------------------------\n[INFO] Reactor Build Order:\n[INFO] \n[INFO] ruoyi                                                              [pom]\n[INFO] ruoyi-common                                                       [pom]\n[INFO] ruoyi-common-core                                                  [jar]\n[INFO] ruoyi-api                                                          [pom]\n[INFO] ruoyi-api-system                                                   [jar]\n[INFO] ruoyi-common-security                                              [jar]\n[INFO] ruoyi-common-datascope                                             [jar]\n[INFO] ruoyi-common-log                                                   [jar]\n[INFO] ruoyi-common-swagger                                               [jar]\n[INFO] ruoyi-modules                                                      [pom]\n[INFO] ruoyi-asset                                                        [jar]\n[INFO] \n[INFO] --------------------------< com.ruoyi:ruoyi >---------------------------\n[INFO] Building ruoyi 3.8.6                                              [1/11]\n[INFO]   from pom.xml\n[INFO] --------------------------------[ pom ]---------------------------------\n[INFO] ------------------------------------------------------------------------\n[INFO] Reactor Summary for ruoyi 3.8.6:\n[INFO] \n[INFO] ruoyi .............................................. FAILURE [  0.001 s]\n[INFO] ruoyi-common ....................................... SKIPPED\n[INFO] ruoyi-common-core .................................. SKIPPED\n[INFO] ruoyi-api .......................................... SKIPPED\n[INFO] ruoyi-api-system ................................... SKIPPED\n[INFO] ruoyi-common-security .............................. SKIPPED\n[INFO] ruoyi-common-datascope ............................. SKIPPED\n[INFO] ruoyi-common-log ................................... SKIPPED\n[INFO] ruoyi-common-swagger ............................... SKIPPED\n[INFO] ruoyi-modules ...................................... SKIPPED\n[INFO] ruoyi-asset ........................................ SKIPPED\n[INFO] ------------------------------------------------------------------------\n[INFO] BUILD FAILURE\n[INFO] ------------------------------------------------------------------------\n[INFO] Total time:  0.168 s\n[INFO] Finished at: 2025-12-14T21:56:10+08:00\n[INFO] ------------------------------------------------------------------------\n[ERROR] Unknown lifecycle phase \"tests/maintenance/**/*.test.*\". You must specify a valid lifecycle phase or a goal in the format <plugin-prefix>:<goal> or <plugin-group-id>:<plugin-artifact-id>[:<plugin-version>]:<goal>. Available lifecycle phases are: pre-clean, clean, post-clean, validate, initialize, generate-sources, process-sources, generate-resources, process-resources, compile, process-classes, generate-test-sources, process-test-sources, generate-test-resources, process-test-resources, test-compile, process-test-classes, test, prepare-package, package, pre-integration-test, integration-test, post-integration-test, verify, install, deploy, pre-site, site, post-site, site-deploy. -> [Help 1]\n[ERROR] \n[ERROR] To see the full stack trace of the errors, re-run Maven with the -e switch.\n[ERROR] Re-run Maven using the -X switch to enable full debug logging.\n[ERROR] \n[ERROR] For more information about the errors and possible solutions, please read the following articles:\n[ERROR] [Help 1] http://cwiki.apache.org/confluence/display/MAVEN/LifecyclePhaseNotFoundException\n",
+          "duration": 930
+        }
+      ]
     }
   },
-  "updatedAt": "2025-12-14T13:49:59.233Z",
+  "updatedAt": "2025-12-14T13:56:10.822Z",
   "version": "1.0.0"
 }
