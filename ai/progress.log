@@ -117,3 +117,5 @@
 2025-12-14T13:16:28.374Z STEP feature=venue.frontend-detail status=passing tests="./ai/init.sh check" summary="Completed venue.frontend-detail"
 2025-12-14T13:21:01.771Z VERIFY feature=venue.usage-statistics action=pass summary="Verified venue.usage-statistics: pass"
 2025-12-14T13:21:06.903Z STEP feature=venue.usage-statistics status=passing tests="./ai/init.sh check" summary="Completed venue.usage-statistics"
+2025-12-14T13:23:45.545Z VERIFY feature=office.entity action=pass summary="Verified office.entity: pass"
+2025-12-14T13:23:51.035Z STEP feature=office.entity status=passing tests="./ai/init.sh check" summary="Completed office.entity"

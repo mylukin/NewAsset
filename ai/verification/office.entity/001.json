@@ -1,0 +1,54 @@
+{
+  "featureId": "office.entity",
+  "runNumber": 1,
+  "timestamp": "2025-12-14T13:23:45.535Z",
+  "commitHash": "08a774a5c4f4d28f2c178602bfea7bcf1e852a64",
+  "changedFiles": [
+    "ai/progress.log",
+    "ai/tasks/index.json",
+    "ai/tasks/venue/09-usage-statistics.md",
+    "ai/verification/index.json",
+    "ai/verification/results.json",
+    "ai/verification/venue.usage-statistics/001.json",
+    "ai/verification/venue.usage-statistics/001.md",
+    "ruoyi-modules/ruoyi-asset/src/main/java/com/ruoyi/asset/controller/AssetVenueController.java",
+    "ruoyi-modules/ruoyi-asset/src/main/java/com/ruoyi/asset/domain/entity/AssetVenueUsage.java",
+    "ruoyi-modules/ruoyi-asset/src/main/java/com/ruoyi/asset/domain/vo/VenueUsageStatisticsVO.java",
+    "ruoyi-modules/ruoyi-asset/src/main/java/com/ruoyi/asset/mapper/AssetVenueUsageMapper.java",
+    "ruoyi-modules/ruoyi-asset/src/main/java/com/ruoyi/asset/service/IAssetVenueUsageService.java",
+    "ruoyi-modules/ruoyi-asset/src/main/java/com/ruoyi/asset/service/impl/AssetVenueUsageServiceImpl.java",
+    "ruoyi-modules/ruoyi-asset/src/main/resources/mapper/asset/AssetVenueUsageMapper.xml",
+    "ruoyi-ui/src/api/asset/venue.js",
+    "ai/tasks/office/01-entity.md"
+  ],
+  "diffSummary": "16 files changed",
+  "automatedChecks": [],
+  "criteriaResults": [
+    {
+      "criterion": "Create `AssetOffice` entity referencing `Asset` base",
+      "index": 0,
+      "satisfied": true,
+      "confidence": 0.8
+    },
+    {
+      "criterion": "Map extension fields from `t_asset_office`:",
+      "index": 1,
+      "satisfied": true,
+      "confidence": 0.8
+    },
+    {
+      "criterion": "Create VO and DTO classes",
+      "index": 2,
+      "satisfied": true,
+      "confidence": 0.8
+    },
+    {
+      "criterion": "Add validation annotations",
+      "index": 3,
+      "satisfied": true,
+      "confidence": 0.8
+    }
+  ],
+  "verdict": "pass",
+  "verifiedBy": "strategy-framework"
+}

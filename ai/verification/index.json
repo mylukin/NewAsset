@@ -440,8 +440,17 @@
       "totalRuns": 1,
       "passCount": 1,
       "failCount": 0
+    },
+    "office.entity": {
+      "featureId": "office.entity",
+      "latestRun": 1,
+      "latestTimestamp": "2025-12-14T13:23:45.535Z",
+      "latestVerdict": "pass",
+      "totalRuns": 1,
+      "passCount": 1,
+      "failCount": 0
     }
   },
-  "updatedAt": "2025-12-14T13:21:01.764Z",
+  "updatedAt": "2025-12-14T13:23:45.536Z",
   "version": "2.0.0"
 }
