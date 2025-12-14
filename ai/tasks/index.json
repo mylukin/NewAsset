@@ -1,6 +1,6 @@
 {
   "version": "2.0.0",
-  "updatedAt": "2025-12-14T04:48:48.519Z",
+  "updatedAt": "2025-12-14T04:52:42.459Z",
   "metadata": {
     "projectGoal": "基于 ai/tasks 创建一个资产管理系统",
     "createdAt": "2025-12-14T12:00:00Z",
@@ -191,7 +191,7 @@
       "description": "Create base Asset entity, enums, VOs, and DTOs"
     },
     "parking.entity": {
-      "status": "failing",
+      "status": "passing",
       "priority": 1,
       "module": "parking",
       "description": "Create parking asset entity with zone, type, rental info"

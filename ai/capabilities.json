@@ -1,9 +1,9 @@
 {
   "version": "1.0.0",
   "capabilities": {
-    "hasTests": true,
-    "testCommand": "mvn test",
-    "testFramework": "maven-surefire",
+    "hasTests": false,
+    "testCommand": "",
+    "testFramework": "",
     "hasTypeCheck": true,
     "typeCheckCommand": "mvn -DskipTests compile",
     "hasLint": false,
@@ -17,26 +17,23 @@
       "Java",
       "Spring Boot",
       "Maven",
-      "XML",
-      "YAML",
-      "Bash",
-      "JSON"
+      "YAML"
     ],
-    "detectedAt": "2025-12-14T04:47:50.757Z",
+    "detectedAt": "2025-12-14T04:50:50.715Z",
     "testInfo": {
-      "available": true,
-      "command": "mvn test",
-      "framework": "maven-surefire",
-      "confidence": 0.75,
-      "selectiveFileTemplate": "mvn -Dtest={files} test",
-      "selectiveNameTemplate": "mvn -Dtest={pattern} test",
+      "available": false,
+      "command": "",
+      "framework": "",
+      "confidence": 0.4,
+      "selectiveFileTemplate": "",
+      "selectiveNameTemplate": "",
       "packageManager": "maven"
     },
     "e2eInfo": {
       "available": false,
       "command": "",
       "framework": "",
-      "confidence": 0.1,
+      "confidence": 0.2,
       "configFile": "",
       "grepTemplate": "",
       "fileTemplate": ""
@@ -44,67 +41,26 @@
     "typeCheckInfo": {
       "available": true,
       "command": "mvn -DskipTests compile",
-      "confidence": 0.8
+      "confidence": 0.85
     },
     "lintInfo": {
       "available": false,
       "command": "",
-      "confidence": 0.1
+      "confidence": 0.3
     },
     "buildInfo": {
       "available": true,
       "command": "mvn -DskipTests package",
       "confidence": 0.85
-    },
-    "customRules": [
-      {
-        "id": "harness.check.fast",
-        "description": "Run unified verification in fast mode (delegates to agent-foreman).",
-        "command": "./ai/init.sh check",
-        "type": "custom"
-      },
-      {
-        "id": "harness.check.full",
-        "description": "Run unified verification in full mode (all tests + build + E2E when configured).",
-        "command": "./ai/init.sh check --full",
-        "type": "custom"
-      },
-      {
-        "id": "harness.check.task",
-        "description": "Run task-scoped verification (delegates to agent-foreman).",
-        "command": "./ai/init.sh check {task_id}",
-        "type": "custom"
-      },
-      {
-        "id": "agent-foreman.check",
-        "description": "Direct unified verification entrypoint (supports --full/--ai and --test-pattern).",
-        "command": "agent-foreman check",
-        "type": "custom"
-      },
-      {
-        "id": "agent-foreman.check.pattern",
-        "description": "Run verification with an explicit test pattern (framework-specific; used by agent-foreman internally).",
-        "command": "agent-foreman check --test-pattern {pattern}",
-        "type": "custom"
-      },
-      {
-        "id": "agent-foreman.scan",
-        "description": "Scan project verification capabilities.",
-        "command": "agent-foreman scan",
-        "type": "custom"
-      }
-    ]
+    }
   },
-  "commitHash": "99d44a3fc8de217441e606236299a06f6b0cee9d",
+  "commitHash": "bea055a362d4be5d1956a0e61615d2fd6e4c942c",
   "trackedFiles": [
     "pom.xml",
     "ruoyi-admin/pom.xml",
     "ruoyi-common/pom.xml",
     "ruoyi-framework/pom.xml",
     "ruoyi-modules/pom.xml",
-    "ruoyi-modules/ruoyi-asset/pom.xml",
-    "ruoyi-modules/ruoyi-asset/src/main/resources/application.yml",
-    "ai/capabilities.json",
-    "ai/init.sh"
+    "ruoyi-modules/ruoyi-asset/pom.xml"
   ]
 }
