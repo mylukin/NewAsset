@@ -4,6 +4,7 @@ import com.ruoyi.asset.domain.dto.AssetOfficeCreateDTO;
 import com.ruoyi.asset.domain.dto.AssetOfficeUpdateDTO;
 import com.ruoyi.asset.domain.vo.AssetOfficeDetailVO;
 import com.ruoyi.asset.domain.vo.AssetOfficeListVO;
+import com.ruoyi.asset.domain.vo.OfficeConditionStatisticsVO;
 import com.ruoyi.asset.mapper.AssetOfficeMapper.AssetOfficeQuery;
 import com.ruoyi.asset.service.IAssetOfficeService;
 import com.ruoyi.common.core.web.controller.BaseController;
@@ -125,5 +126,20 @@ public class AssetOfficeController extends BaseController {
             @ApiParam(value = "Reason for change")
             @RequestParam(required = false) String reason) {
         return toAjax(assetOfficeService.changeStatus(id, status, reason));
+    }
+
+    /**
+     * Get office condition statistics
+     */
+    @ApiOperation("Get office condition statistics")
+    @PreAuthorize("@ss.hasPermi('asset:office:list')")
+    @GetMapping("/statistics/condition")
+    public AjaxResult getConditionStatistics(
+            @ApiParam(value = "Project ID filter")
+            @RequestParam(required = false) Long projectId,
+            @ApiParam(value = "Department ID filter")
+            @RequestParam(required = false) Long deptId) {
+        OfficeConditionStatisticsVO stats = assetOfficeService.getOfficeConditionStatistics(projectId, deptId);
+        return success(stats);
     }
 }

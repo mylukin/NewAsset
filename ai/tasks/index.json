@@ -1,6 +1,6 @@
 {
   "version": "2.0.0",
-  "updatedAt": "2025-12-14T13:31:31.468Z",
+  "updatedAt": "2025-12-14T13:35:21.926Z",
   "metadata": {
     "projectGoal": "基于 ai/tasks 创建一个资产管理系统",
     "createdAt": "2025-12-14T10:00:00Z",
@@ -472,7 +472,7 @@
       "filePath": "maintenance/11-asset-maint-history.md"
     },
     "office.condition-statistics": {
-      "status": "failing",
+      "status": "passing",
       "priority": 56,
       "module": "office",
       "description": "Implement Office Asset Condition Statistics (P1)",

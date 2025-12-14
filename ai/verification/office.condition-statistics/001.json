@@ -1,0 +1,63 @@
+{
+  "featureId": "office.condition-statistics",
+  "runNumber": 1,
+  "timestamp": "2025-12-14T13:35:15.199Z",
+  "commitHash": "62a6dd17997b9d0add4a5a6eccf815d75476317a",
+  "changedFiles": [
+    "ai/progress.log",
+    "ai/tasks/index.json",
+    "ai/tasks/office/08-frontend-detail.md",
+    "ai/verification/index.json",
+    "ai/verification/office.frontend-detail/001.json",
+    "ai/verification/office.frontend-detail/001.md",
+    "ai/verification/results.json",
+    "ai/tasks/office/09-condition-statistics.md",
+    "ruoyi-modules/ruoyi-asset/src/main/java/com/ruoyi/asset/controller/AssetOfficeController.java",
+    "ruoyi-modules/ruoyi-asset/src/main/java/com/ruoyi/asset/mapper/AssetOfficeMapper.java",
+    "ruoyi-modules/ruoyi-asset/src/main/java/com/ruoyi/asset/service/IAssetOfficeService.java",
+    "ruoyi-modules/ruoyi-asset/src/main/java/com/ruoyi/asset/service/impl/AssetOfficeServiceImpl.java",
+    "ruoyi-modules/ruoyi-asset/src/main/resources/mapper/asset/AssetOfficeMapper.xml"
+  ],
+  "diffSummary": "13 files changed",
+  "automatedChecks": [],
+  "criteriaResults": [
+    {
+      "criterion": "Add mapper method: `selectOfficeConditionStats(Long projectId, Long deptId)`",
+      "index": 0,
+      "satisfied": true,
+      "confidence": 0.8
+    },
+    {
+      "criterion": "Add service method: `getOfficeConditionStatistics(Long projectId, Long deptId)`",
+      "index": 1,
+      "satisfied": true,
+      "confidence": 0.8
+    },
+    {
+      "criterion": "Add controller endpoint: `GET /asset/office/statistics/condition`",
+      "index": 2,
+      "satisfied": true,
+      "confidence": 0.8
+    },
+    {
+      "criterion": "Return statistics VO:",
+      "index": 3,
+      "satisfied": true,
+      "confidence": 0.8
+    },
+    {
+      "criterion": "Support filter by project and department",
+      "index": 4,
+      "satisfied": true,
+      "confidence": 0.8
+    },
+    {
+      "criterion": "Group by department for comparison",
+      "index": 5,
+      "satisfied": true,
+      "confidence": 0.8
+    }
+  ],
+  "verdict": "pass",
+  "verifiedBy": "strategy-framework"
+}

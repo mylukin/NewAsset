@@ -512,8 +512,17 @@
       "totalRuns": 1,
       "passCount": 1,
       "failCount": 0
+    },
+    "office.condition-statistics": {
+      "featureId": "office.condition-statistics",
+      "latestRun": 1,
+      "latestTimestamp": "2025-12-14T13:35:15.199Z",
+      "latestVerdict": "pass",
+      "totalRuns": 1,
+      "passCount": 1,
+      "failCount": 0
     }
   },
-  "updatedAt": "2025-12-14T13:31:25.388Z",
+  "updatedAt": "2025-12-14T13:35:15.201Z",
   "version": "2.0.0"
 }

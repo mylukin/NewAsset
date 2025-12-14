@@ -8,6 +8,7 @@ import com.ruoyi.asset.domain.enums.AssetStatusEnum;
 import com.ruoyi.asset.domain.vo.AssetOfficeDetailVO;
 import com.ruoyi.asset.domain.vo.AssetOfficeListVO;
 import com.ruoyi.asset.domain.vo.LocationInfo;
+import com.ruoyi.asset.domain.vo.OfficeConditionStatisticsVO;
 import com.ruoyi.asset.mapper.AssetOfficeMapper;
 import com.ruoyi.asset.mapper.AssetOfficeMapper.AssetOfficeQuery;
 import com.ruoyi.asset.mapper.AssetMapper;
@@ -198,5 +199,20 @@ public class AssetOfficeServiceImpl implements IAssetOfficeService {
         Long operatorId = 1L;
         assetStatusService.changeStatus(id, statusEnum, reason, operatorId);
         return 1;
+    }
+
+    @Override
+    public OfficeConditionStatisticsVO getOfficeConditionStatistics(Long projectId, Long deptId) {
+        // Get base statistics
+        OfficeConditionStatisticsVO stats = assetOfficeMapper.selectOfficeConditionStats(projectId, deptId);
+        if (stats == null) {
+            stats = new OfficeConditionStatisticsVO();
+            stats.setTotalCount(0);
+        }
+
+        // Get department statistics for comparison
+        stats.setDepartmentStats(assetOfficeMapper.selectDepartmentStats(projectId));
+
+        return stats;
     }
 }

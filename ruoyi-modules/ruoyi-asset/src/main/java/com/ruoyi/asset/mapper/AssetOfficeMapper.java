@@ -3,6 +3,7 @@ package com.ruoyi.asset.mapper;
 import com.ruoyi.asset.domain.entity.AssetOffice;
 import com.ruoyi.asset.domain.vo.AssetOfficeDetailVO;
 import com.ruoyi.asset.domain.vo.AssetOfficeListVO;
+import com.ruoyi.asset.domain.vo.OfficeConditionStatisticsVO;
 import org.apache.ibatis.annotations.Mapper;
 import org.apache.ibatis.annotations.Param;
 
@@ -61,6 +62,26 @@ public interface AssetOfficeMapper {
      * @return affected rows
      */
     int deleteAssetOfficeByIds(@Param("ids") Long[] ids);
+
+    /**
+     * Query office condition statistics
+     *
+     * @param projectId optional project filter
+     * @param deptId    optional department filter
+     * @return condition statistics
+     */
+    OfficeConditionStatisticsVO selectOfficeConditionStats(
+            @Param("projectId") Long projectId,
+            @Param("deptId") Long deptId);
+
+    /**
+     * Query department statistics for comparison
+     *
+     * @param projectId optional project filter
+     * @return list of department statistics
+     */
+    List<OfficeConditionStatisticsVO.DepartmentStatVO> selectDepartmentStats(
+            @Param("projectId") Long projectId);
 
     /**
      * Query parameters class for office asset list

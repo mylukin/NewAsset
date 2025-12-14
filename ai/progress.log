@@ -133,3 +133,5 @@
 2025-12-14T13:31:01.610Z STEP feature=office.frontend-form status=passing tests="./ai/init.sh check" summary="Completed office.frontend-form"
 2025-12-14T13:31:25.396Z VERIFY feature=office.frontend-detail action=pass summary="Verified office.frontend-detail: pass"
 2025-12-14T13:31:31.469Z STEP feature=office.frontend-detail status=passing tests="./ai/init.sh check" summary="Completed office.frontend-detail"
+2025-12-14T13:35:15.211Z VERIFY feature=office.condition-statistics action=pass summary="Verified office.condition-statistics: pass"
+2025-12-14T13:35:21.927Z STEP feature=office.condition-statistics status=passing tests="./ai/init.sh check" summary="Completed office.condition-statistics"

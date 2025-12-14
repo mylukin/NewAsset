@@ -247,4 +247,43 @@
         </foreach>
     </delete>
 
+    <!-- Query office condition statistics -->
+    <select id="selectOfficeConditionStats" resultType="com.ruoyi.asset.domain.vo.OfficeConditionStatisticsVO">
+        SELECT
+            COUNT(*) as totalCount,
+            COALESCE(SUM(a.original_value), 0) as totalOriginalValue,
+            COALESCE(SUM(a.net_value), 0) as totalNetValue,
+            SUM(CASE WHEN o.use_user IS NOT NULL AND o.use_user != '' THEN 1 ELSE 0 END) as assignedCount,
+            SUM(CASE WHEN o.use_user IS NULL OR o.use_user = '' THEN 1 ELSE 0 END) as unassignedCount,
+            SUM(CASE WHEN o.office_type = 'IT' THEN 1 ELSE 0 END) as itEquipmentCount,
+            SUM(CASE WHEN o.office_type = 'FURNITURE' THEN 1 ELSE 0 END) as furnitureCount,
+            SUM(CASE WHEN o.office_type NOT IN ('IT', 'FURNITURE') OR o.office_type IS NULL THEN 1 ELSE 0 END) as otherCount
+        FROM t_asset a
+        INNER JOIN t_asset_office o ON a.id = o.asset_id
+        WHERE a.del_flag = '0'
+        AND a.asset_type = 'OFFICE'
+        <if test="projectId != null">AND a.project_id = #{projectId}</if>
+        <if test="deptId != null">AND a.use_dept_id = #{deptId}</if>
+    </select>
+
+    <!-- Query department statistics for comparison -->
+    <select id="selectDepartmentStats" resultType="com.ruoyi.asset.domain.vo.OfficeConditionStatisticsVO$DepartmentStatVO">
+        SELECT
+            d.dept_id as deptId,
+            d.dept_name as deptName,
+            COUNT(*) as totalCount,
+            SUM(CASE WHEN o.office_type = 'IT' THEN 1 ELSE 0 END) as itEquipmentCount,
+            SUM(CASE WHEN o.office_type = 'FURNITURE' THEN 1 ELSE 0 END) as furnitureCount,
+            SUM(CASE WHEN o.office_type NOT IN ('IT', 'FURNITURE') OR o.office_type IS NULL THEN 1 ELSE 0 END) as otherCount,
+            COALESCE(SUM(a.original_value), 0) as totalValue
+        FROM t_asset a
+        INNER JOIN t_asset_office o ON a.id = o.asset_id
+        LEFT JOIN sys_dept d ON a.use_dept_id = d.dept_id
+        WHERE a.del_flag = '0'
+        AND a.asset_type = 'OFFICE'
+        <if test="projectId != null">AND a.project_id = #{projectId}</if>
+        GROUP BY d.dept_id, d.dept_name
+        ORDER BY totalCount DESC
+    </select>
+
 </mapper>

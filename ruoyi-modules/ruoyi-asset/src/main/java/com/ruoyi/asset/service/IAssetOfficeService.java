@@ -4,6 +4,7 @@ import com.ruoyi.asset.domain.dto.AssetOfficeCreateDTO;
 import com.ruoyi.asset.domain.dto.AssetOfficeUpdateDTO;
 import com.ruoyi.asset.domain.vo.AssetOfficeDetailVO;
 import com.ruoyi.asset.domain.vo.AssetOfficeListVO;
+import com.ruoyi.asset.domain.vo.OfficeConditionStatisticsVO;
 import com.ruoyi.asset.mapper.AssetOfficeMapper.AssetOfficeQuery;
 
 import java.util.List;
@@ -70,4 +71,13 @@ public interface IAssetOfficeService {
      * @return affected rows
      */
     int changeStatus(Long id, String newStatus, String reason);
+
+    /**
+     * Get office condition statistics
+     *
+     * @param projectId optional project filter
+     * @param deptId    optional department filter
+     * @return condition statistics
+     */
+    OfficeConditionStatisticsVO getOfficeConditionStatistics(Long projectId, Long deptId);
 }
