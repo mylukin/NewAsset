@@ -314,8 +314,17 @@
       "totalRuns": 1,
       "passCount": 1,
       "failCount": 0
+    },
+    "parking.frontend-api": {
+      "featureId": "parking.frontend-api",
+      "latestRun": 1,
+      "latestTimestamp": "2025-12-14T13:00:37.650Z",
+      "latestVerdict": "pass",
+      "totalRuns": 1,
+      "passCount": 1,
+      "failCount": 0
     }
   },
-  "updatedAt": "2025-12-14T12:59:33.130Z",
+  "updatedAt": "2025-12-14T13:00:37.652Z",
   "version": "2.0.0"
 }
