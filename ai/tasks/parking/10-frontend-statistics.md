@@ -3,7 +3,7 @@ id: parking.frontend-statistics
 module: parking
 priority: 38
 status: failing
-version: 4
+version: 5
 origin: manual
 dependsOn:
   - parking.frontend-api

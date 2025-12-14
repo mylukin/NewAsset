@@ -3,7 +3,7 @@ id: parking.mapper
 module: parking
 priority: 30
 status: failing
-version: 4
+version: 5
 origin: manual
 dependsOn:
   - parking.entity
