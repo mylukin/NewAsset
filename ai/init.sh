@@ -24,14 +24,14 @@ log_error() {
 # Bootstrap: Install dependencies
 bootstrap() {
   log_info "Installing dependencies..."
-  pnpm install
+  mvn clean install -DskipTests
   log_info "Bootstrap complete!"
 }
 
 # Dev: Start development environment
 dev() {
   log_info "Starting development server..."
-  pnpm dev
+  mvn spring-boot:run -pl ruoyi-admin
 }
 
 # Check: Delegate to agent-foreman check for unified verification

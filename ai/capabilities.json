@@ -2,65 +2,57 @@
   "version": "1.0.0",
   "capabilities": {
     "hasTests": false,
-    "testCommand": "",
-    "testFramework": "",
-    "hasTypeCheck": true,
-    "typeCheckCommand": "mvn -DskipTests compile",
+    "testCommand": null,
+    "testFramework": null,
+    "hasTypeCheck": false,
+    "typeCheckCommand": null,
     "hasLint": false,
-    "lintCommand": "",
-    "hasBuild": true,
-    "buildCommand": "mvn -DskipTests package",
+    "lintCommand": null,
+    "hasBuild": false,
+    "buildCommand": null,
     "hasGit": true,
     "source": "ai-discovered",
-    "confidence": 0.52,
+    "confidence": 0.5,
     "languages": [
-      "Java",
-      "Spring Boot",
-      "Maven",
-      "YAML"
+      "Java (Spring Boot)",
+      "Vue 2",
+      "JavaScript"
     ],
-    "detectedAt": "2025-12-14T04:50:50.715Z",
+    "detectedAt": "2025-12-14T06:11:59.558Z",
     "testInfo": {
       "available": false,
-      "command": "",
-      "framework": "",
-      "confidence": 0.4,
-      "selectiveFileTemplate": "",
-      "selectiveNameTemplate": "",
-      "packageManager": "maven"
+      "command": null,
+      "framework": null,
+      "confidence": 0,
+      "selectiveFileTemplate": null,
+      "selectiveNameTemplate": null,
+      "packageManager": "none"
     },
     "e2eInfo": {
       "available": false,
-      "command": "",
-      "framework": "",
-      "confidence": 0.2,
-      "configFile": "",
-      "grepTemplate": "",
-      "fileTemplate": ""
+      "command": null,
+      "framework": null,
+      "confidence": 0,
+      "configFile": null,
+      "grepTemplate": null,
+      "fileTemplate": null
     },
     "typeCheckInfo": {
-      "available": true,
-      "command": "mvn -DskipTests compile",
-      "confidence": 0.85
+      "available": false,
+      "command": null,
+      "confidence": 0
     },
     "lintInfo": {
       "available": false,
-      "command": "",
-      "confidence": 0.3
+      "command": null,
+      "confidence": 0
     },
     "buildInfo": {
-      "available": true,
-      "command": "mvn -DskipTests package",
-      "confidence": 0.85
+      "available": false,
+      "command": null,
+      "confidence": 0
     }
   },
-  "commitHash": "bea055a362d4be5d1956a0e61615d2fd6e4c942c",
-  "trackedFiles": [
-    "pom.xml",
-    "ruoyi-admin/pom.xml",
-    "ruoyi-common/pom.xml",
-    "ruoyi-framework/pom.xml",
-    "ruoyi-modules/pom.xml",
-    "ruoyi-modules/ruoyi-asset/pom.xml"
-  ]
+  "commitHash": "1e10e32d59588a6c21d5528a6e9a602ebf803d98",
+  "trackedFiles": []
 }

@@ -1,44 +1,39 @@
 ---
 id: office.entity
 module: office
-priority: 1
+priority: 10
 status: failing
 version: 1
 origin: manual
-dependsOn: [core.asset-entity]
+dependsOn: [core.asset-base-entity]
 supersedes: []
-tags: [domain, entity]
+tags: [backend, entity, P0]
 testRequirements:
   unit:
-    required: false
-    pattern: ""
+    required: true
+    pattern: "tests/office/**/*.test.*"
 ---
-# Create Office Asset Entity and Extension
+# Create Office Asset Entity
 
 ## Context
 
-Office assets represent office equipment like furniture, computers, printers, and other office supplies. They have user assignment and IT-specific fields.
+Office assets represent office equipment including furniture, IT devices, and other office items.
 
 ## Acceptance Criteria
 
-1. `AssetOffice` entity created for `t_asset_office`:
-   - assetId (PK, FK to t_asset)
-   - officeType (furniture, it_equipment, other)
-   - workplaceNo (desk/cubicle number)
-   - useUser (assigned user name)
-   - serialNo (IT asset tag/serial)
-   - osInfo (operating system for computers)
-   - configDesc (hardware configuration)
-2. `AssetOfficeVO` for list/detail responses:
-   - Combines base asset fields + office extension
-   - Department name, user name
-3. `AssetOfficeCreateDTO` for creation
-4. `AssetOfficeUpdateDTO` for updates
-5. `AssetOfficeMapper` interface with standard CRUD
+1. Create `OfficeAsset` entity in `com.ruoyi.asset.domain.entity`:
+   - Map to `t_asset_office` table (asset_id as PK/FK)
+
+2. Include office-specific fields:
+   - `officeType` (资产类型) - String (dict: office_asset_type - 家具/IT设备/其他)
+   - `workplaceNo` (工位号/房间号) - String
+   - `useUser` (使用人) - String
+   - `serialNo` (序列号/资产标签号) - String (for IT devices)
+   - `osInfo` (操作系统) - String (optional, for IT)
+   - `configDesc` (配置描述) - String (optional, for IT)
+
+3. Create `OfficeAssetVO`, `OfficeAssetCreateDTO`, `OfficeAssetUpdateDTO`
 
 ## Technical Notes
 
-- officeType from dictionary
-- serialNo important for IT asset tracking
-- Consider barcode/QR for identification
-- Link useUser to sys_user (optional)
+- Reference: TECH.md section 4.1.2 (t_asset_office)

@@ -1,49 +1,56 @@
 ---
 id: maintenance.order-entity
 module: maintenance
-priority: 1
+priority: 6
 status: failing
 version: 1
 origin: manual
-dependsOn: [core.asset-entity]
+dependsOn: [core.asset-base-entity]
 supersedes: []
-tags: [domain, entity]
+tags: [backend, entity, P0]
 testRequirements:
   unit:
-    required: false
-    pattern: ""
+    required: true
+    pattern: "tests/maintenance/**/*.test.*"
 ---
-# Create Maintenance Work Order Entity
+# Create Maintenance Order Entity
 
 ## Context
 
-Maintenance work orders track all repair and maintenance activities for assets. They have their own status workflow and link to assets.
+Maintenance orders track repair requests, inspections, and maintenance activities for assets.
 
 ## Acceptance Criteria
 
-1. `MaintOrder` entity created for `t_asset_maint_order`:
-   - id, orderNo (auto-generated)
-   - assetId (FK to t_asset)
-   - projectId
-   - orderType (fault, repair, inspection)
-   - faultType (electrical, plumbing, etc.)
-   - title, description
-   - priority (normal, important, urgent)
-   - requireFinishTime
-   - status (workflow states)
-   - originAssetStatus (saved before change)
-   - currentHandlerId (assigned technician)
-   - requesterId (who created it)
+1. Create `MaintenanceOrder` entity mapping `t_asset_maint_order`:
+   - `id` - Long (PK)
+   - `orderNo` - String (unique, auto-generated)
+   - `assetId` - Long (FK to t_asset)
+   - `projectId` - Long
+   - `orderType` - String (故障/报修/巡检/维保)
+   - `faultType` - String (dict)
+   - `title` - String
+   - `description` - String
+   - `priority` - String (一般/重要/紧急)
+   - `requireFinishTime` - Date
+   - `status` - String (see MaintOrderStatusEnum)
+   - `originAssetStatus` - String (asset status when order created)
+   - `currentHandlerId` - Long (运维人员)
+   - `requesterId` - Long (发起人)
    - Audit fields
-2. `MaintOrderStatusEnum`:
-   - WAIT_ASSIGN, WAIT_ACCEPT, PROCESSING
-   - WAIT_CONFIRM, CLOSED, CANCELED
-3. `MaintOperationType` enum for log operations
-4. `MaintOrderVO`, `MaintOrderCreateDTO`, `MaintOrderUpdateDTO`
-5. `MaintOrderMapper` with CRUD and status queries
+
+2. Create `MaintOrderStatusEnum`:
+   - `WAIT_ASSIGN` - 待派单
+   - `WAIT_ACCEPT` - 待接单
+   - `PROCESSING` - 处理中
+   - `WAIT_CONFIRM` - 待验收
+   - `CLOSED` - 已关闭
+   - `CANCELED` - 已取消
+
+3. Create `MaintOperationTypeEnum`:
+   - CREATE, ASSIGN, ACCEPT, START_HANDLE, COMPLETE, CONFIRM, REJECT, CANCEL
+
+4. Create `MaintenanceOrderVO`, DTOs
 
 ## Technical Notes
 
-- orderNo format: MO-{yyyyMMdd}-{seq}
-- Link to asset for code and location display
-- Status transitions have rules
+- Reference: TECH.md section 4.2.1, 5.3

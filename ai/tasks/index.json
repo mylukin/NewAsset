@@ -1,428 +1,452 @@
 {
   "version": "2.0.0",
-  "updatedAt": "2025-12-14T04:57:42.515Z",
+  "updatedAt": "2025-12-14T06:11:24.457Z",
   "metadata": {
     "projectGoal": "基于 ai/tasks 创建一个资产管理系统",
     "createdAt": "2025-12-14T12:00:00Z",
-    "updatedAt": "2025-12-14T04:38:42.270Z",
+    "updatedAt": "2025-12-14T06:11:24.442Z",
     "version": "1.0.0",
-    "framework": "RuoYi-Vue (Spring Boot + Vue2 + Element UI)",
-    "database": {
-      "primary": "SQLite",
-      "alternative": "MySQL",
-      "notes": "SQLite for dev/test/small deployments, MySQL for production/scale"
+    "techStack": "RuoYi-Vue (Spring Boot + Vue2 + Element UI + MyBatis + MySQL)",
+    "priorityScheme": {
+      "1": "Foundation (project-init, database, dictionary)",
+      "2": "Core entities",
+      "3": "Core services",
+      "4": "House backend",
+      "5": "House frontend",
+      "6": "Maintenance backend",
+      "7": "Maintenance frontend",
+      "8": "Parking backend",
+      "9": "Parking frontend",
+      "10": "Office backend",
+      "11": "Office frontend",
+      "12": "Facility backend",
+      "13": "Facility frontend",
+      "14": "Venue backend",
+      "15": "Venue frontend",
+      "16": "Dashboard"
     },
-    "scope": "P0 features only",
     "tddMode": "recommended"
   },
   "features": {
-    "aiTasks.definitions.load": {
+    "core.project-init": {
       "status": "failing",
-      "priority": 22,
-      "module": "aiTasks",
-      "description": "Load AI task definitions from an ai/tasks directory (YAML/JSON) with schema validation and versioning."
-    },
-    "db.schema.assets": {
-      "status": "failing",
-      "priority": 12,
-      "module": "db",
-      "description": "Define database schema for assets (name, type, tags, owner, status, timestamps) with migrations."
-    },
-    "platform.repo.bootstrap": {
-      "status": "failing",
-      "priority": 10,
-      "module": "platform",
-      "description": "Create a pnpm workspace with consistent scripts (dev/build/test) and TypeScript base config."
-    },
-    "ui.assets.dashboard": {
-      "status": "failing",
-      "priority": 27,
-      "module": "ui",
-      "description": "Build a web UI for asset list/detail/edit flows with role-aware navigation."
-    },
-    "assets.asset.read": {
-      "status": "failing",
-      "priority": 18,
-      "module": "assets",
-      "description": "Fetch an asset by id with authorization checks and consistent error responses."
-    },
-    "audit.events.record": {
-      "status": "failing",
-      "priority": 21,
-      "module": "audit",
-      "description": "Record an audit event for every asset create/update/archive and for admin permission changes."
-    },
-    "tests.coverage.smoke": {
-      "status": "failing",
-      "priority": 29,
-      "module": "tests",
-      "description": "Add unit and integration tests covering asset CRUD, RBAC enforcement, and AI task state transitions."
+      "priority": 1,
+      "module": "core",
+      "description": "Initialize ruoyi-asset Module"
     },
     "core.state-machine": {
       "status": "failing",
-      "priority": 5,
+      "priority": 3,
       "module": "core",
-      "description": "Implement unified asset state machine with transition validation"
+      "description": "Implement Asset State Machine Service"
+    },
+    "core.database-schema": {
+      "status": "failing",
+      "priority": 1,
+      "module": "core",
+      "description": "Create Database Schema for All Asset Tables"
     },
     "core.code-generator": {
       "status": "failing",
-      "priority": 4,
+      "priority": 3,
       "module": "core",
-      "description": "Implement asset code generation with configurable rules and concurrency handling"
-    },
-    "web.assets.crud": {
-      "status": "failing",
-      "priority": 27,
-      "module": "web",
-      "description": "Build web pages to create, view, edit, and list assets using the API."
-    },
-    "core.project-init": {
-      "status": "passing",
-      "priority": 1,
-      "module": "core",
-      "description": "Initialize RuoYi-Vue project with ruoyi-asset module skeleton"
-    },
-    "search.assets.query": {
-      "status": "failing",
-      "priority": 20,
-      "module": "search",
-      "description": "Provide paginated asset list with filter/sort by type, owner, status, tags, and updated time."
-    },
-    "house.detail": {
-      "status": "failing",
-      "priority": 4,
-      "module": "house",
-      "description": "Implement house asset detail view with maintenance history and attachments"
-    },
-    "api.http.errors": {
-      "status": "failing",
-      "priority": 24,
-      "module": "api",
-      "description": "Implement a consistent API error format (status, code, message, requestId) across all endpoints."
-    },
-    "config.env.validate": {
-      "status": "failing",
-      "priority": 11,
-      "module": "config",
-      "description": "Load configuration from environment variables and fail fast on missing/invalid values."
-    },
-    "house.entity": {
-      "status": "passing",
-      "priority": 1,
-      "module": "house",
-      "description": "Create house asset entity with extension fields for area, type, rental info"
+      "description": "Implement Asset Code Generator"
     },
     "core.attachment-service": {
       "status": "failing",
-      "priority": 6,
-      "module": "core",
-      "description": "Implement attachment upload/download service for assets and orders"
-    },
-    "observability.logging.request": {
-      "status": "failing",
-      "priority": 25,
-      "module": "observability",
-      "description": "Add structured request logging with correlation IDs and redaction of sensitive fields."
-    },
-    "house.create": {
-      "status": "failing",
       "priority": 3,
+      "module": "core",
+      "description": "Implement Asset Attachment Service"
+    },
+    "house.entity": {
+      "status": "failing",
+      "priority": 4,
       "module": "house",
-      "description": "Implement house asset creation with auto-generated asset code"
+      "description": "Create House Asset Entity"
     },
     "core.data-permission": {
       "status": "failing",
-      "priority": 7,
-      "module": "core",
-      "description": "Implement project-based data permission extending RuoYi DataScope"
-    },
-    "house.statistics": {
-      "status": "failing",
-      "priority": 6,
-      "module": "house",
-      "description": "Implement house asset statistics (vacancy rate, usage breakdown)"
-    },
-    "office.entity": {
-      "status": "passing",
-      "priority": 1,
-      "module": "office",
-      "description": "Create office asset entity with IT equipment fields"
-    },
-    "office.crud": {
-      "status": "failing",
-      "priority": 2,
-      "module": "office",
-      "description": "Implement full CRUD for office assets"
-    },
-    "core.database-schema": {
-      "status": "passing",
-      "priority": 2,
-      "module": "core",
-      "description": "Create database schema for all asset tables and maintenance tables"
-    },
-    "parking.crud": {
-      "status": "failing",
-      "priority": 2,
-      "module": "parking",
-      "description": "Implement full CRUD for parking assets"
-    },
-    "maintenance.order-list": {
-      "status": "failing",
-      "priority": 4,
-      "module": "maintenance",
-      "description": "Implement order list with role-based filtering"
-    },
-    "maintenance.order-entity": {
-      "status": "passing",
-      "priority": 1,
-      "module": "maintenance",
-      "description": "Create maintenance work order entity with status enum"
-    },
-    "maintenance.order-workflow": {
-      "status": "failing",
-      "priority": 3,
-      "module": "maintenance",
-      "description": "Implement order status workflow with asset status integration"
-    },
-    "core.asset-entity": {
-      "status": "failing",
       "priority": 3,
       "module": "core",
-      "description": "Create base Asset entity, enums, VOs, and DTOs"
+      "description": "Implement Project-Based Data Permission"
     },
-    "parking.entity": {
-      "status": "passing",
-      "priority": 1,
-      "module": "parking",
-      "description": "Create parking asset entity with zone, type, rental info"
-    },
-    "maintenance.order-detail": {
-      "status": "failing",
-      "priority": 6,
-      "module": "maintenance",
-      "description": "Implement order detail with timeline and workflow actions"
-    },
-    "auth.user.register": {
-      "status": "failing",
-      "priority": 14,
-      "module": "auth",
-      "description": "Implement user registration with password hashing and input validation."
-    },
-    "docs.api.openapi": {
-      "status": "failing",
-      "priority": 29,
-      "module": "docs",
-      "description": "Publish API documentation (OpenAPI spec) and provide local instructions to run the stack."
-    },
-    "venue.crud": {
+    "core.asset-status-enum": {
       "status": "failing",
       "priority": 2,
-      "module": "venue",
-      "description": "Implement full CRUD for venue assets"
-    },
-    "facility.entity": {
-      "status": "passing",
-      "priority": 1,
-      "module": "facility",
-      "description": "Create facility asset entity with equipment and vendor info"
-    },
-    "maintenance.asset-history": {
-      "status": "failing",
-      "priority": 7,
-      "module": "maintenance",
-      "description": "Implement maintenance history view for assets"
-    },
-    "maintenance.order-log": {
-      "status": "failing",
-      "priority": 2,
-      "module": "maintenance",
-      "description": "Create order log entity for workflow audit trail"
-    },
-    "dashboard.operations-home": {
-      "status": "failing",
-      "priority": 2,
-      "module": "dashboard",
-      "description": "Implement operations staff dashboard with pending tasks"
-    },
-    "maintenance.order-create": {
-      "status": "failing",
-      "priority": 5,
-      "module": "maintenance",
-      "description": "Implement order creation from asset or independently"
-    },
-    "house.update": {
-      "status": "failing",
-      "priority": 5,
-      "module": "house",
-      "description": "Implement house asset update with change logging and state machine integration"
-    },
-    "dashboard.management-home": {
-      "status": "passing",
-      "priority": 1,
-      "module": "dashboard",
-      "description": "Implement management dashboard with key metrics and charts"
-    },
-    "db.schema.users": {
-      "status": "failing",
-      "priority": 13,
-      "module": "db",
-      "description": "Define users/roles tables to support authentication and authorization."
-    },
-    "auth.user.login": {
-      "status": "failing",
-      "priority": 15,
-      "module": "auth",
-      "description": "Implement login that issues a secure session/JWT and returns current user profile."
-    },
-    "house.list": {
-      "status": "failing",
-      "priority": 2,
-      "module": "house",
-      "description": "Implement house asset list with search, filter, and pagination"
-    },
-    "parking.statistics": {
-      "status": "failing",
-      "priority": 3,
-      "module": "parking",
-      "description": "Implement parking utilization statistics by zone"
-    },
-    "assets.asset.create": {
-      "status": "failing",
-      "priority": 17,
-      "module": "assets",
-      "description": "Create an asset with server-side validation and persist it to the database."
-    },
-    "assets.asset.delete": {
-      "status": "failing",
-      "priority": 20,
-      "module": "assets",
-      "description": "Soft-delete an asset and prevent it from appearing in default listings."
-    },
-    "house.export": {
-      "status": "failing",
-      "priority": 7,
-      "module": "house",
-      "description": "Implement house asset Excel export"
+      "module": "core",
+      "description": "Create Asset Status Enum"
     },
     "core.dictionary-setup": {
       "status": "failing",
-      "priority": 8,
-      "module": "core",
-      "description": "Configure system dictionaries for all asset types and statuses"
-    },
-    "venue.entity": {
-      "status": "passing",
       "priority": 1,
-      "module": "venue",
-      "description": "Create venue asset entity with capacity and availability info"
+      "module": "core",
+      "description": "Setup System Dictionaries for Asset Module"
     },
-    "observability.health.readiness": {
+    "house.mapper": {
       "status": "failing",
-      "priority": 26,
-      "module": "observability",
-      "description": "Expose health/readiness endpoints that verify DB connectivity and essential dependencies."
+      "priority": 4,
+      "module": "house",
+      "description": "Create House Asset Mapper"
     },
-    "files.attachment.download": {
+    "house.service": {
       "status": "failing",
-      "priority": 23,
-      "module": "files",
-      "description": "Download an asset attachment with authorization and audit logging."
+      "priority": 4,
+      "module": "house",
+      "description": "Create House Asset Service"
     },
-    "assets.asset.update": {
+    "house.frontend-form": {
       "status": "failing",
-      "priority": 19,
-      "module": "assets",
-      "description": "Update editable asset fields with optimistic concurrency control (updatedAt/version)."
+      "priority": 5,
+      "module": "house",
+      "description": "Create House Asset Form Component"
     },
-    "assets.asset.search": {
+    "house.statistics": {
       "status": "failing",
-      "priority": 21,
-      "module": "assets",
-      "description": "List/search assets with pagination, filters (type/status/tags), and sort order."
+      "priority": 4,
+      "module": "house",
+      "description": "Implement House Asset Statistics"
     },
-    "platform.testing.contract": {
+    "house.frontend-list": {
       "status": "failing",
-      "priority": 30,
-      "module": "platform",
-      "description": "Add unit/integration test scaffolding and a minimal CI-ready test command."
+      "priority": 5,
+      "module": "house",
+      "description": "Create House Asset List Page"
     },
-    "auth.rbac.enforce": {
+    "house.controller": {
       "status": "failing",
-      "priority": 16,
-      "module": "auth",
-      "description": "Enforce role-based access control for protected routes (e.g., admin vs. regular user)."
+      "priority": 4,
+      "module": "house",
+      "description": "Create House Asset Controller"
     },
-    "facility.crud": {
+    "house.frontend-detail": {
+      "status": "failing",
+      "priority": 5,
+      "module": "house",
+      "description": "Create House Asset Detail Page"
+    },
+    "maintenance.order-mapper": {
+      "status": "failing",
+      "priority": 6,
+      "module": "maintenance",
+      "description": "Create Maintenance Order Mapper"
+    },
+    "maintenance.order-log-entity": {
+      "status": "failing",
+      "priority": 6,
+      "module": "maintenance",
+      "description": "Create Maintenance Order Log Entity"
+    },
+    "maintenance.order-crud-service": {
+      "status": "failing",
+      "priority": 6,
+      "module": "maintenance",
+      "description": "Create Maintenance Order CRUD Service"
+    },
+    "house.frontend-statistics": {
+      "status": "failing",
+      "priority": 5,
+      "module": "house",
+      "description": "Create House Asset Statistics View"
+    },
+    "maintenance.order-entity": {
+      "status": "failing",
+      "priority": 6,
+      "module": "maintenance",
+      "description": "Create Maintenance Order Entity"
+    },
+    "maintenance.order-controller": {
+      "status": "failing",
+      "priority": 6,
+      "module": "maintenance",
+      "description": "Create Maintenance Order Controller"
+    },
+    "maintenance.order-workflow-service": {
+      "status": "failing",
+      "priority": 6,
+      "module": "maintenance",
+      "description": "Create Maintenance Order Workflow Service"
+    },
+    "house.frontend-api": {
+      "status": "failing",
+      "priority": 5,
+      "module": "house",
+      "description": "Create House Asset Frontend API Module"
+    },
+    "maintenance.frontend-list": {
+      "status": "failing",
+      "priority": 7,
+      "module": "maintenance",
+      "description": "Create Maintenance Order List Page"
+    },
+    "maintenance.frontend-form": {
+      "status": "failing",
+      "priority": 7,
+      "module": "maintenance",
+      "description": "Create Maintenance Order Form Component"
+    },
+    "maintenance.frontend-api": {
+      "status": "failing",
+      "priority": 7,
+      "module": "maintenance",
+      "description": "Create Maintenance Order Frontend API Module"
+    },
+    "maintenance.frontend-detail": {
+      "status": "failing",
+      "priority": 7,
+      "module": "maintenance",
+      "description": "Create Maintenance Order Detail Page"
+    },
+    "core.asset-base-entity": {
       "status": "failing",
       "priority": 2,
+      "module": "core",
+      "description": "Create Base Asset Entity"
+    },
+    "parking.controller": {
+      "status": "failing",
+      "priority": 8,
+      "module": "parking",
+      "description": "Create Parking Asset Controller"
+    },
+    "parking.mapper": {
+      "status": "failing",
+      "priority": 8,
+      "module": "parking",
+      "description": "Create Parking Asset Mapper"
+    },
+    "maintenance.asset-maint-history": {
+      "status": "failing",
+      "priority": 7,
+      "module": "maintenance",
+      "description": "Implement Asset Maintenance History"
+    },
+    "parking.service": {
+      "status": "failing",
+      "priority": 8,
+      "module": "parking",
+      "description": "Create Parking Asset Service"
+    },
+    "parking.entity": {
+      "status": "failing",
+      "priority": 8,
+      "module": "parking",
+      "description": "Create Parking Asset Entity"
+    },
+    "parking.frontend-statistics": {
+      "status": "failing",
+      "priority": 9,
+      "module": "parking",
+      "description": "Create Parking Asset Statistics View"
+    },
+    "parking.frontend-list": {
+      "status": "failing",
+      "priority": 9,
+      "module": "parking",
+      "description": "Create Parking Asset List Page"
+    },
+    "parking.frontend-api": {
+      "status": "failing",
+      "priority": 9,
+      "module": "parking",
+      "description": "Create Parking Asset Frontend API Module"
+    },
+    "parking.frontend-detail": {
+      "status": "failing",
+      "priority": 9,
+      "module": "parking",
+      "description": "Create Parking Asset Detail Page"
+    },
+    "parking.frontend-form": {
+      "status": "failing",
+      "priority": 9,
+      "module": "parking",
+      "description": "Create Parking Asset Form Component"
+    },
+    "office.controller": {
+      "status": "failing",
+      "priority": 10,
+      "module": "office",
+      "description": "Create Office Asset Controller"
+    },
+    "office.entity": {
+      "status": "failing",
+      "priority": 10,
+      "module": "office",
+      "description": "Create Office Asset Entity"
+    },
+    "parking.statistics": {
+      "status": "failing",
+      "priority": 8,
+      "module": "parking",
+      "description": "Implement Parking Asset Statistics"
+    },
+    "office.frontend-api": {
+      "status": "failing",
+      "priority": 11,
+      "module": "office",
+      "description": "Create Office Asset Frontend API Module"
+    },
+    "office.frontend-list": {
+      "status": "failing",
+      "priority": 11,
+      "module": "office",
+      "description": "Create Office Asset List Page"
+    },
+    "office.service": {
+      "status": "failing",
+      "priority": 10,
+      "module": "office",
+      "description": "Create Office Asset Service"
+    },
+    "office.mapper": {
+      "status": "failing",
+      "priority": 10,
+      "module": "office",
+      "description": "Create Office Asset Mapper"
+    },
+    "office.frontend-detail": {
+      "status": "failing",
+      "priority": 11,
+      "module": "office",
+      "description": "Create Office Asset Detail Page"
+    },
+    "facility.controller": {
+      "status": "failing",
+      "priority": 12,
       "module": "facility",
-      "description": "Implement full CRUD for facility assets with warranty tracking"
+      "description": "Create Facility Asset Controller"
+    },
+    "facility.service": {
+      "status": "failing",
+      "priority": 12,
+      "module": "facility",
+      "description": "Create Facility Asset Service"
+    },
+    "facility.mapper": {
+      "status": "failing",
+      "priority": 12,
+      "module": "facility",
+      "description": "Create Facility Asset Mapper"
+    },
+    "office.frontend-form": {
+      "status": "failing",
+      "priority": 11,
+      "module": "office",
+      "description": "Create Office Asset Form Component"
+    },
+    "facility.frontend-api": {
+      "status": "failing",
+      "priority": 13,
+      "module": "facility",
+      "description": "Create Facility Asset Frontend API Module"
+    },
+    "facility.entity": {
+      "status": "failing",
+      "priority": 12,
+      "module": "facility",
+      "description": "Create Facility Asset Entity"
+    },
+    "facility.frontend-detail": {
+      "status": "failing",
+      "priority": 13,
+      "module": "facility",
+      "description": "Create Facility Asset Detail Page"
+    },
+    "facility.frontend-list": {
+      "status": "failing",
+      "priority": 13,
+      "module": "facility",
+      "description": "Create Facility Asset List Page"
+    },
+    "venue.entity": {
+      "status": "failing",
+      "priority": 14,
+      "module": "venue",
+      "description": "Create Venue Asset Entity"
+    },
+    "venue.service": {
+      "status": "failing",
+      "priority": 14,
+      "module": "venue",
+      "description": "Create Venue Asset Service"
+    },
+    "facility.frontend-form": {
+      "status": "failing",
+      "priority": 13,
+      "module": "facility",
+      "description": "Create Facility Asset Form Component"
+    },
+    "venue.mapper": {
+      "status": "failing",
+      "priority": 14,
+      "module": "venue",
+      "description": "Create Venue Asset Mapper"
+    },
+    "venue.controller": {
+      "status": "failing",
+      "priority": 14,
+      "module": "venue",
+      "description": "Create Venue Asset Controller"
+    },
+    "venue.frontend-api": {
+      "status": "failing",
+      "priority": 15,
+      "module": "venue",
+      "description": "Create Venue Asset Frontend API Module"
+    },
+    "dashboard.frontend-api": {
+      "status": "failing",
+      "priority": 16,
+      "module": "dashboard",
+      "description": "Create Dashboard Frontend API Module"
+    },
+    "venue.frontend-list": {
+      "status": "failing",
+      "priority": 15,
+      "module": "venue",
+      "description": "Create Venue Asset List Page"
+    },
+    "dashboard.controller": {
+      "status": "failing",
+      "priority": 16,
+      "module": "dashboard",
+      "description": "Create Dashboard Controller"
+    },
+    "dashboard.service": {
+      "status": "failing",
+      "priority": 16,
+      "module": "dashboard",
+      "description": "Create Dashboard Service"
+    },
+    "dashboard.management-home": {
+      "status": "failing",
+      "priority": 16,
+      "module": "dashboard",
+      "description": "Create Management Dashboard Page"
+    },
+    "venue.frontend-form": {
+      "status": "failing",
+      "priority": 15,
+      "module": "venue",
+      "description": "Create Venue Asset Form Component"
     },
     "dashboard.asset-manager-home": {
       "status": "failing",
-      "priority": 3,
+      "priority": 16,
       "module": "dashboard",
-      "description": "Implement asset manager dashboard with data quality alerts"
+      "description": "Create Asset Manager Dashboard Page"
     },
-    "db.schema.bootstrap": {
+    "venue.frontend-detail": {
       "status": "failing",
-      "priority": 11,
-      "module": "db",
-      "description": "Define initial database schema for users, roles, assets, tags, attachments, AI tasks, and audit logs."
+      "priority": 15,
+      "module": "venue",
+      "description": "Create Venue Asset Detail Page"
     },
-    "assets.asset.archive": {
+    "dashboard.ops-home": {
       "status": "failing",
-      "priority": 17,
-      "module": "assets",
-      "description": "Archive or deactivate assets with a reversible state transition and recorded reason."
-    },
-    "aiTasks.results.apply": {
-      "status": "failing",
-      "priority": 25,
-      "module": "aiTasks",
-      "description": "Apply AI task results to asset fields (e.g., auto-tagging, description generation) with human review option."
-    },
-    "api.rest.assets": {
-      "status": "failing",
-      "priority": 26,
-      "module": "api",
-      "description": "Expose REST endpoints for asset CRUD, attachments, tags, and AI task triggers with request validation."
-    },
-    "assets.tags.manage": {
-      "status": "failing",
-      "priority": 19,
-      "module": "assets",
-      "description": "Add/remove tags and categories for assets, and ensure tag uniqueness and normalization."
-    },
-    "observability.errors.standardize": {
-      "status": "failing",
-      "priority": 28,
-      "module": "observability",
-      "description": "Standardize error codes and responses across API/UI, and add structured logs for key workflows."
-    },
-    "web.auth.session": {
-      "status": "failing",
-      "priority": 28,
-      "module": "web",
-      "description": "Implement login/logout flows in the web UI and persist session state securely."
-    },
-    "aiTasks.worker.execute": {
-      "status": "failing",
-      "priority": 24,
-      "module": "aiTasks",
-      "description": "Implement a worker that executes AI tasks with retries, timeouts, and idempotency keys."
-    },
-    "files.attachment.upload": {
-      "status": "failing",
-      "priority": 22,
-      "module": "files",
-      "description": "Upload and attach a file to an asset, storing metadata and enforcing size/type limits."
-    },
-    "aiTasks.jobs.enqueue": {
-      "status": "failing",
-      "priority": 23,
-      "module": "aiTasks",
-      "description": "Create AI task runs for selected assets (manual trigger and rules-based trigger) and persist job state."
+      "priority": 16,
+      "module": "dashboard",
+      "description": "Create Operations Staff Dashboard Page"
     }
   }
 }

@@ -1,43 +1,43 @@
 ---
 id: venue.entity
 module: venue
-priority: 1
+priority: 14
 status: failing
 version: 1
 origin: manual
-dependsOn: [core.asset-entity]
+dependsOn: [core.asset-base-entity]
 supersedes: []
-tags: [domain, entity]
+tags: [backend, entity, P0]
 testRequirements:
   unit:
-    required: false
-    pattern: ""
+    required: true
+    pattern: "tests/venue/**/*.test.*"
 ---
-# Create Venue Asset Entity and Extension
+# Create Venue Asset Entity
 
 ## Context
 
-Venue assets represent activity spaces like sports courts, meeting rooms, and activity centers. They have capacity and availability information.
+Venue assets represent activity rooms, sports facilities, and meeting rooms with capacity and availability info.
 
 ## Acceptance Criteria
 
-1. `AssetVenue` entity created for `t_asset_venue`:
-   - assetId (PK, FK to t_asset)
-   - venueType (basketball, badminton, meeting_room, etc.)
-   - capacity (maximum people)
-   - useMode (free, paid, internal)
-   - openTimeDesc (text description of hours)
-   - currentVenueStatus (available, occupied, maintenance)
-2. `AssetVenueVO` for list/detail responses:
-   - Combines base asset fields + venue extension
-   - Current availability status
-3. `AssetVenueCreateDTO` for creation
-4. `AssetVenueUpdateDTO` for updates
-5. `AssetVenueMapper` interface with standard CRUD
+1. Create `VenueAsset` entity in `com.ruoyi.asset.domain.entity`:
+   - Map to `t_asset_venue` table (asset_id as PK/FK)
+
+2. Include venue-specific fields:
+   - `venueType` (场馆类型) - String (dict: venue_type)
+   - `capacity` (容纳人数) - Integer
+   - `useMode` (使用方式) - String (免费/收费/内部使用)
+   - `openTimeDesc` (开放时间段描述) - String
+   - `currentVenueStatus` (当前状态) - String (可预约/占用/维护中)
+
+3. Create `VenueStatusEnum`:
+   - `AVAILABLE` - 可预约
+   - `OCCUPIED` - 占用中
+   - `MAINTENANCE` - 维护中
+
+4. Create `VenueAssetVO`, `VenueAssetCreateDTO`, `VenueAssetUpdateDTO`
 
 ## Technical Notes
 
-- venueType from dictionary
-- currentVenueStatus is sub-status (different from asset status)
-- openTimeDesc is free-form text for MVP
-- Future: integrate with booking system
+- Reference: TECH.md section 4.1.2 (t_asset_venue)

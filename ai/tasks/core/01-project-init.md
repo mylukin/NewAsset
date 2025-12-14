@@ -7,22 +7,23 @@ version: 1
 origin: manual
 dependsOn: []
 supersedes: []
-tags: [infrastructure, setup]
+tags: [backend, setup]
 testRequirements:
   unit:
     required: false
     pattern: ""
 ---
-# Initialize RuoYi-Vue Project with Asset Module
+# Initialize ruoyi-asset Module
 
 ## Context
 
-The asset management system is built on top of RuoYi-Vue framework. This task sets up the base project structure and creates the `ruoyi-asset` module skeleton.
+The asset management system is built on top of RuoYi-Vue framework. We need to create a new `ruoyi-asset` module to house all asset-related business logic.
 
 ## Acceptance Criteria
 
-1. RuoYi-Vue project is initialized with standard directory structure
-2. `ruoyi-asset` module is created with proper package structure:
+1. Create `ruoyi-asset` Maven module under `ruoyi-modules/`
+2. Configure `pom.xml` with proper dependencies (ruoyi-common, ruoyi-framework)
+3. Create package structure:
    - `com.ruoyi.asset.config`
    - `com.ruoyi.asset.domain.entity`
    - `com.ruoyi.asset.domain.vo`
@@ -34,18 +35,11 @@ The asset management system is built on top of RuoYi-Vue framework. This task se
    - `com.ruoyi.asset.controller`
    - `com.ruoyi.asset.util`
    - `com.ruoyi.asset.constant`
-3. Module is properly registered in parent pom.xml
-4. Frontend `src/api/asset/` and `src/views/asset/` directories are created
-5. Application starts without errors
+4. Add module to parent `pom.xml`
+5. Create `application.yml` with MyBatis mapper scanning configuration
+6. Verify module compiles without errors
 
 ## Technical Notes
 
-- Reference: RuoYi-Vue official documentation
-- Java version: 8+
-- Spring Boot: 2.2.x
-- MyBatis: 3.5.x
-- **Database Configuration**:
-  - Primary: SQLite (lightweight, zero-config, suitable for dev/test/small deployments)
-  - Alternative: MySQL (production-ready, scalable)
-  - Use Spring profiles to switch between databases (`spring.profiles.active=sqlite` or `mysql`)
-  - Configure connection pool for both databases
+- Reference: RuoYi-Vue module structure
+- Pattern: Spring Boot multi-module project

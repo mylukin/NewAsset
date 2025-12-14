@@ -1,4 +1,0 @@
-# ruoyi-asset module configuration
-spring:
-  application:
-    name: ruoyi-asset

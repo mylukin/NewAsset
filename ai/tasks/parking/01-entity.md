@@ -1,50 +1,41 @@
 ---
 id: parking.entity
 module: parking
-priority: 1
+priority: 8
 status: failing
 version: 1
 origin: manual
-dependsOn: [core.asset-entity]
+dependsOn: [core.asset-base-entity]
 supersedes: []
-tags: [domain, entity]
+tags: [backend, entity, P0]
 testRequirements:
   unit:
-    required: false
-    pattern: ""
+    required: true
+    pattern: "tests/parking/**/*.test.*"
 ---
-# Create Parking Asset Entity and Extension
+# Create Parking Asset Entity
 
 ## Context
 
-Parking assets represent parking spaces with specific attributes like zone, type (fixed/temporary), and rental information.
+Parking assets represent parking spaces with rental and usage information.
 
 ## Acceptance Criteria
 
-1. `AssetParking` entity created for `t_asset_parking`:
-   - assetId (PK, FK to t_asset)
-   - parkingNo (parking space number)
-   - parkingZone (underground, ground, etc.)
-   - parkingType (fixed, temporary)
-   - area (decimal, optional)
-   - currentUser, plateNo
-   - rentPrice, contractNo
-2. `AssetParkingVO` for list/detail responses:
-   - Combines base asset fields + parking extension
-   - Includes project name, zone name
-3. `AssetParkingCreateDTO` for creation:
-   - Required: projectId, parkingZone, parkingNo
-   - Validation annotations
-4. `AssetParkingUpdateDTO` for updates
-5. `AssetParkingMapper` interface with:
-   - selectParkingList(query)
-   - selectParkingById(id)
-   - insertParking(entity)
-   - updateParking(entity)
-   - deleteParkingByIds(ids)
+1. Create `ParkingAsset` entity in `com.ruoyi.asset.domain.entity`:
+   - Map to `t_asset_parking` table (asset_id as PK/FK)
+
+2. Include parking-specific fields:
+   - `parkingNo` (车位编号) - String
+   - `parkingZone` (车库区域) - String (地上/地下/编号)
+   - `parkingType` (车位类型) - String (dict: parking_type, 固定/临停)
+   - `area` (车位面积) - BigDecimal (optional)
+   - `currentUser` (当前使用人) - String
+   - `plateNo` (车牌号) - String
+   - `rentPrice` (包月金额/租金) - BigDecimal
+   - `contractNo` (合同编号) - String
+
+3. Create `ParkingAssetVO`, `ParkingAssetCreateDTO`, `ParkingAssetUpdateDTO`
 
 ## Technical Notes
 
-- parkingNo should be unique within project+zone
-- Support batch creation for parking lots
-- Reference: TECH.md section 4.1.2
+- Reference: TECH.md section 4.1.2 (t_asset_parking)

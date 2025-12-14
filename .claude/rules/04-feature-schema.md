@@ -33,10 +33,26 @@ ai/tasks/
       "priority": 1,
       "module": "auth",
       "description": "User can log in"
+    },
+    "core.project-init": {
+      "status": "passing",
+      "priority": 1,
+      "module": "core",
+      "description": "Initialize project structure",
+      "filePath": "core/01-project-init.md"
     }
   }
 }
 ```
+
+**Index Entry Fields**:
+- `status` (required): Current task status
+- `priority` (required): Priority number (1 = highest)
+- `module` (required): Parent module name
+- `description` (required): Human-readable description
+- `filePath` (optional): Explicit file path when filename doesn't follow ID convention
+
+**Note**: By default, file paths are derived from task IDs (e.g., `auth.login` → `auth/login.md`). Use `filePath` when the actual filename differs (e.g., numbered prefixes like `01-project-init.md`).
 
 ## Task/Feature Markdown Format
 

@@ -1,34 +1,26 @@
 ---
 id: office.entity
 module: office
-priority: 1
-status: passing
+priority: 10
+status: failing
 version: 1
 origin: manual
-dependsOn: []
+dependsOn:
+  - core.asset-base-entity
 supersedes: []
-tags: []
-tddGuidance:
-  generatedAt: '2025-12-14T04:43:16.606Z'
-  generatedBy: codex
-  forVersion: 1
-  suggestedTestFiles:
-    unit:
-      - >-
-        office/src/test/java/com/yourorg/office/entity/OfficeAssetEntityTest.java
-    e2e: []
-  unitTestCases:
-    - name: should expose IT equipment fields on OfficeAsset entity
-      assertions:
-        - 'assertEquals("ASSET-001", officeAsset.getAssetTag())'
-        - 'assertEquals("LAPTOP", officeAsset.getDeviceType())'
-        - 'assertEquals("SN-123456", officeAsset.getSerialNumber())'
-        - 'assertEquals("Dell", officeAsset.getManufacturer())'
-        - 'assertEquals("XPS 13", officeAsset.getModel())'
-        - 'assertEquals("Windows 11", officeAsset.getOperatingSystem())'
-        - 'assertEquals(16, officeAsset.getRamGb())'
-        - 'assertEquals(512, officeAsset.getStorageGb())'
-  e2eScenarios: []
-  frameworkHint: junit-jupiter
+tags:
+  - backend
+  - entity
+  - P0
+testRequirements:
+  unit:
+    required: true
+    pattern: tests/office/**/*.test.*
 ---
-# Create office asset entity with IT equipment fields
+# Create Office Asset Entity
+
+## Acceptance Criteria
+
+1. Create `OfficeAsset` entity in `com.ruoyi.asset.domain.entity`:
+2. Include office-specific fields:
+3. Create `OfficeAssetVO`, `OfficeAssetCreateDTO`, `OfficeAssetUpdateDTO`
