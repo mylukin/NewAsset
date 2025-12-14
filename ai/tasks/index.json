@@ -155,7 +155,7 @@
       "description": "Implement full CRUD for office assets"
     },
     "core.database-schema": {
-      "status": "failing",
+      "status": "passing",
       "priority": 2,
       "module": "core",
       "description": "Create database schema for all asset tables and maintenance tables"
@@ -311,7 +311,7 @@
       "description": "Configure system dictionaries for all asset types and statuses"
     },
     "venue.entity": {
-      "status": "failing",
+      "status": "passing",
       "priority": 1,
       "module": "venue",
       "description": "Create venue asset entity with capacity and availability info"

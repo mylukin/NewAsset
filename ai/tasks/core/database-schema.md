@@ -2,7 +2,7 @@
 id: core.database-schema
 module: core
 priority: 2
-status: failing
+status: passing
 version: 1
 origin: manual
 dependsOn: []
