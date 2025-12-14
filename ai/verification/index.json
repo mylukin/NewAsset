@@ -386,8 +386,17 @@
       "totalRuns": 1,
       "passCount": 1,
       "failCount": 0
+    },
+    "venue.controller": {
+      "featureId": "venue.controller",
+      "latestRun": 1,
+      "latestTimestamp": "2025-12-14T13:13:11.215Z",
+      "latestVerdict": "pass",
+      "totalRuns": 1,
+      "passCount": 1,
+      "failCount": 0
     }
   },
-  "updatedAt": "2025-12-14T13:12:24.474Z",
+  "updatedAt": "2025-12-14T13:13:11.219Z",
   "version": "2.0.0"
 }

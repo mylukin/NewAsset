@@ -1,0 +1,54 @@
+{
+  "featureId": "venue.controller",
+  "runNumber": 1,
+  "timestamp": "2025-12-14T13:13:11.215Z",
+  "commitHash": "43d71da668c0c2e76d05f1fc5d41b167bba4a8a1",
+  "changedFiles": [
+    "ai/progress.log",
+    "ai/tasks/index.json",
+    "ai/tasks/venue/03-service.md",
+    "ai/verification/index.json",
+    "ai/verification/results.json",
+    "ai/verification/venue.service/001.json",
+    "ai/verification/venue.service/001.md",
+    "ruoyi-modules/ruoyi-asset/src/main/java/com/ruoyi/asset/service/IAssetVenueService.java",
+    "ruoyi-modules/ruoyi-asset/src/main/java/com/ruoyi/asset/service/impl/AssetVenueServiceImpl.java",
+    "ai/tasks/venue/04-controller.md"
+  ],
+  "diffSummary": "10 files changed",
+  "automatedChecks": [],
+  "criteriaResults": [
+    {
+      "criterion": "Create `AssetVenueController`",
+      "index": 0,
+      "satisfied": true,
+      "confidence": 0.8
+    },
+    {
+      "criterion": "Implement endpoints:",
+      "index": 1,
+      "satisfied": true,
+      "confidence": 0.8
+    },
+    {
+      "criterion": "Add permission annotations: `asset:venue:*`",
+      "index": 2,
+      "satisfied": true,
+      "confidence": 0.8
+    },
+    {
+      "criterion": "Add operation logging",
+      "index": 3,
+      "satisfied": true,
+      "confidence": 0.8
+    },
+    {
+      "criterion": "Return standard response format",
+      "index": 4,
+      "satisfied": true,
+      "confidence": 0.8
+    }
+  ],
+  "verdict": "pass",
+  "verifiedBy": "strategy-framework"
+}
