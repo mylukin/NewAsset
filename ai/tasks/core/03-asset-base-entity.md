@@ -3,7 +3,7 @@ id: core.asset-base-entity
 module: core
 priority: 3
 status: passing
-version: 20
+version: 21
 origin: manual
 dependsOn:
   - core.database-schema

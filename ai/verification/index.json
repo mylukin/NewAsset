@@ -143,8 +143,17 @@
       "totalRuns": 1,
       "passCount": 1,
       "failCount": 0
+    },
+    "house.frontend-api": {
+      "featureId": "house.frontend-api",
+      "latestRun": 1,
+      "latestTimestamp": "2025-12-14T12:23:39.746Z",
+      "latestVerdict": "pass",
+      "totalRuns": 1,
+      "passCount": 1,
+      "failCount": 0
     }
   },
-  "updatedAt": "2025-12-14T12:22:29.823Z",
+  "updatedAt": "2025-12-14T12:23:39.748Z",
   "version": "2.0.0"
 }
