@@ -3,7 +3,7 @@ id: maintenance.frontend-form
 module: maintenance
 priority: 65
 status: failing
-version: 7
+version: 8
 origin: manual
 dependsOn:
   - maintenance.frontend-api
