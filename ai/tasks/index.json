@@ -528,7 +528,7 @@
       "filePath": "dashboard/04-management-home.md"
     },
     "core.project-init": {
-      "status": "failing",
+      "status": "passing",
       "priority": 1,
       "module": "core",
       "description": "Initialize ruoyi-asset Module Structure",
