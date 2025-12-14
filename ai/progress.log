@@ -33,3 +33,5 @@
 2025-12-14T12:01:09.145Z STEP feature=core.code-generator status=passing tests="./ai/init.sh check" summary="Completed core.code-generator"
 2025-12-14T12:02:52.117Z VERIFY feature=core.state-machine action=pass summary="Verified core.state-machine: pass"
 2025-12-14T12:02:58.173Z STEP feature=core.state-machine status=passing tests="./ai/init.sh check" summary="Completed core.state-machine"
+2025-12-14T12:04:11.396Z VERIFY feature=core.attachment-service action=pass summary="Verified core.attachment-service: pass"
+2025-12-14T12:04:16.893Z STEP feature=core.attachment-service status=passing tests="./ai/init.sh check" summary="Completed core.attachment-service"

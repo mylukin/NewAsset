@@ -62,8 +62,17 @@
       "totalRuns": 1,
       "passCount": 1,
       "failCount": 0
+    },
+    "core.attachment-service": {
+      "featureId": "core.attachment-service",
+      "latestRun": 1,
+      "latestTimestamp": "2025-12-14T12:04:11.379Z",
+      "latestVerdict": "pass",
+      "totalRuns": 1,
+      "passCount": 1,
+      "failCount": 0
     }
   },
-  "updatedAt": "2025-12-14T12:02:52.099Z",
+  "updatedAt": "2025-12-14T12:04:11.381Z",
   "version": "2.0.0"
 }

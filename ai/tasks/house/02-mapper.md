@@ -3,7 +3,7 @@ id: house.mapper
 module: house
 priority: 11
 status: failing
-version: 10
+version: 11
 origin: manual
 dependsOn:
   - house.entity

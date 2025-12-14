@@ -3,7 +3,7 @@ id: core.code-generator
 module: core
 priority: 5
 status: passing
-version: 11
+version: 12
 origin: manual
 dependsOn:
   - core.database-schema
