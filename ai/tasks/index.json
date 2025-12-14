@@ -1,6 +1,6 @@
 {
   "version": "2.0.0",
-  "updatedAt": "2025-12-14T13:11:20.971Z",
+  "updatedAt": "2025-12-14T13:12:29.854Z",
   "metadata": {
     "projectGoal": "基于 ai/tasks 创建一个资产管理系统",
     "createdAt": "2025-12-14T10:00:00Z",
@@ -24,7 +24,7 @@
       "filePath": "venue/02-mapper.md"
     },
     "venue.service": {
-      "status": "failing",
+      "status": "passing",
       "priority": 41,
       "module": "venue",
       "description": "Create Venue Asset Service",
