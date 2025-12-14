@@ -19,10 +19,11 @@
       "Maven",
       "Bash",
       "YAML",
-      "JSON",
-      "Markdown"
+      "XML",
+      "Markdown",
+      "JSON"
     ],
-    "detectedAt": "2025-12-14T04:35:46.705Z",
+    "detectedAt": "2025-12-14T04:42:58.538Z",
     "testInfo": {
       "available": true,
       "command": "mvn test",
@@ -95,7 +96,7 @@
       }
     ]
   },
-  "commitHash": "c159456fe0e5848b3f133bb091d2668a31ae79b8",
+  "commitHash": "7a73a02e5aecd82a6d1cf7d82dedc138b68e2602",
   "trackedFiles": [
     "pom.xml",
     "ruoyi-admin/pom.xml",
@@ -105,7 +106,6 @@
     "ruoyi-modules/ruoyi-asset/pom.xml",
     "ruoyi-modules/ruoyi-asset/src/main/resources/application.yml",
     "ai/init.sh",
-    "ai/capabilities.json",
-    "ai/tasks/index.json"
+    "ai/capabilities.json"
   ]
 }

@@ -1,6 +1,6 @@
 {
   "version": "2.0.0",
-  "updatedAt": "2025-12-14T04:39:11.440Z",
+  "updatedAt": "2025-12-14T04:43:50.300Z",
   "metadata": {
     "projectGoal": "基于 ai/tasks 创建一个资产管理系统",
     "createdAt": "2025-12-14T12:00:00Z",
@@ -143,7 +143,7 @@
       "description": "Implement house asset statistics (vacancy rate, usage breakdown)"
     },
     "office.entity": {
-      "status": "failing",
+      "status": "passing",
       "priority": 1,
       "module": "office",
       "description": "Create office asset entity with IT equipment fields"
