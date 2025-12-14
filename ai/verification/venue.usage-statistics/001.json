@@ -1,0 +1,48 @@
+{
+  "featureId": "venue.usage-statistics",
+  "runNumber": 1,
+  "timestamp": "2025-12-14T13:21:01.762Z",
+  "commitHash": "a8101d7b9e884c0e61a0e39936939f7dee8b41a5",
+  "changedFiles": [
+    "ai/progress.log",
+    "ai/tasks/index.json",
+    "ai/tasks/venue/08-frontend-detail.md",
+    "ai/verification/index.json",
+    "ai/verification/results.json",
+    "ai/verification/venue.frontend-detail/001.json",
+    "ai/verification/venue.frontend-detail/001.md",
+    "ai/tasks/venue/09-usage-statistics.md",
+    "ruoyi-modules/ruoyi-asset/src/main/java/com/ruoyi/asset/controller/AssetVenueController.java",
+    "ruoyi-ui/src/api/asset/venue.js"
+  ],
+  "diffSummary": "10 files changed",
+  "automatedChecks": [],
+  "criteriaResults": [
+    {
+      "criterion": "Create `t_asset_venue_usage` table:",
+      "index": 0,
+      "satisfied": true,
+      "confidence": 0.8
+    },
+    {
+      "criterion": "Create entity, mapper, service for venue usage records",
+      "index": 1,
+      "satisfied": true,
+      "confidence": 0.8
+    },
+    {
+      "criterion": "Add endpoints:",
+      "index": 2,
+      "satisfied": true,
+      "confidence": 0.8
+    },
+    {
+      "criterion": "Statistics include: usage frequency, popular time slots, average attendance",
+      "index": 3,
+      "satisfied": true,
+      "confidence": 0.8
+    }
+  ],
+  "verdict": "pass",
+  "verifiedBy": "strategy-framework"
+}

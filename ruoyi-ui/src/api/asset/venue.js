@@ -104,3 +104,81 @@ export function getVenueStatistics(projectId, venueType) {
     params: { projectId, venueType }
   })
 }
+
+// ==================== Venue Usage API ====================
+
+/**
+ * Query venue usage list
+ * @param {Object} query - Query parameters
+ * @returns {Promise}
+ */
+export function getVenueUsageList(query) {
+  return request({
+    url: '/asset/venue/usage/list',
+    method: 'get',
+    params: query
+  })
+}
+
+/**
+ * Get venue usage detail by ID
+ * @param {number} id - Usage record ID
+ * @returns {Promise}
+ */
+export function getVenueUsage(id) {
+  return request({
+    url: '/asset/venue/usage/' + id,
+    method: 'get'
+  })
+}
+
+/**
+ * Add new venue usage record
+ * @param {Object} data - Venue usage data
+ * @returns {Promise}
+ */
+export function addVenueUsage(data) {
+  return request({
+    url: '/asset/venue/usage',
+    method: 'post',
+    data: data
+  })
+}
+
+/**
+ * Update venue usage record
+ * @param {Object} data - Venue usage data
+ * @returns {Promise}
+ */
+export function updateVenueUsage(data) {
+  return request({
+    url: '/asset/venue/usage',
+    method: 'put',
+    data: data
+  })
+}
+
+/**
+ * Delete venue usage record(s)
+ * @param {number|string} id - Usage record ID(s), comma separated for batch delete
+ * @returns {Promise}
+ */
+export function deleteVenueUsage(id) {
+  return request({
+    url: '/asset/venue/usage/' + id,
+    method: 'delete'
+  })
+}
+
+/**
+ * Get venue usage statistics
+ * @param {Object} params - Filter parameters (venueId, startDate, endDate)
+ * @returns {Promise}
+ */
+export function getVenueUsageStatistics(params) {
+  return request({
+    url: '/asset/venue/usage/statistics',
+    method: 'get',
+    params: params
+  })
+}

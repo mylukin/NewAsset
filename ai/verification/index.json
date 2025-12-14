@@ -431,8 +431,17 @@
       "totalRuns": 1,
       "passCount": 1,
       "failCount": 0
+    },
+    "venue.usage-statistics": {
+      "featureId": "venue.usage-statistics",
+      "latestRun": 1,
+      "latestTimestamp": "2025-12-14T13:21:01.762Z",
+      "latestVerdict": "pass",
+      "totalRuns": 1,
+      "passCount": 1,
+      "failCount": 0
     }
   },
-  "updatedAt": "2025-12-14T13:16:28.225Z",
+  "updatedAt": "2025-12-14T13:21:01.764Z",
   "version": "2.0.0"
 }

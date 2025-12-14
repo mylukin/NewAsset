@@ -1,0 +1,203 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.ruoyi.asset.mapper.AssetVenueUsageMapper">
+
+    <!-- Result map for venue usage -->
+    <resultMap id="VenueUsageResult" type="com.ruoyi.asset.domain.entity.AssetVenueUsage">
+        <id property="id" column="id"/>
+        <result property="venueId" column="venue_id"/>
+        <result property="usageDate" column="usage_date"/>
+        <result property="startTime" column="start_time"/>
+        <result property="endTime" column="end_time"/>
+        <result property="timeSlot" column="time_slot"/>
+        <result property="purpose" column="purpose"/>
+        <result property="organizer" column="organizer"/>
+        <result property="attendanceCount" column="attendance_count"/>
+        <result property="bookingRef" column="booking_ref"/>
+        <result property="usageType" column="usage_type"/>
+        <result property="status" column="status"/>
+        <result property="remark" column="remark"/>
+        <result property="createTime" column="create_time"/>
+        <result property="updateTime" column="update_time"/>
+    </resultMap>
+
+    <!-- Query venue usage list -->
+    <select id="selectVenueUsageList" parameterType="com.ruoyi.asset.mapper.AssetVenueUsageMapper$VenueUsageQuery" resultMap="VenueUsageResult">
+        SELECT
+            id, venue_id, usage_date, start_time, end_time, time_slot,
+            purpose, organizer, attendance_count, booking_ref,
+            usage_type, status, remark, create_time, update_time
+        FROM t_asset_venue_usage
+        WHERE 1=1
+        <if test="venueId != null">
+            AND venue_id = #{venueId}
+        </if>
+        <if test="startDate != null">
+            AND usage_date >= #{startDate}
+        </if>
+        <if test="endDate != null">
+            AND usage_date &lt;= #{endDate}
+        </if>
+        <if test="timeSlot != null and timeSlot != ''">
+            AND time_slot = #{timeSlot}
+        </if>
+        <if test="usageType != null and usageType != ''">
+            AND usage_type = #{usageType}
+        </if>
+        <if test="organizer != null and organizer != ''">
+            AND organizer LIKE CONCAT('%', #{organizer}, '%')
+        </if>
+        <if test="status != null and status != ''">
+            AND status = #{status}
+        </if>
+        ORDER BY usage_date DESC, start_time DESC
+    </select>
+
+    <!-- Query venue usage by ID -->
+    <select id="selectVenueUsageById" parameterType="java.lang.Long" resultMap="VenueUsageResult">
+        SELECT
+            id, venue_id, usage_date, start_time, end_time, time_slot,
+            purpose, organizer, attendance_count, booking_ref,
+            usage_type, status, remark, create_time, update_time
+        FROM t_asset_venue_usage
+        WHERE id = #{id}
+    </select>
+
+    <!-- Insert venue usage -->
+    <insert id="insertVenueUsage" parameterType="com.ruoyi.asset.domain.entity.AssetVenueUsage" useGeneratedKeys="true" keyProperty="id">
+        INSERT INTO t_asset_venue_usage (
+            venue_id, usage_date, start_time, end_time, time_slot,
+            purpose, organizer, attendance_count, booking_ref,
+            usage_type, status, remark, create_time
+        ) VALUES (
+            #{venueId}, #{usageDate}, #{startTime}, #{endTime}, #{timeSlot},
+            #{purpose}, #{organizer}, #{attendanceCount}, #{bookingRef},
+            #{usageType}, #{status}, #{remark}, NOW()
+        )
+    </insert>
+
+    <!-- Update venue usage -->
+    <update id="updateVenueUsage" parameterType="com.ruoyi.asset.domain.entity.AssetVenueUsage">
+        UPDATE t_asset_venue_usage
+        <set>
+            <if test="usageDate != null">usage_date = #{usageDate},</if>
+            <if test="startTime != null">start_time = #{startTime},</if>
+            <if test="endTime != null">end_time = #{endTime},</if>
+            <if test="timeSlot != null">time_slot = #{timeSlot},</if>
+            <if test="purpose != null">purpose = #{purpose},</if>
+            <if test="organizer != null">organizer = #{organizer},</if>
+            <if test="attendanceCount != null">attendance_count = #{attendanceCount},</if>
+            <if test="bookingRef != null">booking_ref = #{bookingRef},</if>
+            <if test="usageType != null">usage_type = #{usageType},</if>
+            <if test="status != null">status = #{status},</if>
+            <if test="remark != null">remark = #{remark},</if>
+            update_time = NOW()
+        </set>
+        WHERE id = #{id}
+    </update>
+
+    <!-- Delete venue usage by ID -->
+    <delete id="deleteVenueUsageById" parameterType="java.lang.Long">
+        DELETE FROM t_asset_venue_usage WHERE id = #{id}
+    </delete>
+
+    <!-- Batch delete venue usage -->
+    <delete id="deleteVenueUsageByIds" parameterType="java.lang.Long">
+        DELETE FROM t_asset_venue_usage WHERE id IN
+        <foreach item="id" collection="ids" open="(" separator="," close=")">
+            #{id}
+        </foreach>
+    </delete>
+
+    <!-- Get overall usage statistics -->
+    <select id="selectOverallStatistics" resultType="com.ruoyi.asset.domain.vo.VenueUsageStatisticsVO">
+        SELECT
+            COUNT(*) as totalUsageCount,
+            COALESCE(SUM(attendance_count), 0) as totalAttendance,
+            COALESCE(AVG(attendance_count), 0) as avgAttendance,
+            COALESCE(AVG(TIMESTAMPDIFF(HOUR, start_time, end_time)), 0) as avgUsageDuration
+        FROM t_asset_venue_usage
+        WHERE status = 'completed'
+        <if test="venueId != null">
+            AND venue_id = #{venueId}
+        </if>
+        <if test="startDate != null">
+            AND usage_date >= #{startDate}
+        </if>
+        <if test="endDate != null">
+            AND usage_date &lt;= #{endDate}
+        </if>
+    </select>
+
+    <!-- Get time slot statistics -->
+    <select id="selectTimeSlotStatistics" resultType="com.ruoyi.asset.domain.vo.VenueUsageStatisticsVO$TimeSlotStatVO">
+        SELECT
+            time_slot as timeSlot,
+            CASE time_slot
+                WHEN 'morning' THEN 'Morning (8:00-12:00)'
+                WHEN 'afternoon' THEN 'Afternoon (14:00-18:00)'
+                WHEN 'evening' THEN 'Evening (19:00-22:00)'
+                WHEN 'full_day' THEN 'Full Day'
+                ELSE time_slot
+            END as timeSlotLabel,
+            COUNT(*) as usageCount
+        FROM t_asset_venue_usage
+        WHERE status = 'completed'
+        <if test="venueId != null">
+            AND venue_id = #{venueId}
+        </if>
+        <if test="startDate != null">
+            AND usage_date >= #{startDate}
+        </if>
+        <if test="endDate != null">
+            AND usage_date &lt;= #{endDate}
+        </if>
+        GROUP BY time_slot
+        ORDER BY usageCount DESC
+    </select>
+
+    <!-- Get usage trend -->
+    <select id="selectUsageTrend" resultType="com.ruoyi.asset.domain.vo.VenueUsageStatisticsVO$UsageTrendVO">
+        SELECT
+            DATE_FORMAT(usage_date, '%Y-%m-%d') as date,
+            COUNT(*) as usageCount,
+            COALESCE(SUM(attendance_count), 0) as attendanceCount
+        FROM t_asset_venue_usage
+        WHERE status = 'completed'
+        <if test="venueId != null">
+            AND venue_id = #{venueId}
+        </if>
+        <if test="startDate != null">
+            AND usage_date >= #{startDate}
+        </if>
+        <if test="endDate != null">
+            AND usage_date &lt;= #{endDate}
+        </if>
+        GROUP BY DATE_FORMAT(usage_date, '%Y-%m-%d')
+        ORDER BY date ASC
+    </select>
+
+    <!-- Get top organizers -->
+    <select id="selectTopOrganizers" resultType="com.ruoyi.asset.domain.vo.VenueUsageStatisticsVO$OrganizerStatVO">
+        SELECT
+            organizer,
+            COUNT(*) as usageCount,
+            COALESCE(SUM(attendance_count), 0) as totalAttendance
+        FROM t_asset_venue_usage
+        WHERE status = 'completed'
+        AND organizer IS NOT NULL AND organizer != ''
+        <if test="venueId != null">
+            AND venue_id = #{venueId}
+        </if>
+        <if test="startDate != null">
+            AND usage_date >= #{startDate}
+        </if>
+        <if test="endDate != null">
+            AND usage_date &lt;= #{endDate}
+        </if>
+        GROUP BY organizer
+        ORDER BY usageCount DESC
+        LIMIT #{limit}
+    </select>
+
+</mapper>

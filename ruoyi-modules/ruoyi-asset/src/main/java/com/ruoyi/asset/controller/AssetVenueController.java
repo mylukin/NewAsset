@@ -2,11 +2,16 @@ package com.ruoyi.asset.controller;
 
 import com.ruoyi.asset.domain.dto.AssetVenueCreateDTO;
 import com.ruoyi.asset.domain.dto.AssetVenueUpdateDTO;
+import com.ruoyi.asset.domain.entity.AssetVenueUsage;
 import com.ruoyi.asset.domain.vo.AssetVenueDetailVO;
 import com.ruoyi.asset.domain.vo.AssetVenueListVO;
 import com.ruoyi.asset.domain.vo.VenueStatisticsVO;
+import com.ruoyi.asset.domain.vo.VenueUsageStatisticsVO;
 import com.ruoyi.asset.mapper.AssetVenueMapper.AssetVenueQuery;
+import com.ruoyi.asset.mapper.AssetVenueUsageMapper.VenueUsageQuery;
 import com.ruoyi.asset.service.IAssetVenueService;
+import com.ruoyi.asset.service.IAssetVenueUsageService;
+import org.springframework.format.annotation.DateTimeFormat;
 import com.ruoyi.common.core.web.controller.BaseController;
 import com.ruoyi.common.core.web.domain.AjaxResult;
 import com.ruoyi.common.core.web.domain.TableDataInfo;
@@ -32,6 +37,9 @@ public class AssetVenueController extends BaseController {
 
     @Autowired
     private IAssetVenueService assetVenueService;
+
+    @Autowired
+    private IAssetVenueUsageService venueUsageService;
 
     /**
      * Query venue asset list
@@ -140,6 +148,90 @@ public class AssetVenueController extends BaseController {
             @ApiParam(value = "Venue type filter")
             @RequestParam(required = false) String venueType) {
         VenueStatisticsVO statistics = assetVenueService.getVenueStatistics(projectId, venueType);
+        return success(statistics);
+    }
+
+    // ==================== Venue Usage Endpoints ====================
+
+    /**
+     * Query venue usage list
+     */
+    @ApiOperation("Query venue usage list")
+    @PreAuthorize("@ss.hasPermi('asset:venue:list')")
+    @GetMapping("/usage/list")
+    public TableDataInfo usageList(VenueUsageQuery query) {
+        startPage();
+        List<AssetVenueUsage> list = venueUsageService.selectVenueUsageList(query);
+        return getDataTable(list);
+    }
+
+    /**
+     * Get venue usage detail
+     */
+    @ApiOperation("Get venue usage detail")
+    @PreAuthorize("@ss.hasPermi('asset:venue:query')")
+    @GetMapping("/usage/{id}")
+    public AjaxResult getUsageInfo(
+            @ApiParam(value = "Usage record ID", required = true)
+            @PathVariable Long id) {
+        AssetVenueUsage usage = venueUsageService.selectVenueUsageById(id);
+        return success(usage);
+    }
+
+    /**
+     * Add venue usage record
+     */
+    @ApiOperation("Add venue usage record")
+    @PreAuthorize("@ss.hasPermi('asset:venue:add')")
+    @Log(title = "Venue Usage", businessType = BusinessType.INSERT)
+    @PostMapping("/usage")
+    public AjaxResult addUsage(
+            @ApiParam(value = "Venue usage data", required = true)
+            @Validated @RequestBody AssetVenueUsage venueUsage) {
+        Long id = venueUsageService.insertVenueUsage(venueUsage);
+        return success(id);
+    }
+
+    /**
+     * Update venue usage record
+     */
+    @ApiOperation("Update venue usage record")
+    @PreAuthorize("@ss.hasPermi('asset:venue:edit')")
+    @Log(title = "Venue Usage", businessType = BusinessType.UPDATE)
+    @PutMapping("/usage")
+    public AjaxResult editUsage(
+            @ApiParam(value = "Venue usage data", required = true)
+            @Validated @RequestBody AssetVenueUsage venueUsage) {
+        return toAjax(venueUsageService.updateVenueUsage(venueUsage));
+    }
+
+    /**
+     * Delete venue usage records
+     */
+    @ApiOperation("Delete venue usage records")
+    @PreAuthorize("@ss.hasPermi('asset:venue:remove')")
+    @Log(title = "Venue Usage", businessType = BusinessType.DELETE)
+    @DeleteMapping("/usage/{ids}")
+    public AjaxResult removeUsage(
+            @ApiParam(value = "Usage record IDs (comma separated)", required = true)
+            @PathVariable Long[] ids) {
+        return toAjax(venueUsageService.deleteVenueUsageByIds(ids));
+    }
+
+    /**
+     * Get venue usage statistics
+     */
+    @ApiOperation("Get venue usage statistics")
+    @PreAuthorize("@ss.hasPermi('asset:venue:list')")
+    @GetMapping("/usage/statistics")
+    public AjaxResult getUsageStatistics(
+            @ApiParam(value = "Venue ID filter")
+            @RequestParam(required = false) Long venueId,
+            @ApiParam(value = "Start date (yyyy-MM-dd)")
+            @RequestParam(required = false) @DateTimeFormat(pattern = "yyyy-MM-dd") java.util.Date startDate,
+            @ApiParam(value = "End date (yyyy-MM-dd)")
+            @RequestParam(required = false) @DateTimeFormat(pattern = "yyyy-MM-dd") java.util.Date endDate) {
+        VenueUsageStatisticsVO statistics = venueUsageService.getUsageStatistics(venueId, startDate, endDate);
         return success(statistics);
     }
 }

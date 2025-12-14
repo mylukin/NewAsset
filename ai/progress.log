@@ -115,3 +115,5 @@
 2025-12-14T13:16:01.142Z STEP feature=venue.frontend-form status=passing tests="./ai/init.sh check" summary="Completed venue.frontend-form"
 2025-12-14T13:16:28.233Z VERIFY feature=venue.frontend-detail action=pass summary="Verified venue.frontend-detail: pass"
 2025-12-14T13:16:28.374Z STEP feature=venue.frontend-detail status=passing tests="./ai/init.sh check" summary="Completed venue.frontend-detail"
+2025-12-14T13:21:01.771Z VERIFY feature=venue.usage-statistics action=pass summary="Verified venue.usage-statistics: pass"
+2025-12-14T13:21:06.903Z STEP feature=venue.usage-statistics status=passing tests="./ai/init.sh check" summary="Completed venue.usage-statistics"
