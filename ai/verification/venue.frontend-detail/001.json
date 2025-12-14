@@ -1,0 +1,46 @@
+{
+  "featureId": "venue.frontend-detail",
+  "runNumber": 1,
+  "timestamp": "2025-12-14T13:16:28.223Z",
+  "commitHash": "b36f4f7ccdd6ed6ba6e2d96a484463c15c2c3ded",
+  "changedFiles": [
+    "ai/progress.log",
+    "ai/tasks/index.json",
+    "ai/tasks/venue/07-frontend-form.md",
+    "ai/verification/index.json",
+    "ai/verification/results.json",
+    "ai/verification/venue.frontend-form/001.json",
+    "ai/verification/venue.frontend-form/001.md",
+    "ai/tasks/venue/08-frontend-detail.md"
+  ],
+  "diffSummary": "8 files changed",
+  "automatedChecks": [],
+  "criteriaResults": [
+    {
+      "criterion": "Create detail drawer component",
+      "index": 0,
+      "satisfied": true,
+      "confidence": 0.8
+    },
+    {
+      "criterion": "Tabbed layout:",
+      "index": 1,
+      "satisfied": true,
+      "confidence": 0.8
+    },
+    {
+      "criterion": "Action buttons: Edit, Initiate Maintenance",
+      "index": 2,
+      "satisfied": true,
+      "confidence": 0.8
+    },
+    {
+      "criterion": "Display capacity and availability prominently",
+      "index": 3,
+      "satisfied": true,
+      "confidence": 0.8
+    }
+  ],
+  "verdict": "pass",
+  "verifiedBy": "strategy-framework"
+}
