@@ -3,7 +3,7 @@ id: office.mapper
 module: office
 priority: 49
 status: failing
-version: 5
+version: 6
 origin: manual
 dependsOn:
   - office.entity

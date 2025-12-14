@@ -3,7 +3,7 @@ id: house.frontend-statistics
 module: house
 priority: 19
 status: failing
-version: 5
+version: 6
 origin: manual
 dependsOn:
   - house.frontend-api

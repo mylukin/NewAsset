@@ -3,7 +3,7 @@ id: facility.frontend-form
 module: facility
 priority: 26
 status: failing
-version: 5
+version: 6
 origin: manual
 dependsOn:
   - facility.frontend-api

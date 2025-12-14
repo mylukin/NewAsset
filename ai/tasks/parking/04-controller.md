@@ -3,7 +3,7 @@ id: parking.controller
 module: parking
 priority: 32
 status: failing
-version: 5
+version: 6
 origin: manual
 dependsOn:
   - parking.service

@@ -3,7 +3,7 @@ id: house.entity
 module: house
 priority: 10
 status: failing
-version: 5
+version: 6
 origin: manual
 dependsOn:
   - core.asset-base-entity
