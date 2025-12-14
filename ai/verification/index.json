@@ -584,8 +584,17 @@
       "totalRuns": 1,
       "passCount": 1,
       "failCount": 0
+    },
+    "maintenance.frontend-list": {
+      "featureId": "maintenance.frontend-list",
+      "latestRun": 1,
+      "latestTimestamp": "2025-12-14T13:46:55.263Z",
+      "latestVerdict": "pass",
+      "totalRuns": 1,
+      "passCount": 1,
+      "failCount": 0
     }
   },
-  "updatedAt": "2025-12-14T13:45:09.236Z",
+  "updatedAt": "2025-12-14T13:46:55.264Z",
   "version": "2.0.0"
 }
