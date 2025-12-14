@@ -269,8 +269,17 @@
       "totalRuns": 1,
       "passCount": 1,
       "failCount": 0
+    },
+    "parking.entity": {
+      "featureId": "parking.entity",
+      "latestRun": 1,
+      "latestTimestamp": "2025-12-14T12:52:38.953Z",
+      "latestVerdict": "pass",
+      "totalRuns": 1,
+      "passCount": 1,
+      "failCount": 0
     }
   },
-  "updatedAt": "2025-12-14T12:50:08.938Z",
+  "updatedAt": "2025-12-14T12:52:38.955Z",
   "version": "2.0.0"
 }

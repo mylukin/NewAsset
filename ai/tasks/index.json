@@ -1,6 +1,6 @@
 {
   "version": "2.0.0",
-  "updatedAt": "2025-12-14T12:50:15.189Z",
+  "updatedAt": "2025-12-14T12:52:45.321Z",
   "metadata": {
     "projectGoal": "基于 ai/tasks 创建一个资产管理系统",
     "createdAt": "2025-12-14T10:00:00Z",
@@ -255,7 +255,7 @@
       "filePath": "house/02-mapper.md"
     },
     "parking.entity": {
-      "status": "failing",
+      "status": "passing",
       "priority": 29,
       "module": "parking",
       "description": "Create Parking Asset Entity",

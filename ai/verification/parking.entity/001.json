@@ -1,0 +1,52 @@
+{
+  "featureId": "parking.entity",
+  "runNumber": 1,
+  "timestamp": "2025-12-14T12:52:38.953Z",
+  "commitHash": "7fe7ce55a2f247a07c4cb60794e340fc6f50d12b",
+  "changedFiles": [
+    "ai/progress.log",
+    "ai/tasks/facility/09-warranty-reminder.md",
+    "ai/tasks/index.json",
+    "ai/verification/facility.warranty-reminder/001.json",
+    "ai/verification/facility.warranty-reminder/001.md",
+    "ai/verification/index.json",
+    "ai/verification/results.json",
+    "ruoyi-modules/ruoyi-asset/src/main/java/com/ruoyi/asset/controller/AssetFacilityController.java",
+    "ruoyi-modules/ruoyi-asset/src/main/java/com/ruoyi/asset/domain/vo/FacilityWarrantyExpiringVO.java",
+    "ruoyi-modules/ruoyi-asset/src/main/java/com/ruoyi/asset/mapper/AssetFacilityMapper.java",
+    "ruoyi-modules/ruoyi-asset/src/main/java/com/ruoyi/asset/service/IAssetFacilityService.java",
+    "ruoyi-modules/ruoyi-asset/src/main/java/com/ruoyi/asset/service/impl/AssetFacilityServiceImpl.java",
+    "ruoyi-modules/ruoyi-asset/src/main/resources/mapper/asset/AssetFacilityMapper.xml",
+    "ai/tasks/parking/01-entity.md"
+  ],
+  "diffSummary": "14 files changed",
+  "automatedChecks": [],
+  "criteriaResults": [
+    {
+      "criterion": "Create `AssetParking` entity referencing `Asset` base",
+      "index": 0,
+      "satisfied": true,
+      "confidence": 0.8
+    },
+    {
+      "criterion": "Map extension fields from `t_asset_parking`:",
+      "index": 1,
+      "satisfied": true,
+      "confidence": 0.8
+    },
+    {
+      "criterion": "Create VO and DTO classes",
+      "index": 2,
+      "satisfied": true,
+      "confidence": 0.8
+    },
+    {
+      "criterion": "Add validation annotations",
+      "index": 3,
+      "satisfied": true,
+      "confidence": 0.8
+    }
+  ],
+  "verdict": "pass",
+  "verifiedBy": "strategy-framework"
+}
