@@ -566,8 +566,17 @@
       "totalRuns": 1,
       "passCount": 1,
       "failCount": 0
+    },
+    "maintenance.order-controller": {
+      "featureId": "maintenance.order-controller",
+      "latestRun": 1,
+      "latestTimestamp": "2025-12-14T13:44:21.229Z",
+      "latestVerdict": "pass",
+      "totalRuns": 1,
+      "passCount": 1,
+      "failCount": 0
     }
   },
-  "updatedAt": "2025-12-14T13:43:08.237Z",
+  "updatedAt": "2025-12-14T13:44:21.231Z",
   "version": "2.0.0"
 }

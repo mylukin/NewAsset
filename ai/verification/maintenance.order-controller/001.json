@@ -1,0 +1,60 @@
+{
+  "featureId": "maintenance.order-controller",
+  "runNumber": 1,
+  "timestamp": "2025-12-14T13:44:21.229Z",
+  "commitHash": "e5943a26ee625945672bf20ef7dcd3d8e14ccf8c",
+  "changedFiles": [
+    "ai/progress.log",
+    "ai/tasks/index.json",
+    "ai/tasks/maintenance/05-order-crud-service.md",
+    "ai/verification/index.json",
+    "ai/verification/maintenance.order-crud-service/001.json",
+    "ai/verification/maintenance.order-crud-service/001.md",
+    "ai/verification/results.json",
+    "ruoyi-modules/ruoyi-asset/src/main/java/com/ruoyi/asset/service/IAssetMaintOrderService.java",
+    "ruoyi-modules/ruoyi-asset/src/main/java/com/ruoyi/asset/service/impl/AssetMaintOrderServiceImpl.java",
+    "ai/tasks/maintenance/06-order-controller.md"
+  ],
+  "diffSummary": "10 files changed",
+  "automatedChecks": [],
+  "criteriaResults": [
+    {
+      "criterion": "Create `AssetMaintOrderController`",
+      "index": 0,
+      "satisfied": true,
+      "confidence": 0.8
+    },
+    {
+      "criterion": "Implement CRUD endpoints:",
+      "index": 1,
+      "satisfied": true,
+      "confidence": 0.8
+    },
+    {
+      "criterion": "Implement workflow endpoints:",
+      "index": 2,
+      "satisfied": true,
+      "confidence": 0.8
+    },
+    {
+      "criterion": "Implement query endpoints:",
+      "index": 3,
+      "satisfied": true,
+      "confidence": 0.8
+    },
+    {
+      "criterion": "Add permission annotations: `asset:maint:*`",
+      "index": 4,
+      "satisfied": true,
+      "confidence": 0.8
+    },
+    {
+      "criterion": "Add operation logging",
+      "index": 5,
+      "satisfied": true,
+      "confidence": 0.8
+    }
+  ],
+  "verdict": "pass",
+  "verifiedBy": "strategy-framework"
+}
