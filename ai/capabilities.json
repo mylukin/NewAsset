@@ -1,39 +1,36 @@
 {
   "version": "1.0.0",
   "capabilities": {
-    "hasTests": false,
-    "testCommand": "",
-    "testFramework": "",
-    "hasTypeCheck": false,
-    "typeCheckCommand": "",
+    "hasTests": true,
+    "testCommand": "mvn test",
+    "testFramework": "maven-surefire",
+    "hasTypeCheck": true,
+    "typeCheckCommand": "mvn -DskipTests compile",
     "hasLint": false,
     "lintCommand": "",
-    "hasBuild": false,
-    "buildCommand": "",
+    "hasBuild": true,
+    "buildCommand": "mvn -DskipTests package",
     "hasGit": true,
     "source": "ai-discovered",
-    "confidence": 0.1,
+    "confidence": 0.52,
     "languages": [
-      "Bash",
-      "JSON",
-      "Markdown",
       "Java",
       "Spring Boot",
-      "MyBatis",
-      "Vue 2",
-      "Element UI",
-      "MySQL",
-      "RuoYi-Vue"
+      "Maven",
+      "Bash",
+      "YAML",
+      "JSON",
+      "Markdown"
     ],
-    "detectedAt": "2025-12-14T04:26:52.562Z",
+    "detectedAt": "2025-12-14T04:35:46.705Z",
     "testInfo": {
-      "available": false,
-      "command": "",
-      "framework": "",
-      "confidence": 0.1,
-      "selectiveFileTemplate": "",
-      "selectiveNameTemplate": "",
-      "packageManager": "pnpm"
+      "available": true,
+      "command": "mvn test",
+      "framework": "maven-surefire",
+      "confidence": 0.75,
+      "selectiveFileTemplate": "mvn -Dtest={files} test",
+      "selectiveNameTemplate": "mvn -Dtest={pattern} test",
+      "packageManager": "maven"
     },
     "e2eInfo": {
       "available": false,
@@ -45,9 +42,9 @@
       "fileTemplate": ""
     },
     "typeCheckInfo": {
-      "available": false,
-      "command": "",
-      "confidence": 0.1
+      "available": true,
+      "command": "mvn -DskipTests compile",
+      "confidence": 0.8
     },
     "lintInfo": {
       "available": false,
@@ -55,59 +52,60 @@
       "confidence": 0.1
     },
     "buildInfo": {
-      "available": false,
-      "command": "",
-      "confidence": 0.1
+      "available": true,
+      "command": "mvn -DskipTests package",
+      "confidence": 0.85
     },
     "customRules": [
       {
-        "id": "harness.bootstrap",
-        "description": "Install project dependencies via pnpm (requires a future pnpm workspace/package.json to exist).",
-        "command": "./ai/init.sh bootstrap",
-        "type": "custom"
-      },
-      {
         "id": "harness.check.fast",
-        "description": "Run unified verification in fast mode (delegates to agent-foreman; intended to run typecheck + lint + selective tests based on git diff).",
+        "description": "Run unified verification in fast mode (delegates to agent-foreman).",
         "command": "./ai/init.sh check",
         "type": "custom"
       },
       {
         "id": "harness.check.full",
-        "description": "Run unified verification in full mode (delegates to agent-foreman; intended to run all tests + build + E2E when configured).",
+        "description": "Run unified verification in full mode (all tests + build + E2E when configured).",
         "command": "./ai/init.sh check --full",
         "type": "custom"
       },
       {
         "id": "harness.check.task",
         "description": "Run task-scoped verification (delegates to agent-foreman).",
-        "command": "./ai/init.sh check <task_id>",
-        "type": "custom"
-      },
-      {
-        "id": "harness.status",
-        "description": "Show task index status summary from ai/tasks/index.json.",
-        "command": "./ai/init.sh status",
+        "command": "./ai/init.sh check {task_id}",
         "type": "custom"
       },
       {
         "id": "agent-foreman.check",
-        "description": "Direct unified verification entrypoint (used by the harness script).",
+        "description": "Direct unified verification entrypoint (supports --full/--ai and --test-pattern).",
         "command": "agent-foreman check",
+        "type": "custom"
+      },
+      {
+        "id": "agent-foreman.check.pattern",
+        "description": "Run verification with an explicit test pattern (framework-specific; used by agent-foreman internally).",
+        "command": "agent-foreman check --test-pattern {pattern}",
+        "type": "custom"
+      },
+      {
+        "id": "agent-foreman.scan",
+        "description": "Scan project verification capabilities.",
+        "command": "agent-foreman scan",
         "type": "custom"
       }
     ]
   },
-  "commitHash": "ea8553f8ade20d0b18da9a96bc741ceba48fa61e",
+  "commitHash": "c159456fe0e5848b3f133bb091d2668a31ae79b8",
   "trackedFiles": [
+    "pom.xml",
+    "ruoyi-admin/pom.xml",
+    "ruoyi-common/pom.xml",
+    "ruoyi-framework/pom.xml",
+    "ruoyi-modules/pom.xml",
+    "ruoyi-modules/ruoyi-asset/pom.xml",
+    "ruoyi-modules/ruoyi-asset/src/main/resources/application.yml",
     "ai/init.sh",
-    ".claude/rules/00-overview.md",
-    ".claude/rules/01-workflow.md",
-    ".claude/rules/02-rules.md",
-    ".claude/rules/03-commands.md",
-    ".claude/rules/05-tdd.md",
-    "ai/tasks/index.json",
     "ai/capabilities.json",
-    ".env"
+    "ai/tasks/index.json"
   ]
 }
