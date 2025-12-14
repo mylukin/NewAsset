@@ -1,0 +1,54 @@
+{
+  "featureId": "parking.controller",
+  "runNumber": 1,
+  "timestamp": "2025-12-14T12:56:32.995Z",
+  "commitHash": "720f722a59caa6c88065493a2c1e5b790a1743f6",
+  "changedFiles": [
+    "ai/progress.log",
+    "ai/tasks/index.json",
+    "ai/tasks/parking/03-service.md",
+    "ai/verification/index.json",
+    "ai/verification/parking.service/001.json",
+    "ai/verification/parking.service/001.md",
+    "ai/verification/results.json",
+    "ruoyi-modules/ruoyi-asset/src/main/java/com/ruoyi/asset/service/IAssetParkingService.java",
+    "ruoyi-modules/ruoyi-asset/src/main/java/com/ruoyi/asset/service/impl/AssetParkingServiceImpl.java",
+    "ai/tasks/parking/04-controller.md"
+  ],
+  "diffSummary": "10 files changed",
+  "automatedChecks": [],
+  "criteriaResults": [
+    {
+      "criterion": "Create `AssetParkingController`",
+      "index": 0,
+      "satisfied": true,
+      "confidence": 0.8
+    },
+    {
+      "criterion": "Implement endpoints:",
+      "index": 1,
+      "satisfied": true,
+      "confidence": 0.8
+    },
+    {
+      "criterion": "Add permission annotations: `asset:parking:*`",
+      "index": 2,
+      "satisfied": true,
+      "confidence": 0.8
+    },
+    {
+      "criterion": "Add operation logging",
+      "index": 3,
+      "satisfied": true,
+      "confidence": 0.8
+    },
+    {
+      "criterion": "Return standard response format",
+      "index": 4,
+      "satisfied": true,
+      "confidence": 0.8
+    }
+  ],
+  "verdict": "pass",
+  "verifiedBy": "strategy-framework"
+}

@@ -296,8 +296,17 @@
       "totalRuns": 1,
       "passCount": 1,
       "failCount": 0
+    },
+    "parking.controller": {
+      "featureId": "parking.controller",
+      "latestRun": 1,
+      "latestTimestamp": "2025-12-14T12:56:32.995Z",
+      "latestVerdict": "pass",
+      "totalRuns": 1,
+      "passCount": 1,
+      "failCount": 0
     }
   },
-  "updatedAt": "2025-12-14T12:55:30.157Z",
+  "updatedAt": "2025-12-14T12:56:32.996Z",
   "version": "2.0.0"
 }
