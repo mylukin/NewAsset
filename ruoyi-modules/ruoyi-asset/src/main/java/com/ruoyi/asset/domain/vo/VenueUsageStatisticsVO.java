@@ -15,8 +15,10 @@ public class VenueUsageStatisticsVO implements Serializable {
     // Overall statistics
     private Integer totalUsageCount;
     private Integer totalAttendance;
+    private Integer totalBookings;
     private BigDecimal avgAttendance;
     private BigDecimal avgUsageDuration;
+    private BigDecimal averageUtilization;
 
     // Usage frequency
     private Integer usageFrequencyDaily;
@@ -51,6 +53,22 @@ public class VenueUsageStatisticsVO implements Serializable {
 
     public void setTotalAttendance(Integer totalAttendance) {
         this.totalAttendance = totalAttendance;
+    }
+
+    public Integer getTotalBookings() {
+        return totalBookings;
+    }
+
+    public void setTotalBookings(Integer totalBookings) {
+        this.totalBookings = totalBookings;
+    }
+
+    public BigDecimal getAverageUtilization() {
+        return averageUtilization;
+    }
+
+    public void setAverageUtilization(BigDecimal averageUtilization) {
+        this.averageUtilization = averageUtilization;
     }
 
     public BigDecimal getAvgAttendance() {

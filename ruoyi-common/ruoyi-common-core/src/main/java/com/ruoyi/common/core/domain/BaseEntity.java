@@ -1,5 +1,6 @@
 package com.ruoyi.common.core.domain;
 
+import com.baomidou.mybatisplus.annotation.TableField;
 import com.fasterxml.jackson.annotation.JsonFormat;
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonInclude;
@@ -17,9 +18,10 @@ public class BaseEntity implements Serializable {
     private static final long serialVersionUID = 1L;
 
     /**
-     * Search value
+     * Search value (not persisted to database)
      */
     @JsonIgnore
+    @TableField(exist = false)
     private String searchValue;
 
     /**
@@ -50,9 +52,10 @@ public class BaseEntity implements Serializable {
     private String remark;
 
     /**
-     * Request parameters
+     * Request parameters (not persisted to database)
      */
     @JsonInclude(JsonInclude.Include.NON_EMPTY)
+    @TableField(exist = false)
     private Map<String, Object> params;
 
     public String getSearchValue() {

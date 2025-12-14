@@ -15,6 +15,12 @@
     <description>Data scope common module - provides data permission</description>
 
     <dependencies>
+        <!-- Spring Boot AOP (for AspectJ) -->
+        <dependency>
+            <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot-starter-aop</artifactId>
+        </dependency>
+
         <!-- RuoYi Common Security -->
         <dependency>
             <groupId>com.ruoyi</groupId>

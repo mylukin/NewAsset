@@ -9,6 +9,8 @@ public enum AssetStatusEnum {
     AVAILABLE_SELF("AVAILABLE_SELF", "Available - Self Use"),
     AVAILABLE_RENT("AVAILABLE_RENT", "Available - For Rent"),
     AVAILABLE_IDLE("AVAILABLE_IDLE", "Available - Idle"),
+    IDLE("IDLE", "Idle"),
+    IN_USE("IN_USE", "In Use"),
     TEMP_CLOSED("TEMP_CLOSED", "Temporarily Closed"),
     FAULT("FAULT", "Fault/Out of Service"),
     MAINTAINING("MAINTAINING", "Under Maintenance"),

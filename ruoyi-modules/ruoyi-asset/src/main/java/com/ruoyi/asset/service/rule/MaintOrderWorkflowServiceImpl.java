@@ -4,6 +4,7 @@ import com.ruoyi.asset.domain.entity.Asset;
 import com.ruoyi.asset.domain.entity.AssetMaintLog;
 import com.ruoyi.asset.domain.entity.AssetMaintOrder;
 import com.ruoyi.asset.domain.enums.AssetStatusEnum;
+import com.ruoyi.asset.domain.vo.AssetMaintOrderDetailVO;
 import com.ruoyi.asset.mapper.AssetMaintLogMapper;
 import com.ruoyi.asset.mapper.AssetMaintOrderMapper;
 import com.ruoyi.asset.mapper.AssetMapper;
@@ -212,7 +213,7 @@ public class MaintOrderWorkflowServiceImpl implements MaintOrderWorkflowService 
         order.setId(orderId);
         // In real implementation, fetch from mapper
         // For now, we'll use the detail VO and convert
-        var detail = maintOrderMapper.selectMaintOrderById(orderId);
+        AssetMaintOrderDetailVO detail = maintOrderMapper.selectMaintOrderById(orderId);
         if (detail == null) {
             throw new RuntimeException("Maintenance order not found: " + orderId);
         }

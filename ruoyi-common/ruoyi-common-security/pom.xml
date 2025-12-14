@@ -15,16 +15,16 @@
     <description>Security common module - provides authentication and authorization</description>
 
     <dependencies>
+        <!-- Spring Security -->
+        <dependency>
+            <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot-starter-security</artifactId>
+        </dependency>
+
         <!-- RuoYi Common Core -->
         <dependency>
             <groupId>com.ruoyi</groupId>
             <artifactId>ruoyi-common-core</artifactId>
-        </dependency>
-
-        <!-- RuoYi API System -->
-        <dependency>
-            <groupId>com.ruoyi</groupId>
-            <artifactId>ruoyi-api-system</artifactId>
         </dependency>
     </dependencies>
 </project>

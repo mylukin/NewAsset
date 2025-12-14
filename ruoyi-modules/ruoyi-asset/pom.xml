@@ -39,10 +39,11 @@
             <artifactId>ruoyi-common-log</artifactId>
         </dependency>
 
-        <!-- RuoYi Common Swagger -->
+        <!-- Swagger Annotations (for @Api, @ApiOperation, etc.) -->
         <dependency>
-            <groupId>com.ruoyi</groupId>
-            <artifactId>ruoyi-common-swagger</artifactId>
+            <groupId>io.swagger</groupId>
+            <artifactId>swagger-annotations</artifactId>
+            <version>1.6.11</version>
         </dependency>
 
         <!-- MyBatis Plus -->

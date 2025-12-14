@@ -1,13 +1,12 @@
 package com.ruoyi.common.core.web.domain;
 
-import com.ruoyi.common.core.constant.Constants;
-
+import java.io.Serializable;
 import java.util.HashMap;
 
 /**
- * Ajax result wrapper
+ * AJAX Result wrapper
  */
-public class AjaxResult extends HashMap<String, Object> {
+public class AjaxResult extends HashMap<String, Object> implements Serializable {
 
     private static final long serialVersionUID = 1L;
 
@@ -44,11 +43,11 @@ public class AjaxResult extends HashMap<String, Object> {
     }
 
     public static AjaxResult success(String msg, Object data) {
-        return new AjaxResult(Constants.SUCCESS, msg, data);
+        return new AjaxResult(200, msg, data);
     }
 
     public static AjaxResult error() {
-        return AjaxResult.error("Operation failed");
+        return AjaxResult.error("Error");
     }
 
     public static AjaxResult error(String msg) {
@@ -56,7 +55,7 @@ public class AjaxResult extends HashMap<String, Object> {
     }
 
     public static AjaxResult error(String msg, Object data) {
-        return new AjaxResult(Constants.FAIL, msg, data);
+        return new AjaxResult(500, msg, data);
     }
 
     public static AjaxResult error(int code, String msg) {

@@ -4,30 +4,22 @@ import java.io.Serializable;
 import java.util.List;
 
 /**
- * Table paginated data wrapper
+ * Table data response wrapper
  */
 public class TableDataInfo implements Serializable {
 
     private static final long serialVersionUID = 1L;
 
-    /**
-     * Total records
-     */
+    /** Total records */
     private long total;
 
-    /**
-     * Data rows
-     */
+    /** List data */
     private List<?> rows;
 
-    /**
-     * Response code
-     */
+    /** Response code */
     private int code;
 
-    /**
-     * Response message
-     */
+    /** Response message */
     private String msg;
 
     public TableDataInfo() {

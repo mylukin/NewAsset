@@ -306,3 +306,58 @@ CREATE TABLE t_asset_status_log (
 
 CREATE INDEX idx_status_log_asset ON t_asset_status_log(asset_id);
 CREATE INDEX idx_status_log_maint_order ON t_asset_status_log(maint_order_id);
+
+-- -------------------------------------------
+-- System Tables (for RuoYi compatibility)
+-- -------------------------------------------
+
+-- Department table
+DROP TABLE IF EXISTS sys_dept;
+CREATE TABLE sys_dept (
+    dept_id INTEGER PRIMARY KEY,
+    parent_id INTEGER DEFAULT 0,
+    ancestors TEXT,
+    dept_name TEXT NOT NULL,
+    order_num INTEGER DEFAULT 0,
+    leader TEXT,
+    phone TEXT,
+    email TEXT,
+    status TEXT DEFAULT '0',
+    del_flag TEXT DEFAULT '0',
+    create_by TEXT,
+    create_time TEXT DEFAULT (datetime('now')),
+    update_by TEXT,
+    update_time TEXT DEFAULT (datetime('now'))
+);
+
+-- User table
+DROP TABLE IF EXISTS sys_user;
+CREATE TABLE sys_user (
+    user_id INTEGER PRIMARY KEY,
+    dept_id INTEGER,
+    user_name TEXT NOT NULL UNIQUE,
+    nick_name TEXT,
+    email TEXT,
+    phonenumber TEXT,
+    sex TEXT DEFAULT '0',
+    avatar TEXT,
+    password TEXT,
+    status TEXT DEFAULT '0',
+    del_flag TEXT DEFAULT '0',
+    login_ip TEXT,
+    login_date TEXT,
+    create_by TEXT,
+    create_time TEXT DEFAULT (datetime('now')),
+    update_by TEXT,
+    update_time TEXT DEFAULT (datetime('now')),
+    remark TEXT,
+    FOREIGN KEY (dept_id) REFERENCES sys_dept(dept_id)
+);
+
+-- Insert default department
+INSERT INTO sys_dept (dept_id, parent_id, ancestors, dept_name, order_num, leader, status) 
+VALUES (100, 0, '0', 'Asset Management', 0, 'Admin', '0');
+
+-- Insert default user
+INSERT INTO sys_user (user_id, dept_id, user_name, nick_name, password, status) 
+VALUES (1, 100, 'admin', 'Administrator', '$2a$10$7JB720yubVSZvUI0rEqK/.VqGOZTH.ulu33dHOiBE8ByOhJIrdAu2', '0');
