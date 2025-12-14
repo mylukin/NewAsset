@@ -494,8 +494,17 @@
       "totalRuns": 1,
       "passCount": 1,
       "failCount": 0
+    },
+    "office.frontend-form": {
+      "featureId": "office.frontend-form",
+      "latestRun": 1,
+      "latestTimestamp": "2025-12-14T13:30:55.784Z",
+      "latestVerdict": "pass",
+      "totalRuns": 1,
+      "passCount": 1,
+      "failCount": 0
     }
   },
-  "updatedAt": "2025-12-14T13:30:15.441Z",
+  "updatedAt": "2025-12-14T13:30:55.786Z",
   "version": "2.0.0"
 }
