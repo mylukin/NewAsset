@@ -3,7 +3,7 @@ id: dashboard.frontend-api
 module: dashboard
 priority: 71
 status: failing
-version: 13
+version: 14
 origin: manual
 dependsOn:
   - dashboard.controller

@@ -39,3 +39,5 @@
 2025-12-14T12:06:03.823Z STEP feature=core.data-permission status=passing tests="./ai/init.sh check" summary="Completed core.data-permission"
 2025-12-14T12:08:28.626Z VERIFY feature=core.dictionary-setup action=pass summary="Verified core.dictionary-setup: pass"
 2025-12-14T12:08:33.812Z STEP feature=core.dictionary-setup status=passing tests="./ai/init.sh check" summary="Completed core.dictionary-setup"
+2025-12-14T12:10:41.173Z VERIFY feature=house.entity action=pass summary="Verified house.entity: pass"
+2025-12-14T12:10:48.762Z STEP feature=house.entity status=passing tests="./ai/init.sh check" summary="Completed house.entity"
