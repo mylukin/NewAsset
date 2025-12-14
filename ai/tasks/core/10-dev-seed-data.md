@@ -3,7 +3,7 @@ id: core.dev-seed-data
 module: core
 priority: 10
 status: failing
-version: 3
+version: 4
 origin: manual
 dependsOn:
   - core.database-schema

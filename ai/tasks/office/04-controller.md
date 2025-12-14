@@ -3,7 +3,7 @@ id: office.controller
 module: office
 priority: 51
 status: failing
-version: 3
+version: 4
 origin: manual
 dependsOn:
   - office.service

@@ -3,7 +3,7 @@ id: facility.controller
 module: facility
 priority: 23
 status: failing
-version: 3
+version: 4
 origin: manual
 dependsOn:
   - facility.service

@@ -3,7 +3,7 @@ id: office.service
 module: office
 priority: 50
 status: failing
-version: 3
+version: 4
 origin: manual
 dependsOn:
   - office.mapper

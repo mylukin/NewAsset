@@ -3,7 +3,7 @@ id: office.condition-statistics
 module: office
 priority: 56
 status: failing
-version: 3
+version: 4
 origin: manual
 dependsOn:
   - office.service

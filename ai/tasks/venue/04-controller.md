@@ -3,7 +3,7 @@ id: venue.controller
 module: venue
 priority: 42
 status: failing
-version: 3
+version: 4
 origin: manual
 dependsOn:
   - venue.service

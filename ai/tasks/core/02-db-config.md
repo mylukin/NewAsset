@@ -2,8 +2,8 @@
 id: core.db-config
 module: core
 priority: 2
-status: failing
-version: 5
+status: passing
+version: 7
 origin: manual
 dependsOn:
   - core.project-init
@@ -17,10 +17,10 @@ testRequirements:
     required: false
     pattern: tests/core/**/*.test.*
 verification:
-  verifiedAt: '2025-12-14T10:09:23.936Z'
+  verifiedAt: '2025-12-14T11:55:15.446Z'
   verdict: pass
   verifiedBy: strategy-framework
-  commitHash: 24bccb585c03e114b5a49a4b53bd27b6ea22cc5d
+  commitHash: c5b2a3548efc783d745b9077abffaa3d4eb464ac
   summary: 8/8 criteria satisfied
 tddGuidance:
   generatedAt: '2025-12-14T11:53:25.798Z'

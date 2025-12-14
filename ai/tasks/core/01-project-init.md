@@ -3,7 +3,7 @@ id: core.project-init
 module: core
 priority: 1
 status: failing
-version: 3
+version: 4
 origin: manual
 dependsOn: []
 supersedes: []
