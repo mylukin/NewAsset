@@ -1,0 +1,60 @@
+{
+  "featureId": "facility.service",
+  "runNumber": 1,
+  "timestamp": "2025-12-14T12:38:48.349Z",
+  "commitHash": "765b837b819616ee1408a02670a22a79815c918f",
+  "changedFiles": [
+    "ai/progress.log",
+    "ai/tasks/facility/02-mapper.md",
+    "ai/tasks/index.json",
+    "ai/verification/facility.mapper/001.json",
+    "ai/verification/facility.mapper/001.md",
+    "ai/verification/index.json",
+    "ai/verification/results.json",
+    "ruoyi-modules/ruoyi-asset/src/main/java/com/ruoyi/asset/mapper/AssetFacilityMapper.java",
+    "ruoyi-modules/ruoyi-asset/src/main/resources/mapper/asset/AssetFacilityMapper.xml",
+    "ai/tasks/facility/03-service.md"
+  ],
+  "diffSummary": "10 files changed",
+  "automatedChecks": [],
+  "criteriaResults": [
+    {
+      "criterion": "Create `IAssetFacilityService` interface",
+      "index": 0,
+      "satisfied": true,
+      "confidence": 0.8
+    },
+    {
+      "criterion": "Create `AssetFacilityServiceImpl` implementation",
+      "index": 1,
+      "satisfied": true,
+      "confidence": 0.8
+    },
+    {
+      "criterion": "Implement standard CRUD methods:",
+      "index": 2,
+      "satisfied": true,
+      "confidence": 0.8
+    },
+    {
+      "criterion": "Integrate AssetCodeGenerator for code generation",
+      "index": 3,
+      "satisfied": true,
+      "confidence": 0.8
+    },
+    {
+      "criterion": "Add @DataScope for project filtering",
+      "index": 4,
+      "satisfied": true,
+      "confidence": 0.8
+    },
+    {
+      "criterion": "Use @Transactional for write operations",
+      "index": 5,
+      "satisfied": true,
+      "confidence": 0.8
+    }
+  ],
+  "verdict": "pass",
+  "verifiedBy": "strategy-framework"
+}

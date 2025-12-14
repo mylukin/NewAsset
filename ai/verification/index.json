@@ -206,8 +206,17 @@
       "totalRuns": 1,
       "passCount": 1,
       "failCount": 0
+    },
+    "facility.service": {
+      "featureId": "facility.service",
+      "latestRun": 1,
+      "latestTimestamp": "2025-12-14T12:38:48.349Z",
+      "latestVerdict": "pass",
+      "totalRuns": 1,
+      "passCount": 1,
+      "failCount": 0
     }
   },
-  "updatedAt": "2025-12-14T12:37:01.529Z",
+  "updatedAt": "2025-12-14T12:38:48.351Z",
   "version": "2.0.0"
 }
