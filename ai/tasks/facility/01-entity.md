@@ -3,7 +3,7 @@ id: facility.entity
 module: facility
 priority: 20
 status: failing
-version: 14
+version: 15
 origin: manual
 dependsOn:
   - core.asset-base-entity

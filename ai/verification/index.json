@@ -98,8 +98,17 @@
       "totalRuns": 1,
       "passCount": 1,
       "failCount": 0
+    },
+    "core.dev-seed-data": {
+      "featureId": "core.dev-seed-data",
+      "latestRun": 1,
+      "latestTimestamp": "2025-12-14T12:13:32.504Z",
+      "latestVerdict": "pass",
+      "totalRuns": 1,
+      "passCount": 1,
+      "failCount": 0
     }
   },
-  "updatedAt": "2025-12-14T12:10:41.144Z",
+  "updatedAt": "2025-12-14T12:13:32.506Z",
   "version": "2.0.0"
 }

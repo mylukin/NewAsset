@@ -3,7 +3,7 @@ id: dashboard.controller
 module: dashboard
 priority: 70
 status: failing
-version: 14
+version: 15
 origin: manual
 dependsOn:
   - dashboard.service
