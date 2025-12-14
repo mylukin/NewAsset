@@ -14,7 +14,7 @@ tags:
 testRequirements:
   unit:
     required: false
-    pattern: "tests/facility/**/*.test.*"
+    pattern: tests/facility/**/*.test.*
 ---
 # Implement Warranty Expiry Reminder for Facilities (P1)
 

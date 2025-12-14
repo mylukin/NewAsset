@@ -15,7 +15,7 @@ tags:
 testRequirements:
   unit:
     required: false
-    pattern: "tests/facility/**/*.test.*"
+    pattern: tests/facility/**/*.test.*
 ---
 # Create Facility Asset Form Dialog
 

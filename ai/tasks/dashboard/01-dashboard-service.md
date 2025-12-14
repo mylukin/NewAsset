@@ -16,7 +16,7 @@ tags:
 testRequirements:
   unit:
     required: false
-    pattern: "tests/dashboard/**/*.test.*"
+    pattern: tests/dashboard/**/*.test.*
 ---
 # Create Dashboard Service
 

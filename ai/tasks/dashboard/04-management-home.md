@@ -15,7 +15,7 @@ tags:
 testRequirements:
   unit:
     required: false
-    pattern: "tests/dashboard/**/*.test.*"
+    pattern: tests/dashboard/**/*.test.*
 ---
 # Create Management Dashboard Home Page
 

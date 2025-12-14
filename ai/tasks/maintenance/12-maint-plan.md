@@ -15,7 +15,7 @@ tags:
 testRequirements:
   unit:
     required: false
-    pattern: "tests/maintenance/**/*.test.*"
+    pattern: tests/maintenance/**/*.test.*
 ---
 # Implement Maintenance Plan (P1)
 

@@ -14,7 +14,7 @@ tags:
 testRequirements:
   unit:
     required: false
-    pattern: "tests/office/**/*.test.*"
+    pattern: tests/office/**/*.test.*
 ---
 # Implement Office Asset Condition Statistics (P1)
 

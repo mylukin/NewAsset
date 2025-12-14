@@ -14,7 +14,7 @@ tags:
 testRequirements:
   unit:
     required: false
-    pattern: "tests/house/**/*.test.*"
+    pattern: tests/house/**/*.test.*
 ---
 # Implement House Asset Statistics
 

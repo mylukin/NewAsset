@@ -15,7 +15,7 @@ tags:
 testRequirements:
   unit:
     required: false
-    pattern: "tests/house/**/*.test.*"
+    pattern: tests/house/**/*.test.*
 ---
 # Create House Asset Mapper
 

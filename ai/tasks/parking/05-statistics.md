@@ -14,7 +14,7 @@ tags:
 testRequirements:
   unit:
     required: false
-    pattern: "tests/parking/**/*.test.*"
+    pattern: tests/parking/**/*.test.*
 ---
 # Implement Parking Asset Statistics
 

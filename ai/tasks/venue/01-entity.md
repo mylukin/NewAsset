@@ -14,7 +14,7 @@ tags:
 testRequirements:
   unit:
     required: false
-    pattern: "tests/venue/**/*.test.*"
+    pattern: tests/venue/**/*.test.*
 ---
 # Create Venue Asset Entity
 

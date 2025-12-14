@@ -14,7 +14,7 @@ tags:
 testRequirements:
   unit:
     required: false
-    pattern: "tests/core/**/*.test.*"
+    pattern: tests/core/**/*.test.*
 ---
 # Create Database Schema for All Asset Tables
 

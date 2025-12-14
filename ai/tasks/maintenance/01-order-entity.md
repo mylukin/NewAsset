@@ -15,7 +15,7 @@ tags:
 testRequirements:
   unit:
     required: false
-    pattern: "tests/maintenance/**/*.test.*"
+    pattern: tests/maintenance/**/*.test.*
 ---
 # Create Maintenance Order Entity
 

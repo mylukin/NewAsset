@@ -15,7 +15,7 @@ tags:
 testRequirements:
   unit:
     required: false
-    pattern: "tests/office/**/*.test.*"
+    pattern: tests/office/**/*.test.*
 ---
 # Create Office Asset Service
 

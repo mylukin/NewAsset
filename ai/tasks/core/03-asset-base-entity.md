@@ -14,7 +14,7 @@ tags:
 testRequirements:
   unit:
     required: false
-    pattern: "tests/core/**/*.test.*"
+    pattern: tests/core/**/*.test.*
 ---
 # Create Base Asset Entity and Common Fields
 
