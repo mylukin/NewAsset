@@ -1,0 +1,60 @@
+{
+  "featureId": "maintenance.order-crud-service",
+  "runNumber": 1,
+  "timestamp": "2025-12-14T13:43:08.235Z",
+  "commitHash": "eb4dff740b9de0ebf66ef191e62ac2cb32b9d5fa",
+  "changedFiles": [
+    "ai/progress.log",
+    "ai/tasks/index.json",
+    "ai/tasks/maintenance/04-order-workflow-service.md",
+    "ai/verification/index.json",
+    "ai/verification/maintenance.order-workflow-service/001.json",
+    "ai/verification/maintenance.order-workflow-service/001.md",
+    "ai/verification/results.json",
+    "ruoyi-modules/ruoyi-asset/src/main/java/com/ruoyi/asset/service/rule/MaintOrderWorkflowService.java",
+    "ruoyi-modules/ruoyi-asset/src/main/java/com/ruoyi/asset/service/rule/MaintOrderWorkflowServiceImpl.java",
+    "ai/tasks/maintenance/05-order-crud-service.md"
+  ],
+  "diffSummary": "10 files changed",
+  "automatedChecks": [],
+  "criteriaResults": [
+    {
+      "criterion": "Create `IAssetMaintOrderService` interface",
+      "index": 0,
+      "satisfied": true,
+      "confidence": 0.8
+    },
+    {
+      "criterion": "Create `AssetMaintOrderServiceImpl` implementation",
+      "index": 1,
+      "satisfied": true,
+      "confidence": 0.8
+    },
+    {
+      "criterion": "Implement methods:",
+      "index": 2,
+      "satisfied": true,
+      "confidence": 0.8
+    },
+    {
+      "criterion": "Apply data scope filtering",
+      "index": 3,
+      "satisfied": true,
+      "confidence": 0.8
+    },
+    {
+      "criterion": "Include order logs in detail view",
+      "index": 4,
+      "satisfied": true,
+      "confidence": 0.8
+    },
+    {
+      "criterion": "Support export functionality",
+      "index": 5,
+      "satisfied": true,
+      "confidence": 0.8
+    }
+  ],
+  "verdict": "pass",
+  "verifiedBy": "strategy-framework"
+}
