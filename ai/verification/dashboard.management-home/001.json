@@ -1,0 +1,71 @@
+{
+  "featureId": "dashboard.management-home",
+  "runNumber": 1,
+  "timestamp": "2025-12-14T14:02:37.082Z",
+  "commitHash": "0bfa3cb1175afc032eb3106c66324be2960b34be",
+  "changedFiles": [
+    "ai/progress.log",
+    "ai/tasks/dashboard/03-frontend-api.md",
+    "ai/tasks/index.json",
+    "ai/verification/dashboard.frontend-api/001.json",
+    "ai/verification/dashboard.frontend-api/001.md",
+    "ai/verification/index.json",
+    "ai/verification/results.json",
+    "ruoyi-ui/src/api/asset/dashboard.js",
+    "ai/tasks/dashboard/04-management-home.md"
+  ],
+  "diffSummary": "9 files changed",
+  "automatedChecks": [],
+  "criteriaResults": [
+    {
+      "criterion": "Create `/src/views/asset/dashboard/management.vue`",
+      "index": 0,
+      "satisfied": true,
+      "confidence": 0.8
+    },
+    {
+      "criterion": "Implement metric cards:",
+      "index": 1,
+      "satisfied": true,
+      "confidence": 0.8
+    },
+    {
+      "criterion": "Implement recent orders table (Top 10)",
+      "index": 2,
+      "satisfied": true,
+      "confidence": 0.8
+    },
+    {
+      "criterion": "Add project selector to filter all data",
+      "index": 3,
+      "satisfied": true,
+      "confidence": 0.8
+    },
+    {
+      "criterion": "Auto-refresh on project change",
+      "index": 4,
+      "satisfied": true,
+      "confidence": 0.8
+    },
+    {
+      "criterion": "Use ECharts for pie chart of asset distribution",
+      "index": 5,
+      "satisfied": true,
+      "confidence": 0.8
+    },
+    {
+      "criterion": "Loading states for each widget",
+      "index": 6,
+      "satisfied": true,
+      "confidence": 0.8
+    },
+    {
+      "criterion": "Responsive layout for 1920x1080",
+      "index": 7,
+      "satisfied": true,
+      "confidence": 0.8
+    }
+  ],
+  "verdict": "pass",
+  "verifiedBy": "strategy-framework"
+}

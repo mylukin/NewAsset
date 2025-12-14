@@ -656,8 +656,17 @@
       "totalRuns": 1,
       "passCount": 1,
       "failCount": 0
+    },
+    "dashboard.management-home": {
+      "featureId": "dashboard.management-home",
+      "latestRun": 1,
+      "latestTimestamp": "2025-12-14T14:02:37.082Z",
+      "latestVerdict": "pass",
+      "totalRuns": 1,
+      "passCount": 1,
+      "failCount": 0
     }
   },
-  "updatedAt": "2025-12-14T14:00:54.438Z",
+  "updatedAt": "2025-12-14T14:02:37.084Z",
   "version": "2.0.0"
 }
