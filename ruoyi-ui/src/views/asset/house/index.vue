@@ -179,17 +179,22 @@
     />
 
     <!-- Add/Edit Dialog -->
-    <el-dialog :title="title" :visible.sync="open" width="800px" append-to-body>
-      <el-form ref="form" :model="form" :rules="rules" label-width="120px">
+    <el-dialog :title="title" :visible.sync="open" width="800px" append-to-body :close-on-click-modal="false">
+      <el-form ref="form" :model="form" :rules="rules" label-width="120px" v-loading="formLoading">
+        <!-- Basic Info Group -->
+        <el-divider content-position="left">Basic Information</el-divider>
         <el-row>
           <el-col :span="12">
-            <el-form-item label="Asset Name" prop="assetName">
-              <el-input v-model="form.assetName" placeholder="Enter asset name" />
+            <el-form-item label="Asset Code" v-if="form.id">
+              <el-input v-model="form.assetCode" disabled placeholder="Auto-generated" />
+            </el-form-item>
+            <el-form-item label="Asset Code" v-else>
+              <el-input value="Auto-generated after save" disabled />
             </el-form-item>
           </el-col>
           <el-col :span="12">
             <el-form-item label="Project" prop="projectId">
-              <el-select v-model="form.projectId" placeholder="Select project" style="width: 100%">
+              <el-select v-model="form.projectId" placeholder="Select project" style="width: 100%" :disabled="!!form.id">
                 <el-option
                   v-for="item in projectOptions"
                   :key="item.id"
@@ -200,6 +205,16 @@
             </el-form-item>
           </el-col>
         </el-row>
+        <el-row>
+          <el-col :span="24">
+            <el-form-item label="Asset Name" prop="assetName">
+              <el-input v-model="form.assetName" placeholder="Enter asset name" />
+            </el-form-item>
+          </el-col>
+        </el-row>
+
+        <!-- Location Group -->
+        <el-divider content-position="left">Location</el-divider>
         <el-row>
           <el-col :span="8">
             <el-form-item label="Building" prop="building">
@@ -217,6 +232,8 @@
             </el-form-item>
           </el-col>
         </el-row>
+        <!-- Area Group -->
+        <el-divider content-position="left">Area Information</el-divider>
         <el-row>
           <el-col :span="12">
             <el-form-item label="Building Area" prop="buildingArea">
@@ -229,6 +246,9 @@
             </el-form-item>
           </el-col>
         </el-row>
+
+        <!-- Property Type Group -->
+        <el-divider content-position="left">Property Type</el-divider>
         <el-row>
           <el-col :span="12">
             <el-form-item label="House Type" prop="houseType">
@@ -255,6 +275,9 @@
             </el-form-item>
           </el-col>
         </el-row>
+
+        <!-- Usage & Rental Group -->
+        <el-divider content-position="left">Usage & Rental</el-divider>
         <el-row>
           <el-col :span="12">
             <el-form-item label="Current Usage" prop="currentUsage">
@@ -344,6 +367,8 @@ export default {
     return {
       // Loading state
       loading: true,
+      // Form loading state
+      formLoading: false,
       // Selected IDs
       ids: [],
       // Single selection
@@ -437,6 +462,7 @@ export default {
     reset() {
       this.form = {
         id: null,
+        assetCode: null,
         assetName: null,
         projectId: null,
         building: null,
@@ -453,6 +479,7 @@ export default {
         rentTotal: null,
         remark: null
       };
+      this.formLoading = false;
       this.resetForm("form");
     },
     /** Search button */
@@ -498,17 +525,22 @@ export default {
     submitForm() {
       this.$refs["form"].validate(valid => {
         if (valid) {
+          this.formLoading = true;
           if (this.form.id != null) {
             updateHouseAsset(this.form).then(response => {
               this.$modal.msgSuccess("Updated successfully");
               this.open = false;
               this.getList();
+            }).finally(() => {
+              this.formLoading = false;
             });
           } else {
             addHouseAsset(this.form).then(response => {
               this.$modal.msgSuccess("Added successfully");
               this.open = false;
               this.getList();
+            }).finally(() => {
+              this.formLoading = false;
             });
           }
         }
