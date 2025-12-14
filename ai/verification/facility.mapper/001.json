@@ -1,0 +1,57 @@
+{
+  "featureId": "facility.mapper",
+  "runNumber": 1,
+  "timestamp": "2025-12-14T12:37:01.528Z",
+  "commitHash": "6f2db46f56a560a59b8d14da8b7e390b894b6b07",
+  "changedFiles": [
+    "ai/progress.log",
+    "ai/tasks/facility/01-entity.md",
+    "ai/tasks/index.json",
+    "ai/verification/facility.entity/001.json",
+    "ai/verification/facility.entity/001.md",
+    "ai/verification/index.json",
+    "ai/verification/results.json",
+    "ruoyi-modules/ruoyi-asset/src/main/java/com/ruoyi/asset/domain/dto/AssetFacilityCreateDTO.java",
+    "ruoyi-modules/ruoyi-asset/src/main/java/com/ruoyi/asset/domain/dto/AssetFacilityUpdateDTO.java",
+    "ruoyi-modules/ruoyi-asset/src/main/java/com/ruoyi/asset/domain/entity/AssetFacility.java",
+    "ruoyi-modules/ruoyi-asset/src/main/java/com/ruoyi/asset/domain/vo/AssetFacilityDetailVO.java",
+    "ruoyi-modules/ruoyi-asset/src/main/java/com/ruoyi/asset/domain/vo/AssetFacilityListVO.java",
+    "ai/tasks/facility/02-mapper.md"
+  ],
+  "diffSummary": "13 files changed",
+  "automatedChecks": [],
+  "criteriaResults": [
+    {
+      "criterion": "Create `AssetFacilityMapper` interface",
+      "index": 0,
+      "satisfied": true,
+      "confidence": 0.8
+    },
+    {
+      "criterion": "Create corresponding XML mapper file",
+      "index": 1,
+      "satisfied": true,
+      "confidence": 0.8
+    },
+    {
+      "criterion": "Implement methods:",
+      "index": 2,
+      "satisfied": true,
+      "confidence": 0.8
+    },
+    {
+      "criterion": "Support filters: projectId, building, floor, facilityType, status",
+      "index": 3,
+      "satisfied": true,
+      "confidence": 0.8
+    },
+    {
+      "criterion": "Include data scope filtering",
+      "index": 4,
+      "satisfied": true,
+      "confidence": 0.8
+    }
+  ],
+  "verdict": "pass",
+  "verifiedBy": "strategy-framework"
+}

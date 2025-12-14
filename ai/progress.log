@@ -63,3 +63,5 @@
 2025-12-14T12:32:04.901Z STEP feature=house.frontend-statistics status=passing tests="./ai/init.sh check" summary="Completed house.frontend-statistics"
 2025-12-14T12:34:56.545Z VERIFY feature=facility.entity action=pass summary="Verified facility.entity: pass"
 2025-12-14T12:35:03.020Z STEP feature=facility.entity status=passing tests="./ai/init.sh check" summary="Completed facility.entity"
+2025-12-14T12:37:01.535Z VERIFY feature=facility.mapper action=pass summary="Verified facility.mapper: pass"
+2025-12-14T12:37:07.122Z STEP feature=facility.mapper status=passing tests="./ai/init.sh check" summary="Completed facility.mapper"
