@@ -1,6 +1,6 @@
 {
   "version": "2.0.0",
-  "updatedAt": "2025-12-14T12:45:36.774Z",
+  "updatedAt": "2025-12-14T12:46:57.195Z",
   "metadata": {
     "projectGoal": "基于 ai/tasks 创建一个资产管理系统",
     "createdAt": "2025-12-14T10:00:00Z",
@@ -52,7 +52,7 @@
       "filePath": "facility/02-mapper.md"
     },
     "facility.frontend-detail": {
-      "status": "failing",
+      "status": "passing",
       "priority": 27,
       "module": "facility",
       "description": "Create Facility Asset Detail Drawer",

@@ -75,3 +75,5 @@
 2025-12-14T12:42:57.623Z STEP feature=facility.frontend-list status=passing tests="./ai/init.sh check" summary="Completed facility.frontend-list"
 2025-12-14T12:45:30.883Z VERIFY feature=facility.frontend-form action=pass summary="Verified facility.frontend-form: pass"
 2025-12-14T12:45:36.775Z STEP feature=facility.frontend-form status=passing tests="./ai/init.sh check" summary="Completed facility.frontend-form"
+2025-12-14T12:46:51.461Z VERIFY feature=facility.frontend-detail action=pass summary="Verified facility.frontend-detail: pass"
+2025-12-14T12:46:57.198Z STEP feature=facility.frontend-detail status=passing tests="./ai/init.sh check" summary="Completed facility.frontend-detail"

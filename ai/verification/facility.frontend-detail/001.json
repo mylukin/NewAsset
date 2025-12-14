@@ -1,0 +1,47 @@
+{
+  "featureId": "facility.frontend-detail",
+  "runNumber": 1,
+  "timestamp": "2025-12-14T12:46:51.441Z",
+  "commitHash": "b8309eade399adcdca57b3f752a852e68163632d",
+  "changedFiles": [
+    "ai/progress.log",
+    "ai/tasks/facility/07-frontend-form.md",
+    "ai/tasks/index.json",
+    "ai/verification/facility.frontend-form/001.json",
+    "ai/verification/facility.frontend-form/001.md",
+    "ai/verification/index.json",
+    "ai/verification/results.json",
+    "ai/tasks/facility/08-frontend-detail.md",
+    "ruoyi-ui/src/views/asset/facility/index.vue"
+  ],
+  "diffSummary": "9 files changed",
+  "automatedChecks": [],
+  "criteriaResults": [
+    {
+      "criterion": "Create detail drawer component",
+      "index": 0,
+      "satisfied": true,
+      "confidence": 0.8
+    },
+    {
+      "criterion": "Implement tabbed layout:",
+      "index": 1,
+      "satisfied": true,
+      "confidence": 0.8
+    },
+    {
+      "criterion": "Action buttons: Edit, Initiate Maintenance, Upload Attachment",
+      "index": 2,
+      "satisfied": true,
+      "confidence": 0.8
+    },
+    {
+      "criterion": "Display maintenance org contact prominently for quick access",
+      "index": 3,
+      "satisfied": true,
+      "confidence": 0.8
+    }
+  ],
+  "verdict": "pass",
+  "verifiedBy": "strategy-framework"
+}

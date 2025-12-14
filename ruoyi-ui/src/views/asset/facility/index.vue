@@ -323,12 +323,32 @@
             @click="handleCreateMaintOrder"
           >Initiate Maintenance</el-button>
           <el-button
+            type="info"
+            size="small"
+            icon="el-icon-upload2"
+            @click="handleUploadAttachment"
+          >Upload Attachment</el-button>
+          <el-button
             type="danger"
             size="small"
             icon="el-icon-delete"
             @click="handleDetailDelete"
             v-hasPermi="['asset:facility:remove']"
           >Delete</el-button>
+        </div>
+
+        <!-- Maintenance Organization Contact - Quick Access -->
+        <div class="maint-contact-card" v-if="detail.maintOrg || detail.maintPhone">
+          <div class="maint-contact-icon">
+            <i class="el-icon-phone-outline"></i>
+          </div>
+          <div class="maint-contact-info">
+            <div class="maint-contact-label">Maintenance Contact</div>
+            <div class="maint-contact-org">{{ detail.maintOrg || '-' }}</div>
+            <div class="maint-contact-phone" v-if="detail.maintPhone">
+              <a :href="'tel:' + detail.maintPhone">{{ detail.maintPhone }}</a>
+            </div>
+          </div>
         </div>
       </div>
 
@@ -641,7 +661,70 @@ export default {
         path: '/maintenance/order',
         query: { assetId: this.detail.id }
       });
+    },
+    /** Upload attachment */
+    handleUploadAttachment() {
+      this.$message.info('Attachment upload feature coming soon');
     }
   }
 };
 </script>
+
+<style scoped>
+.maint-contact-card {
+  margin-top: 16px;
+  padding: 12px 16px;
+  background: linear-gradient(135deg, #f5f7fa 0%, #e4e7ed 100%);
+  border-radius: 8px;
+  display: flex;
+  align-items: center;
+  border-left: 4px solid #E6A23C;
+}
+
+.maint-contact-icon {
+  width: 40px;
+  height: 40px;
+  background: #E6A23C;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-right: 12px;
+  flex-shrink: 0;
+}
+
+.maint-contact-icon i {
+  font-size: 20px;
+  color: #fff;
+}
+
+.maint-contact-info {
+  flex: 1;
+}
+
+.maint-contact-label {
+  font-size: 12px;
+  color: #909399;
+  margin-bottom: 2px;
+}
+
+.maint-contact-org {
+  font-size: 14px;
+  font-weight: 600;
+  color: #303133;
+}
+
+.maint-contact-phone {
+  font-size: 14px;
+  margin-top: 2px;
+}
+
+.maint-contact-phone a {
+  color: #409EFF;
+  text-decoration: none;
+}
+
+.maint-contact-phone a:hover {
+  text-decoration: underline;
+}
+</style>
