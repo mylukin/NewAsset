@@ -1,0 +1,65 @@
+{
+  "featureId": "maintenance.asset-maint-history",
+  "runNumber": 1,
+  "timestamp": "2025-12-14T13:49:59.227Z",
+  "commitHash": "d02277ccab0016b68e661d5ed5fc6b3d196a6d88",
+  "changedFiles": [
+    "ai/progress.log",
+    "ai/tasks/index.json",
+    "ai/tasks/maintenance/10-frontend-detail.md",
+    "ai/verification/index.json",
+    "ai/verification/maintenance.frontend-detail/001.json",
+    "ai/verification/maintenance.frontend-detail/001.md",
+    "ai/verification/results.json",
+    "ruoyi-ui/src/views/asset/maint/orderDetail.vue",
+    "ai/tasks/maintenance/11-asset-maint-history.md"
+  ],
+  "diffSummary": "9 files changed",
+  "automatedChecks": [],
+  "criteriaResults": [
+    {
+      "criterion": "Create reusable component: `AssetMaintHistory.vue`",
+      "index": 0,
+      "satisfied": true,
+      "confidence": 0.8
+    },
+    {
+      "criterion": "Accept assetId as prop",
+      "index": 1,
+      "satisfied": true,
+      "confidence": 0.8
+    },
+    {
+      "criterion": "Display list of related maintenance orders:",
+      "index": 2,
+      "satisfied": true,
+      "confidence": 0.8
+    },
+    {
+      "criterion": "Support filtering by status and type",
+      "index": 3,
+      "satisfied": true,
+      "confidence": 0.8
+    },
+    {
+      "criterion": "Link to full order detail",
+      "index": 4,
+      "satisfied": true,
+      "confidence": 0.8
+    },
+    {
+      "criterion": "Support Excel export of history",
+      "index": 5,
+      "satisfied": true,
+      "confidence": 0.8
+    },
+    {
+      "criterion": "Integrate into all asset detail drawers:",
+      "index": 6,
+      "satisfied": true,
+      "confidence": 0.8
+    }
+  ],
+  "verdict": "pass",
+  "verifiedBy": "strategy-framework"
+}

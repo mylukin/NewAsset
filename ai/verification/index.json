@@ -611,8 +611,17 @@
       "totalRuns": 1,
       "passCount": 1,
       "failCount": 0
+    },
+    "maintenance.asset-maint-history": {
+      "featureId": "maintenance.asset-maint-history",
+      "latestRun": 1,
+      "latestTimestamp": "2025-12-14T13:49:59.227Z",
+      "latestVerdict": "pass",
+      "totalRuns": 1,
+      "passCount": 1,
+      "failCount": 0
     }
   },
-  "updatedAt": "2025-12-14T13:48:55.085Z",
+  "updatedAt": "2025-12-14T13:49:59.229Z",
   "version": "2.0.0"
 }

@@ -1,6 +1,6 @@
 {
   "version": "2.0.0",
-  "updatedAt": "2025-12-14T13:48:55.248Z",
+  "updatedAt": "2025-12-14T13:49:59.392Z",
   "metadata": {
     "projectGoal": "基于 ai/tasks 创建一个资产管理系统",
     "createdAt": "2025-12-14T10:00:00Z",
@@ -465,7 +465,7 @@
       "filePath": "house/04-controller.md"
     },
     "maintenance.asset-maint-history": {
-      "status": "failing",
+      "status": "passing",
       "priority": 67,
       "module": "maintenance",
       "description": "Integrate Maintenance History into Asset Detail Pages",
