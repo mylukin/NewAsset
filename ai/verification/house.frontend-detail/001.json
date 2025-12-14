@@ -1,0 +1,59 @@
+{
+  "featureId": "house.frontend-detail",
+  "runNumber": 1,
+  "timestamp": "2025-12-14T12:29:05.874Z",
+  "commitHash": "57d8cce5571df0440a28237062aa2fe460f1519d",
+  "changedFiles": [
+    "ai/progress.log",
+    "ai/tasks/house/08-frontend-form.md",
+    "ai/tasks/index.json",
+    "ai/verification/house.frontend-form/001.json",
+    "ai/verification/house.frontend-form/001.md",
+    "ai/verification/index.json",
+    "ai/verification/results.json",
+    "ruoyi-ui/src/views/asset/house/index.vue",
+    "ai/tasks/house/09-frontend-detail.md"
+  ],
+  "diffSummary": "9 files changed",
+  "automatedChecks": [],
+  "criteriaResults": [
+    {
+      "criterion": "Create detail drawer or modal component",
+      "index": 0,
+      "satisfied": true,
+      "confidence": 0.8
+    },
+    {
+      "criterion": "Implement tabbed layout:",
+      "index": 1,
+      "satisfied": true,
+      "confidence": 0.8
+    },
+    {
+      "criterion": "Display fields with proper formatting:",
+      "index": 2,
+      "satisfied": true,
+      "confidence": 0.8
+    },
+    {
+      "criterion": "Action buttons:",
+      "index": 3,
+      "satisfied": true,
+      "confidence": 0.8
+    },
+    {
+      "criterion": "Show asset code prominently",
+      "index": 4,
+      "satisfied": true,
+      "confidence": 0.8
+    },
+    {
+      "criterion": "Link to related maintenance orders",
+      "index": 5,
+      "satisfied": true,
+      "confidence": 0.8
+    }
+  ],
+  "verdict": "pass",
+  "verifiedBy": "strategy-framework"
+}

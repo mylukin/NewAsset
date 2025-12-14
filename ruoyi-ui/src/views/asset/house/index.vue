@@ -327,33 +327,107 @@
       </div>
     </el-dialog>
 
-    <!-- Detail Dialog -->
-    <el-dialog title="House Asset Detail" :visible.sync="detailOpen" width="800px" append-to-body>
-      <el-descriptions :column="2" border>
-        <el-descriptions-item label="Asset Code">{{ detail.assetCode }}</el-descriptions-item>
-        <el-descriptions-item label="Asset Name">{{ detail.assetName }}</el-descriptions-item>
-        <el-descriptions-item label="Project">{{ detail.projectName }}</el-descriptions-item>
-        <el-descriptions-item label="Status">
-          <dict-tag :options="dict.type.asset_status" :value="detail.status"/>
-        </el-descriptions-item>
-        <el-descriptions-item label="Building">{{ detail.building }}</el-descriptions-item>
-        <el-descriptions-item label="Floor">{{ detail.floor }}</el-descriptions-item>
-        <el-descriptions-item label="Room No">{{ detail.roomNo }}</el-descriptions-item>
-        <el-descriptions-item label="Location">{{ detail.locationDesc }}</el-descriptions-item>
-        <el-descriptions-item label="Building Area">{{ detail.buildingArea }} sqm</el-descriptions-item>
-        <el-descriptions-item label="Inner Area">{{ detail.innerArea }} sqm</el-descriptions-item>
-        <el-descriptions-item label="House Type">{{ detail.houseTypeLabel }}</el-descriptions-item>
-        <el-descriptions-item label="House Usage">{{ detail.houseUsageLabel }}</el-descriptions-item>
-        <el-descriptions-item label="Current Usage">{{ getUsageLabel(detail.currentUsage) }}</el-descriptions-item>
-        <el-descriptions-item label="Current User">{{ detail.currentUser || '-' }}</el-descriptions-item>
-        <el-descriptions-item label="Rent Unit Price">{{ detail.rentUnitPrice ? '¥' + detail.rentUnitPrice + '/sqm' : '-' }}</el-descriptions-item>
-        <el-descriptions-item label="Rent Total">{{ detail.rentTotal ? '¥' + detail.rentTotal : '-' }}</el-descriptions-item>
-        <el-descriptions-item label="Contract No">{{ detail.contractNo || '-' }}</el-descriptions-item>
-        <el-descriptions-item label="Original Value">{{ detail.originalValue ? '¥' + detail.originalValue : '-' }}</el-descriptions-item>
-        <el-descriptions-item label="Create Time">{{ detail.createTime }}</el-descriptions-item>
-        <el-descriptions-item label="Update Time">{{ detail.updateTime }}</el-descriptions-item>
-      </el-descriptions>
-    </el-dialog>
+    <!-- Detail Drawer -->
+    <el-drawer
+      title="House Asset Detail"
+      :visible.sync="detailOpen"
+      direction="rtl"
+      size="50%"
+      :before-close="handleDetailClose"
+    >
+      <!-- Header with Asset Code prominently displayed -->
+      <div class="detail-header" style="padding: 0 20px 20px;">
+        <div style="display: flex; justify-content: space-between; align-items: center;">
+          <div>
+            <h2 style="margin: 0; font-size: 24px; color: #303133;">{{ detail.assetCode }}</h2>
+            <p style="margin: 8px 0 0; color: #909399;">{{ detail.assetName }}</p>
+          </div>
+          <div>
+            <dict-tag :options="dict.type.asset_status" :value="detail.status"/>
+          </div>
+        </div>
+        <!-- Action Buttons -->
+        <div style="margin-top: 16px;">
+          <el-button
+            type="primary"
+            size="small"
+            icon="el-icon-edit"
+            @click="handleDetailEdit"
+            v-hasPermi="['asset:house:edit']"
+          >Edit</el-button>
+          <el-button
+            type="danger"
+            size="small"
+            icon="el-icon-delete"
+            @click="handleDetailDelete"
+            v-hasPermi="['asset:house:remove']"
+          >Delete</el-button>
+        </div>
+      </div>
+
+      <!-- Tabbed Layout -->
+      <el-tabs v-model="detailActiveTab" style="padding: 0 20px;">
+        <!-- Basic Info Tab -->
+        <el-tab-pane label="Basic Info" name="basic">
+          <el-descriptions :column="2" border>
+            <el-descriptions-item label="Project">{{ detail.projectName }}</el-descriptions-item>
+            <el-descriptions-item label="Status">
+              <dict-tag :options="dict.type.asset_status" :value="detail.status"/>
+            </el-descriptions-item>
+            <el-descriptions-item label="Building">{{ detail.building || '-' }}</el-descriptions-item>
+            <el-descriptions-item label="Floor">{{ detail.floor || '-' }}</el-descriptions-item>
+            <el-descriptions-item label="Room No">{{ detail.roomNo || '-' }}</el-descriptions-item>
+            <el-descriptions-item label="Location">{{ detail.locationDesc || '-' }}</el-descriptions-item>
+            <el-descriptions-item label="Building Area">{{ detail.buildingArea ? detail.buildingArea + ' sqm' : '-' }}</el-descriptions-item>
+            <el-descriptions-item label="Inner Area">{{ detail.innerArea ? detail.innerArea + ' sqm' : '-' }}</el-descriptions-item>
+            <el-descriptions-item label="House Type">{{ detail.houseTypeLabel || '-' }}</el-descriptions-item>
+            <el-descriptions-item label="House Usage">{{ detail.houseUsageLabel || '-' }}</el-descriptions-item>
+            <el-descriptions-item label="Ownership Type">{{ detail.ownershipTypeLabel || '-' }}</el-descriptions-item>
+            <el-descriptions-item label="Owner Org">{{ detail.ownerOrg || '-' }}</el-descriptions-item>
+            <el-descriptions-item label="Original Value">{{ detail.originalValue ? '¥' + detail.originalValue : '-' }}</el-descriptions-item>
+            <el-descriptions-item label="Net Value">{{ detail.netValue ? '¥' + detail.netValue : '-' }}</el-descriptions-item>
+            <el-descriptions-item label="Create Time">{{ detail.createTime }}</el-descriptions-item>
+            <el-descriptions-item label="Update Time">{{ detail.updateTime }}</el-descriptions-item>
+          </el-descriptions>
+        </el-tab-pane>
+
+        <!-- Usage & Rental Tab -->
+        <el-tab-pane label="Usage & Rental" name="rental">
+          <el-descriptions :column="2" border>
+            <el-descriptions-item label="Current Usage">
+              <el-tag :type="getUsageTagType(detail.currentUsage)">
+                {{ getUsageLabel(detail.currentUsage) }}
+              </el-tag>
+            </el-descriptions-item>
+            <el-descriptions-item label="Current User/Tenant">{{ detail.currentUser || '-' }}</el-descriptions-item>
+            <el-descriptions-item label="Contract No">{{ detail.contractNo || '-' }}</el-descriptions-item>
+            <el-descriptions-item label="Rent Unit Price">{{ detail.rentUnitPrice ? '¥' + detail.rentUnitPrice + '/sqm' : '-' }}</el-descriptions-item>
+            <el-descriptions-item label="Rent Total">{{ detail.rentTotal ? '¥' + detail.rentTotal : '-' }}</el-descriptions-item>
+            <el-descriptions-item label="Use Department">{{ detail.useDeptName || '-' }}</el-descriptions-item>
+            <el-descriptions-item label="Duty Person">{{ detail.dutyUserName || '-' }}</el-descriptions-item>
+            <el-descriptions-item label="Start Use Date">{{ detail.startUseDate || '-' }}</el-descriptions-item>
+          </el-descriptions>
+        </el-tab-pane>
+
+        <!-- Maintenance Tab -->
+        <el-tab-pane label="Maintenance" name="maintenance">
+          <div style="text-align: center; padding: 20px;">
+            <el-empty description="No maintenance records">
+              <el-button
+                type="primary"
+                size="small"
+                @click="handleCreateMaintOrder"
+              >Create Maintenance Order</el-button>
+            </el-empty>
+          </div>
+          <div style="margin-top: 20px;">
+            <el-link type="primary" @click="goToMaintOrders">
+              View All Maintenance Orders <i class="el-icon-arrow-right"></i>
+            </el-link>
+          </div>
+        </el-tab-pane>
+      </el-tabs>
+    </el-drawer>
   </div>
 </template>
 
@@ -385,8 +459,10 @@ export default {
       title: "",
       // Dialog visibility
       open: false,
-      // Detail dialog visibility
+      // Detail drawer visibility
       detailOpen: false,
+      // Detail active tab
+      detailActiveTab: 'basic',
       // Detail data
       detail: {},
       // Project options
@@ -579,6 +655,41 @@ export default {
         'idle': 'Idle'
       };
       return labels[usage] || usage || '-';
+    },
+    /** Handle detail drawer close */
+    handleDetailClose(done) {
+      this.detailActiveTab = 'basic';
+      done();
+    },
+    /** Edit from detail drawer */
+    handleDetailEdit() {
+      this.detailOpen = false;
+      this.handleUpdate(this.detail);
+    },
+    /** Delete from detail drawer */
+    handleDetailDelete() {
+      this.$modal.confirm('Are you sure you want to delete this house asset?').then(() => {
+        return deleteHouseAsset(this.detail.id);
+      }).then(() => {
+        this.detailOpen = false;
+        this.getList();
+        this.$modal.msgSuccess("Deleted successfully");
+      }).catch(() => {});
+    },
+    /** Create maintenance order */
+    handleCreateMaintOrder() {
+      // TODO: Navigate to create maintenance order with this asset
+      this.$router.push({
+        path: '/maintenance/order/add',
+        query: { assetId: this.detail.id, assetCode: this.detail.assetCode }
+      });
+    },
+    /** Go to maintenance orders list */
+    goToMaintOrders() {
+      this.$router.push({
+        path: '/maintenance/order',
+        query: { assetId: this.detail.id }
+      });
     }
   }
 };
