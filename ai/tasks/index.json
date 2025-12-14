@@ -1,10 +1,10 @@
 {
   "version": "2.0.0",
-  "updatedAt": "2025-12-14T09:36:02.061Z",
+  "updatedAt": "2025-12-14T09:38:40.688Z",
   "metadata": {
     "projectGoal": "基于 ai/tasks 创建一个资产管理系统",
     "createdAt": "2025-12-14T10:00:00Z",
-    "updatedAt": "2025-12-14T09:36:01.881Z",
+    "updatedAt": "2025-12-14T09:38:33.470Z",
     "version": "1.0.0",
     "tddMode": "recommended"
   },
@@ -23,13 +23,6 @@
       "description": "Implement Asset Code Generator Service",
       "filePath": "core/05-code-generator.md"
     },
-    "core.database-schema": {
-      "status": "failing",
-      "priority": 3,
-      "module": "core",
-      "description": "Create Database Schema for All Asset Tables (Dual-DB Support)",
-      "filePath": "core/03-database-schema.md"
-    },
     "core.asset-base-entity": {
       "status": "failing",
       "priority": 3,
@@ -44,26 +37,19 @@
       "description": "Create House Asset Service",
       "filePath": "house/03-service.md"
     },
-    "house.frontend-api": {
-      "status": "failing",
-      "priority": 15,
-      "module": "house",
-      "description": "Create House Asset Frontend API Module",
-      "filePath": "house/06-frontend-api.md"
-    },
-    "core.attachment-service": {
-      "status": "failing",
-      "priority": 7,
-      "module": "core",
-      "description": "Create Asset Attachment Service",
-      "filePath": "core/07-attachment-service.md"
-    },
     "facility.controller": {
       "status": "failing",
       "priority": 23,
       "module": "facility",
       "description": "Create Facility Asset Controller",
       "filePath": "facility/04-controller.md"
+    },
+    "house.frontend-api": {
+      "status": "failing",
+      "priority": 15,
+      "module": "house",
+      "description": "Create House Asset Frontend API Module",
+      "filePath": "house/06-frontend-api.md"
     },
     "facility.service": {
       "status": "failing",
@@ -79,19 +65,19 @@
       "description": "Configure Data Permission by Project",
       "filePath": "core/08-data-permission.md"
     },
-    "house.statistics": {
-      "status": "failing",
-      "priority": 14,
-      "module": "house",
-      "description": "Implement House Asset Statistics",
-      "filePath": "house/05-statistics.md"
-    },
     "house.frontend-form": {
       "status": "failing",
       "priority": 17,
       "module": "house",
       "description": "Create House Asset Form Dialog",
       "filePath": "house/08-frontend-form.md"
+    },
+    "house.statistics": {
+      "status": "failing",
+      "priority": 14,
+      "module": "house",
+      "description": "Implement House Asset Statistics",
+      "filePath": "house/05-statistics.md"
     },
     "core.asset-status-enum": {
       "status": "failing",
@@ -107,13 +93,6 @@
       "description": "Implement Asset Status State Machine Service",
       "filePath": "core/06-state-machine.md"
     },
-    "core.dev-seed-data": {
-      "status": "failing",
-      "priority": 10,
-      "module": "core",
-      "description": "Create Development Seed Data",
-      "filePath": "core/10-dev-seed-data.md"
-    },
     "core.dictionary-setup": {
       "status": "failing",
       "priority": 9,
@@ -127,6 +106,13 @@
       "module": "house",
       "description": "Create House Asset Statistics View",
       "filePath": "house/10-frontend-statistics.md"
+    },
+    "core.attachment-service": {
+      "status": "failing",
+      "priority": 7,
+      "module": "core",
+      "description": "Create Asset Attachment Service",
+      "filePath": "core/07-attachment-service.md"
     },
     "house.controller": {
       "status": "failing",
@@ -142,19 +128,12 @@
       "description": "Create Facility Asset Mapper",
       "filePath": "facility/02-mapper.md"
     },
-    "house.frontend-detail": {
+    "core.dev-seed-data": {
       "status": "failing",
-      "priority": 18,
-      "module": "house",
-      "description": "Create House Asset Detail Page/Drawer",
-      "filePath": "house/09-frontend-detail.md"
-    },
-    "facility.frontend-list": {
-      "status": "failing",
-      "priority": 25,
-      "module": "facility",
-      "description": "Create Facility Asset List Page",
-      "filePath": "facility/06-frontend-list.md"
+      "priority": 10,
+      "module": "core",
+      "description": "Create Development Seed Data",
+      "filePath": "core/10-dev-seed-data.md"
     },
     "facility.entity": {
       "status": "failing",
@@ -163,12 +142,19 @@
       "description": "Create Facility Asset Entity",
       "filePath": "facility/01-entity.md"
     },
-    "facility.frontend-detail": {
+    "facility.frontend-list": {
       "status": "failing",
-      "priority": 27,
+      "priority": 25,
       "module": "facility",
-      "description": "Create Facility Asset Detail Drawer",
-      "filePath": "facility/08-frontend-detail.md"
+      "description": "Create Facility Asset List Page",
+      "filePath": "facility/06-frontend-list.md"
+    },
+    "house.frontend-detail": {
+      "status": "failing",
+      "priority": 18,
+      "module": "house",
+      "description": "Create House Asset Detail Page/Drawer",
+      "filePath": "house/09-frontend-detail.md"
     },
     "parking.frontend-detail": {
       "status": "failing",
@@ -184,13 +170,6 @@
       "description": "Create Parking Asset Service",
       "filePath": "parking/03-service.md"
     },
-    "facility.warranty-reminder": {
-      "status": "failing",
-      "priority": 28,
-      "module": "facility",
-      "description": "Implement Warranty Expiry Reminder for Facilities (P1)",
-      "filePath": "facility/09-warranty-reminder.md"
-    },
     "parking.frontend-form": {
       "status": "failing",
       "priority": 36,
@@ -205,12 +184,12 @@
       "description": "Create Venue Asset Mapper",
       "filePath": "venue/02-mapper.md"
     },
-    "venue.service": {
+    "facility.frontend-detail": {
       "status": "failing",
-      "priority": 41,
-      "module": "venue",
-      "description": "Create Venue Asset Service",
-      "filePath": "venue/03-service.md"
+      "priority": 27,
+      "module": "facility",
+      "description": "Create Facility Asset Detail Drawer",
+      "filePath": "facility/08-frontend-detail.md"
     },
     "parking.frontend-api": {
       "status": "failing",
@@ -218,6 +197,20 @@
       "module": "parking",
       "description": "Create Parking Asset Frontend API Module",
       "filePath": "parking/06-frontend-api.md"
+    },
+    "venue.service": {
+      "status": "failing",
+      "priority": 41,
+      "module": "venue",
+      "description": "Create Venue Asset Service",
+      "filePath": "venue/03-service.md"
+    },
+    "facility.warranty-reminder": {
+      "status": "failing",
+      "priority": 28,
+      "module": "facility",
+      "description": "Implement Warranty Expiry Reminder for Facilities (P1)",
+      "filePath": "facility/09-warranty-reminder.md"
     },
     "parking.controller": {
       "status": "failing",
@@ -240,13 +233,6 @@
       "description": "Create Venue Asset Entity",
       "filePath": "venue/01-entity.md"
     },
-    "venue.frontend-api": {
-      "status": "failing",
-      "priority": 43,
-      "module": "venue",
-      "description": "Create Venue Asset Frontend API Module",
-      "filePath": "venue/05-frontend-api.md"
-    },
     "parking.frontend-list": {
       "status": "failing",
       "priority": 35,
@@ -260,6 +246,20 @@
       "module": "venue",
       "description": "Create Venue Asset Controller",
       "filePath": "venue/04-controller.md"
+    },
+    "venue.frontend-api": {
+      "status": "failing",
+      "priority": 43,
+      "module": "venue",
+      "description": "Create Venue Asset Frontend API Module",
+      "filePath": "venue/05-frontend-api.md"
+    },
+    "office.frontend-list": {
+      "status": "failing",
+      "priority": 53,
+      "module": "office",
+      "description": "Create Office Asset List Page",
+      "filePath": "office/06-frontend-list.md"
     },
     "house.entity": {
       "status": "failing",
@@ -275,6 +275,13 @@
       "description": "Create Parking Asset Entity",
       "filePath": "parking/01-entity.md"
     },
+    "office.mapper": {
+      "status": "failing",
+      "priority": 49,
+      "module": "office",
+      "description": "Create Office Asset Mapper",
+      "filePath": "office/02-mapper.md"
+    },
     "facility.frontend-form": {
       "status": "failing",
       "priority": 26,
@@ -289,40 +296,12 @@
       "description": "Create Venue Asset Form Dialog",
       "filePath": "venue/07-frontend-form.md"
     },
-    "office.frontend-list": {
-      "status": "failing",
-      "priority": 53,
-      "module": "office",
-      "description": "Create Office Asset List Page",
-      "filePath": "office/06-frontend-list.md"
-    },
-    "office.mapper": {
-      "status": "failing",
-      "priority": 49,
-      "module": "office",
-      "description": "Create Office Asset Mapper",
-      "filePath": "office/02-mapper.md"
-    },
-    "office.entity": {
-      "status": "failing",
-      "priority": 48,
-      "module": "office",
-      "description": "Create Office Asset Entity",
-      "filePath": "office/01-entity.md"
-    },
     "venue.frontend-list": {
       "status": "failing",
       "priority": 44,
       "module": "venue",
       "description": "Create Venue Asset List Page",
       "filePath": "venue/06-frontend-list.md"
-    },
-    "venue.usage-statistics": {
-      "status": "failing",
-      "priority": 47,
-      "module": "venue",
-      "description": "Implement Venue Usage Statistics (P1)",
-      "filePath": "venue/09-usage-statistics.md"
     },
     "parking.frontend-statistics": {
       "status": "failing",
@@ -331,13 +310,6 @@
       "description": "Create Parking Asset Statistics View",
       "filePath": "parking/10-frontend-statistics.md"
     },
-    "office.frontend-form": {
-      "status": "failing",
-      "priority": 54,
-      "module": "office",
-      "description": "Create Office Asset Form Dialog",
-      "filePath": "office/07-frontend-form.md"
-    },
     "office.service": {
       "status": "failing",
       "priority": 50,
@@ -345,12 +317,19 @@
       "description": "Create Office Asset Service",
       "filePath": "office/03-service.md"
     },
-    "maintenance.order-mapper": {
+    "facility.frontend-api": {
       "status": "failing",
-      "priority": 59,
-      "module": "maintenance",
-      "description": "Create Maintenance Order Mapper",
-      "filePath": "maintenance/03-order-mapper.md"
+      "priority": 24,
+      "module": "facility",
+      "description": "Create Facility Asset Frontend API Module",
+      "filePath": "facility/05-frontend-api.md"
+    },
+    "office.frontend-form": {
+      "status": "failing",
+      "priority": 54,
+      "module": "office",
+      "description": "Create Office Asset Form Dialog",
+      "filePath": "office/07-frontend-form.md"
     },
     "parking.mapper": {
       "status": "failing",
@@ -359,12 +338,19 @@
       "description": "Create Parking Asset Mapper",
       "filePath": "parking/02-mapper.md"
     },
-    "facility.frontend-api": {
+    "maintenance.order-mapper": {
       "status": "failing",
-      "priority": 24,
-      "module": "facility",
-      "description": "Create Facility Asset Frontend API Module",
-      "filePath": "facility/05-frontend-api.md"
+      "priority": 59,
+      "module": "maintenance",
+      "description": "Create Maintenance Order Mapper",
+      "filePath": "maintenance/03-order-mapper.md"
+    },
+    "venue.usage-statistics": {
+      "status": "failing",
+      "priority": 47,
+      "module": "venue",
+      "description": "Implement Venue Usage Statistics (P1)",
+      "filePath": "venue/09-usage-statistics.md"
     },
     "office.condition-statistics": {
       "status": "failing",
@@ -380,19 +366,26 @@
       "description": "Create Venue Asset Detail Drawer",
       "filePath": "venue/08-frontend-detail.md"
     },
+    "maintenance.order-log-entity": {
+      "status": "failing",
+      "priority": 58,
+      "module": "maintenance",
+      "description": "Create Maintenance Order Log Entity",
+      "filePath": "maintenance/02-order-log-entity.md"
+    },
+    "office.entity": {
+      "status": "failing",
+      "priority": 48,
+      "module": "office",
+      "description": "Create Office Asset Entity",
+      "filePath": "office/01-entity.md"
+    },
     "maintenance.order-entity": {
       "status": "failing",
       "priority": 57,
       "module": "maintenance",
       "description": "Create Maintenance Order Entity",
       "filePath": "maintenance/01-order-entity.md"
-    },
-    "office.frontend-api": {
-      "status": "failing",
-      "priority": 52,
-      "module": "office",
-      "description": "Create Office Asset Frontend API Module",
-      "filePath": "office/05-frontend-api.md"
     },
     "maintenance.order-crud-service": {
       "status": "failing",
@@ -401,12 +394,12 @@
       "description": "Create Maintenance Order CRUD Service",
       "filePath": "maintenance/05-order-crud-service.md"
     },
-    "maintenance.order-log-entity": {
+    "office.frontend-api": {
       "status": "failing",
-      "priority": 58,
-      "module": "maintenance",
-      "description": "Create Maintenance Order Log Entity",
-      "filePath": "maintenance/02-order-log-entity.md"
+      "priority": 52,
+      "module": "office",
+      "description": "Create Office Asset Frontend API Module",
+      "filePath": "office/05-frontend-api.md"
     },
     "maintenance.frontend-form": {
       "status": "failing",
@@ -450,13 +443,6 @@
       "description": "Create Maintenance Order Detail Page",
       "filePath": "maintenance/10-frontend-detail.md"
     },
-    "dashboard.ops-home": {
-      "status": "failing",
-      "priority": 73,
-      "module": "dashboard",
-      "description": "Create Operations Dashboard Home Page",
-      "filePath": "dashboard/05-ops-home.md"
-    },
     "maintenance.order-workflow-service": {
       "status": "failing",
       "priority": 60,
@@ -464,12 +450,12 @@
       "description": "Create Maintenance Order Workflow Service",
       "filePath": "maintenance/04-order-workflow-service.md"
     },
-    "office.controller": {
+    "dashboard.ops-home": {
       "status": "failing",
-      "priority": 51,
-      "module": "office",
-      "description": "Create Office Asset Controller",
-      "filePath": "office/04-controller.md"
+      "priority": 73,
+      "module": "dashboard",
+      "description": "Create Operations Dashboard Home Page",
+      "filePath": "dashboard/05-ops-home.md"
     },
     "dashboard.service": {
       "status": "failing",
@@ -478,26 +464,19 @@
       "description": "Create Dashboard Service",
       "filePath": "dashboard/01-dashboard-service.md"
     },
-    "dashboard.asset-manager-home": {
-      "status": "failing",
-      "priority": 74,
-      "module": "dashboard",
-      "description": "Create Asset Manager Dashboard Home Page",
-      "filePath": "dashboard/06-asset-manager-home.md"
-    },
-    "maintenance.order-controller": {
-      "status": "failing",
-      "priority": 62,
-      "module": "maintenance",
-      "description": "Create Maintenance Order Controller",
-      "filePath": "maintenance/06-order-controller.md"
-    },
     "maintenance.maint-plan": {
       "status": "failing",
       "priority": 68,
       "module": "maintenance",
       "description": "Implement Maintenance Plan (P1)",
       "filePath": "maintenance/12-maint-plan.md"
+    },
+    "office.controller": {
+      "status": "failing",
+      "priority": 51,
+      "module": "office",
+      "description": "Create Office Asset Controller",
+      "filePath": "office/04-controller.md"
     },
     "office.frontend-detail": {
       "status": "failing",
@@ -513,12 +492,12 @@
       "description": "Create Dashboard Controller",
       "filePath": "dashboard/02-dashboard-controller.md"
     },
-    "maintenance.frontend-api": {
+    "dashboard.asset-manager-home": {
       "status": "failing",
-      "priority": 63,
-      "module": "maintenance",
-      "description": "Create Maintenance Order Frontend API Module",
-      "filePath": "maintenance/07-frontend-api.md"
+      "priority": 74,
+      "module": "dashboard",
+      "description": "Create Asset Manager Dashboard Home Page",
+      "filePath": "dashboard/06-asset-manager-home.md"
     },
     "dashboard.management-home": {
       "status": "failing",
@@ -527,19 +506,40 @@
       "description": "Create Management Dashboard Home Page",
       "filePath": "dashboard/04-management-home.md"
     },
+    "maintenance.frontend-api": {
+      "status": "failing",
+      "priority": 63,
+      "module": "maintenance",
+      "description": "Create Maintenance Order Frontend API Module",
+      "filePath": "maintenance/07-frontend-api.md"
+    },
+    "core.db-config": {
+      "status": "failing",
+      "priority": 2,
+      "module": "core",
+      "description": "Configure Dual-Database Infrastructure (SQLite Dev / MySQL Prod)",
+      "filePath": "core/02-db-config.md"
+    },
+    "maintenance.order-controller": {
+      "status": "failing",
+      "priority": 62,
+      "module": "maintenance",
+      "description": "Create Maintenance Order Controller",
+      "filePath": "maintenance/06-order-controller.md"
+    },
     "core.project-init": {
-      "status": "passing",
+      "status": "failing",
       "priority": 1,
       "module": "core",
       "description": "Initialize ruoyi-asset Module Structure",
       "filePath": "core/01-project-init.md"
     },
-    "core.db-config": {
+    "core.database-schema": {
       "status": "passing",
-      "priority": 2,
+      "priority": 3,
       "module": "core",
-      "description": "Configure Dual-Database Infrastructure (SQLite Dev / MySQL Prod)",
-      "filePath": "core/02-db-config.md"
+      "description": "Create Database Schema for All Asset Tables (Dual-DB Support)",
+      "filePath": "core/03-database-schema.md"
     }
   }
 }

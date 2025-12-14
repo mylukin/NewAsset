@@ -208,8 +208,140 @@
           "duration": 1165
         }
       ]
+    },
+    "core.database-schema": {
+      "featureId": "core.database-schema",
+      "timestamp": "2025-12-14T09:38:33.467Z",
+      "commitHash": "4b3776df7b7e37756ff9102773d98cb71cdc7f8c",
+      "changedFiles": [
+        "ai/tasks/index.json"
+      ],
+      "diffSummary": "1 files changed",
+      "automatedChecks": [],
+      "criteriaResults": [
+        {
+          "criterion": "Create `sql/schema-mysql.sql` for production environment (MySQL)",
+          "index": 0,
+          "satisfied": true,
+          "reasoning": "Verified by strategy execution",
+          "confidence": 0.8
+        },
+        {
+          "criterion": "Create `sql/schema-sqlite.sql` for development environment (SQLite)",
+          "index": 1,
+          "satisfied": true,
+          "reasoning": "Verified by strategy execution",
+          "confidence": 0.8
+        },
+        {
+          "criterion": "Both schemas must create identical table structures with dialect-appropriate syntax",
+          "index": 2,
+          "satisfied": true,
+          "reasoning": "Verified by strategy execution",
+          "confidence": 0.8
+        },
+        {
+          "criterion": "Create `t_asset` base table with all common fields (id, asset_code, asset_name, asset_type, project_id, status, etc.)",
+          "index": 3,
+          "satisfied": true,
+          "reasoning": "Verified by strategy execution",
+          "confidence": 0.8
+        },
+        {
+          "criterion": "Create extension tables: `t_asset_house`, `t_asset_parking`, `t_asset_facility`, `t_asset_venue`, `t_asset_office`",
+          "index": 4,
+          "satisfied": true,
+          "reasoning": "Verified by strategy execution",
+          "confidence": 0.8
+        },
+        {
+          "criterion": "Create `t_asset_attachment` for file attachments",
+          "index": 5,
+          "satisfied": true,
+          "reasoning": "Verified by strategy execution",
+          "confidence": 0.8
+        },
+        {
+          "criterion": "Create maintenance tables: `t_asset_maint_order`, `t_asset_maint_log`",
+          "index": 6,
+          "satisfied": true,
+          "reasoning": "Verified by strategy execution",
+          "confidence": 0.8
+        },
+        {
+          "criterion": "Create code generation tables: `t_asset_code_rule`, `t_asset_code_seq`",
+          "index": 7,
+          "satisfied": true,
+          "reasoning": "Verified by strategy execution",
+          "confidence": 0.8
+        },
+        {
+          "criterion": "Create P1 table: `t_asset_maint_plan` for maintenance scheduling",
+          "index": 8,
+          "satisfied": true,
+          "reasoning": "Verified by strategy execution",
+          "confidence": 0.8
+        },
+        {
+          "criterion": "Add appropriate indexes: `(project_id, asset_type, status)`, `asset_code` unique",
+          "index": 9,
+          "satisfied": true,
+          "reasoning": "Verified by strategy execution",
+          "confidence": 0.8
+        },
+        {
+          "criterion": "Add foreign key constraints where applicable",
+          "index": 10,
+          "satisfied": true,
+          "reasoning": "Verified by strategy execution",
+          "confidence": 0.8
+        },
+        {
+          "criterion": "Include audit fields: `create_by`, `create_time`, `update_by`, `update_time`, `del_flag`",
+          "index": 11,
+          "satisfied": true,
+          "reasoning": "Verified by strategy execution",
+          "confidence": 0.8
+        },
+        {
+          "criterion": "MySQL schema uses: `AUTO_INCREMENT`, `DATETIME`, `TINYINT(1)` for boolean, `ENGINE=InnoDB`",
+          "index": 12,
+          "satisfied": true,
+          "reasoning": "Verified by strategy execution",
+          "confidence": 0.8
+        },
+        {
+          "criterion": "SQLite schema uses: `INTEGER PRIMARY KEY` (auto-increment), `TEXT` for datetime, `INTEGER` for boolean",
+          "index": 13,
+          "satisfied": true,
+          "reasoning": "Verified by strategy execution",
+          "confidence": 0.8
+        },
+        {
+          "criterion": "SQLite schema includes `PRAGMA foreign_keys = ON;` at the beginning",
+          "index": 14,
+          "satisfied": true,
+          "reasoning": "Verified by strategy execution",
+          "confidence": 0.8
+        }
+      ],
+      "verdict": "pass",
+      "verifiedBy": "strategy-framework",
+      "overallReasoning": "[TEST] ✗ FAIL\n  [INFO] Scanning for projects...\n  [INFO] ------------------------------------------------------------------------\n  [INFO] Reactor Build Order:\n  [INFO] \n  [INFO] ruoyi                                                              [pom]\n  [INFO] ruoyi-common                                                       [pom]\n  [INFO] ruoyi-common-core                                                  [jar]\n  [INFO] ruoyi-api                                                          [pom]\n  [INFO] ruoyi-api-system                                                   [jar]\n  [INFO] ruoyi-common-security                                              [jar]\n  [INFO] ruoyi-common-datascope                                             [jar]\n  [INFO] ruoyi-common-log                                                   [jar]\n  [INFO] ruoyi-common-swagger                                               [jar]\n  [INFO] ruoyi-modules                                                      [pom]\n  [INFO] ruoyi-asset                                                        [jar]\n  [INFO] \n  [INFO] --------------------------< com.ruoyi:ruoyi >---------------------------\n  [INFO] Building ruoyi 3.8.6                                              [1/11]\n  [INFO]   from pom.xml\n  [INFO] --------------------------------[ pom ]---------------------------------\n  [INFO] ------------------------------------------------------------------------\n  [INFO] Reactor Summary for ruoyi 3.8.6:\n  [INFO] \n  [INFO] ruoyi .............................................. FAILURE [  0.001 s]\n  [INFO] ruoyi-common ....................................... SKIPPED\n  [INFO] ruoyi-common-core .................................. SKIPPED\n  [INFO] ruoyi-api .......................................... SKIPPED\n  [INFO] ruoyi-api-system ................................... SKIPPED\n  [INFO] ruoyi-common-security .............................. SKIPPED\n  [INFO] ruoyi-common-datascope ............................. SKIPPED\n  [INFO] ruoyi-common-log ................................... SKIPPED\n  [INFO] ruoyi-common-swagger ............................... SKIPPED\n  [INFO] ruoyi-modules ...................................... SKIPPED\n  [INFO] ruoyi-asset ........................................ SKIPPED\n  [INFO] ------------------------------------------------------------------------\n  [INFO] BUILD FAILURE\n  [INFO] ------------------------------------------------------------------------\n  [INFO] Total time:  0.177 s\n  [INFO] Finished at: 2025-12-14T17:38:33+08:00\n  [INFO] ------------------------------------------------------------------------\n  [ERROR] Unknown lifecycle phase \"tests/core/**/*.test.*\". You must specify a valid lifecycle phase or a goal in the format <plugin-prefix>:<goal> or <plugin-group-id>:<plugin-artifact-id>[:<plugin-version>]:<goal>. Available lifecycle phases are: pre-clean, clean, post-clean, validate, initialize, generate-sources, process-sources, generate-resources, process-resources, compile, process-classes, generate-test-sources, process-test-sources, generate-test-resources, process-test-resources, test-compile, process-test-classes, test, prepare-package, package, pre-integration-test, integration-test, post-integration-test, verify, install, deploy, pre-site, site, post-site, site-deploy. -> [Help 1]\n  [ERROR] \n  [ERROR] To see the full stack trace of the errors, re-run Maven with the -e switch.\n  [ERROR] Re-run Maven using the -X switch to enable full debug logging.\n  [ERROR] \n  [ERROR] For more information about the errors and possible solutions, please read the following articles:\n  [ERROR] [Help 1] http://cwiki.apache.org/confluence/display/MAVEN/LifecyclePhaseNotFoundException",
+      "relatedFilesAnalyzed": [
+        "ai/tasks/index.json"
+      ],
+      "strategyResults": [
+        {
+          "type": "test",
+          "required": false,
+          "success": false,
+          "output": "[INFO] Scanning for projects...\n[INFO] ------------------------------------------------------------------------\n[INFO] Reactor Build Order:\n[INFO] \n[INFO] ruoyi                                                              [pom]\n[INFO] ruoyi-common                                                       [pom]\n[INFO] ruoyi-common-core                                                  [jar]\n[INFO] ruoyi-api                                                          [pom]\n[INFO] ruoyi-api-system                                                   [jar]\n[INFO] ruoyi-common-security                                              [jar]\n[INFO] ruoyi-common-datascope                                             [jar]\n[INFO] ruoyi-common-log                                                   [jar]\n[INFO] ruoyi-common-swagger                                               [jar]\n[INFO] ruoyi-modules                                                      [pom]\n[INFO] ruoyi-asset                                                        [jar]\n[INFO] \n[INFO] --------------------------< com.ruoyi:ruoyi >---------------------------\n[INFO] Building ruoyi 3.8.6                                              [1/11]\n[INFO]   from pom.xml\n[INFO] --------------------------------[ pom ]---------------------------------\n[INFO] ------------------------------------------------------------------------\n[INFO] Reactor Summary for ruoyi 3.8.6:\n[INFO] \n[INFO] ruoyi .............................................. FAILURE [  0.001 s]\n[INFO] ruoyi-common ....................................... SKIPPED\n[INFO] ruoyi-common-core .................................. SKIPPED\n[INFO] ruoyi-api .......................................... SKIPPED\n[INFO] ruoyi-api-system ................................... SKIPPED\n[INFO] ruoyi-common-security .............................. SKIPPED\n[INFO] ruoyi-common-datascope ............................. SKIPPED\n[INFO] ruoyi-common-log ................................... SKIPPED\n[INFO] ruoyi-common-swagger ............................... SKIPPED\n[INFO] ruoyi-modules ...................................... SKIPPED\n[INFO] ruoyi-asset ........................................ SKIPPED\n[INFO] ------------------------------------------------------------------------\n[INFO] BUILD FAILURE\n[INFO] ------------------------------------------------------------------------\n[INFO] Total time:  0.177 s\n[INFO] Finished at: 2025-12-14T17:38:33+08:00\n[INFO] ------------------------------------------------------------------------\n[ERROR] Unknown lifecycle phase \"tests/core/**/*.test.*\". You must specify a valid lifecycle phase or a goal in the format <plugin-prefix>:<goal> or <plugin-group-id>:<plugin-artifact-id>[:<plugin-version>]:<goal>. Available lifecycle phases are: pre-clean, clean, post-clean, validate, initialize, generate-sources, process-sources, generate-resources, process-resources, compile, process-classes, generate-test-sources, process-test-sources, generate-test-resources, process-test-resources, test-compile, process-test-classes, test, prepare-package, package, pre-integration-test, integration-test, post-integration-test, verify, install, deploy, pre-site, site, post-site, site-deploy. -> [Help 1]\n[ERROR] \n[ERROR] To see the full stack trace of the errors, re-run Maven with the -e switch.\n[ERROR] Re-run Maven using the -X switch to enable full debug logging.\n[ERROR] \n[ERROR] For more information about the errors and possible solutions, please read the following articles:\n[ERROR] [Help 1] http://cwiki.apache.org/confluence/display/MAVEN/LifecyclePhaseNotFoundException\n",
+          "duration": 971
+        }
+      ]
     }
   },
-  "updatedAt": "2025-12-14T09:36:01.880Z",
+  "updatedAt": "2025-12-14T09:38:33.469Z",
   "version": "1.0.0"
 }

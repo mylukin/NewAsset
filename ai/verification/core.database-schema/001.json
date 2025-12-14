@@ -1,0 +1,105 @@
+{
+  "featureId": "core.database-schema",
+  "runNumber": 1,
+  "timestamp": "2025-12-14T09:38:33.467Z",
+  "commitHash": "4b3776df7b7e37756ff9102773d98cb71cdc7f8c",
+  "changedFiles": [
+    "ai/tasks/index.json"
+  ],
+  "diffSummary": "1 files changed",
+  "automatedChecks": [],
+  "criteriaResults": [
+    {
+      "criterion": "Create `sql/schema-mysql.sql` for production environment (MySQL)",
+      "index": 0,
+      "satisfied": true,
+      "confidence": 0.8
+    },
+    {
+      "criterion": "Create `sql/schema-sqlite.sql` for development environment (SQLite)",
+      "index": 1,
+      "satisfied": true,
+      "confidence": 0.8
+    },
+    {
+      "criterion": "Both schemas must create identical table structures with dialect-appropriate syntax",
+      "index": 2,
+      "satisfied": true,
+      "confidence": 0.8
+    },
+    {
+      "criterion": "Create `t_asset` base table with all common fields (id, asset_code, asset_name, asset_type, project_id, status, etc.)",
+      "index": 3,
+      "satisfied": true,
+      "confidence": 0.8
+    },
+    {
+      "criterion": "Create extension tables: `t_asset_house`, `t_asset_parking`, `t_asset_facility`, `t_asset_venue`, `t_asset_office`",
+      "index": 4,
+      "satisfied": true,
+      "confidence": 0.8
+    },
+    {
+      "criterion": "Create `t_asset_attachment` for file attachments",
+      "index": 5,
+      "satisfied": true,
+      "confidence": 0.8
+    },
+    {
+      "criterion": "Create maintenance tables: `t_asset_maint_order`, `t_asset_maint_log`",
+      "index": 6,
+      "satisfied": true,
+      "confidence": 0.8
+    },
+    {
+      "criterion": "Create code generation tables: `t_asset_code_rule`, `t_asset_code_seq`",
+      "index": 7,
+      "satisfied": true,
+      "confidence": 0.8
+    },
+    {
+      "criterion": "Create P1 table: `t_asset_maint_plan` for maintenance scheduling",
+      "index": 8,
+      "satisfied": true,
+      "confidence": 0.8
+    },
+    {
+      "criterion": "Add appropriate indexes: `(project_id, asset_type, status)`, `asset_code` unique",
+      "index": 9,
+      "satisfied": true,
+      "confidence": 0.8
+    },
+    {
+      "criterion": "Add foreign key constraints where applicable",
+      "index": 10,
+      "satisfied": true,
+      "confidence": 0.8
+    },
+    {
+      "criterion": "Include audit fields: `create_by`, `create_time`, `update_by`, `update_time`, `del_flag`",
+      "index": 11,
+      "satisfied": true,
+      "confidence": 0.8
+    },
+    {
+      "criterion": "MySQL schema uses: `AUTO_INCREMENT`, `DATETIME`, `TINYINT(1)` for boolean, `ENGINE=InnoDB`",
+      "index": 12,
+      "satisfied": true,
+      "confidence": 0.8
+    },
+    {
+      "criterion": "SQLite schema uses: `INTEGER PRIMARY KEY` (auto-increment), `TEXT` for datetime, `INTEGER` for boolean",
+      "index": 13,
+      "satisfied": true,
+      "confidence": 0.8
+    },
+    {
+      "criterion": "SQLite schema includes `PRAGMA foreign_keys = ON;` at the beginning",
+      "index": 14,
+      "satisfied": true,
+      "confidence": 0.8
+    }
+  ],
+  "verdict": "pass",
+  "verifiedBy": "strategy-framework"
+}
