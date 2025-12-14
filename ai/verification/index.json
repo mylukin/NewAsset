@@ -458,8 +458,17 @@
       "totalRuns": 1,
       "passCount": 1,
       "failCount": 0
+    },
+    "office.service": {
+      "featureId": "office.service",
+      "latestRun": 1,
+      "latestTimestamp": "2025-12-14T13:26:41.817Z",
+      "latestVerdict": "pass",
+      "totalRuns": 1,
+      "passCount": 1,
+      "failCount": 0
     }
   },
-  "updatedAt": "2025-12-14T13:25:23.042Z",
+  "updatedAt": "2025-12-14T13:26:41.820Z",
   "version": "2.0.0"
 }

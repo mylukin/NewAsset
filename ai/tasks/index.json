@@ -1,6 +1,6 @@
 {
   "version": "2.0.0",
-  "updatedAt": "2025-12-14T13:25:28.745Z",
+  "updatedAt": "2025-12-14T13:26:47.998Z",
   "metadata": {
     "projectGoal": "基于 ai/tasks 创建一个资产管理系统",
     "createdAt": "2025-12-14T10:00:00Z",
@@ -521,7 +521,7 @@
       "filePath": "venue/09-usage-statistics.md"
     },
     "office.service": {
-      "status": "failing",
+      "status": "passing",
       "priority": 50,
       "module": "office",
       "description": "Create Office Asset Service",
