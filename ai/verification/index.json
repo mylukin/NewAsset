@@ -107,8 +107,17 @@
       "totalRuns": 1,
       "passCount": 1,
       "failCount": 0
+    },
+    "house.mapper": {
+      "featureId": "house.mapper",
+      "latestRun": 1,
+      "latestTimestamp": "2025-12-14T12:16:01.580Z",
+      "latestVerdict": "pass",
+      "totalRuns": 1,
+      "passCount": 1,
+      "failCount": 0
     }
   },
-  "updatedAt": "2025-12-14T12:13:32.506Z",
+  "updatedAt": "2025-12-14T12:16:01.582Z",
   "version": "2.0.0"
 }
