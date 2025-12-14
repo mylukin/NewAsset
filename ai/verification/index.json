@@ -80,8 +80,17 @@
       "totalRuns": 1,
       "passCount": 1,
       "failCount": 0
+    },
+    "core.dictionary-setup": {
+      "featureId": "core.dictionary-setup",
+      "latestRun": 1,
+      "latestTimestamp": "2025-12-14T12:08:28.610Z",
+      "latestVerdict": "pass",
+      "totalRuns": 1,
+      "passCount": 1,
+      "failCount": 0
     }
   },
-  "updatedAt": "2025-12-14T12:05:57.415Z",
+  "updatedAt": "2025-12-14T12:08:28.612Z",
   "version": "2.0.0"
 }

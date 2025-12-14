@@ -3,7 +3,7 @@ id: maintenance.order-crud-service
 module: maintenance
 priority: 61
 status: failing
-version: 12
+version: 13
 origin: manual
 dependsOn:
   - maintenance.order-mapper

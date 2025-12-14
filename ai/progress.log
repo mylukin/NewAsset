@@ -37,3 +37,5 @@
 2025-12-14T12:04:16.893Z STEP feature=core.attachment-service status=passing tests="./ai/init.sh check" summary="Completed core.attachment-service"
 2025-12-14T12:05:57.431Z VERIFY feature=core.data-permission action=pass summary="Verified core.data-permission: pass"
 2025-12-14T12:06:03.823Z STEP feature=core.data-permission status=passing tests="./ai/init.sh check" summary="Completed core.data-permission"
+2025-12-14T12:08:28.626Z VERIFY feature=core.dictionary-setup action=pass summary="Verified core.dictionary-setup: pass"
+2025-12-14T12:08:33.812Z STEP feature=core.dictionary-setup status=passing tests="./ai/init.sh check" summary="Completed core.dictionary-setup"

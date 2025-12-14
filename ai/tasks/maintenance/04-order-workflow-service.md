@@ -3,7 +3,7 @@ id: maintenance.order-workflow-service
 module: maintenance
 priority: 60
 status: failing
-version: 12
+version: 13
 origin: manual
 dependsOn:
   - maintenance.order-mapper
