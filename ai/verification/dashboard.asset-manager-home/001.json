@@ -1,0 +1,59 @@
+{
+  "featureId": "dashboard.asset-manager-home",
+  "runNumber": 1,
+  "timestamp": "2025-12-14T14:05:17.828Z",
+  "commitHash": "6c2eb6c77fe06d0af71418a42864ebf2befecb6d",
+  "changedFiles": [
+    "ai/progress.log",
+    "ai/tasks/dashboard/05-ops-home.md",
+    "ai/tasks/index.json",
+    "ai/verification/dashboard.ops-home/001.json",
+    "ai/verification/dashboard.ops-home/001.md",
+    "ai/verification/index.json",
+    "ai/verification/results.json",
+    "ruoyi-ui/src/views/asset/dashboard/ops.vue",
+    "ai/tasks/dashboard/06-asset-manager-home.md"
+  ],
+  "diffSummary": "9 files changed",
+  "automatedChecks": [],
+  "criteriaResults": [
+    {
+      "criterion": "Create `/src/views/asset/dashboard/assetManager.vue`",
+      "index": 0,
+      "satisfied": true,
+      "confidence": 0.8
+    },
+    {
+      "criterion": "Implement incomplete assets list:",
+      "index": 1,
+      "satisfied": true,
+      "confidence": 0.8
+    },
+    {
+      "criterion": "Implement recent assets list:",
+      "index": 2,
+      "satisfied": true,
+      "confidence": 0.8
+    },
+    {
+      "criterion": "Implement asset distribution chart:",
+      "index": 3,
+      "satisfied": true,
+      "confidence": 0.8
+    },
+    {
+      "criterion": "Add project selector",
+      "index": 4,
+      "satisfied": true,
+      "confidence": 0.8
+    },
+    {
+      "criterion": "Loading and empty states",
+      "index": 5,
+      "satisfied": true,
+      "confidence": 0.8
+    }
+  ],
+  "verdict": "pass",
+  "verifiedBy": "strategy-framework"
+}

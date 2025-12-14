@@ -674,8 +674,17 @@
       "totalRuns": 1,
       "passCount": 1,
       "failCount": 0
+    },
+    "dashboard.asset-manager-home": {
+      "featureId": "dashboard.asset-manager-home",
+      "latestRun": 1,
+      "latestTimestamp": "2025-12-14T14:05:17.828Z",
+      "latestVerdict": "pass",
+      "totalRuns": 1,
+      "passCount": 1,
+      "failCount": 0
     }
   },
-  "updatedAt": "2025-12-14T14:03:54.372Z",
+  "updatedAt": "2025-12-14T14:05:17.830Z",
   "version": "2.0.0"
 }
