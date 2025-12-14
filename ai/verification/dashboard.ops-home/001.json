@@ -1,0 +1,59 @@
+{
+  "featureId": "dashboard.ops-home",
+  "runNumber": 1,
+  "timestamp": "2025-12-14T14:03:54.370Z",
+  "commitHash": "458df909cbad03727d6c9553032d2ff9411f58b8",
+  "changedFiles": [
+    "ai/progress.log",
+    "ai/tasks/dashboard/04-management-home.md",
+    "ai/tasks/index.json",
+    "ai/verification/dashboard.management-home/001.json",
+    "ai/verification/dashboard.management-home/001.md",
+    "ai/verification/index.json",
+    "ai/verification/results.json",
+    "ruoyi-ui/src/views/asset/dashboard/management.vue",
+    "ai/tasks/dashboard/05-ops-home.md"
+  ],
+  "diffSummary": "9 files changed",
+  "automatedChecks": [],
+  "criteriaResults": [
+    {
+      "criterion": "Create `/src/views/asset/dashboard/ops.vue`",
+      "index": 0,
+      "satisfied": true,
+      "confidence": 0.8
+    },
+    {
+      "criterion": "Implement pending orders list:",
+      "index": 1,
+      "satisfied": true,
+      "confidence": 0.8
+    },
+    {
+      "criterion": "Implement my monthly stats:",
+      "index": 2,
+      "satisfied": true,
+      "confidence": 0.8
+    },
+    {
+      "criterion": "Quick link to full order list",
+      "index": 3,
+      "satisfied": true,
+      "confidence": 0.8
+    },
+    {
+      "criterion": "Auto-refresh every 5 minutes",
+      "index": 4,
+      "satisfied": true,
+      "confidence": 0.8
+    },
+    {
+      "criterion": "Highlight urgent orders",
+      "index": 5,
+      "satisfied": true,
+      "confidence": 0.8
+    }
+  ],
+  "verdict": "pass",
+  "verifiedBy": "strategy-framework"
+}
