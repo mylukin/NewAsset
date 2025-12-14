@@ -3,7 +3,7 @@ id: parking.statistics
 module: parking
 priority: 33
 status: passing
-version: 23
+version: 24
 origin: manual
 dependsOn:
   - parking.service

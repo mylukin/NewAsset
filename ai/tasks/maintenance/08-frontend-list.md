@@ -3,7 +3,7 @@ id: maintenance.frontend-list
 module: maintenance
 priority: 64
 status: passing
-version: 23
+version: 24
 origin: manual
 dependsOn:
   - maintenance.frontend-api

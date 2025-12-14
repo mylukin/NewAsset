@@ -3,7 +3,7 @@ id: parking.frontend-api
 module: parking
 priority: 34
 status: passing
-version: 23
+version: 24
 origin: manual
 dependsOn:
   - parking.controller

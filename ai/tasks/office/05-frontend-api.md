@@ -3,7 +3,7 @@ id: office.frontend-api
 module: office
 priority: 52
 status: passing
-version: 23
+version: 24
 origin: manual
 dependsOn:
   - office.controller

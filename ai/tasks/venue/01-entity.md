@@ -3,7 +3,7 @@ id: venue.entity
 module: venue
 priority: 39
 status: passing
-version: 23
+version: 24
 origin: manual
 dependsOn:
   - core.asset-base-entity

@@ -3,7 +3,7 @@ id: dashboard.asset-manager-home
 module: dashboard
 priority: 74
 status: passing
-version: 23
+version: 24
 origin: manual
 dependsOn:
   - dashboard.frontend-api

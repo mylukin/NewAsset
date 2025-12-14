@@ -3,7 +3,7 @@ id: parking.service
 module: parking
 priority: 31
 status: passing
-version: 23
+version: 24
 origin: manual
 dependsOn:
   - parking.mapper

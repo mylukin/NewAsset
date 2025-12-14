@@ -3,7 +3,7 @@ id: parking.entity
 module: parking
 priority: 29
 status: passing
-version: 23
+version: 24
 origin: manual
 dependsOn:
   - core.asset-base-entity

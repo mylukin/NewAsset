@@ -3,7 +3,7 @@ id: maintenance.order-entity
 module: maintenance
 priority: 57
 status: passing
-version: 23
+version: 24
 origin: manual
 dependsOn:
   - core.database-schema

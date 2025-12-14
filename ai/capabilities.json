@@ -15,9 +15,10 @@
     "confidence": 0.9499999999999998,
     "languages": [
       "Java",
-      "Spring Boot"
+      "Spring Boot",
+      "Vue.js"
     ],
-    "detectedAt": "2025-12-14T09:35:14.462Z",
+    "detectedAt": "2025-12-14T14:21:57.750Z",
     "testInfo": {
       "available": true,
       "command": "mvn test",
@@ -52,7 +53,7 @@
       "confidence": 0.95
     }
   },
-  "commitHash": "5f432549efb843f55e40a3ef19efcbdb883f0011",
+  "commitHash": "d862f5511f8583b04681758d1bbca8f2a6c3b6ae",
   "trackedFiles": [
     "pom.xml",
     "ruoyi-api/pom.xml",
@@ -64,9 +65,6 @@
     "ruoyi-common/ruoyi-common-security/pom.xml",
     "ruoyi-common/ruoyi-common-swagger/pom.xml",
     "ruoyi-modules/pom.xml",
-    "ruoyi-modules/ruoyi-asset/pom.xml",
-    "ruoyi-modules/ruoyi-asset/src/main/resources/application.yml",
-    "ruoyi-modules/ruoyi-asset/src/main/resources/application-dev.yml",
-    "ruoyi-modules/ruoyi-asset/src/main/resources/application-prod.yml"
+    "ruoyi-modules/ruoyi-asset/pom.xml"
   ]
 }

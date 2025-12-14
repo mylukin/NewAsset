@@ -3,7 +3,7 @@ id: maintenance.asset-maint-history
 module: maintenance
 priority: 67
 status: passing
-version: 23
+version: 24
 origin: manual
 dependsOn:
   - maintenance.order-crud-service

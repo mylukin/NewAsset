@@ -67,19 +67,34 @@ status() {
     if command -v jq &> /dev/null; then
       local total=$(jq '.features | keys | length' ai/tasks/index.json)
       local passing=$(jq '[.features | to_entries[] | select(.value.status == "passing")] | length' ai/tasks/index.json)
+      local failing=$(jq '[.features | to_entries[] | select(.value.status == "failing")] | length' ai/tasks/index.json)
+      local review=$(jq '[.features | to_entries[] | select(.value.status == "needs_review")] | length' ai/tasks/index.json)
       echo "  Total: $total"
       echo "  Passing: $passing"
+      echo "  Failing: $failing"
+      echo "  Needs Review: $review"
     fi
   elif [ -f "ai/feature_list.json" ]; then
     echo "Feature List (legacy): ai/feature_list.json"
     if command -v jq &> /dev/null; then
       local total=$(jq '.features | length' ai/feature_list.json)
       local passing=$(jq '[.features[] | select(.status == "passing")] | length' ai/feature_list.json)
+      local failing=$(jq '[.features[] | select(.status == "failing")] | length' ai/feature_list.json)
+      local review=$(jq '[.features[] | select(.status == "needs_review")] | length' ai/feature_list.json)
       echo "  Total: $total"
       echo "  Passing: $passing"
+      echo "  Failing: $failing"
+      echo "  Needs Review: $review"
     fi
   else
     log_warn "No feature list found. Run 'agent-foreman init' first."
+  fi
+
+  # Show recent progress log entries
+  if [ -f "ai/progress.log" ]; then
+    echo ""
+    echo "Recent Progress:"
+    tail -5 ai/progress.log
   fi
 }
 

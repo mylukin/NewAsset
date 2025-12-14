@@ -3,7 +3,7 @@ id: dashboard.service
 module: dashboard
 priority: 69
 status: passing
-version: 23
+version: 24
 origin: manual
 dependsOn:
   - house.statistics

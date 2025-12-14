@@ -3,7 +3,7 @@ id: maintenance.frontend-api
 module: maintenance
 priority: 63
 status: passing
-version: 23
+version: 24
 origin: manual
 dependsOn:
   - maintenance.order-controller

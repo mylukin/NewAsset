@@ -3,7 +3,7 @@ id: maintenance.order-controller
 module: maintenance
 priority: 62
 status: passing
-version: 23
+version: 24
 origin: manual
 dependsOn:
   - maintenance.order-crud-service

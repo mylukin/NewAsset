@@ -1,0 +1,18 @@
+{
+  "name": "ruoyi-asset-management",
+  "version": "1.0.0",
+  "private": true,
+  "description": "Asset Management System with Spring Boot API and Vue 2 Frontend",
+  "scripts": {
+    "dev": "concurrently -n \"api,ui\" -c \"bgBlue.bold,bgGreen.bold\" \"npm run dev:api\" \"npm run dev:ui\"",
+    "dev:api": "cd ruoyi-modules/ruoyi-asset && mvn spring-boot:run -Dspring-boot.run.profiles=dev",
+    "dev:ui": "cd ruoyi-ui && npm run dev",
+    "build:api": "mvn clean package -DskipTests",
+    "build:ui": "cd ruoyi-ui && npm run build",
+    "install:ui": "cd ruoyi-ui && npm install",
+    "preview:ui": "cd ruoyi-ui && npm run preview"
+  },
+  "devDependencies": {
+    "concurrently": "^8.2.2"
+  }
+}
