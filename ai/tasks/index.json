@@ -1,0 +1,428 @@
+{
+  "version": "2.0.0",
+  "updatedAt": "2025-12-14T04:10:41.751Z",
+  "metadata": {
+    "projectGoal": "基于 ai/tasks 创建一个资产管理系统",
+    "createdAt": "2025-12-14T12:00:00Z",
+    "updatedAt": "2025-12-14T04:10:41.736Z",
+    "version": "1.0.0",
+    "framework": "RuoYi-Vue (Spring Boot + Vue2 + Element UI)",
+    "database": {
+      "primary": "SQLite",
+      "alternative": "MySQL",
+      "notes": "SQLite for dev/test/small deployments, MySQL for production/scale"
+    },
+    "scope": "P0 features only",
+    "tddMode": "recommended"
+  },
+  "features": {
+    "search.assets.query": {
+      "status": "failing",
+      "priority": 20,
+      "module": "search",
+      "description": "Provide paginated asset list with filter/sort by type, owner, status, tags, and updated time.\n> 提供分页资产列表，支持按类型、归属、状态、标签与更新时间筛选/排序。"
+    },
+    "audit.events.record": {
+      "status": "failing",
+      "priority": 21,
+      "module": "audit",
+      "description": "Record an audit event for every asset create/update/archive and for admin permission changes.\n> 对每次资产创建/更新/归档以及管理员权限变更记录审计事件。"
+    },
+    "aiTasks.definitions.load": {
+      "status": "failing",
+      "priority": 22,
+      "module": "aiTasks",
+      "description": "Load AI task definitions from an ai/tasks directory (YAML/JSON) with schema validation and versioning.\n> 从 ai/tasks 目录加载 AI 任务定义（YAML/JSON），支持结构校验与版本管理。"
+    },
+    "ui.assets.dashboard": {
+      "status": "failing",
+      "priority": 27,
+      "module": "ui",
+      "description": "Build a web UI for asset list/detail/edit flows with role-aware navigation.\n> 构建资产列表/详情/编辑流程的 Web UI，并根据角色控制导航与权限。"
+    },
+    "platform.repo.bootstrap": {
+      "status": "failing",
+      "priority": 10,
+      "module": "platform",
+      "description": "Create a pnpm workspace with consistent scripts (dev/build/test) and TypeScript base config."
+    },
+    "tests.coverage.smoke": {
+      "status": "failing",
+      "priority": 29,
+      "module": "tests",
+      "description": "Add unit and integration tests covering asset CRUD, RBAC enforcement, and AI task state transitions.\n> 添加覆盖资产 CRUD、RBAC 权限控制与 AI 任务状态流转的单元/集成测试。"
+    },
+    "api.http.errors": {
+      "status": "failing",
+      "priority": 24,
+      "module": "api",
+      "description": "Implement a consistent API error format (status, code, message, requestId) across all endpoints."
+    },
+    "db.schema.assets": {
+      "status": "failing",
+      "priority": 12,
+      "module": "db",
+      "description": "Define database schema for assets (name, type, tags, owner, status, timestamps) with migrations."
+    },
+    "auth.user.register": {
+      "status": "failing",
+      "priority": 14,
+      "module": "auth",
+      "description": "Implement user registration with password hashing and input validation."
+    },
+    "assets.asset.read": {
+      "status": "failing",
+      "priority": 18,
+      "module": "assets",
+      "description": "Fetch an asset by id with authorization checks and consistent error responses."
+    },
+    "web.assets.crud": {
+      "status": "failing",
+      "priority": 27,
+      "module": "web",
+      "description": "Build web pages to create, view, edit, and list assets using the API."
+    },
+    "config.env.validate": {
+      "status": "failing",
+      "priority": 11,
+      "module": "config",
+      "description": "Load configuration from environment variables and fail fast on missing/invalid values."
+    },
+    "core.code-generator": {
+      "status": "failing",
+      "priority": 4,
+      "module": "core",
+      "description": "Implement asset code generation with configurable rules and concurrency handling"
+    },
+    "core.state-machine": {
+      "status": "failing",
+      "priority": 5,
+      "module": "core",
+      "description": "Implement unified asset state machine with transition validation"
+    },
+    "core.data-permission": {
+      "status": "failing",
+      "priority": 7,
+      "module": "core",
+      "description": "Implement project-based data permission extending RuoYi DataScope"
+    },
+    "core.project-init": {
+      "status": "failing",
+      "priority": 1,
+      "module": "core",
+      "description": "Initialize RuoYi-Vue project with ruoyi-asset module skeleton"
+    },
+    "core.asset-entity": {
+      "status": "failing",
+      "priority": 3,
+      "module": "core",
+      "description": "Create base Asset entity, enums, VOs, and DTOs"
+    },
+    "house.entity": {
+      "status": "failing",
+      "priority": 1,
+      "module": "house",
+      "description": "Create house asset entity with extension fields for area, type, rental info"
+    },
+    "core.dictionary-setup": {
+      "status": "failing",
+      "priority": 8,
+      "module": "core",
+      "description": "Configure system dictionaries for all asset types and statuses"
+    },
+    "house.detail": {
+      "status": "failing",
+      "priority": 4,
+      "module": "house",
+      "description": "Implement house asset detail view with maintenance history and attachments"
+    },
+    "house.statistics": {
+      "status": "failing",
+      "priority": 6,
+      "module": "house",
+      "description": "Implement house asset statistics (vacancy rate, usage breakdown)"
+    },
+    "core.attachment-service": {
+      "status": "failing",
+      "priority": 6,
+      "module": "core",
+      "description": "Implement attachment upload/download service for assets and orders"
+    },
+    "house.create": {
+      "status": "failing",
+      "priority": 3,
+      "module": "house",
+      "description": "Implement house asset creation with auto-generated asset code"
+    },
+    "parking.crud": {
+      "status": "failing",
+      "priority": 2,
+      "module": "parking",
+      "description": "Implement full CRUD for parking assets"
+    },
+    "observability.logging.request": {
+      "status": "failing",
+      "priority": 25,
+      "module": "observability",
+      "description": "Add structured request logging with correlation IDs and redaction of sensitive fields."
+    },
+    "docs.api.openapi": {
+      "status": "failing",
+      "priority": 29,
+      "module": "docs",
+      "description": "Publish API documentation (OpenAPI spec) and provide local instructions to run the stack."
+    },
+    "parking.entity": {
+      "status": "failing",
+      "priority": 1,
+      "module": "parking",
+      "description": "Create parking asset entity with zone, type, rental info"
+    },
+    "facility.entity": {
+      "status": "failing",
+      "priority": 1,
+      "module": "facility",
+      "description": "Create facility asset entity with equipment and vendor info"
+    },
+    "core.database-schema": {
+      "status": "failing",
+      "priority": 2,
+      "module": "core",
+      "description": "Create database schema for all asset tables and maintenance tables"
+    },
+    "venue.crud": {
+      "status": "failing",
+      "priority": 2,
+      "module": "venue",
+      "description": "Implement full CRUD for venue assets"
+    },
+    "office.entity": {
+      "status": "failing",
+      "priority": 1,
+      "module": "office",
+      "description": "Create office asset entity with IT equipment fields"
+    },
+    "maintenance.order-entity": {
+      "status": "failing",
+      "priority": 1,
+      "module": "maintenance",
+      "description": "Create maintenance work order entity with status enum"
+    },
+    "office.crud": {
+      "status": "failing",
+      "priority": 2,
+      "module": "office",
+      "description": "Implement full CRUD for office assets"
+    },
+    "maintenance.order-list": {
+      "status": "failing",
+      "priority": 4,
+      "module": "maintenance",
+      "description": "Implement order list with role-based filtering"
+    },
+    "maintenance.order-log": {
+      "status": "failing",
+      "priority": 2,
+      "module": "maintenance",
+      "description": "Create order log entity for workflow audit trail"
+    },
+    "maintenance.order-workflow": {
+      "status": "failing",
+      "priority": 3,
+      "module": "maintenance",
+      "description": "Implement order status workflow with asset status integration"
+    },
+    "maintenance.order-create": {
+      "status": "failing",
+      "priority": 5,
+      "module": "maintenance",
+      "description": "Implement order creation from asset or independently"
+    },
+    "maintenance.order-detail": {
+      "status": "failing",
+      "priority": 6,
+      "module": "maintenance",
+      "description": "Implement order detail with timeline and workflow actions"
+    },
+    "maintenance.asset-history": {
+      "status": "failing",
+      "priority": 7,
+      "module": "maintenance",
+      "description": "Implement maintenance history view for assets"
+    },
+    "dashboard.management-home": {
+      "status": "failing",
+      "priority": 1,
+      "module": "dashboard",
+      "description": "Implement management dashboard with key metrics and charts"
+    },
+    "dashboard.operations-home": {
+      "status": "failing",
+      "priority": 2,
+      "module": "dashboard",
+      "description": "Implement operations staff dashboard with pending tasks"
+    },
+    "db.schema.users": {
+      "status": "failing",
+      "priority": 13,
+      "module": "db",
+      "description": "Define users/roles tables to support authentication and authorization."
+    },
+    "parking.statistics": {
+      "status": "failing",
+      "priority": 3,
+      "module": "parking",
+      "description": "Implement parking utilization statistics by zone"
+    },
+    "house.update": {
+      "status": "failing",
+      "priority": 5,
+      "module": "house",
+      "description": "Implement house asset update with change logging and state machine integration"
+    },
+    "auth.rbac.enforce": {
+      "status": "failing",
+      "priority": 16,
+      "module": "auth",
+      "description": "Enforce role-based access control for protected routes (e.g., admin vs. regular user)."
+    },
+    "auth.user.login": {
+      "status": "failing",
+      "priority": 15,
+      "module": "auth",
+      "description": "Implement login that issues a secure session/JWT and returns current user profile."
+    },
+    "house.export": {
+      "status": "failing",
+      "priority": 7,
+      "module": "house",
+      "description": "Implement house asset Excel export"
+    },
+    "house.list": {
+      "status": "failing",
+      "priority": 2,
+      "module": "house",
+      "description": "Implement house asset list with search, filter, and pagination"
+    },
+    "venue.entity": {
+      "status": "failing",
+      "priority": 1,
+      "module": "venue",
+      "description": "Create venue asset entity with capacity and availability info"
+    },
+    "assets.asset.delete": {
+      "status": "failing",
+      "priority": 20,
+      "module": "assets",
+      "description": "Soft-delete an asset and prevent it from appearing in default listings."
+    },
+    "assets.asset.create": {
+      "status": "failing",
+      "priority": 17,
+      "module": "assets",
+      "description": "Create an asset with server-side validation and persist it to the database."
+    },
+    "assets.asset.search": {
+      "status": "failing",
+      "priority": 21,
+      "module": "assets",
+      "description": "List/search assets with pagination, filters (type/status/tags), and sort order."
+    },
+    "observability.health.readiness": {
+      "status": "failing",
+      "priority": 26,
+      "module": "observability",
+      "description": "Expose health/readiness endpoints that verify DB connectivity and essential dependencies."
+    },
+    "platform.testing.contract": {
+      "status": "failing",
+      "priority": 30,
+      "module": "platform",
+      "description": "Add unit/integration test scaffolding and a minimal CI-ready test command."
+    },
+    "files.attachment.upload": {
+      "status": "failing",
+      "priority": 22,
+      "module": "files",
+      "description": "Upload and attach a file to an asset, storing metadata and enforcing size/type limits."
+    },
+    "assets.asset.update": {
+      "status": "failing",
+      "priority": 19,
+      "module": "assets",
+      "description": "Update editable asset fields with optimistic concurrency control (updatedAt/version)."
+    },
+    "facility.crud": {
+      "status": "failing",
+      "priority": 2,
+      "module": "facility",
+      "description": "Implement full CRUD for facility assets with warranty tracking"
+    },
+    "dashboard.asset-manager-home": {
+      "status": "failing",
+      "priority": 3,
+      "module": "dashboard",
+      "description": "Implement asset manager dashboard with data quality alerts"
+    },
+    "files.attachment.download": {
+      "status": "failing",
+      "priority": 23,
+      "module": "files",
+      "description": "Download an asset attachment with authorization and audit logging."
+    },
+    "assets.asset.archive": {
+      "status": "failing",
+      "priority": 17,
+      "module": "assets",
+      "description": "Archive or deactivate assets with a reversible state transition and recorded reason.\n> 支持资产归档/停用，具备可逆的状态流转并记录原因。"
+    },
+    "db.schema.bootstrap": {
+      "status": "failing",
+      "priority": 11,
+      "module": "db",
+      "description": "Define initial database schema for users, roles, assets, tags, attachments, AI tasks, and audit logs.\n> 定义初始数据库结构：用户、角色、资产、标签、附件、AI 任务与审计日志。"
+    },
+    "web.auth.session": {
+      "status": "failing",
+      "priority": 28,
+      "module": "web",
+      "description": "Implement login/logout flows in the web UI and persist session state securely."
+    },
+    "aiTasks.jobs.enqueue": {
+      "status": "failing",
+      "priority": 23,
+      "module": "aiTasks",
+      "description": "Create AI task runs for selected assets (manual trigger and rules-based trigger) and persist job state.\n> 为选定资产创建 AI 任务运行（手动触发与规则触发），并持久化任务状态。"
+    },
+    "aiTasks.results.apply": {
+      "status": "failing",
+      "priority": 25,
+      "module": "aiTasks",
+      "description": "Apply AI task results to asset fields (e.g., auto-tagging, description generation) with human review option.\n> 将 AI 任务结果应用到资产字段（如自动打标、生成描述），并提供人工审核选项。"
+    },
+    "api.rest.assets": {
+      "status": "failing",
+      "priority": 26,
+      "module": "api",
+      "description": "Expose REST endpoints for asset CRUD, attachments, tags, and AI task triggers with request validation.\n> 提供资产增删改查、附件、标签与 AI 任务触发的 REST 接口，并做请求校验。"
+    },
+    "observability.errors.standardize": {
+      "status": "failing",
+      "priority": 28,
+      "module": "observability",
+      "description": "Standardize error codes and responses across API/UI, and add structured logs for key workflows.\n> 统一 API/UI 的错误码与响应格式，并为关键流程加入结构化日志。"
+    },
+    "assets.tags.manage": {
+      "status": "failing",
+      "priority": 19,
+      "module": "assets",
+      "description": "Add/remove tags and categories for assets, and ensure tag uniqueness and normalization.\n> 为资产添加/移除标签与分类，并保证标签唯一性与规范化。"
+    },
+    "aiTasks.worker.execute": {
+      "status": "failing",
+      "priority": 24,
+      "module": "aiTasks",
+      "description": "Implement a worker that executes AI tasks with retries, timeouts, and idempotency keys.\n> 实现执行 AI 任务的 Worker，支持重试、超时与幂等键。"
+    }
+  }
+}
