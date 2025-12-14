@@ -1,0 +1,50 @@
+{
+  "featureId": "maintenance.order-log-entity",
+  "runNumber": 1,
+  "timestamp": "2025-12-14T13:38:31.615Z",
+  "commitHash": "385bd2bb74779186c7edf220af8518b23464e870",
+  "changedFiles": [
+    "ai/progress.log",
+    "ai/tasks/index.json",
+    "ai/tasks/maintenance/01-order-entity.md",
+    "ai/verification/index.json",
+    "ai/verification/maintenance.order-entity/001.json",
+    "ai/verification/maintenance.order-entity/001.md",
+    "ai/verification/results.json",
+    "ruoyi-modules/ruoyi-asset/src/main/java/com/ruoyi/asset/domain/dto/AssetMaintOrderCreateDTO.java",
+    "ruoyi-modules/ruoyi-asset/src/main/java/com/ruoyi/asset/domain/entity/AssetMaintOrder.java",
+    "ruoyi-modules/ruoyi-asset/src/main/java/com/ruoyi/asset/domain/vo/AssetMaintOrderDetailVO.java",
+    "ruoyi-modules/ruoyi-asset/src/main/java/com/ruoyi/asset/domain/vo/AssetMaintOrderListVO.java",
+    "ai/tasks/maintenance/02-order-log-entity.md"
+  ],
+  "diffSummary": "12 files changed",
+  "automatedChecks": [],
+  "criteriaResults": [
+    {
+      "criterion": "Create `AssetMaintLog` entity mapping `t_asset_maint_log`",
+      "index": 0,
+      "satisfied": true,
+      "confidence": 0.8
+    },
+    {
+      "criterion": "Map all fields:",
+      "index": 1,
+      "satisfied": true,
+      "confidence": 0.8
+    },
+    {
+      "criterion": "Create VO for display in timeline",
+      "index": 2,
+      "satisfied": true,
+      "confidence": 0.8
+    },
+    {
+      "criterion": "Include related operator name for display",
+      "index": 3,
+      "satisfied": true,
+      "confidence": 0.8
+    }
+  ],
+  "verdict": "pass",
+  "verifiedBy": "strategy-framework"
+}
