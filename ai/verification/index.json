@@ -539,8 +539,17 @@
       "totalRuns": 1,
       "passCount": 1,
       "failCount": 0
+    },
+    "maintenance.order-mapper": {
+      "featureId": "maintenance.order-mapper",
+      "latestRun": 1,
+      "latestTimestamp": "2025-12-14T13:40:23.775Z",
+      "latestVerdict": "pass",
+      "totalRuns": 1,
+      "passCount": 1,
+      "failCount": 0
     }
   },
-  "updatedAt": "2025-12-14T13:38:31.617Z",
+  "updatedAt": "2025-12-14T13:40:23.777Z",
   "version": "2.0.0"
 }

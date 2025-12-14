@@ -1,0 +1,66 @@
+{
+  "featureId": "maintenance.order-mapper",
+  "runNumber": 1,
+  "timestamp": "2025-12-14T13:40:23.775Z",
+  "commitHash": "72b7867e304805302618a1e0d327f9c54741690c",
+  "changedFiles": [
+    "ai/progress.log",
+    "ai/tasks/index.json",
+    "ai/tasks/maintenance/02-order-log-entity.md",
+    "ai/verification/index.json",
+    "ai/verification/maintenance.order-log-entity/001.json",
+    "ai/verification/maintenance.order-log-entity/001.md",
+    "ai/verification/results.json",
+    "ruoyi-modules/ruoyi-asset/src/main/java/com/ruoyi/asset/domain/entity/AssetMaintLog.java",
+    "ruoyi-modules/ruoyi-asset/src/main/java/com/ruoyi/asset/domain/vo/AssetMaintLogVO.java",
+    "ai/tasks/maintenance/03-order-mapper.md"
+  ],
+  "diffSummary": "10 files changed",
+  "automatedChecks": [],
+  "criteriaResults": [
+    {
+      "criterion": "Create `AssetMaintOrderMapper` interface and XML",
+      "index": 0,
+      "satisfied": true,
+      "confidence": 0.8
+    },
+    {
+      "criterion": "Implement order methods:",
+      "index": 1,
+      "satisfied": true,
+      "confidence": 0.8
+    },
+    {
+      "criterion": "Create `AssetMaintLogMapper` interface and XML",
+      "index": 2,
+      "satisfied": true,
+      "confidence": 0.8
+    },
+    {
+      "criterion": "Implement log methods:",
+      "index": 3,
+      "satisfied": true,
+      "confidence": 0.8
+    },
+    {
+      "criterion": "Support filters: projectId, assetType, status, priority, handlerId, requesterId, dateRange",
+      "index": 4,
+      "satisfied": true,
+      "confidence": 0.8
+    },
+    {
+      "criterion": "Include data scope filtering",
+      "index": 5,
+      "satisfied": true,
+      "confidence": 0.8
+    },
+    {
+      "criterion": "Join with asset and user tables for display names",
+      "index": 6,
+      "satisfied": true,
+      "confidence": 0.8
+    }
+  ],
+  "verdict": "pass",
+  "verifiedBy": "strategy-framework"
+}

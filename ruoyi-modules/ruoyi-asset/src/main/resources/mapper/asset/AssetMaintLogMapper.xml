@@ -1,0 +1,119 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.ruoyi.asset.mapper.AssetMaintLogMapper">
+
+    <!-- Result map for log view -->
+    <resultMap id="MaintLogResult" type="com.ruoyi.asset.domain.vo.AssetMaintLogVO">
+        <id property="id" column="id"/>
+        <result property="orderId" column="order_id"/>
+        <result property="fromStatus" column="from_status"/>
+        <result property="fromStatusLabel" column="from_status_label"/>
+        <result property="toStatus" column="to_status"/>
+        <result property="toStatusLabel" column="to_status_label"/>
+        <result property="operatorId" column="operator_id"/>
+        <result property="operatorName" column="operator_name"/>
+        <result property="operationType" column="operation_type"/>
+        <result property="operationTypeLabel" column="operation_type_label"/>
+        <result property="content" column="content"/>
+        <result property="opTime" column="op_time"/>
+    </resultMap>
+
+    <!-- Query logs by order ID -->
+    <select id="selectLogsByOrderId" parameterType="java.lang.Long" resultMap="MaintLogResult">
+        SELECT
+            ml.id,
+            ml.order_id,
+            ml.from_status,
+            dfs.dict_label as from_status_label,
+            ml.to_status,
+            dts.dict_label as to_status_label,
+            ml.operator_id,
+            u.nick_name as operator_name,
+            ml.operation_type,
+            dot.dict_label as operation_type_label,
+            ml.content,
+            ml.op_time
+        FROM t_asset_maint_log ml
+        LEFT JOIN sys_user u ON ml.operator_id = u.user_id
+        LEFT JOIN sys_dict_data dfs ON dfs.dict_type = 'maint_order_status' AND dfs.dict_value = ml.from_status
+        LEFT JOIN sys_dict_data dts ON dts.dict_type = 'maint_order_status' AND dts.dict_value = ml.to_status
+        LEFT JOIN sys_dict_data dot ON dot.dict_type = 'maint_operation_type' AND dot.dict_value = ml.operation_type
+        WHERE ml.order_id = #{orderId}
+        ORDER BY ml.op_time DESC
+    </select>
+
+    <!-- Query log detail by ID -->
+    <select id="selectLogById" parameterType="java.lang.Long" resultMap="MaintLogResult">
+        SELECT
+            ml.id,
+            ml.order_id,
+            ml.from_status,
+            dfs.dict_label as from_status_label,
+            ml.to_status,
+            dts.dict_label as to_status_label,
+            ml.operator_id,
+            u.nick_name as operator_name,
+            ml.operation_type,
+            dot.dict_label as operation_type_label,
+            ml.content,
+            ml.op_time
+        FROM t_asset_maint_log ml
+        LEFT JOIN sys_user u ON ml.operator_id = u.user_id
+        LEFT JOIN sys_dict_data dfs ON dfs.dict_type = 'maint_order_status' AND dfs.dict_value = ml.from_status
+        LEFT JOIN sys_dict_data dts ON dts.dict_type = 'maint_order_status' AND dts.dict_value = ml.to_status
+        LEFT JOIN sys_dict_data dot ON dot.dict_type = 'maint_operation_type' AND dot.dict_value = ml.operation_type
+        WHERE ml.id = #{id}
+    </select>
+
+    <!-- Insert maintenance log -->
+    <insert id="insertMaintLog" parameterType="com.ruoyi.asset.domain.entity.AssetMaintLog" useGeneratedKeys="true" keyProperty="id">
+        INSERT INTO t_asset_maint_log (
+            order_id,
+            from_status,
+            to_status,
+            operator_id,
+            operation_type,
+            content,
+            op_time
+        ) VALUES (
+            #{orderId},
+            #{fromStatus},
+            #{toStatus},
+            #{operatorId},
+            #{operationType},
+            #{content},
+            #{opTime}
+        )
+    </insert>
+
+    <!-- Delete logs by order ID -->
+    <delete id="deleteLogsByOrderId" parameterType="java.lang.Long">
+        DELETE FROM t_asset_maint_log WHERE order_id = #{orderId}
+    </delete>
+
+    <!-- Get latest log for order -->
+    <select id="selectLatestLogByOrderId" parameterType="java.lang.Long" resultMap="MaintLogResult">
+        SELECT
+            ml.id,
+            ml.order_id,
+            ml.from_status,
+            dfs.dict_label as from_status_label,
+            ml.to_status,
+            dts.dict_label as to_status_label,
+            ml.operator_id,
+            u.nick_name as operator_name,
+            ml.operation_type,
+            dot.dict_label as operation_type_label,
+            ml.content,
+            ml.op_time
+        FROM t_asset_maint_log ml
+        LEFT JOIN sys_user u ON ml.operator_id = u.user_id
+        LEFT JOIN sys_dict_data dfs ON dfs.dict_type = 'maint_order_status' AND dfs.dict_value = ml.from_status
+        LEFT JOIN sys_dict_data dts ON dts.dict_type = 'maint_order_status' AND dts.dict_value = ml.to_status
+        LEFT JOIN sys_dict_data dot ON dot.dict_type = 'maint_operation_type' AND dot.dict_value = ml.operation_type
+        WHERE ml.order_id = #{orderId}
+        ORDER BY ml.op_time DESC
+        LIMIT 1
+    </select>
+
+</mapper>

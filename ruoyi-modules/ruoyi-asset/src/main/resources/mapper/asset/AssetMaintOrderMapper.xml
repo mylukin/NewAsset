@@ -1,0 +1,276 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.ruoyi.asset.mapper.AssetMaintOrderMapper">
+
+    <!-- Result map for list view -->
+    <resultMap id="MaintOrderListResult" type="com.ruoyi.asset.domain.vo.AssetMaintOrderListVO">
+        <id property="id" column="id"/>
+        <result property="orderNo" column="order_no"/>
+        <result property="assetId" column="asset_id"/>
+        <result property="assetCode" column="asset_code"/>
+        <result property="assetName" column="asset_name"/>
+        <result property="projectId" column="project_id"/>
+        <result property="projectName" column="project_name"/>
+        <result property="orderType" column="order_type"/>
+        <result property="orderTypeLabel" column="order_type_label"/>
+        <result property="faultType" column="fault_type"/>
+        <result property="faultTypeLabel" column="fault_type_label"/>
+        <result property="title" column="title"/>
+        <result property="priority" column="priority"/>
+        <result property="priorityLabel" column="priority_label"/>
+        <result property="requireFinishTime" column="require_finish_time"/>
+        <result property="status" column="status"/>
+        <result property="statusLabel" column="status_label"/>
+        <result property="currentHandlerId" column="current_handler_id"/>
+        <result property="currentHandlerName" column="current_handler_name"/>
+        <result property="requesterId" column="requester_id"/>
+        <result property="requesterName" column="requester_name"/>
+        <result property="createTime" column="create_time"/>
+    </resultMap>
+
+    <!-- Result map for detail view -->
+    <resultMap id="MaintOrderDetailResult" type="com.ruoyi.asset.domain.vo.AssetMaintOrderDetailVO">
+        <id property="id" column="id"/>
+        <result property="orderNo" column="order_no"/>
+        <result property="assetId" column="asset_id"/>
+        <result property="assetCode" column="asset_code"/>
+        <result property="assetName" column="asset_name"/>
+        <result property="assetType" column="asset_type"/>
+        <result property="assetTypeLabel" column="asset_type_label"/>
+        <result property="assetLocation" column="asset_location"/>
+        <result property="projectId" column="project_id"/>
+        <result property="projectName" column="project_name"/>
+        <result property="orderType" column="order_type"/>
+        <result property="orderTypeLabel" column="order_type_label"/>
+        <result property="faultType" column="fault_type"/>
+        <result property="faultTypeLabel" column="fault_type_label"/>
+        <result property="title" column="title"/>
+        <result property="description" column="description"/>
+        <result property="priority" column="priority"/>
+        <result property="priorityLabel" column="priority_label"/>
+        <result property="requireFinishTime" column="require_finish_time"/>
+        <result property="status" column="status"/>
+        <result property="statusLabel" column="status_label"/>
+        <result property="originAssetStatus" column="origin_asset_status"/>
+        <result property="originAssetStatusLabel" column="origin_asset_status_label"/>
+        <result property="currentHandlerId" column="current_handler_id"/>
+        <result property="currentHandlerName" column="current_handler_name"/>
+        <result property="requesterId" column="requester_id"/>
+        <result property="requesterName" column="requester_name"/>
+        <result property="createBy" column="create_by"/>
+        <result property="createTime" column="create_time"/>
+        <result property="updateBy" column="update_by"/>
+        <result property="updateTime" column="update_time"/>
+    </resultMap>
+
+    <!-- Query maintenance order list with filters -->
+    <select id="selectMaintOrderList" parameterType="com.ruoyi.asset.mapper.AssetMaintOrderMapper$MaintOrderQuery" resultMap="MaintOrderListResult">
+        SELECT
+            mo.id,
+            mo.order_no,
+            mo.asset_id,
+            a.asset_code,
+            a.asset_name,
+            mo.project_id,
+            p.project_name,
+            mo.order_type,
+            dot.dict_label as order_type_label,
+            mo.fault_type,
+            dft.dict_label as fault_type_label,
+            mo.title,
+            mo.priority,
+            dp.dict_label as priority_label,
+            mo.require_finish_time,
+            mo.status,
+            ds.dict_label as status_label,
+            mo.current_handler_id,
+            uh.nick_name as current_handler_name,
+            mo.requester_id,
+            ur.nick_name as requester_name,
+            mo.create_time
+        FROM t_asset_maint_order mo
+        LEFT JOIN t_asset a ON mo.asset_id = a.id
+        LEFT JOIN sys_project p ON mo.project_id = p.id
+        LEFT JOIN sys_user uh ON mo.current_handler_id = uh.user_id
+        LEFT JOIN sys_user ur ON mo.requester_id = ur.user_id
+        LEFT JOIN sys_dict_data dot ON dot.dict_type = 'maint_order_type' AND dot.dict_value = mo.order_type
+        LEFT JOIN sys_dict_data dft ON dft.dict_type = 'maint_fault_type' AND dft.dict_value = mo.fault_type
+        LEFT JOIN sys_dict_data dp ON dp.dict_type = 'maint_priority' AND dp.dict_value = mo.priority
+        LEFT JOIN sys_dict_data ds ON ds.dict_type = 'maint_order_status' AND ds.dict_value = mo.status
+        <where>
+            <if test="projectId != null">
+                AND mo.project_id = #{projectId}
+            </if>
+            <if test="assetId != null">
+                AND mo.asset_id = #{assetId}
+            </if>
+            <if test="assetType != null and assetType != ''">
+                AND a.asset_type = #{assetType}
+            </if>
+            <if test="orderType != null and orderType != ''">
+                AND mo.order_type = #{orderType}
+            </if>
+            <if test="faultType != null and faultType != ''">
+                AND mo.fault_type = #{faultType}
+            </if>
+            <if test="status != null and status != ''">
+                AND mo.status = #{status}
+            </if>
+            <if test="priority != null and priority != ''">
+                AND mo.priority = #{priority}
+            </if>
+            <if test="currentHandlerId != null">
+                AND mo.current_handler_id = #{currentHandlerId}
+            </if>
+            <if test="requesterId != null">
+                AND mo.requester_id = #{requesterId}
+            </if>
+            <if test="createTimeStart != null">
+                AND mo.create_time &gt;= #{createTimeStart}
+            </if>
+            <if test="createTimeEnd != null">
+                AND mo.create_time &lt;= #{createTimeEnd}
+            </if>
+            <if test="orderNo != null and orderNo != ''">
+                AND mo.order_no LIKE CONCAT('%', #{orderNo}, '%')
+            </if>
+            <if test="title != null and title != ''">
+                AND mo.title LIKE CONCAT('%', #{title}, '%')
+            </if>
+            <!-- Data scope filtering -->
+            <if test="dataScope != null and dataScope != ''">
+                ${dataScope}
+            </if>
+        </where>
+        ORDER BY mo.create_time DESC
+    </select>
+
+    <!-- Query maintenance order detail by ID -->
+    <select id="selectMaintOrderById" parameterType="java.lang.Long" resultMap="MaintOrderDetailResult">
+        SELECT
+            mo.id,
+            mo.order_no,
+            mo.asset_id,
+            a.asset_code,
+            a.asset_name,
+            a.asset_type,
+            dat.dict_label as asset_type_label,
+            CONCAT_WS(' ', a.building, a.floor, a.room_no, a.location_desc) as asset_location,
+            mo.project_id,
+            p.project_name,
+            mo.order_type,
+            dot.dict_label as order_type_label,
+            mo.fault_type,
+            dft.dict_label as fault_type_label,
+            mo.title,
+            mo.description,
+            mo.priority,
+            dp.dict_label as priority_label,
+            mo.require_finish_time,
+            mo.status,
+            ds.dict_label as status_label,
+            mo.origin_asset_status,
+            doas.dict_label as origin_asset_status_label,
+            mo.current_handler_id,
+            uh.nick_name as current_handler_name,
+            mo.requester_id,
+            ur.nick_name as requester_name,
+            mo.create_by,
+            mo.create_time,
+            mo.update_by,
+            mo.update_time
+        FROM t_asset_maint_order mo
+        LEFT JOIN t_asset a ON mo.asset_id = a.id
+        LEFT JOIN sys_project p ON mo.project_id = p.id
+        LEFT JOIN sys_user uh ON mo.current_handler_id = uh.user_id
+        LEFT JOIN sys_user ur ON mo.requester_id = ur.user_id
+        LEFT JOIN sys_dict_data dot ON dot.dict_type = 'maint_order_type' AND dot.dict_value = mo.order_type
+        LEFT JOIN sys_dict_data dft ON dft.dict_type = 'maint_fault_type' AND dft.dict_value = mo.fault_type
+        LEFT JOIN sys_dict_data dp ON dp.dict_type = 'maint_priority' AND dp.dict_value = mo.priority
+        LEFT JOIN sys_dict_data ds ON ds.dict_type = 'maint_order_status' AND ds.dict_value = mo.status
+        LEFT JOIN sys_dict_data dat ON dat.dict_type = 'asset_type' AND dat.dict_value = a.asset_type
+        LEFT JOIN sys_dict_data doas ON doas.dict_type = 'asset_status' AND doas.dict_value = mo.origin_asset_status
+        WHERE mo.id = #{id}
+    </select>
+
+    <!-- Insert maintenance order -->
+    <insert id="insertMaintOrder" parameterType="com.ruoyi.asset.domain.entity.AssetMaintOrder" useGeneratedKeys="true" keyProperty="id">
+        INSERT INTO t_asset_maint_order (
+            order_no,
+            asset_id,
+            project_id,
+            order_type,
+            fault_type,
+            title,
+            description,
+            priority,
+            require_finish_time,
+            status,
+            origin_asset_status,
+            current_handler_id,
+            requester_id,
+            create_by,
+            create_time
+        ) VALUES (
+            #{orderNo},
+            #{assetId},
+            #{projectId},
+            #{orderType},
+            #{faultType},
+            #{title},
+            #{description},
+            #{priority},
+            #{requireFinishTime},
+            #{status},
+            #{originAssetStatus},
+            #{currentHandlerId},
+            #{requesterId},
+            #{createBy},
+            #{createTime}
+        )
+    </insert>
+
+    <!-- Update maintenance order -->
+    <update id="updateMaintOrder" parameterType="com.ruoyi.asset.domain.entity.AssetMaintOrder">
+        UPDATE t_asset_maint_order
+        <set>
+            <if test="orderType != null">order_type = #{orderType},</if>
+            <if test="faultType != null">fault_type = #{faultType},</if>
+            <if test="title != null">title = #{title},</if>
+            <if test="description != null">description = #{description},</if>
+            <if test="priority != null">priority = #{priority},</if>
+            <if test="requireFinishTime != null">require_finish_time = #{requireFinishTime},</if>
+            <if test="status != null">status = #{status},</if>
+            <if test="currentHandlerId != null">current_handler_id = #{currentHandlerId},</if>
+            <if test="updateBy != null">update_by = #{updateBy},</if>
+            <if test="updateTime != null">update_time = #{updateTime},</if>
+        </set>
+        WHERE id = #{id}
+    </update>
+
+    <!-- Delete maintenance order by ID -->
+    <delete id="deleteMaintOrderById" parameterType="java.lang.Long">
+        DELETE FROM t_asset_maint_order WHERE id = #{id}
+    </delete>
+
+    <!-- Batch delete maintenance orders -->
+    <delete id="deleteMaintOrderByIds" parameterType="java.lang.Long">
+        DELETE FROM t_asset_maint_order WHERE id IN
+        <foreach item="id" collection="ids" open="(" separator="," close=")">
+            #{id}
+        </foreach>
+    </delete>
+
+    <!-- Check if order number exists -->
+    <select id="checkOrderNoExists" parameterType="java.lang.String" resultType="int">
+        SELECT COUNT(*) FROM t_asset_maint_order WHERE order_no = #{orderNo}
+    </select>
+
+    <!-- Count orders by status -->
+    <select id="countByStatus" resultType="int">
+        SELECT COUNT(*) FROM t_asset_maint_order
+        WHERE status = #{status}
+        <if test="projectId != null">AND project_id = #{projectId}</if>
+    </select>
+
+</mapper>
