@@ -3,6 +3,7 @@ package com.ruoyi.asset.mapper;
 import com.ruoyi.asset.domain.entity.AssetParking;
 import com.ruoyi.asset.domain.vo.AssetParkingDetailVO;
 import com.ruoyi.asset.domain.vo.AssetParkingListVO;
+import com.ruoyi.asset.domain.vo.ParkingStatisticsVO;
 import org.apache.ibatis.annotations.Mapper;
 import org.apache.ibatis.annotations.Param;
 
@@ -64,6 +65,15 @@ public interface AssetParkingMapper {
      * @return affected rows
      */
     int deleteAssetParkingByIds(@Param("ids") Long[] ids);
+
+    /**
+     * Query parking asset statistics
+     *
+     * @param projectId optional project filter
+     * @param parkingZone optional parking zone filter
+     * @return parking statistics
+     */
+    ParkingStatisticsVO selectParkingStatistics(@Param("projectId") Long projectId, @Param("parkingZone") String parkingZone);
 
     /**
      * Query parameters for parking asset list

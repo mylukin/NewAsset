@@ -4,6 +4,7 @@ import com.ruoyi.asset.domain.dto.AssetParkingCreateDTO;
 import com.ruoyi.asset.domain.dto.AssetParkingUpdateDTO;
 import com.ruoyi.asset.domain.vo.AssetParkingDetailVO;
 import com.ruoyi.asset.domain.vo.AssetParkingListVO;
+import com.ruoyi.asset.domain.vo.ParkingStatisticsVO;
 import com.ruoyi.asset.mapper.AssetParkingMapper.AssetParkingQuery;
 import com.ruoyi.asset.service.IAssetParkingService;
 import com.ruoyi.common.core.web.controller.BaseController;
@@ -125,5 +126,20 @@ public class AssetParkingController extends BaseController {
             @ApiParam(value = "Reason for change")
             @RequestParam(required = false) String reason) {
         return toAjax(assetParkingService.changeStatus(id, status, reason));
+    }
+
+    /**
+     * Get parking asset statistics
+     */
+    @ApiOperation("Get parking asset statistics")
+    @PreAuthorize("@ss.hasPermi('asset:parking:list')")
+    @GetMapping("/statistics")
+    public AjaxResult getStatistics(
+            @ApiParam(value = "Project ID filter")
+            @RequestParam(required = false) Long projectId,
+            @ApiParam(value = "Parking zone filter")
+            @RequestParam(required = false) String parkingZone) {
+        ParkingStatisticsVO statistics = assetParkingService.getParkingStatistics(projectId, parkingZone);
+        return success(statistics);
     }
 }

@@ -1,0 +1,63 @@
+{
+  "featureId": "parking.statistics",
+  "runNumber": 1,
+  "timestamp": "2025-12-14T12:59:33.129Z",
+  "commitHash": "2c035433380d7e4f80ebcf47794308a7d2fb6116",
+  "changedFiles": [
+    "ai/progress.log",
+    "ai/tasks/index.json",
+    "ai/tasks/parking/04-controller.md",
+    "ai/verification/index.json",
+    "ai/verification/parking.controller/001.json",
+    "ai/verification/parking.controller/001.md",
+    "ai/verification/results.json",
+    "ruoyi-modules/ruoyi-asset/src/main/java/com/ruoyi/asset/controller/AssetParkingController.java",
+    "ai/tasks/parking/05-statistics.md",
+    "ruoyi-modules/ruoyi-asset/src/main/java/com/ruoyi/asset/mapper/AssetParkingMapper.java",
+    "ruoyi-modules/ruoyi-asset/src/main/java/com/ruoyi/asset/service/IAssetParkingService.java",
+    "ruoyi-modules/ruoyi-asset/src/main/java/com/ruoyi/asset/service/impl/AssetParkingServiceImpl.java",
+    "ruoyi-modules/ruoyi-asset/src/main/resources/mapper/asset/AssetParkingMapper.xml"
+  ],
+  "diffSummary": "13 files changed",
+  "automatedChecks": [],
+  "criteriaResults": [
+    {
+      "criterion": "Add mapper method: `selectParkingStatistics(Long projectId, String parkingZone)`",
+      "index": 0,
+      "satisfied": true,
+      "confidence": 0.8
+    },
+    {
+      "criterion": "Add service method: `getParkingStatistics(Long projectId, String parkingZone)`",
+      "index": 1,
+      "satisfied": true,
+      "confidence": 0.8
+    },
+    {
+      "criterion": "Add controller endpoint: `GET /asset/parking/statistics`",
+      "index": 2,
+      "satisfied": true,
+      "confidence": 0.8
+    },
+    {
+      "criterion": "Return statistics VO:",
+      "index": 3,
+      "satisfied": true,
+      "confidence": 0.8
+    },
+    {
+      "criterion": "Support filter by project and parking zone",
+      "index": 4,
+      "satisfied": true,
+      "confidence": 0.8
+    },
+    {
+      "criterion": "Use SQL aggregation for efficiency",
+      "index": 5,
+      "satisfied": true,
+      "confidence": 0.8
+    }
+  ],
+  "verdict": "pass",
+  "verifiedBy": "strategy-framework"
+}

@@ -4,6 +4,7 @@ import com.ruoyi.asset.domain.dto.AssetParkingCreateDTO;
 import com.ruoyi.asset.domain.dto.AssetParkingUpdateDTO;
 import com.ruoyi.asset.domain.vo.AssetParkingDetailVO;
 import com.ruoyi.asset.domain.vo.AssetParkingListVO;
+import com.ruoyi.asset.domain.vo.ParkingStatisticsVO;
 import com.ruoyi.asset.mapper.AssetParkingMapper.AssetParkingQuery;
 
 import java.util.List;
@@ -70,4 +71,13 @@ public interface IAssetParkingService {
      * @return affected rows
      */
     int changeStatus(Long id, String newStatus, String reason);
+
+    /**
+     * Get parking asset statistics
+     *
+     * @param projectId optional project filter
+     * @param parkingZone optional parking zone filter
+     * @return parking statistics
+     */
+    ParkingStatisticsVO getParkingStatistics(Long projectId, String parkingZone);
 }

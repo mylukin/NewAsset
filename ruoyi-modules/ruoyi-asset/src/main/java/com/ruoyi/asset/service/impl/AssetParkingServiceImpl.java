@@ -8,6 +8,7 @@ import com.ruoyi.asset.domain.enums.AssetStatusEnum;
 import com.ruoyi.asset.domain.vo.AssetParkingDetailVO;
 import com.ruoyi.asset.domain.vo.AssetParkingListVO;
 import com.ruoyi.asset.domain.vo.LocationInfo;
+import com.ruoyi.asset.domain.vo.ParkingStatisticsVO;
 import com.ruoyi.asset.mapper.AssetParkingMapper;
 import com.ruoyi.asset.mapper.AssetParkingMapper.AssetParkingQuery;
 import com.ruoyi.asset.mapper.AssetMapper;
@@ -202,5 +203,14 @@ public class AssetParkingServiceImpl implements IAssetParkingService {
         Long operatorId = 1L;
         assetStatusService.changeStatus(id, statusEnum, reason, operatorId);
         return 1;
+    }
+
+    @Override
+    public ParkingStatisticsVO getParkingStatistics(Long projectId, String parkingZone) {
+        ParkingStatisticsVO statistics = assetParkingMapper.selectParkingStatistics(projectId, parkingZone);
+        if (statistics != null) {
+            statistics.calculateRates();
+        }
+        return statistics;
     }
 }
