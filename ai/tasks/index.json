@@ -1,6 +1,6 @@
 {
   "version": "2.0.0",
-  "updatedAt": "2025-12-14T09:14:23.962Z",
+  "updatedAt": "2025-12-14T10:30:00.000Z",
   "metadata": {
     "projectGoal": "基于 ai/tasks 创建一个资产管理系统",
     "createdAt": "2025-12-14T10:00:00Z",
@@ -9,12 +9,19 @@
     "tddMode": "recommended"
   },
   "features": {
-    "core.database-schema": {
+    "core.db-config": {
       "status": "failing",
       "priority": 2,
       "module": "core",
-      "description": "Create Database Schema for All Asset Tables",
-      "filePath": "core/02-database-schema.md"
+      "description": "Configure Dual-Database Infrastructure (SQLite Dev / MySQL Prod)",
+      "filePath": "core/02-db-config.md"
+    },
+    "core.database-schema": {
+      "status": "failing",
+      "priority": 3,
+      "module": "core",
+      "description": "Create Database Schema for All Asset Tables (Dual-DB Support)",
+      "filePath": "core/03-database-schema.md"
     },
     "core.asset-status-enum": {
       "status": "failing",
@@ -149,9 +156,16 @@
       "description": "Configure System Dictionaries for Asset Module",
       "filePath": "core/09-dictionary-setup.md"
     },
-    "house.entity": {
+    "core.dev-seed-data": {
       "status": "failing",
       "priority": 10,
+      "module": "core",
+      "description": "Create Development Seed Data",
+      "filePath": "core/10-dev-seed-data.md"
+    },
+    "house.entity": {
+      "status": "failing",
+      "priority": 11,
       "module": "house",
       "description": "Create House Asset Entity",
       "filePath": "house/01-entity.md"
