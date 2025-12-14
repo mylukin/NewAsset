@@ -58,26 +58,28 @@ ai/tasks/
 
 Each task/feature is stored as a markdown file with YAML frontmatter:
 
-```markdown
+**Priority**: Determines `agent-foreman next` selection order. Lower number = selected first.
+
+```yaml
 ---
-id: auth.login
-module: auth
-priority: 1
+id: module.task-name
+module: module-name
+priority: N  # Lower number = higher priority (1 is highest)
 status: failing
 version: 1
 origin: manual
 dependsOn: []
 supersedes: []
 tags:
-  - auth
+  - tag-name
 ---
-# User can log in
+# Human-readable description
 
 ## Acceptance Criteria
 
-1. User enters valid credentials and is logged in
-2. Invalid credentials show error message
-3. Session persists across page reloads
+1. First acceptance criterion
+2. Second acceptance criterion
+3. Third acceptance criterion
 ```
 
 ## Task/Feature ID Convention
