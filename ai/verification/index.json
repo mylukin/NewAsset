@@ -413,8 +413,17 @@
       "totalRuns": 1,
       "passCount": 1,
       "failCount": 0
+    },
+    "venue.frontend-form": {
+      "featureId": "venue.frontend-form",
+      "latestRun": 1,
+      "latestTimestamp": "2025-12-14T13:16:00.984Z",
+      "latestVerdict": "pass",
+      "totalRuns": 1,
+      "passCount": 1,
+      "failCount": 0
     }
   },
-  "updatedAt": "2025-12-14T13:15:32.953Z",
+  "updatedAt": "2025-12-14T13:16:00.986Z",
   "version": "2.0.0"
 }
