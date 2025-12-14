@@ -2,7 +2,7 @@
 id: core.project-init
 module: core
 priority: 1
-status: failing
+status: passing
 version: 1
 origin: manual
 dependsOn: []
@@ -36,7 +36,6 @@ The Asset Management System requires a new module `ruoyi-asset` within the RuoYi
 5. Add module dependency to parent pom.xml
 6. Create basic module configuration class `AssetConfig.java`
 7. Verify module compiles and starts with RuoYi application
-
 ## Technical Notes
 
 - Reference: RuoYi existing module structure (`ruoyi-system`)

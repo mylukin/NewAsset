@@ -3,7 +3,7 @@
   "capabilities": {
     "hasTests": false,
     "testCommand": "",
-    "testFramework": "unknown",
+    "testFramework": "junit",
     "hasTypeCheck": false,
     "typeCheckCommand": "",
     "hasLint": false,
@@ -12,20 +12,20 @@
     "buildCommand": "",
     "hasGit": true,
     "source": "ai-discovered",
-    "confidence": 0.5,
+    "confidence": 0.3,
     "languages": [
       "java",
       "vue"
     ],
-    "detectedAt": "2025-12-14T09:14:58.840Z",
+    "detectedAt": "2025-12-14T09:26:52.450Z",
     "testInfo": {
       "available": false,
       "command": "",
-      "framework": "unknown",
-      "confidence": 0,
+      "framework": "junit",
+      "confidence": 0.3,
       "selectiveFileTemplate": "",
       "selectiveNameTemplate": "",
-      "packageManager": "unknown"
+      "packageManager": "maven"
     },
     "e2eInfo": {
       "available": false,
@@ -49,9 +49,12 @@
     "buildInfo": {
       "available": false,
       "command": "",
-      "confidence": 0
+      "confidence": 0.3
     }
   },
-  "commitHash": "3b0d9b902c61e06350234748a3095a6bbb208299",
-  "trackedFiles": []
+  "commitHash": "b0bbe8671d8f5cacd72b2dcca3c4e6231b324cd8",
+  "trackedFiles": [
+    "ai/capabilities.json",
+    "ai/tasks/index.json"
+  ]
 }
