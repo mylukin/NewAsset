@@ -1,0 +1,70 @@
+{
+  "featureId": "dashboard.service",
+  "runNumber": 1,
+  "timestamp": "2025-12-14T13:59:05.566Z",
+  "commitHash": "524af6af45f08c4a4e4b44af2757bdc594300854",
+  "changedFiles": [
+    "ai/progress.log",
+    "ai/tasks/index.json",
+    "ai/tasks/maintenance/12-maint-plan.md",
+    "ai/verification/index.json",
+    "ai/verification/maintenance.maint-plan/001.json",
+    "ai/verification/maintenance.maint-plan/001.md",
+    "ai/verification/results.json",
+    "ruoyi-modules/ruoyi-asset/src/main/java/com/ruoyi/asset/controller/AssetMaintPlanController.java",
+    "ruoyi-modules/ruoyi-asset/src/main/java/com/ruoyi/asset/domain/entity/AssetMaintPlan.java",
+    "ruoyi-modules/ruoyi-asset/src/main/java/com/ruoyi/asset/domain/entity/AssetMaintPlanAsset.java",
+    "ruoyi-modules/ruoyi-asset/src/main/java/com/ruoyi/asset/domain/vo/AssetMaintPlanVO.java",
+    "ruoyi-modules/ruoyi-asset/src/main/java/com/ruoyi/asset/mapper/AssetMaintPlanAssetMapper.java",
+    "ruoyi-modules/ruoyi-asset/src/main/java/com/ruoyi/asset/mapper/AssetMaintPlanMapper.java",
+    "ruoyi-modules/ruoyi-asset/src/main/java/com/ruoyi/asset/service/IAssetMaintPlanService.java",
+    "ruoyi-modules/ruoyi-asset/src/main/java/com/ruoyi/asset/service/impl/AssetMaintPlanServiceImpl.java",
+    "ruoyi-modules/ruoyi-asset/src/main/resources/mapper/asset/AssetMaintPlanAssetMapper.xml",
+    "ruoyi-modules/ruoyi-asset/src/main/resources/mapper/asset/AssetMaintPlanMapper.xml",
+    "ruoyi-ui/src/api/asset/maintPlan.js",
+    "ruoyi-ui/src/views/asset/maint/planList.vue",
+    "ai/tasks/dashboard/01-dashboard-service.md"
+  ],
+  "diffSummary": "20 files changed",
+  "automatedChecks": [],
+  "criteriaResults": [
+    {
+      "criterion": "Create `IDashboardService` interface",
+      "index": 0,
+      "satisfied": true,
+      "confidence": 0.8
+    },
+    {
+      "criterion": "Create `DashboardServiceImpl` implementation",
+      "index": 1,
+      "satisfied": true,
+      "confidence": 0.8
+    },
+    {
+      "criterion": "Implement methods for management dashboard:",
+      "index": 2,
+      "satisfied": true,
+      "confidence": 0.8
+    },
+    {
+      "criterion": "Implement methods for ops dashboard:",
+      "index": 3,
+      "satisfied": true,
+      "confidence": 0.8
+    },
+    {
+      "criterion": "Implement methods for asset manager dashboard:",
+      "index": 4,
+      "satisfied": true,
+      "confidence": 0.8
+    },
+    {
+      "criterion": "Apply data scope filtering",
+      "index": 5,
+      "satisfied": true,
+      "confidence": 0.8
+    }
+  ],
+  "verdict": "pass",
+  "verifiedBy": "strategy-framework"
+}

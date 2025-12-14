@@ -629,8 +629,17 @@
       "totalRuns": 1,
       "passCount": 1,
       "failCount": 0
+    },
+    "dashboard.service": {
+      "featureId": "dashboard.service",
+      "latestRun": 1,
+      "latestTimestamp": "2025-12-14T13:59:05.566Z",
+      "latestVerdict": "pass",
+      "totalRuns": 1,
+      "passCount": 1,
+      "failCount": 0
     }
   },
-  "updatedAt": "2025-12-14T13:56:10.819Z",
+  "updatedAt": "2025-12-14T13:59:05.571Z",
   "version": "2.0.0"
 }
