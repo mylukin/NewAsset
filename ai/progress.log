@@ -95,3 +95,5 @@
 2025-12-14T13:03:41.497Z STEP feature=parking.frontend-list status=passing tests="./ai/init.sh check" summary="Completed parking.frontend-list"
 2025-12-14T13:04:08.711Z VERIFY feature=parking.frontend-form action=pass summary="Verified parking.frontend-form: pass"
 2025-12-14T13:04:14.062Z STEP feature=parking.frontend-form status=passing tests="./ai/init.sh check" summary="Completed parking.frontend-form"
+2025-12-14T13:04:38.958Z VERIFY feature=parking.frontend-detail action=pass summary="Verified parking.frontend-detail: pass"
+2025-12-14T13:04:45.025Z STEP feature=parking.frontend-detail status=passing tests="./ai/init.sh check" summary="Completed parking.frontend-detail"
