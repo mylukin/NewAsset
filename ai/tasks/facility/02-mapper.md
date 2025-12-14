@@ -3,7 +3,7 @@ id: facility.mapper
 module: facility
 priority: 21
 status: failing
-version: 11
+version: 12
 origin: manual
 dependsOn:
   - facility.entity

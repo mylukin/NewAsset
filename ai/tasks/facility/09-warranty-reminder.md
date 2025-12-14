@@ -3,7 +3,7 @@ id: facility.warranty-reminder
 module: facility
 priority: 28
 status: failing
-version: 11
+version: 12
 origin: manual
 dependsOn:
   - facility.service

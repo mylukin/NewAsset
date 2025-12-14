@@ -3,7 +3,7 @@ id: house.frontend-form
 module: house
 priority: 17
 status: failing
-version: 11
+version: 12
 origin: manual
 dependsOn:
   - house.frontend-api

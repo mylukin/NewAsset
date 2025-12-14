@@ -70,3 +70,55 @@ The module uses MyBatis `databaseIdProvider` to handle SQL dialect differences. 
 ### Data Directory
 
 SQLite database files are stored in `data/` directory (gitignored).
+
+## Data Permission Configuration
+
+The asset module supports project-based data permission filtering.
+
+### Data Scope Types
+
+| Type | Value | Description |
+|------|-------|-------------|
+| ALL | 1 | No filtering, access all data |
+| PROJECT_ONLY | 2 | Filter by user's assigned projects |
+| DEPT_ONLY | 3 | Filter by user's department |
+| DEPT_AND_CHILD | 4 | Filter by department and sub-departments |
+| SELF_ONLY | 5 | Filter by user ID only |
+
+### Configuration Steps
+
+1. **Assign Projects to Users**: Insert records into `sys_user_project` table
+   ```sql
+   INSERT INTO sys_user_project (user_id, project_id) VALUES (1, 100);
+   ```
+
+2. **Set Role Data Scope**: Configure the role's data_scope field
+   ```sql
+   UPDATE sys_role SET data_scope = '2' WHERE role_id = 10;  -- PROJECT_ONLY
+   ```
+
+3. **Apply DataScope Annotation**: Use `@DataScope` in service methods
+   ```java
+   @DataScope(projectAlias = "a", deptAlias = "a", userAlias = "a")
+   public List<Asset> selectAssetList(Asset asset) {
+       return assetMapper.selectAssetList(asset);
+   }
+   ```
+
+4. **Add Placeholder in Mapper XML**: Use `${params.dataScope}` in queries
+   ```xml
+   <select id="selectAssetList" resultMap="AssetResult">
+       SELECT * FROM t_asset a
+       WHERE a.del_flag = '0'
+       ${params.dataScope}
+   </select>
+   ```
+
+### SQL Patterns Applied
+
+| Scope | SQL Pattern |
+|-------|-------------|
+| PROJECT_ONLY | `AND a.project_id IN (SELECT project_id FROM sys_user_project WHERE user_id = ?)` |
+| DEPT_ONLY | `AND a.use_dept_id = ?` |
+| DEPT_AND_CHILD | `AND a.use_dept_id IN (SELECT dept_id FROM sys_dept WHERE ...)` |
+| SELF_ONLY | `AND a.duty_user_id = ?` |

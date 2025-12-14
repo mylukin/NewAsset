@@ -20,6 +20,11 @@ public @interface DataScope {
     String userAlias() default "";
 
     /**
+     * Project table alias for project-based data filtering
+     */
+    String projectAlias() default "";
+
+    /**
      * Permission character (for feature permission)
      */
     String permission() default "";

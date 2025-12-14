@@ -3,7 +3,7 @@ id: maintenance.order-mapper
 module: maintenance
 priority: 59
 status: failing
-version: 11
+version: 12
 origin: manual
 dependsOn:
   - maintenance.order-entity

@@ -71,8 +71,17 @@
       "totalRuns": 1,
       "passCount": 1,
       "failCount": 0
+    },
+    "core.data-permission": {
+      "featureId": "core.data-permission",
+      "latestRun": 1,
+      "latestTimestamp": "2025-12-14T12:05:57.413Z",
+      "latestVerdict": "pass",
+      "totalRuns": 1,
+      "passCount": 1,
+      "failCount": 0
     }
   },
-  "updatedAt": "2025-12-14T12:04:11.381Z",
+  "updatedAt": "2025-12-14T12:05:57.415Z",
   "version": "2.0.0"
 }

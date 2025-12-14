@@ -263,6 +263,32 @@ CREATE TABLE t_asset_maint_plan_asset (
 );
 
 -- -------------------------------------------
+-- Table: sys_project (Project for Data Permission)
+-- -------------------------------------------
+DROP TABLE IF EXISTS sys_project;
+CREATE TABLE sys_project (
+    project_id INTEGER PRIMARY KEY,
+    project_name TEXT NOT NULL,
+    project_code TEXT,
+    status TEXT DEFAULT '0',
+    create_by TEXT,
+    create_time TEXT DEFAULT (datetime('now')),
+    update_by TEXT,
+    update_time TEXT DEFAULT (datetime('now')),
+    remark TEXT
+);
+
+-- -------------------------------------------
+-- Table: sys_user_project (User-Project Relation for Data Permission)
+-- -------------------------------------------
+DROP TABLE IF EXISTS sys_user_project;
+CREATE TABLE sys_user_project (
+    user_id INTEGER NOT NULL,
+    project_id INTEGER NOT NULL,
+    PRIMARY KEY (user_id, project_id)
+);
+
+-- -------------------------------------------
 -- Table: t_asset_status_log (Asset Status Change Log)
 -- -------------------------------------------
 DROP TABLE IF EXISTS t_asset_status_log;

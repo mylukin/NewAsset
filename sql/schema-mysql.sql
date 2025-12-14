@@ -272,6 +272,33 @@ CREATE TABLE `t_asset_maint_plan_asset` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci COMMENT='Maintenance plan asset relation';
 
 -- -------------------------------------------
+-- Table: sys_project (Project for Data Permission)
+-- -------------------------------------------
+DROP TABLE IF EXISTS `sys_project`;
+CREATE TABLE `sys_project` (
+    `project_id` BIGINT NOT NULL AUTO_INCREMENT COMMENT 'Project ID',
+    `project_name` VARCHAR(100) NOT NULL COMMENT 'Project name',
+    `project_code` VARCHAR(50) DEFAULT NULL COMMENT 'Project code',
+    `status` CHAR(1) DEFAULT '0' COMMENT 'Status: 0=active, 1=inactive',
+    `create_by` VARCHAR(64) DEFAULT NULL COMMENT 'Creator',
+    `create_time` DATETIME DEFAULT CURRENT_TIMESTAMP COMMENT 'Create time',
+    `update_by` VARCHAR(64) DEFAULT NULL COMMENT 'Updater',
+    `update_time` DATETIME DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP COMMENT 'Update time',
+    `remark` VARCHAR(500) DEFAULT NULL COMMENT 'Remark',
+    PRIMARY KEY (`project_id`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci COMMENT='Project table';
+
+-- -------------------------------------------
+-- Table: sys_user_project (User-Project Relation for Data Permission)
+-- -------------------------------------------
+DROP TABLE IF EXISTS `sys_user_project`;
+CREATE TABLE `sys_user_project` (
+    `user_id` BIGINT NOT NULL COMMENT 'User ID',
+    `project_id` BIGINT NOT NULL COMMENT 'Project ID',
+    PRIMARY KEY (`user_id`, `project_id`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci COMMENT='User-Project relation for data permission';
+
+-- -------------------------------------------
 -- Table: t_asset_status_log (Asset Status Change Log)
 -- -------------------------------------------
 DROP TABLE IF EXISTS `t_asset_status_log`;

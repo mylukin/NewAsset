@@ -3,7 +3,7 @@ id: venue.entity
 module: venue
 priority: 39
 status: failing
-version: 11
+version: 12
 origin: manual
 dependsOn:
   - core.asset-base-entity

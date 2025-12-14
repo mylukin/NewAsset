@@ -3,7 +3,7 @@ id: core.project-init
 module: core
 priority: 1
 status: passing
-version: 12
+version: 13
 origin: manual
 dependsOn: []
 supersedes: []

@@ -3,7 +3,7 @@ id: core.state-machine
 module: core
 priority: 6
 status: passing
-version: 12
+version: 13
 origin: manual
 dependsOn:
   - core.asset-status-enum
