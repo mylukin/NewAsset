@@ -1,6 +1,6 @@
 {
   "version": "2.0.0",
-  "updatedAt": "2025-12-14T14:00:13.667Z",
+  "updatedAt": "2025-12-14T14:00:54.587Z",
   "metadata": {
     "projectGoal": "基于 ai/tasks 创建一个资产管理系统",
     "createdAt": "2025-12-14T10:00:00Z",
@@ -150,7 +150,7 @@
       "filePath": "maintenance/03-order-mapper.md"
     },
     "dashboard.frontend-api": {
-      "status": "failing",
+      "status": "passing",
       "priority": 71,
       "module": "dashboard",
       "description": "Create Dashboard Frontend API Module",
