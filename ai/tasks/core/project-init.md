@@ -20,6 +20,59 @@ verification:
   verifiedBy: strategy-framework
   commitHash: af2ce4aaa7d95b4305d3f08eaac2597d47b5ef1d
   summary: 7/7 criteria satisfied
+tddGuidance:
+  generatedAt: '2025-12-14T09:39:35.140Z'
+  generatedBy: claude
+  forVersion: 1
+  suggestedTestFiles:
+    unit:
+      - >-
+        ruoyi-modules/ruoyi-asset/src/test/java/com/ruoyi/asset/AssetModuleStructureTest.java
+    e2e: []
+  unitTestCases:
+    - name: should have valid pom.xml with required dependencies
+      assertions:
+        - assertThat(pomFile).exists()
+        - >-
+          assertThat(pomContent).contains('<artifactId>ruoyi-asset</artifactId>')
+        - >-
+          assertThat(pomContent).contains('<artifactId>ruoyi-common</artifactId>')
+    - name: should have correct package structure with all required packages
+      assertions:
+        - assertThat(configPackage).exists()
+        - assertThat(domainPackage).exists()
+        - assertThat(mapperPackage).exists()
+        - assertThat(servicePackage).exists()
+        - assertThat(controllerPackage).exists()
+        - assertThat(utilPackage).exists()
+        - assertThat(constantPackage).exists()
+    - name: should have correct sub-package structure under domain and service
+      assertions:
+        - assertThat(entityPackage).exists()
+        - assertThat(voPackage).exists()
+        - assertThat(enumsPackage).exists()
+        - assertThat(serviceImplPackage).exists()
+        - assertThat(serviceRulePackage).exists()
+    - name: should configure MyBatis mapper scanning annotation
+      assertions:
+        - assertThat(assetConfigClass).hasAnnotation(MapperScan.class)
+        - >-
+          assertThat(mapperScanAnnotation.basePackages()).contains('com.ruoyi.asset.mapper')
+    - name: should be declared as module dependency in parent pom.xml
+      assertions:
+        - >-
+          assertThat(parentPomContent).contains('<module>ruoyi-modules/ruoyi-asset</module>')
+    - name: should have AssetConfig configuration class with proper annotations
+      assertions:
+        - assertThat(assetConfigClass).exists()
+        - assertThat(assetConfigClass).hasAnnotation(Configuration.class)
+        - assertThat(assetConfigClass).isInPackage('com.ruoyi.asset.config')
+    - name: should compile successfully without errors
+      assertions:
+        - assertThat(mavenBuild.execute('compile')).isSuccessful()
+        - assertThat(compilationErrors).isEmpty()
+  e2eScenarios: []
+  frameworkHint: junit5-surefire
 ---
 # Initialize ruoyi-asset Module Structure
 
