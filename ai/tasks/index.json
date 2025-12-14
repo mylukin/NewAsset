@@ -1,6 +1,6 @@
 {
   "version": "2.0.0",
-  "updatedAt": "2025-12-14T13:13:11.376Z",
+  "updatedAt": "2025-12-14T13:13:44.817Z",
   "metadata": {
     "projectGoal": "基于 ai/tasks 创建一个资产管理系统",
     "createdAt": "2025-12-14T10:00:00Z",
@@ -164,7 +164,7 @@
       "filePath": "parking/10-frontend-statistics.md"
     },
     "venue.frontend-api": {
-      "status": "failing",
+      "status": "passing",
       "priority": 43,
       "module": "venue",
       "description": "Create Venue Asset Frontend API Module",

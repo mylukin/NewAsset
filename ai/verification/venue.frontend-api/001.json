@@ -1,0 +1,47 @@
+{
+  "featureId": "venue.frontend-api",
+  "runNumber": 1,
+  "timestamp": "2025-12-14T13:13:44.527Z",
+  "commitHash": "20f6bad3a005796ac7cb129692e9fed4623566f1",
+  "changedFiles": [
+    "ai/progress.log",
+    "ai/tasks/index.json",
+    "ai/tasks/venue/04-controller.md",
+    "ai/verification/index.json",
+    "ai/verification/results.json",
+    "ai/verification/venue.controller/001.json",
+    "ai/verification/venue.controller/001.md",
+    "ruoyi-modules/ruoyi-asset/src/main/java/com/ruoyi/asset/controller/AssetVenueController.java",
+    "ai/tasks/venue/05-frontend-api.md"
+  ],
+  "diffSummary": "9 files changed",
+  "automatedChecks": [],
+  "criteriaResults": [
+    {
+      "criterion": "Create `/src/api/asset/venue.js`",
+      "index": 0,
+      "satisfied": true,
+      "confidence": 0.8
+    },
+    {
+      "criterion": "Implement API functions:",
+      "index": 1,
+      "satisfied": true,
+      "confidence": 0.8
+    },
+    {
+      "criterion": "Use RuoYi request utility",
+      "index": 2,
+      "satisfied": true,
+      "confidence": 0.8
+    },
+    {
+      "criterion": "Export all functions",
+      "index": 3,
+      "satisfied": true,
+      "confidence": 0.8
+    }
+  ],
+  "verdict": "pass",
+  "verifiedBy": "strategy-framework"
+}
