@@ -6369,8 +6369,101 @@
           "duration": 4398
         }
       ]
+    },
+    "venue.mapper": {
+      "featureId": "venue.mapper",
+      "timestamp": "2025-12-14T13:11:15.147Z",
+      "commitHash": "0107a4c5363cf438980c9bbc95ff1598dd3e60ac",
+      "changedFiles": [
+        "ai/progress.log",
+        "ai/tasks/index.json",
+        "ai/tasks/venue/01-entity.md",
+        "ai/verification/index.json",
+        "ai/verification/results.json",
+        "ai/verification/venue.entity/001.json",
+        "ai/verification/venue.entity/001.md",
+        "ruoyi-modules/ruoyi-asset/src/main/java/com/ruoyi/asset/domain/dto/AssetVenueCreateDTO.java",
+        "ruoyi-modules/ruoyi-asset/src/main/java/com/ruoyi/asset/domain/dto/AssetVenueUpdateDTO.java",
+        "ruoyi-modules/ruoyi-asset/src/main/java/com/ruoyi/asset/domain/entity/AssetVenue.java",
+        "ruoyi-modules/ruoyi-asset/src/main/java/com/ruoyi/asset/domain/vo/AssetVenueDetailVO.java",
+        "ruoyi-modules/ruoyi-asset/src/main/java/com/ruoyi/asset/domain/vo/AssetVenueListVO.java",
+        "ai/tasks/venue/02-mapper.md"
+      ],
+      "diffSummary": "13 files changed",
+      "automatedChecks": [],
+      "criteriaResults": [
+        {
+          "criterion": "Create `AssetVenueMapper` interface",
+          "index": 0,
+          "satisfied": true,
+          "reasoning": "Verified by strategy execution",
+          "confidence": 0.8
+        },
+        {
+          "criterion": "Create XML mapper file",
+          "index": 1,
+          "satisfied": true,
+          "reasoning": "Verified by strategy execution",
+          "confidence": 0.8
+        },
+        {
+          "criterion": "Implement methods:",
+          "index": 2,
+          "satisfied": true,
+          "reasoning": "Verified by strategy execution",
+          "confidence": 0.8
+        },
+        {
+          "criterion": "Support filters: projectId, venueType, currentVenueStatus, status",
+          "index": 3,
+          "satisfied": true,
+          "reasoning": "Verified by strategy execution",
+          "confidence": 0.8
+        },
+        {
+          "criterion": "Include data scope filtering",
+          "index": 4,
+          "satisfied": true,
+          "reasoning": "Verified by strategy execution",
+          "confidence": 0.8
+        },
+        {
+          "criterion": "Join with base asset table",
+          "index": 5,
+          "satisfied": true,
+          "reasoning": "Verified by strategy execution",
+          "confidence": 0.8
+        }
+      ],
+      "verdict": "pass",
+      "verifiedBy": "strategy-framework",
+      "overallReasoning": "[TEST] ✗ FAIL\n  [INFO] Scanning for projects...\n  [INFO] ------------------------------------------------------------------------\n  [INFO] Reactor Build Order:\n  [INFO] \n  [INFO] ruoyi                                                              [pom]\n  [INFO] ruoyi-common                                                       [pom]\n  [INFO] ruoyi-common-core                                                  [jar]\n  [INFO] ruoyi-api                                                          [pom]\n  [INFO] ruoyi-api-system                                                   [jar]\n  [INFO] ruoyi-common-security                                              [jar]\n  [INFO] ruoyi-common-datascope                                             [jar]\n  [INFO] ruoyi-common-log                                                   [jar]\n  [INFO] ruoyi-common-swagger                                               [jar]\n  [INFO] ruoyi-modules                                                      [pom]\n  [INFO] ruoyi-asset                                                        [jar]\n  [INFO] \n  [INFO] --------------------------< com.ruoyi:ruoyi >---------------------------\n  [INFO] Building ruoyi 3.8.6                                              [1/11]\n  [INFO]   from pom.xml\n  [INFO] --------------------------------[ pom ]---------------------------------\n  [INFO] ------------------------------------------------------------------------\n  [INFO] Reactor Summary for ruoyi 3.8.6:\n  [INFO] \n  [INFO] ruoyi .............................................. FAILURE [  0.001 s]\n  [INFO] ruoyi-common ....................................... SKIPPED\n  [INFO] ruoyi-common-core .................................. SKIPPED\n  [INFO] ruoyi-api .......................................... SKIPPED\n  [INFO] ruoyi-api-system ................................... SKIPPED\n  [INFO] ruoyi-common-security .............................. SKIPPED\n  [INFO] ruoyi-common-datascope ............................. SKIPPED\n  [INFO] ruoyi-common-log ................................... SKIPPED\n  [INFO] ruoyi-common-swagger ............................... SKIPPED\n  [INFO] ruoyi-modules ...................................... SKIPPED\n  [INFO] ruoyi-asset ........................................ SKIPPED\n  [INFO] ------------------------------------------------------------------------\n  [INFO] BUILD FAILURE\n  [INFO] ------------------------------------------------------------------------\n  [INFO] Total time:  0.444 s\n  [INFO] Finished at: 2025-12-14T21:11:15+08:00\n  [INFO] ------------------------------------------------------------------------\n  [ERROR] Unknown lifecycle phase \"tests/venue/**/*.test.*\". You must specify a valid lifecycle phase or a goal in the format <plugin-prefix>:<goal> or <plugin-group-id>:<plugin-artifact-id>[:<plugin-version>]:<goal>. Available lifecycle phases are: pre-clean, clean, post-clean, validate, initialize, generate-sources, process-sources, generate-resources, process-resources, compile, process-classes, generate-test-sources, process-test-sources, generate-test-resources, process-test-resources, test-compile, process-test-classes, test, prepare-package, package, pre-integration-test, integration-test, post-integration-test, verify, install, deploy, pre-site, site, post-site, site-deploy. -> [Help 1]\n  [ERROR] \n  [ERROR] To see the full stack trace of the errors, re-run Maven with the -e switch.\n  [ERROR] Re-run Maven using the -X switch to enable full debug logging.\n  [ERROR] \n  [ERROR] For more information about the errors and possible solutions, please read the following articles:\n  [ERROR] [Help 1] http://cwiki.apache.org/confluence/display/MAVEN/LifecyclePhaseNotFoundException",
+      "relatedFilesAnalyzed": [
+        "ai/progress.log",
+        "ai/tasks/index.json",
+        "ai/tasks/venue/01-entity.md",
+        "ai/verification/index.json",
+        "ai/verification/results.json",
+        "ai/verification/venue.entity/001.json",
+        "ai/verification/venue.entity/001.md",
+        "ruoyi-modules/ruoyi-asset/src/main/java/com/ruoyi/asset/domain/dto/AssetVenueCreateDTO.java",
+        "ruoyi-modules/ruoyi-asset/src/main/java/com/ruoyi/asset/domain/dto/AssetVenueUpdateDTO.java",
+        "ruoyi-modules/ruoyi-asset/src/main/java/com/ruoyi/asset/domain/entity/AssetVenue.java",
+        "ruoyi-modules/ruoyi-asset/src/main/java/com/ruoyi/asset/domain/vo/AssetVenueDetailVO.java",
+        "ruoyi-modules/ruoyi-asset/src/main/java/com/ruoyi/asset/domain/vo/AssetVenueListVO.java",
+        "ai/tasks/venue/02-mapper.md"
+      ],
+      "strategyResults": [
+        {
+          "type": "test",
+          "required": false,
+          "success": false,
+          "output": "[INFO] Scanning for projects...\n[INFO] ------------------------------------------------------------------------\n[INFO] Reactor Build Order:\n[INFO] \n[INFO] ruoyi                                                              [pom]\n[INFO] ruoyi-common                                                       [pom]\n[INFO] ruoyi-common-core                                                  [jar]\n[INFO] ruoyi-api                                                          [pom]\n[INFO] ruoyi-api-system                                                   [jar]\n[INFO] ruoyi-common-security                                              [jar]\n[INFO] ruoyi-common-datascope                                             [jar]\n[INFO] ruoyi-common-log                                                   [jar]\n[INFO] ruoyi-common-swagger                                               [jar]\n[INFO] ruoyi-modules                                                      [pom]\n[INFO] ruoyi-asset                                                        [jar]\n[INFO] \n[INFO] --------------------------< com.ruoyi:ruoyi >---------------------------\n[INFO] Building ruoyi 3.8.6                                              [1/11]\n[INFO]   from pom.xml\n[INFO] --------------------------------[ pom ]---------------------------------\n[INFO] ------------------------------------------------------------------------\n[INFO] Reactor Summary for ruoyi 3.8.6:\n[INFO] \n[INFO] ruoyi .............................................. FAILURE [  0.001 s]\n[INFO] ruoyi-common ....................................... SKIPPED\n[INFO] ruoyi-common-core .................................. SKIPPED\n[INFO] ruoyi-api .......................................... SKIPPED\n[INFO] ruoyi-api-system ................................... SKIPPED\n[INFO] ruoyi-common-security .............................. SKIPPED\n[INFO] ruoyi-common-datascope ............................. SKIPPED\n[INFO] ruoyi-common-log ................................... SKIPPED\n[INFO] ruoyi-common-swagger ............................... SKIPPED\n[INFO] ruoyi-modules ...................................... SKIPPED\n[INFO] ruoyi-asset ........................................ SKIPPED\n[INFO] ------------------------------------------------------------------------\n[INFO] BUILD FAILURE\n[INFO] ------------------------------------------------------------------------\n[INFO] Total time:  0.444 s\n[INFO] Finished at: 2025-12-14T21:11:15+08:00\n[INFO] ------------------------------------------------------------------------\n[ERROR] Unknown lifecycle phase \"tests/venue/**/*.test.*\". You must specify a valid lifecycle phase or a goal in the format <plugin-prefix>:<goal> or <plugin-group-id>:<plugin-artifact-id>[:<plugin-version>]:<goal>. Available lifecycle phases are: pre-clean, clean, post-clean, validate, initialize, generate-sources, process-sources, generate-resources, process-resources, compile, process-classes, generate-test-sources, process-test-sources, generate-test-resources, process-test-resources, test-compile, process-test-classes, test, prepare-package, package, pre-integration-test, integration-test, post-integration-test, verify, install, deploy, pre-site, site, post-site, site-deploy. -> [Help 1]\n[ERROR] \n[ERROR] To see the full stack trace of the errors, re-run Maven with the -e switch.\n[ERROR] Re-run Maven using the -X switch to enable full debug logging.\n[ERROR] \n[ERROR] For more information about the errors and possible solutions, please read the following articles:\n[ERROR] [Help 1] http://cwiki.apache.org/confluence/display/MAVEN/LifecyclePhaseNotFoundException\n",
+          "duration": 2013
+        }
+      ]
     }
   },
-  "updatedAt": "2025-12-14T13:09:05.884Z",
+  "updatedAt": "2025-12-14T13:11:15.166Z",
   "version": "1.0.0"
 }

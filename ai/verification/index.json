@@ -368,8 +368,17 @@
       "totalRuns": 1,
       "passCount": 1,
       "failCount": 0
+    },
+    "venue.mapper": {
+      "featureId": "venue.mapper",
+      "latestRun": 1,
+      "latestTimestamp": "2025-12-14T13:11:15.147Z",
+      "latestVerdict": "pass",
+      "totalRuns": 1,
+      "passCount": 1,
+      "failCount": 0
     }
   },
-  "updatedAt": "2025-12-14T13:09:05.879Z",
+  "updatedAt": "2025-12-14T13:11:15.160Z",
   "version": "2.0.0"
 }

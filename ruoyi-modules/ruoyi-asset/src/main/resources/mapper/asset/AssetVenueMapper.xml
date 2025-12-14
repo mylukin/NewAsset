@@ -1,0 +1,304 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.ruoyi.asset.mapper.AssetVenueMapper">
+
+    <!-- Result map for list view -->
+    <resultMap id="AssetVenueListResult" type="com.ruoyi.asset.domain.vo.AssetVenueListVO">
+        <id property="id" column="id"/>
+        <result property="assetCode" column="asset_code"/>
+        <result property="assetName" column="asset_name"/>
+        <result property="status" column="status"/>
+        <result property="statusLabel" column="status_label"/>
+        <result property="projectId" column="project_id"/>
+        <result property="projectName" column="project_name"/>
+        <result property="building" column="building"/>
+        <result property="floor" column="floor"/>
+        <result property="locationDesc" column="location_desc"/>
+        <result property="originalValue" column="original_value"/>
+        <result property="netValue" column="net_value"/>
+        <result property="venueName" column="venue_name"/>
+        <result property="venueType" column="venue_type"/>
+        <result property="venueTypeLabel" column="venue_type_label"/>
+        <result property="area" column="area"/>
+        <result property="capacity" column="capacity"/>
+        <result property="equipment" column="equipment"/>
+        <result property="hourlyRate" column="hourly_rate"/>
+        <result property="dailyRate" column="daily_rate"/>
+        <result property="bookable" column="bookable"/>
+        <result property="bookableLabel" column="bookable_label"/>
+        <result property="contactPerson" column="contact_person"/>
+        <result property="contactPhone" column="contact_phone"/>
+    </resultMap>
+
+    <!-- Result map for detail view -->
+    <resultMap id="AssetVenueDetailResult" type="com.ruoyi.asset.domain.vo.AssetVenueDetailVO">
+        <id property="id" column="id"/>
+        <result property="assetCode" column="asset_code"/>
+        <result property="assetName" column="asset_name"/>
+        <result property="assetType" column="asset_type"/>
+        <result property="projectId" column="project_id"/>
+        <result property="projectName" column="project_name"/>
+        <result property="building" column="building"/>
+        <result property="floor" column="floor"/>
+        <result property="roomNo" column="room_no"/>
+        <result property="locationDesc" column="location_desc"/>
+        <result property="ownershipType" column="ownership_type"/>
+        <result property="ownershipTypeLabel" column="ownership_type_label"/>
+        <result property="ownerOrg" column="owner_org"/>
+        <result property="useDeptId" column="use_dept_id"/>
+        <result property="useDeptName" column="use_dept_name"/>
+        <result property="dutyUserId" column="duty_user_id"/>
+        <result property="dutyUserName" column="duty_user_name"/>
+        <result property="status" column="status"/>
+        <result property="statusLabel" column="status_label"/>
+        <result property="purchaseDate" column="purchase_date"/>
+        <result property="startUseDate" column="start_use_date"/>
+        <result property="originalValue" column="original_value"/>
+        <result property="depreciationMethod" column="depreciation_method"/>
+        <result property="depreciationMethodLabel" column="depreciation_method_label"/>
+        <result property="netValue" column="net_value"/>
+        <result property="brand" column="brand"/>
+        <result property="model" column="model"/>
+        <result property="supplier" column="supplier"/>
+        <result property="warrantyExpireDate" column="warranty_expire_date"/>
+        <result property="remark" column="remark"/>
+        <result property="createTime" column="create_time"/>
+        <result property="updateTime" column="update_time"/>
+        <result property="venueName" column="venue_name"/>
+        <result property="venueType" column="venue_type"/>
+        <result property="venueTypeLabel" column="venue_type_label"/>
+        <result property="area" column="area"/>
+        <result property="capacity" column="capacity"/>
+        <result property="equipment" column="equipment"/>
+        <result property="hourlyRate" column="hourly_rate"/>
+        <result property="dailyRate" column="daily_rate"/>
+        <result property="bookable" column="bookable"/>
+        <result property="bookableLabel" column="bookable_label"/>
+        <result property="contactPerson" column="contact_person"/>
+        <result property="contactPhone" column="contact_phone"/>
+    </resultMap>
+
+    <!-- Query venue asset list with filters -->
+    <select id="selectAssetVenueList" parameterType="com.ruoyi.asset.mapper.AssetVenueMapper$AssetVenueQuery" resultMap="AssetVenueListResult">
+        SELECT
+            a.id,
+            a.asset_code,
+            a.asset_name,
+            a.status,
+            ds.dict_label as status_label,
+            a.project_id,
+            p.project_name,
+            a.building,
+            a.floor,
+            a.location_desc,
+            a.original_value,
+            a.net_value,
+            v.venue_name,
+            v.venue_type,
+            dvt.dict_label as venue_type_label,
+            v.area,
+            v.capacity,
+            v.equipment,
+            v.hourly_rate,
+            v.daily_rate,
+            v.bookable,
+            CASE WHEN v.bookable = '1' THEN 'Yes' ELSE 'No' END as bookable_label,
+            v.contact_person,
+            v.contact_phone
+        FROM t_asset a
+        INNER JOIN t_asset_venue v ON a.id = v.asset_id
+        LEFT JOIN sys_project p ON a.project_id = p.id
+        LEFT JOIN sys_dict_data ds ON ds.dict_type = 'asset_status' AND ds.dict_value = a.status
+        LEFT JOIN sys_dict_data dvt ON dvt.dict_type = 'venue_type' AND dvt.dict_value = v.venue_type
+        WHERE a.del_flag = '0'
+        AND a.asset_type = 'venue'
+        <if test="projectId != null">
+            AND a.project_id = #{projectId}
+        </if>
+        <if test="building != null and building != ''">
+            AND a.building LIKE CONCAT('%', #{building}, '%')
+        </if>
+        <if test="floor != null and floor != ''">
+            AND a.floor = #{floor}
+        </if>
+        <if test="status != null and status != ''">
+            AND a.status = #{status}
+        </if>
+        <if test="venueType != null and venueType != ''">
+            AND v.venue_type = #{venueType}
+        </if>
+        <if test="venueName != null and venueName != ''">
+            AND v.venue_name LIKE CONCAT('%', #{venueName}, '%')
+        </if>
+        <if test="assetName != null and assetName != ''">
+            AND a.asset_name LIKE CONCAT('%', #{assetName}, '%')
+        </if>
+        <if test="assetCode != null and assetCode != ''">
+            AND a.asset_code LIKE CONCAT('%', #{assetCode}, '%')
+        </if>
+        <if test="bookable != null and bookable != ''">
+            AND v.bookable = #{bookable}
+        </if>
+        <if test="minCapacity != null">
+            AND v.capacity >= #{minCapacity}
+        </if>
+        <if test="maxCapacity != null">
+            AND v.capacity &lt;= #{maxCapacity}
+        </if>
+        <!-- Data scope filtering -->
+        <if test="dataScope != null and dataScope != ''">
+            ${dataScope}
+        </if>
+        ORDER BY a.create_time DESC
+    </select>
+
+    <!-- Query venue asset detail by ID -->
+    <select id="selectAssetVenueById" parameterType="java.lang.Long" resultMap="AssetVenueDetailResult">
+        SELECT
+            a.id,
+            a.asset_code,
+            a.asset_name,
+            a.asset_type,
+            a.project_id,
+            p.project_name,
+            a.building,
+            a.floor,
+            a.room_no,
+            a.location_desc,
+            a.ownership_type,
+            dot.dict_label as ownership_type_label,
+            a.owner_org,
+            a.use_dept_id,
+            d.dept_name as use_dept_name,
+            a.duty_user_id,
+            u.nick_name as duty_user_name,
+            a.status,
+            ds.dict_label as status_label,
+            a.purchase_date,
+            a.start_use_date,
+            a.original_value,
+            a.depreciation_method,
+            ddm.dict_label as depreciation_method_label,
+            a.net_value,
+            a.brand,
+            a.model,
+            a.supplier,
+            a.warranty_expire_date,
+            a.remark,
+            a.create_time,
+            a.update_time,
+            v.venue_name,
+            v.venue_type,
+            dvt.dict_label as venue_type_label,
+            v.area,
+            v.capacity,
+            v.equipment,
+            v.hourly_rate,
+            v.daily_rate,
+            v.bookable,
+            CASE WHEN v.bookable = '1' THEN 'Yes' ELSE 'No' END as bookable_label,
+            v.contact_person,
+            v.contact_phone
+        FROM t_asset a
+        INNER JOIN t_asset_venue v ON a.id = v.asset_id
+        LEFT JOIN sys_project p ON a.project_id = p.id
+        LEFT JOIN sys_dept d ON a.use_dept_id = d.dept_id
+        LEFT JOIN sys_user u ON a.duty_user_id = u.user_id
+        LEFT JOIN sys_dict_data ds ON ds.dict_type = 'asset_status' AND ds.dict_value = a.status
+        LEFT JOIN sys_dict_data dot ON dot.dict_type = 'ownership_type' AND dot.dict_value = a.ownership_type
+        LEFT JOIN sys_dict_data ddm ON ddm.dict_type = 'depreciation_method' AND ddm.dict_value = a.depreciation_method
+        LEFT JOIN sys_dict_data dvt ON dvt.dict_type = 'venue_type' AND dvt.dict_value = v.venue_type
+        WHERE a.id = #{id}
+        AND a.del_flag = '0'
+    </select>
+
+    <!-- Insert venue asset extension -->
+    <insert id="insertAssetVenue" parameterType="com.ruoyi.asset.domain.entity.AssetVenue">
+        INSERT INTO t_asset_venue (
+            asset_id,
+            venue_name,
+            venue_type,
+            area,
+            capacity,
+            equipment,
+            hourly_rate,
+            daily_rate,
+            bookable,
+            contact_person,
+            contact_phone
+        ) VALUES (
+            #{assetId},
+            #{venueName},
+            #{venueType},
+            #{area},
+            #{capacity},
+            #{equipment},
+            #{hourlyRate},
+            #{dailyRate},
+            #{bookable},
+            #{contactPerson},
+            #{contactPhone}
+        )
+    </insert>
+
+    <!-- Update venue asset extension -->
+    <update id="updateAssetVenue" parameterType="com.ruoyi.asset.domain.entity.AssetVenue">
+        UPDATE t_asset_venue
+        <set>
+            <if test="venueName != null">venue_name = #{venueName},</if>
+            <if test="venueType != null">venue_type = #{venueType},</if>
+            <if test="area != null">area = #{area},</if>
+            <if test="capacity != null">capacity = #{capacity},</if>
+            <if test="equipment != null">equipment = #{equipment},</if>
+            <if test="hourlyRate != null">hourly_rate = #{hourlyRate},</if>
+            <if test="dailyRate != null">daily_rate = #{dailyRate},</if>
+            <if test="bookable != null">bookable = #{bookable},</if>
+            <if test="contactPerson != null">contact_person = #{contactPerson},</if>
+            <if test="contactPhone != null">contact_phone = #{contactPhone},</if>
+        </set>
+        WHERE asset_id = #{assetId}
+    </update>
+
+    <!-- Delete venue asset extension by ID -->
+    <delete id="deleteAssetVenueById" parameterType="java.lang.Long">
+        DELETE FROM t_asset_venue WHERE asset_id = #{id}
+    </delete>
+
+    <!-- Batch delete venue asset extensions -->
+    <delete id="deleteAssetVenueByIds" parameterType="java.lang.Long">
+        DELETE FROM t_asset_venue WHERE asset_id IN
+        <foreach item="id" collection="ids" open="(" separator="," close=")">
+            #{id}
+        </foreach>
+    </delete>
+
+    <!-- Query venue asset statistics -->
+    <select id="selectVenueStatistics" resultType="com.ruoyi.asset.domain.vo.VenueStatisticsVO">
+        SELECT
+            COUNT(*) as totalCount,
+            SUM(CASE WHEN a.status = 'in_use' THEN 1 ELSE 0 END) as inUseCount,
+            SUM(CASE WHEN a.status = 'idle' THEN 1 ELSE 0 END) as idleCount,
+            SUM(CASE WHEN a.status = 'maintaining' THEN 1 ELSE 0 END) as maintainingCount,
+            SUM(CASE WHEN v.bookable = '1' THEN 1 ELSE 0 END) as bookableCount,
+            SUM(CASE WHEN v.bookable != '1' OR v.bookable IS NULL THEN 1 ELSE 0 END) as nonBookableCount,
+            COALESCE(SUM(v.capacity), 0) as totalCapacity,
+            COALESCE(AVG(v.capacity), 0) as avgCapacity,
+            COALESCE(SUM(v.area), 0) as totalArea,
+            SUM(CASE WHEN v.venue_type = 'meeting_room' THEN 1 ELSE 0 END) as meetingRoomCount,
+            SUM(CASE WHEN v.venue_type = 'conference_hall' THEN 1 ELSE 0 END) as conferenceHallCount,
+            SUM(CASE WHEN v.venue_type = 'training_room' THEN 1 ELSE 0 END) as trainingRoomCount,
+            SUM(CASE WHEN v.venue_type = 'multipurpose' THEN 1 ELSE 0 END) as multipurposeCount,
+            SUM(CASE WHEN v.venue_type NOT IN ('meeting_room', 'conference_hall', 'training_room', 'multipurpose') OR v.venue_type IS NULL THEN 1 ELSE 0 END) as otherCount
+        FROM t_asset a
+        INNER JOIN t_asset_venue v ON a.id = v.asset_id
+        WHERE a.del_flag = '0'
+        AND a.asset_type = 'venue'
+        <if test="projectId != null">
+            AND a.project_id = #{projectId}
+        </if>
+        <if test="venueType != null and venueType != ''">
+            AND v.venue_type = #{venueType}
+        </if>
+    </select>
+
+</mapper>

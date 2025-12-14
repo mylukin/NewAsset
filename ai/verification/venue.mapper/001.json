@@ -1,0 +1,63 @@
+{
+  "featureId": "venue.mapper",
+  "runNumber": 1,
+  "timestamp": "2025-12-14T13:11:15.147Z",
+  "commitHash": "0107a4c5363cf438980c9bbc95ff1598dd3e60ac",
+  "changedFiles": [
+    "ai/progress.log",
+    "ai/tasks/index.json",
+    "ai/tasks/venue/01-entity.md",
+    "ai/verification/index.json",
+    "ai/verification/results.json",
+    "ai/verification/venue.entity/001.json",
+    "ai/verification/venue.entity/001.md",
+    "ruoyi-modules/ruoyi-asset/src/main/java/com/ruoyi/asset/domain/dto/AssetVenueCreateDTO.java",
+    "ruoyi-modules/ruoyi-asset/src/main/java/com/ruoyi/asset/domain/dto/AssetVenueUpdateDTO.java",
+    "ruoyi-modules/ruoyi-asset/src/main/java/com/ruoyi/asset/domain/entity/AssetVenue.java",
+    "ruoyi-modules/ruoyi-asset/src/main/java/com/ruoyi/asset/domain/vo/AssetVenueDetailVO.java",
+    "ruoyi-modules/ruoyi-asset/src/main/java/com/ruoyi/asset/domain/vo/AssetVenueListVO.java",
+    "ai/tasks/venue/02-mapper.md"
+  ],
+  "diffSummary": "13 files changed",
+  "automatedChecks": [],
+  "criteriaResults": [
+    {
+      "criterion": "Create `AssetVenueMapper` interface",
+      "index": 0,
+      "satisfied": true,
+      "confidence": 0.8
+    },
+    {
+      "criterion": "Create XML mapper file",
+      "index": 1,
+      "satisfied": true,
+      "confidence": 0.8
+    },
+    {
+      "criterion": "Implement methods:",
+      "index": 2,
+      "satisfied": true,
+      "confidence": 0.8
+    },
+    {
+      "criterion": "Support filters: projectId, venueType, currentVenueStatus, status",
+      "index": 3,
+      "satisfied": true,
+      "confidence": 0.8
+    },
+    {
+      "criterion": "Include data scope filtering",
+      "index": 4,
+      "satisfied": true,
+      "confidence": 0.8
+    },
+    {
+      "criterion": "Join with base asset table",
+      "index": 5,
+      "satisfied": true,
+      "confidence": 0.8
+    }
+  ],
+  "verdict": "pass",
+  "verifiedBy": "strategy-framework"
+}
