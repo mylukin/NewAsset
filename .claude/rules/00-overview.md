@@ -10,7 +10,6 @@ This project uses the **agent-foreman** harness for feature-driven development w
 |------|---------|
 | `ai/tasks/index.json` | Task/feature index with status summary |
 | `ai/tasks/{module}/{id}.md` | Individual task definitions |
-| `ai/feature_list.json` | Legacy feature backlog (auto-migrated) |
 | `ai/progress.log` | Session handoff audit log |
 | `ai/init.sh` | Bootstrap script (install/dev/check) |
 

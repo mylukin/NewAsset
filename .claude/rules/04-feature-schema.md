@@ -96,42 +96,7 @@ Write criteria as testable statements:
 - "API returns 201 status with created resource"
 - "Error message displays when validation fails"
 
-## Legacy JSON Schema
-
-For legacy `ai/feature_list.json`, use this schema:
-
-```json
-{
-  "features": [
-    {
-      "id": "module.task.action",
-      "description": "Human-readable description of the feature",
-      "module": "parent-module-name",
-      "priority": 1,
-      "status": "failing",
-      "acceptance": [
-        "First acceptance criterion",
-        "Second acceptance criterion"
-      ],
-      "dependsOn": ["other.task.id"],
-      "supersedes": [],
-      "tags": ["optional-tag"],
-      "version": 1,
-      "origin": "manual",
-      "notes": "",
-      "testRequirements": {
-        "unit": { "required": false, "pattern": "tests/module/**/*.test.ts" }
-      }
-    }
-  ],
-  "metadata": {
-    "projectGoal": "Project goal description",
-    "createdAt": "2024-01-01T00:00:00.000Z",
-    "updatedAt": "2024-01-01T00:00:00.000Z",
-    "version": "1.0.0"
-  }
-}
-```
+## Field Reference
 
 **Required fields**: `id`, `description`, `module`, `priority`, `status`, `acceptance`, `version`, `origin`
 
