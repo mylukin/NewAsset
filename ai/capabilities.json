@@ -18,7 +18,7 @@
       "TypeScript",
       "Vue.js"
     ],
-    "detectedAt": "2025-12-15T14:04:16.669Z",
+    "detectedAt": "2025-12-15T14:08:30.396Z",
     "testInfo": {
       "available": true,
       "command": "CI=true npx vitest run",
@@ -53,9 +53,6 @@
       "confidence": 0
     }
   },
-  "commitHash": "e499ccd0873346ed8e94b0b962d3d77232381500",
-  "trackedFiles": [
-    "ai/capabilities.json",
-    "ai/tasks/index.json"
-  ]
+  "commitHash": "4cb73c4d92822c53c29f07c5a9a36e10f5212999",
+  "trackedFiles": []
 }

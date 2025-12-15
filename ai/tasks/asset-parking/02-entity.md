@@ -2,8 +2,8 @@
 id: asset-parking.entity
 module: asset-parking
 priority: 302
-status: passing
-version: 4
+status: failing
+version: 1
 origin: spec-workflow
 dependsOn:
   - asset-parking.database-schema
@@ -16,12 +16,37 @@ testRequirements:
   unit:
     required: false
     pattern: tests/asset-parking/**/*.test.*
-verification:
-  verifiedAt: '2025-12-15T14:06:54.739Z'
-  verdict: pass
-  verifiedBy: strategy-framework
-  commitHash: e499ccd0873346ed8e94b0b962d3d77232381500
-  summary: 5/5 criteria satisfied
+tddGuidance:
+  generatedAt: '2025-12-15T14:08:54.774Z'
+  generatedBy: claude
+  forVersion: 1
+  suggestedTestFiles:
+    unit:
+      - tests/asset-parking/entity.test.ts
+    e2e: []
+  unitTestCases:
+    - name: should have AssetParking entity class with required fields
+      assertions:
+        - expect(AssetParking).toBeDefined()
+        - expect(typeof AssetParking.prototype.assetId).not.toBe('undefined')
+    - name: should have AssetParkingMapper interface with CRUD methods
+      assertions:
+        - expect(AssetParkingMapper).toBeDefined()
+        - expect(AssetParkingMapper.selectById).toBeDefined()
+    - name: should have mapper XML file configured correctly
+      assertions:
+        - expect(mapperXmlExists).toBe(true)
+        - expect(mapperNamespace).toContain('AssetParkingMapper')
+    - name: should have AssetParkingDto and AssetParkingVo classes
+      assertions:
+        - expect(AssetParkingDto).toBeDefined()
+        - expect(AssetParkingVo).toBeDefined()
+    - name: should compile entity without type errors
+      assertions:
+        - expect(compileResult.success).toBe(true)
+        - expect(compileResult.errors).toHaveLength(0)
+  e2eScenarios: []
+  frameworkHint: vitest
 ---
 # Create Parking Asset Entity and Mapper
 
