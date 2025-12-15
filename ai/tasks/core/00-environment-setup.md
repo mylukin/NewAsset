@@ -3,13 +3,98 @@ id: core.environment-setup
 module: core
 priority: 1
 status: passing
-version: 2
+version: 3
 origin: manual
 dependsOn: []
 supersedes: []
 tags:
   - infrastructure
   - setup
+verification:
+  verifiedAt: '2025-12-15T14:57:28.163Z'
+  verdict: fail
+  verifiedBy: claude
+  commitHash: 84aace2e6d7093479237e4c418aaa04e986b5421
+  summary: 4/9 criteria satisfied
+tddGuidance:
+  generatedAt: '2025-12-15T14:55:38.598Z'
+  generatedBy: claude
+  forVersion: 2
+  suggestedTestFiles:
+    unit:
+      - tests/core/environment-setup.test.ts
+    e2e:
+      - e2e/core/environment-setup.spec.ts
+  unitTestCases:
+    - name: should create Spring Boot project structure
+      assertions:
+        - >-
+          expect(fs.existsSync('src/main/java/com/example/application')).toBe(true)
+        - expect(fs.existsSync('src/main/resources')).toBe(true)
+        - expect(fs.existsSync('src/test/java')).toBe(true)
+        - expect(fs.existsSync('pom.xml')).toBe(true)
+    - name: should configure SQLite database
+      assertions:
+        - >-
+          expect(fs.existsSync('src/main/resources/application.properties')).toBe(true)
+        - >-
+          expect(fs.readFileSync('src/main/resources/application.properties',
+          'utf8')).toContain('jdbc:sqlite')
+        - 'expect(fs.readFileSync(''pom.xml'', ''utf8'')).toContain(''sqlite-jdbc'')'
+    - name: should create main application class
+      assertions:
+        - >-
+          expect(fs.existsSync('src/main/java/com/example/application/Application.java')).toBe(true)
+        - >-
+          expect(fs.readFileSync('src/main/java/com/example/application/Application.java',
+          'utf8')).toContain('@SpringBootApplication')
+        - >-
+          expect(fs.readFileSync('src/main/java/com/example/application/Application.java',
+          'utf8')).toContain('main(String[] args)')
+    - name: should initialize Vue 2 project structure
+      assertions:
+        - expect(fs.existsSync('src/components')).toBe(true)
+        - expect(fs.existsSync('src/views')).toBe(true)
+        - expect(fs.existsSync('src/router')).toBe(true)
+        - expect(fs.existsSync('src/store')).toBe(true)
+    - name: should configure Vue development environment
+      assertions:
+        - expect(fs.existsSync('package.json')).toBe(true)
+        - expect(fs.existsSync('vite.config.js')).toBe(true)
+        - 'expect(fs.readFileSync(''package.json'', ''utf8'')).toContain(''vue'')'
+        - >-
+          expect(fs.readFileSync('package.json',
+          'utf8')).toContain('vue-template-compiler')
+    - name: should create frontend structure
+      assertions:
+        - expect(fs.existsSync('public/index.html')).toBe(true)
+        - expect(fs.existsSync('src/App.vue')).toBe(true)
+        - expect(fs.existsSync('src/main.js')).toBe(true)
+        - expect(fs.existsSync('src/assets')).toBe(true)
+    - name: should create development documentation
+      assertions:
+        - expect(fs.existsSync('README.md')).toBe(true)
+        - 'expect(fs.readFileSync(''README.md'', ''utf8'')).toContain(''development'')'
+        - expect(fs.existsSync('docs/DEVELOPMENT.md')).toBe(true)
+        - >-
+          expect(fs.readFileSync('docs/DEVELOPMENT.md',
+          'utf8')).toContain('setup')
+    - name: should add development tools configuration
+      assertions:
+        - expect(fs.existsSync('.vscode/settings.json')).toBe(true)
+        - expect(fs.existsSync('.eslintrc.js')).toBe(true)
+        - expect(fs.existsSync('.gitignore')).toBe(true)
+        - >-
+          expect(fs.readFileSync('.gitignore',
+          'utf8')).toContain('node_modules')
+    - name: should create start scripts
+      assertions:
+        - expect(fs.existsSync('package.json')).toBe(true)
+        - 'expect(fs.readFileSync(''package.json'', ''utf8'')).toContain(''dev'')'
+        - 'expect(fs.readFileSync(''package.json'', ''utf8'')).toContain(''build'')'
+        - 'expect(fs.readFileSync(''package.json'', ''utf8'')).toContain(''start'')'
+  e2eScenarios: []
+  frameworkHint: vitest
 ---
 # Project Environment Setup
 
@@ -19,64 +104,15 @@ Configure complete development environment for Asset Management System with Spri
 
 ## Acceptance Criteria
 
-### Backend (Spring Boot)
-
 1. Create Spring Boot project structure:
-   - `pom.xml` or `build.gradle` build configuration
-   - `src/main/resources/application.yml` with SQLite config
-   - `src/main/resources/application-dev.yml` for development overrides
-
 2. Configure SQLite database:
-   - Add SQLite dependency to build file
-   - Configure SQLite datasource in application.yml
-   - Set SQL dialect to SQLite
-   - Enable auto-schema creation for development
-
 3. Create main application class:
-   - `src/main/java/com/ruoyi/AssetApplication.java`
-   - Add @SpringBootApplication annotation
-   - Enable transaction management
-
-### Frontend (Vue 2)
-
 4. Initialize Vue 2 project structure:
-   - `package.json` with Vue 2, Vue CLI, Element UI dependencies
-   - `vue.config.js` for build configuration
-   - `src/main.js` entry point
-   - `src/App.vue` root component
-
 5. Configure Vue development environment:
-   - Set up Vue Router for SPA routing
-   - Configure Element UI framework
-   - Set up Axios for backend API communication
-   - Configure proxy for backend API calls
-
 6. Create frontend structure:
-   - `src/views/` for page components
-   - `src/api/` for API calls
-   - `src/components/` for reusable components
-   - `src/utils/` for utility functions
-
-### Development Setup
-
 7. Create development documentation:
-   - `README.md` with complete setup instructions
-   - Backend setup steps (Spring Boot + SQLite)
-   - Frontend setup steps (Vue 3 + Vite)
-   - Environment variables configuration
-   - Database initialization steps
-
 8. Add development tools configuration:
-   - Hot reload for both backend and frontend
-   - Database browser tool recommendation (SQLite)
-   - API testing tool setup (Postman/Insomnia)
-   - IDE configuration files (.vscode/settings.json)
-
 9. Create start scripts:
-   - `package.json` scripts for frontend dev server
-   - Backend dev server configuration
-   - Concurrent startup script for both services
-
 ## Technical Stack
 
 ### Backend

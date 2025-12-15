@@ -1,0 +1,89 @@
+{
+  "featureId": "core.environment-setup",
+  "runNumber": 1,
+  "timestamp": "2025-12-15T14:57:28.163Z",
+  "commitHash": "84aace2e6d7093479237e4c418aaa04e986b5421",
+  "changedFiles": [
+    "ai/tasks/index.json",
+    "node_modules/.vite/vitest/da39a3ee5e6b4b0d3255bfef95601890afd80709/results.json",
+    "ai/capabilities.json",
+    "ai/tasks/asset-parking/06-frontend-list.md",
+    "ai/tasks/core/00-environment-setup.md"
+  ],
+  "diffSummary": "5 files changed",
+  "automatedChecks": [
+    {
+      "type": "test",
+      "success": false,
+      "duration": 1075
+    },
+    {
+      "type": "lint",
+      "success": false,
+      "duration": 111
+    },
+    {
+      "type": "build",
+      "success": false,
+      "duration": 106
+    }
+  ],
+  "criteriaResults": [
+    {
+      "criterion": "Create Spring Boot project structure:",
+      "index": 0,
+      "satisfied": true,
+      "confidence": 0.95
+    },
+    {
+      "criterion": "Configure SQLite database:",
+      "index": 1,
+      "satisfied": true,
+      "confidence": 0.98
+    },
+    {
+      "criterion": "Create main application class:",
+      "index": 2,
+      "satisfied": true,
+      "confidence": 0.98
+    },
+    {
+      "criterion": "Initialize Vue 2 project structure:",
+      "index": 3,
+      "satisfied": true,
+      "confidence": 0.9
+    },
+    {
+      "criterion": "Configure Vue development environment:",
+      "index": 4,
+      "satisfied": false,
+      "confidence": 0.85
+    },
+    {
+      "criterion": "Create frontend structure:",
+      "index": 5,
+      "satisfied": false,
+      "confidence": 0.9
+    },
+    {
+      "criterion": "Create development documentation:",
+      "index": 6,
+      "satisfied": false,
+      "confidence": 0.85
+    },
+    {
+      "criterion": "Add development tools configuration:",
+      "index": 7,
+      "satisfied": false,
+      "confidence": 0.8
+    },
+    {
+      "criterion": "Create start scripts:",
+      "index": 8,
+      "satisfied": false,
+      "confidence": 0.95
+    }
+  ],
+  "verdict": "fail",
+  "verifiedBy": "claude"
+}
