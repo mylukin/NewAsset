@@ -2,8 +2,8 @@
 id: core.attachment-service
 module: core
 priority: 107
-status: failing
-version: 3
+status: passing
+version: 4
 origin: spec-workflow
 dependsOn:
   - core.database-schema
