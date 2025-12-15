@@ -2,8 +2,8 @@
 id: asset-parking.statistics
 module: asset-parking
 priority: 305
-status: failing
-version: 4
+status: passing
+version: 5
 origin: spec-workflow
 dependsOn:
   - asset-parking.service
