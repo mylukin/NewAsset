@@ -6,18 +6,18 @@
     "testFramework": "vitest",
     "hasTypeCheck": true,
     "typeCheckCommand": "tsc --noEmit",
-    "hasLint": false,
-    "lintCommand": "",
+    "hasLint": true,
+    "lintCommand": "cd /Users/lukin/Projects/AssetBoard/frontend && npm run lint",
     "hasBuild": true,
-    "buildCommand": "mvn clean package -DskipTests",
+    "buildCommand": "cd /Users/lukin/Projects/AssetBoard/backend && mvn clean package -DskipTests",
     "hasGit": true,
     "source": "ai-discovered",
-    "confidence": 0.8666666666666666,
+    "confidence": 0.9,
     "languages": [
       "Java",
       "TypeScript"
     ],
-    "detectedAt": "2025-12-15T13:21:51.056Z",
+    "detectedAt": "2025-12-15T13:23:17.800Z",
     "testInfo": {
       "available": true,
       "command": "npx vitest run",
@@ -28,13 +28,13 @@
       "packageManager": "npm"
     },
     "e2eInfo": {
-      "available": false,
-      "command": "",
-      "framework": "",
-      "confidence": 0,
-      "configFile": "",
-      "grepTemplate": "",
-      "fileTemplate": ""
+      "available": true,
+      "command": "cd /Users/lukin/Projects/AssetBoard/tests/e2e && npm test",
+      "framework": "playwright",
+      "confidence": 0.95,
+      "configFile": "/Users/lukin/Projects/AssetBoard/tests/e2e/playwright.config.ts",
+      "grepTemplate": "npm test --grep {tags}",
+      "fileTemplate": "npm test {files}"
     },
     "typeCheckInfo": {
       "available": true,
@@ -42,13 +42,13 @@
       "confidence": 0.7
     },
     "lintInfo": {
-      "available": false,
-      "command": "",
-      "confidence": 0
+      "available": true,
+      "command": "cd /Users/lukin/Projects/AssetBoard/frontend && npm run lint",
+      "confidence": 0.95
     },
     "buildInfo": {
       "available": true,
-      "command": "mvn clean package -DskipTests",
+      "command": "cd /Users/lukin/Projects/AssetBoard/backend && mvn clean package -DskipTests",
       "confidence": 0.95
     },
     "customRules": [
@@ -63,12 +63,29 @@
         "description": "Build Java project including tests",
         "command": "cd /Users/lukin/Projects/AssetBoard/backend && mvn clean package",
         "type": "build"
+      },
+      {
+        "id": "frontend.build",
+        "description": "Build Vue.js frontend application",
+        "command": "cd /Users/lukin/Projects/AssetBoard/frontend && npm run build",
+        "type": "build"
+      },
+      {
+        "id": "frontend.lint",
+        "description": "Lint Vue.js frontend code",
+        "command": "cd /Users/lukin/Projects/AssetBoard/frontend && npm run lint",
+        "type": "lint"
       }
     ]
   },
-  "commitHash": "56b7a4a56ae76059e6a3d073e43b0cf556d37075",
+  "commitHash": "4040f03d9991867592ef4c72804b18047a0c44cc",
   "trackedFiles": [
+    "/Users/lukin/Projects/NewAsset/ai/capabilities.json",
     "/Users/lukin/Projects/AssetBoard/backend/pom.xml",
-    "/Users/lukin/Projects/NewAsset/ai/capabilities.json"
+    "/Users/lukin/Projects/AssetBoard/frontend/package.json",
+    "/Users/lukin/Projects/AssetBoard/frontend/vue.config.js",
+    "/Users/lukin/Projects/AssetBoard/frontend/babel.config.js",
+    "/Users/lukin/Projects/AssetBoard/tests/e2e/package.json",
+    "/Users/lukin/Projects/AssetBoard/tests/e2e/playwright.config.ts"
   ]
 }

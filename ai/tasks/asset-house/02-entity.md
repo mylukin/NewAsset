@@ -2,8 +2,8 @@
 id: asset-house.entity
 module: asset-house
 priority: 202
-status: passing
-version: 4
+status: failing
+version: 2
 origin: spec-workflow
 dependsOn:
   - asset-house.database-schema
@@ -17,43 +17,53 @@ testRequirements:
     required: false
     pattern: tests/asset-house/**/*.test.*
 verification:
-  verifiedAt: '2025-12-15T13:21:52.313Z'
+  verifiedAt: '2025-12-15T13:17:38.810Z'
   verdict: pass
   verifiedBy: strategy-framework
   commitHash: 23156e39a4a994a0c0424979f863efbb45a8a297
   summary: 5/5 criteria satisfied
 tddGuidance:
-  generatedAt: '2025-12-15T13:13:51.709Z'
+  generatedAt: '2025-12-15T13:23:32.220Z'
   generatedBy: claude
-  forVersion: 1
+  forVersion: 2
   suggestedTestFiles:
     unit:
       - tests/asset-house/entity.test.ts
-    e2e: []
+    e2e:
+      - e2e/asset-house/entity.spec.ts
   unitTestCases:
-    - name: should create AssetHouse entity with expected fields
+    - name: should create AssetHouse entity with required properties
       assertions:
         - expect(AssetHouse).toBeDefined()
-        - expect(new AssetHouse()).toBeInstanceOf(Object)
+        - expect(new AssetHouse()).toHaveProperty('id')
+        - expect(new AssetHouse()).toHaveProperty('houseName')
+        - expect(new AssetHouse()).toHaveProperty('address')
     - name: should create AssetHouseMapper interface with required methods
       assertions:
         - expect(AssetHouseMapper).toBeDefined()
         - expect(typeof AssetHouseMapper.selectByPrimaryKey).toBe('function')
-    - name: should create mapper XML file with proper SQL statements
+        - expect(typeof AssetHouseMapper.insert).toBe('function')
+        - expect(typeof AssetHouseMapper.updateByPrimaryKey).toBe('function')
+    - name: should create DTO and VO classes for data transfer
       assertions:
-        - expect(mapperXmlContent).toContain('<mapper')
-        - expect(mapperXmlContent).toContain('select')
-        - expect(mapperXmlContent).toContain('resultMap')
-    - name: should create DTO and VO classes
-      assertions:
-        - expect(AssetHouseCreateDTO).toBeDefined()
-        - expect(AssetHouseUpdateDTO).toBeDefined()
+        - expect(AssetHouseDTO).toBeDefined()
         - expect(AssetHouseVO).toBeDefined()
+        - expect(new AssetHouseDTO()).toHaveProperty('houseName')
+        - expect(new AssetHouseVO()).toHaveProperty('displayName')
     - name: should compile without errors
       assertions:
-        - expect(buildResult.success).toBe(true)
-        - expect(buildResult.errors).toHaveLength(0)
-  e2eScenarios: []
+        - >-
+          expect(() =>
+          require/com.ruoyi.asset.domain.entity.AssetHouse).not.toThrow()
+        - >-
+          expect(() =>
+          require/com.ruoyi.asset.mapper.AssetHouseMapper).not.toThrow()
+  e2eScenarios:
+    - name: asset house entity can be accessed via API
+      steps:
+        - navigate to /api/asset/house
+        - verify response contains asset house data
+        - verify data structure matches entity definition
   frameworkHint: vitest
 ---
 # Create House Asset Entity and Mapper
