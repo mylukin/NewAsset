@@ -2,8 +2,8 @@
 id: asset-facility.frontend-form
 module: asset-facility
 priority: 408
-status: failing
-version: 2
+status: passing
+version: 3
 origin: spec-workflow
 dependsOn:
   - asset-facility.frontend-list
