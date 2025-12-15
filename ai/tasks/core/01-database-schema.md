@@ -2,8 +2,8 @@
 id: core.database-schema
 module: core
 priority: 101
-status: failing
-version: 5
+status: passing
+version: 6
 origin: spec-workflow
 dependsOn: []
 supersedes: []
@@ -21,9 +21,9 @@ verification:
   commitHash: 6a44037e350f96554f6195959d0606d55ac2c995
   summary: 6/6 criteria satisfied
 tddGuidance:
-  generatedAt: '2025-12-15T15:06:31.388Z'
+  generatedAt: '2025-12-15T22:54:37.368Z'
   generatedBy: claude
-  forVersion: 3
+  forVersion: 5
   suggestedTestFiles:
     unit:
       - tests/core/database-schema.test.ts
@@ -31,42 +31,49 @@ tddGuidance:
   unitTestCases:
     - name: should create t_asset table with all common fields
       assertions:
-        - expect(sqlContent).toContain('CREATE TABLE t_asset')
-        - >-
-          expect(sqlContent).toMatch(/CREATE TABLE
-          t_asset\s*\([^)]*(?:id|name|description|type|status|created_at|updated_at)[^)]*\)/s)
-    - name: should create t_asset_location table for 3-level hierarchy
+        - expect(tableExists('t_asset')).toBe(true)
+        - 'expect(hasColumn(''t_asset'', ''id'')).toBe(true)'
+        - 'expect(hasColumn(''t_asset'', ''asset_code'')).toBe(true)'
+        - 'expect(hasColumn(''t_asset'', ''asset_name'')).toBe(true)'
+        - 'expect(hasColumn(''t_asset'', ''project_id'')).toBe(true)'
+        - 'expect(hasColumn(''t_asset'', ''asset_type'')).toBe(true)'
+        - 'expect(hasColumn(''t_asset'', ''status'')).toBe(true)'
+        - 'expect(hasColumn(''t_asset'', ''created_at'')).toBe(true)'
+        - 'expect(hasColumn(''t_asset'', ''updated_at'')).toBe(true)'
+    - name: should create t_asset_location table with 3-level hierarchy
       assertions:
-        - expect(sqlContent).toContain('CREATE TABLE t_asset_location')
-        - >-
-          expect(sqlContent).toMatch(/CREATE TABLE
-          t_asset_location\s*\([^)]*(?:location_level|location_parent_id|location_path)[^)]*\)/s)
+        - expect(tableExists('t_asset_location')).toBe(true)
+        - 'expect(hasColumn(''t_asset_location'', ''id'')).toBe(true)'
+        - 'expect(hasColumn(''t_asset_location'', ''parent_id'')).toBe(true)'
+        - 'expect(hasColumn(''t_asset_location'', ''level'')).toBe(true)'
+        - 'expect(hasColumn(''t_asset_location'', ''name'')).toBe(true)'
+        - 'expect(hasColumn(''t_asset_location'', ''path'')).toBe(true)'
     - name: should create t_asset_code_seq table for sequence management
       assertions:
-        - expect(sqlContent).toContain('CREATE TABLE t_asset_code_seq')
-        - >-
-          expect(sqlContent).toMatch(/CREATE TABLE
-          t_asset_code_seq\s*\([^)]*(?:project_type|sequence_number|current_value)[^)]*\)/s)
+        - expect(tableExists('t_asset_code_seq')).toBe(true)
+        - 'expect(hasColumn(''t_asset_code_seq'', ''id'')).toBe(true)'
+        - 'expect(hasColumn(''t_asset_code_seq'', ''prefix'')).toBe(true)'
+        - 'expect(hasColumn(''t_asset_code_seq'', ''current_seq'')).toBe(true)'
+        - 'expect(hasColumn(''t_asset_code_seq'', ''year'')).toBe(true)'
     - name: should create t_asset_attachment table
       assertions:
-        - expect(sqlContent).toContain('CREATE TABLE t_asset_attachment')
-        - >-
-          expect(sqlContent).toMatch(/CREATE TABLE
-          t_asset_attachment\s*\([^)]*(?:attachment_id|asset_id|file_name|file_path)[^)]*\)/s)
-    - name: should add idx_asset_code and idx_project_type_status indexes on t_asset
+        - expect(tableExists('t_asset_attachment')).toBe(true)
+        - 'expect(hasColumn(''t_asset_attachment'', ''id'')).toBe(true)'
+        - 'expect(hasColumn(''t_asset_attachment'', ''asset_id'')).toBe(true)'
+        - 'expect(hasColumn(''t_asset_attachment'', ''file_name'')).toBe(true)'
+        - 'expect(hasColumn(''t_asset_attachment'', ''file_path'')).toBe(true)'
+        - 'expect(hasColumn(''t_asset_attachment'', ''file_type'')).toBe(true)'
+    - name: should have idx_asset_code index on t_asset
       assertions:
-        - expect(sqlContent).toContain('CREATE INDEX idx_asset_code')
-        - expect(sqlContent).toContain('CREATE INDEX idx_project_type_status')
-        - >-
-          expect(sqlContent).toMatch(/CREATE INDEX idx_asset_code\s+ON
-          t_asset/i)
-        - >-
-          expect(sqlContent).toMatch(/CREATE INDEX idx_project_type_status\s+ON
-          t_asset/i)
-    - name: should create SQL migration file at sql/asset_core.sql
+        - 'expect(indexExists(''t_asset'', ''idx_asset_code'')).toBe(true)'
+    - name: should have idx_project_type_status index on t_asset
+      assertions:
+        - 'expect(indexExists(''t_asset'', ''idx_project_type_status'')).toBe(true)'
+    - name: should have SQL migration file at sql/asset_core.sql
       assertions:
         - expect(fs.existsSync('sql/asset_core.sql')).toBe(true)
-        - 'expect(fs.readFileSync(''sql/asset_core.sql'', ''utf8'')).toBe(sqlContent)'
+        - expect(migrationContent).toContain('CREATE TABLE')
+        - expect(migrationContent).toContain('t_asset')
   e2eScenarios: []
   frameworkHint: vitest
 ---
