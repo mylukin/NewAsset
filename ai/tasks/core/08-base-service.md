@@ -2,8 +2,8 @@
 id: core.base-service
 module: core
 priority: 108
-status: failing
-version: 3
+status: passing
+version: 4
 origin: spec-workflow
 dependsOn:
   - core.asset-entity
