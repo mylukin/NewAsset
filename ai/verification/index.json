@@ -98,8 +98,17 @@
       "totalRuns": 1,
       "passCount": 1,
       "failCount": 0
+    },
+    "core.status-enum": {
+      "featureId": "core.status-enum",
+      "latestRun": 1,
+      "latestTimestamp": "2025-12-15T12:14:24.063Z",
+      "latestVerdict": "fail",
+      "totalRuns": 1,
+      "passCount": 0,
+      "failCount": 1
     }
   },
-  "updatedAt": "2025-12-15T12:05:25.104Z",
+  "updatedAt": "2025-12-15T12:14:24.066Z",
   "version": "2.0.0"
 }
