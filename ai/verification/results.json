@@ -1169,25 +1169,22 @@
     },
     "core.status-enum": {
       "featureId": "core.status-enum",
-      "timestamp": "2025-12-15T12:21:07.338Z",
-      "commitHash": "935327b8ce8950c9f34067c8d846e00c5b4b3442",
+      "timestamp": "2025-12-15T15:11:41.595Z",
+      "commitHash": "25e3bd2767b2def5150864cf232816e2f219039a",
       "changedFiles": [
         "ai/capabilities.json",
         "ai/progress.log",
-        "ai/tasks/core/02-asset-entity.md",
+        "ai/tasks/core/00-environment-setup.md",
+        "ai/tasks/core/03-status-enum.md",
         "ai/tasks/index.json",
-        "ai/verification/core.asset-entity/001.json",
-        "ai/verification/core.asset-entity/001.md",
+        "ai/verification/core.environment-setup/003.json",
+        "ai/verification/core.environment-setup/003.md",
         "ai/verification/index.json",
         "ai/verification/results.json",
-        "src/main/java/com/ruoyi/asset/domain/entity/Asset.java",
-        "src/main/java/com/ruoyi/asset/domain/vo/AssetDTO.java",
-        "src/main/java/com/ruoyi/asset/domain/vo/AssetVO.java",
-        "src/main/java/com/ruoyi/asset/mapper/AssetMapper.java",
-        "src/main/resources/mapper/asset/AssetMapper.xml",
-        "ai/tasks/core/03-status-enum.md"
+        "src/main/java/com/ruoyi/asset/domain/enums/AssetStatusEnum.java",
+        "src/test/java/com/ruoyi/asset/domain/enums/AssetStatusEnumTransitionTest.java"
       ],
-      "diffSummary": "14 files changed",
+      "diffSummary": "11 files changed",
       "automatedChecks": [],
       "criteriaResults": [
         {
@@ -1232,18 +1229,15 @@
       "relatedFilesAnalyzed": [
         "ai/capabilities.json",
         "ai/progress.log",
-        "ai/tasks/core/02-asset-entity.md",
+        "ai/tasks/core/00-environment-setup.md",
+        "ai/tasks/core/03-status-enum.md",
         "ai/tasks/index.json",
-        "ai/verification/core.asset-entity/001.json",
-        "ai/verification/core.asset-entity/001.md",
+        "ai/verification/core.environment-setup/003.json",
+        "ai/verification/core.environment-setup/003.md",
         "ai/verification/index.json",
         "ai/verification/results.json",
-        "src/main/java/com/ruoyi/asset/domain/entity/Asset.java",
-        "src/main/java/com/ruoyi/asset/domain/vo/AssetDTO.java",
-        "src/main/java/com/ruoyi/asset/domain/vo/AssetVO.java",
-        "src/main/java/com/ruoyi/asset/mapper/AssetMapper.java",
-        "src/main/resources/mapper/asset/AssetMapper.xml",
-        "ai/tasks/core/03-status-enum.md"
+        "src/main/java/com/ruoyi/asset/domain/enums/AssetStatusEnum.java",
+        "src/test/java/com/ruoyi/asset/domain/enums/AssetStatusEnumTransitionTest.java"
       ],
       "strategyResults": [
         {
@@ -1251,7 +1245,7 @@
           "required": true,
           "success": false,
           "output": "\n\u001b[1m\u001b[46m RUN \u001b[49m\u001b[22m \u001b[36mv4.0.15 \u001b[39m\u001b[90m/Users/lukin/Projects/NewAsset\u001b[39m\n\n\u001b[31mNo test files found, exiting with code 1\n\u001b[39m\n\u001b[2mfilter: \u001b[22m\u001b[33mtests/core/**/*.test.*\u001b[39m\n\u001b[2minclude: \u001b[22m\u001b[33m**/*.{test,spec}.?(c|m)[jt]s?(x)\u001b[39m\n\u001b[2mexclude:  \u001b[22m\u001b[33m**/node_modules/**\u001b[2m, \u001b[22m**/.git/**\u001b[39m\n\n",
-          "duration": 599455
+          "duration": 1098
         }
       ]
     },
@@ -2671,6 +2665,6 @@
       ]
     }
   },
-  "updatedAt": "2025-12-15T15:11:23.563Z",
+  "updatedAt": "2025-12-15T15:11:41.597Z",
   "version": "1.0.0"
 }

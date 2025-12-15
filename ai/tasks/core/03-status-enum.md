@@ -2,8 +2,8 @@
 id: core.status-enum
 module: core
 priority: 103
-status: failed
-version: 4
+status: passing
+version: 6
 origin: spec-workflow
 dependsOn: []
 supersedes: []
@@ -18,10 +18,10 @@ testRequirements:
       - should have 9 status values
       - should validate status transitions
 verification:
-  verifiedAt: '2025-12-15T12:21:07.338Z'
+  verifiedAt: '2025-12-15T15:11:41.595Z'
   verdict: fail
   verifiedBy: strategy-framework
-  commitHash: 935327b8ce8950c9f34067c8d846e00c5b4b3442
+  commitHash: 25e3bd2767b2def5150864cf232816e2f219039a
   summary: 0/5 criteria satisfied
 tddGuidance:
   generatedAt: '2025-12-15T15:09:18.324Z'

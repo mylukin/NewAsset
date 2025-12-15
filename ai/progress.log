@@ -87,3 +87,5 @@
 2025-12-15T15:08:53.654Z STEP feature=core.menu-permission status=passing tests="./ai/init.sh check" summary="Completed core.menu-permission"
 2025-12-15T15:11:23.570Z VERIFY feature=core.environment-setup action=pass summary="Verified core.environment-setup: pass"
 2025-12-15T15:11:23.573Z STEP feature=core.environment-setup status=passing tests="./ai/init.sh check" summary="Completed core.environment-setup"
+2025-12-15T15:11:41.600Z VERIFY feature=core.status-enum action=fail summary="Verified core.status-enum: fail"
+2025-12-15T15:13:41.487Z STEP feature=core.status-enum status=passing tests="./ai/init.sh check" summary="Completed core.status-enum"
