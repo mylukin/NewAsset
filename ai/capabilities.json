@@ -1,36 +1,57 @@
 {
   "version": "1.0.0",
   "capabilities": {
-    "hasTests": false,
+    "hasTests": true,
+    "testCommand": "npx vitest run",
+    "testFramework": "vitest",
     "hasTypeCheck": false,
+    "typeCheckCommand": "",
     "hasLint": false,
+    "lintCommand": "",
     "hasBuild": false,
-    "hasGit": false,
+    "buildCommand": "",
+    "hasGit": true,
     "source": "ai-discovered",
-    "confidence": 0,
-    "languages": [],
-    "detectedAt": "2025-12-15T12:31:43.556Z",
+    "confidence": 0.95,
+    "languages": [
+      "Java",
+      "TypeScript"
+    ],
+    "detectedAt": "2025-12-15T13:04:55.499Z",
     "testInfo": {
-      "available": false,
-      "confidence": 0
+      "available": true,
+      "command": "npx vitest run",
+      "framework": "vitest",
+      "confidence": 0.95,
+      "selectiveFileTemplate": "npx vitest run {files}",
+      "selectiveNameTemplate": "npx vitest run -t \"{pattern}\"",
+      "packageManager": "none"
     },
     "e2eInfo": {
       "available": false,
-      "confidence": 0
+      "command": "",
+      "framework": "",
+      "confidence": 0,
+      "configFile": "",
+      "grepTemplate": "",
+      "fileTemplate": ""
     },
     "typeCheckInfo": {
       "available": false,
+      "command": "",
       "confidence": 0
     },
     "lintInfo": {
       "available": false,
+      "command": "",
       "confidence": 0
     },
     "buildInfo": {
       "available": false,
+      "command": "",
       "confidence": 0
     }
   },
-  "commitHash": "7ae38751cecd1eb5f1e3ea1888676f6b27764c13",
+  "commitHash": "e42939eea8649cc9be422a0171116d5f686c5107",
   "trackedFiles": []
 }

@@ -38,3 +38,5 @@
 2025-12-15T12:32:22.232Z VERIFY feature=core.location-controller action=fail summary="Marked core.location-controller as failed: Implementation complete - AssetLocationController with tree, create, update, delete endpoints and DTOs"
 2025-12-15T12:33:17.466Z VERIFY feature=core.attachment-controller action=fail summary="Marked core.attachment-controller as failed: Implementation complete - AssetAttachmentController with upload, list, delete, download endpoints"
 2025-12-15T12:34:53.831Z VERIFY feature=core.dictionaries action=fail summary="Marked core.dictionaries as failed: Implementation complete - Created sql/asset_dict.sql with all required dictionaries and color-coded status badges"
+2025-12-15T13:05:04.289Z VERIFY feature=core.menu-permission action=pass summary="Verified core.menu-permission: pass"
+2025-12-15T13:05:04.295Z STEP feature=core.menu-permission status=passing tests="./ai/init.sh check" summary="Completed core.menu-permission"
