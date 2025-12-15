@@ -2,7 +2,7 @@
 id: core.environment-setup
 module: core
 priority: 1
-status: failing
+status: passing
 version: 2
 origin: manual
 dependsOn: []
