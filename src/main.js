@@ -54,10 +54,9 @@ axios.interceptors.response.use(
 
 Vue.use(VueAxios, axios);
 Vue.use(ElementUI);
-Vue.use(Cookies);
 
-// Global properties
-Vue.prototype.$http = axios;
+// Make Cookies available globally (js-cookie is not a Vue plugin)
+Vue.prototype.$cookies = Cookies;
 
 new Vue({
   router,

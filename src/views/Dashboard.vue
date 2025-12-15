@@ -88,8 +88,8 @@
           <div slot="header">
             <span>Quick Actions</span>
           </div>
-          <div class            <el-button type="primary"="quick-actions">
- icon="el-icon-plus" @click="$router.push('/asset/house')">
+          <div class="quick-actions">
+            <el-button type="primary" icon="el-icon-plus" @click="$router.push('/asset/house')">
               Add House Asset
             </el-button>
             <el-button type="success" icon="el-icon-plus" @click="$router.push('/asset/parking')">

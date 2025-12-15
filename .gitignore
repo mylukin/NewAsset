@@ -74,3 +74,9 @@ coverage/
 *.pid
 *.seed
 *.pid.lock
+
+# Playwright
+/test-results/
+/playwright-report/
+/playwright/.auth/
+

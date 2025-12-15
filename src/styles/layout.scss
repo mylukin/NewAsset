@@ -1,0 +1,16 @@
+// Layout styles
+
+.main-container {
+  display: flex;
+  min-height: 100vh;
+}
+
+.sidebar {
+  width: 200px;
+  background: #304156;
+}
+
+.content {
+  flex: 1;
+  padding: 20px;
+}
