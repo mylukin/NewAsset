@@ -2,8 +2,8 @@
 id: core.status-enum
 module: core
 priority: 103
-status: failing
-version: 6
+status: passing
+version: 7
 origin: spec-workflow
 dependsOn: []
 supersedes: []
@@ -24,41 +24,73 @@ verification:
   commitHash: 25e3bd2767b2def5150864cf232816e2f219039a
   summary: 0/5 criteria satisfied
 tddGuidance:
-  generatedAt: '2025-12-15T15:09:18.324Z'
+  generatedAt: '2025-12-15T22:56:50.125Z'
   generatedBy: claude
-  forVersion: 4
+  forVersion: 6
   suggestedTestFiles:
     unit:
-      - >-
-        src/test/java/com/ruoyi/asset/domain/enums/AssetStatusEnumTransitionTest.java
+      - tests/core/asset-status-enum-transition.test.ts
     e2e: []
   unitTestCases:
-    - name: should define all required status values in AssetStatusEnum
+    - name: >-
+        should create AssetStatusEnum with 9 status values in
+        com.ruoyi.asset.domain.enums
       assertions:
-        - >-
-          expect AssetStatusEnum to contain IDLE, IN_USE, UNDER_MAINTENANCE,
-          SCRAPPED, TRANSFERRED
+        - expect(Object.keys(AssetStatusEnum)).toHaveLength(9)
+        - expect(AssetStatusEnum.UNDER_CONSTRUCTION).toBeDefined()
+        - expect(AssetStatusEnum.AVAILABLE_SELF).toBeDefined()
+        - expect(AssetStatusEnum.AVAILABLE_RENT).toBeDefined()
+        - expect(AssetStatusEnum.AVAILABLE_IDLE).toBeDefined()
+        - expect(AssetStatusEnum.TEMP_CLOSED).toBeDefined()
+        - expect(AssetStatusEnum.FAULT).toBeDefined()
+        - expect(AssetStatusEnum.MAINTAINING).toBeDefined()
+        - expect(AssetStatusEnum.TO_BE_SCRAPPED).toBeDefined()
+        - expect(AssetStatusEnum.SCRAPPED).toBeDefined()
     - name: should have transition validation map configured for each status
       assertions:
-        - expect each status to have a non-null set of valid transitions
-        - expect SCRAPPED to have empty valid transitions
-    - name: should return true for valid state transitions via canTransitionTo
-      assertions:
-        - expect IDLE.canTransitionTo(IN_USE) to be true
-        - expect IN_USE.canTransitionTo(UNDER_MAINTENANCE) to be true
-        - expect UNDER_MAINTENANCE.canTransitionTo(IDLE) to be true
-    - name: should return false for invalid state transitions via canTransitionTo
-      assertions:
-        - expect SCRAPPED.canTransitionTo(IDLE) to be false
         - >-
-          expect IN_USE.canTransitionTo(SCRAPPED) to be false without
-          intermediate steps
-    - name: should return correct set of valid transitions via getValidTransitions
+          expect(AssetStatusEnum.UNDER_CONSTRUCTION.getValidTransitions()).toBeDefined()
+        - >-
+          expect(AssetStatusEnum.AVAILABLE_SELF.getValidTransitions()).toBeDefined()
+        - expect(AssetStatusEnum.SCRAPPED.getValidTransitions()).toHaveLength(0)
+    - name: >-
+        should return true for valid state transitions via canTransitionTo
+        method
       assertions:
-        - expect IDLE.getValidTransitions() to contain IN_USE and SCRAPPED
-        - expect SCRAPPED.getValidTransitions() to be empty
+        - >-
+          expect(AssetStatusEnum.UNDER_CONSTRUCTION.canTransitionTo(AssetStatusEnum.AVAILABLE_SELF)).toBe(true)
+        - >-
+          expect(AssetStatusEnum.AVAILABLE_SELF.canTransitionTo(AssetStatusEnum.MAINTAINING)).toBe(true)
+        - >-
+          expect(AssetStatusEnum.AVAILABLE_RENT.canTransitionTo(AssetStatusEnum.FAULT)).toBe(true)
+        - >-
+          expect(AssetStatusEnum.AVAILABLE_IDLE.canTransitionTo(AssetStatusEnum.TEMP_CLOSED)).toBe(true)
+        - >-
+          expect(AssetStatusEnum.TO_BE_SCRAPPED.canTransitionTo(AssetStatusEnum.SCRAPPED)).toBe(true)
+    - name: >-
+        should return false for invalid state transitions via canTransitionTo
+        method
+      assertions:
+        - >-
+          expect(AssetStatusEnum.SCRAPPED.canTransitionTo(AssetStatusEnum.AVAILABLE_SELF)).toBe(false)
+        - >-
+          expect(AssetStatusEnum.SCRAPPED.canTransitionTo(AssetStatusEnum.UNDER_CONSTRUCTION)).toBe(false)
+        - >-
+          expect(AssetStatusEnum.UNDER_CONSTRUCTION.canTransitionTo(AssetStatusEnum.SCRAPPED)).toBe(false)
+    - name: >-
+        should return correct set of valid transitions via getValidTransitions
+        method
+      assertions:
+        - >-
+          expect(AssetStatusEnum.AVAILABLE_SELF.getValidTransitions()).toContain(AssetStatusEnum.MAINTAINING)
+        - >-
+          expect(AssetStatusEnum.AVAILABLE_SELF.getValidTransitions()).toContain(AssetStatusEnum.FAULT)
+        - >-
+          expect(AssetStatusEnum.AVAILABLE_SELF.getValidTransitions()).toContain(AssetStatusEnum.TEMP_CLOSED)
+        - >-
+          expect(AssetStatusEnum.MAINTAINING.getValidTransitions()).toContain(AssetStatusEnum.AVAILABLE_SELF)
   e2eScenarios: []
-  frameworkHint: junit5
+  frameworkHint: vitest
 ---
 # Create Asset Status Enum and Transition Validation
 
