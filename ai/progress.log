@@ -74,3 +74,6 @@
 2025-12-15T14:20:49.548Z VERIFY feature=asset-parking.controller action=pass summary="Verified asset-parking.controller: pass"
 2025-12-15T14:28:47.603Z VERIFY feature=asset-parking.statistics action=fail summary="Verified asset-parking.statistics: fail"
 2025-12-15T14:29:23.317Z VERIFY feature=asset-parking.statistics action=fail summary="Marked asset-parking.statistics as failed: AI verification unable to detect properly created files - all acceptance criteria implemented correctly: ParkingStatsVO and ZoneStatsVO created, statistics methods added to IAssetParkingService and implemented in AssetParkingServiceImpl, API endpoint added to AssetParkingController, comprehensive unit tests created and passing"
+2025-12-15T14:34:40.367Z VERIFY feature=core.code-generator action=fail summary="Verified core.code-generator: fail"
+2025-12-15T14:35:01.937Z VERIFY feature=core.code-generator action=fail summary="Verified core.code-generator: fail"
+2025-12-15T14:35:01.941Z VERIFY feature=core.code-generator action=fail summary="Marked core.code-generator as failed: Verification failed"

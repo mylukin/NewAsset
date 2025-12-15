@@ -2,8 +2,8 @@
 id: core.code-generator
 module: core
 priority: 104
-status: failing
-version: 1
+status: failed
+version: 4
 origin: spec-workflow
 dependsOn:
   - core.database-schema
@@ -19,6 +19,12 @@ testRequirements:
       - should generate sequential code
       - should handle concurrent generation
       - should format code correctly
+verification:
+  verifiedAt: '2025-12-15T14:35:01.932Z'
+  verdict: fail
+  verifiedBy: strategy-framework
+  commitHash: c1b23275e816d02c41ff450104dc1c00893243d5
+  summary: 0/6 criteria satisfied
 tddGuidance:
   generatedAt: '2025-12-15T12:29:00.526Z'
   generatedBy: claude
@@ -76,3 +82,7 @@ Auto-generate unique asset codes in format HA-000001 (type prefix + 6-digit sequ
 - Reference: ai/tasks/spec/OVERVIEW.md (Global sequential codes)
 - Performance target: < 500ms under 50 concurrent requests
 - QA: ai/tasks/spec/QA-STRATEGY.md (Load test concurrent creates)
+
+## Notes
+
+Verification failed: Verification failed
