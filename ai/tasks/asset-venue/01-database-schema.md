@@ -2,7 +2,7 @@
 id: asset-venue.database-schema
 module: asset-venue
 priority: 501
-status: passing
+status: failing
 version: 2
 origin: spec-workflow
 dependsOn:

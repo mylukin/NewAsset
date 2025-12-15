@@ -2,7 +2,7 @@
 id: asset-parking.entity
 module: asset-parking
 priority: 302
-status: passing
+status: failing
 version: 2
 origin: spec-workflow
 dependsOn:

@@ -2,7 +2,7 @@
 id: dashboard.refresh-button
 module: dashboard
 priority: 906
-status: passing
+status: failing
 version: 2
 origin: spec-workflow
 dependsOn:

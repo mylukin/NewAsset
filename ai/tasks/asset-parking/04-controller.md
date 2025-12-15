@@ -2,7 +2,7 @@
 id: asset-parking.controller
 module: asset-parking
 priority: 304
-status: passing
+status: failing
 version: 2
 origin: spec-workflow
 dependsOn:

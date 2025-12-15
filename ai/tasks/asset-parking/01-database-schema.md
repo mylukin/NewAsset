@@ -2,7 +2,7 @@
 id: asset-parking.database-schema
 module: asset-parking
 priority: 301
-status: passing
+status: failing
 version: 5
 origin: spec-workflow
 dependsOn:

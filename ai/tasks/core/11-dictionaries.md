@@ -2,7 +2,7 @@
 id: core.dictionaries
 module: core
 priority: 111
-status: passing
+status: failing
 version: 3
 origin: spec-workflow
 dependsOn: []

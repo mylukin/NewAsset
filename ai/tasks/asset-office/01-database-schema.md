@@ -2,7 +2,7 @@
 id: asset-office.database-schema
 module: asset-office
 priority: 601
-status: passing
+status: failing
 version: 2
 origin: spec-workflow
 dependsOn:

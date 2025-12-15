@@ -2,7 +2,7 @@
 id: import.template-generator
 module: import
 priority: 804
-status: passing
+status: failing
 version: 2
 origin: spec-workflow
 dependsOn:

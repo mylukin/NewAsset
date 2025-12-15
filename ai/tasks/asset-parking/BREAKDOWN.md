@@ -2,7 +2,7 @@
 id: asset-parking.BREAKDOWN
 module: asset-parking
 priority: 3
-status: passing
+status: failing
 version: 5
 origin: spec-workflow
 dependsOn:

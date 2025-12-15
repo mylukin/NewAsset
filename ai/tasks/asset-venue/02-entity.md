@@ -2,7 +2,7 @@
 id: asset-venue.entity
 module: asset-venue
 priority: 502
-status: passing
+status: failing
 version: 2
 origin: spec-workflow
 dependsOn:

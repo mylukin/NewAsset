@@ -2,7 +2,7 @@
 id: asset-facility.service
 module: asset-facility
 priority: 403
-status: passing
+status: failing
 version: 2
 origin: spec-workflow
 dependsOn:

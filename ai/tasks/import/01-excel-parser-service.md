@@ -2,7 +2,7 @@
 id: import.excel-parser-service
 module: import
 priority: 801
-status: passing
+status: failing
 version: 2
 origin: spec-workflow
 dependsOn:

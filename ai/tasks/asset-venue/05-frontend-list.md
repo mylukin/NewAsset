@@ -2,7 +2,7 @@
 id: asset-venue.frontend-list
 module: asset-venue
 priority: 505
-status: passing
+status: failing
 version: 2
 origin: spec-workflow
 dependsOn:

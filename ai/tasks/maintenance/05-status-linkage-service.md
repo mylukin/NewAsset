@@ -2,7 +2,7 @@
 id: maintenance.status-linkage-service
 module: maintenance
 priority: 705
-status: passing
+status: failing
 version: 2
 origin: spec-workflow
 dependsOn:

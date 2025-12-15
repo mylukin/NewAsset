@@ -1,6 +1,6 @@
 {
   "version": "2.0.0",
-  "updatedAt": "2025-12-15T23:17:41.365Z",
+  "updatedAt": "2025-12-16T00:00:00.000Z",
   "metadata": {
     "projectGoal": "Asset Management System (MVP) - Unified asset lifecycle management platform for property/facility management with 5 asset types, 9-state status machine, and maintenance work order workflow",
     "createdAt": "2025-12-15T00:00:00Z",
@@ -10,34 +10,34 @@
   },
   "features": {
     "core.environment-setup": {
-      "status": "failed",
+      "status": "failing",
       "priority": 1,
       "module": "core",
       "description": "Project Environment Setup - Spring Boot, SQLite configuration, development environment",
       "filePath": "core/00-environment-setup.md"
     },
     "core.BREAKDOWN": {
-      "status": "passing",
+      "status": "failing",
       "priority": 2,
       "module": "core",
       "description": "Core Module - Base asset entity, code generator, status machine, attachments, location hierarchy"
     },
     "core.database-schema": {
-      "status": "passing",
+      "status": "failing",
       "priority": 103,
       "module": "core",
       "description": "Create core database schema (t_asset, t_asset_location, t_asset_code_seq, t_asset_attachment)",
       "filePath": "core/01-database-schema.md"
     },
     "core.asset-entity": {
-      "status": "passing",
+      "status": "failing",
       "priority": 104,
       "module": "core",
       "description": "Create Asset base entity and MyBatis mapper",
       "filePath": "core/02-asset-entity.md"
     },
     "core.status-enum": {
-      "status": "passing",
+      "status": "failing",
       "priority": 105,
       "module": "core",
       "description": "Create 9-state status enum with transition validation",
@@ -107,7 +107,7 @@
       "filePath": "core/12-menu-permission.md"
     },
     "asset-house.BREAKDOWN": {
-      "status": "passing",
+      "status": "failing",
       "priority": 3,
       "module": "asset-house",
       "description": "House Asset Module - Residential properties with vacancy/rental statistics"
@@ -169,7 +169,7 @@
       "filePath": "asset-house/08-frontend-form.md"
     },
     "asset-parking.BREAKDOWN": {
-      "status": "passing",
+      "status": "failing",
       "priority": 4,
       "module": "asset-parking",
       "description": "Parking Asset Module - Vehicle spots with utilization statistics"
@@ -231,7 +231,7 @@
       "filePath": "asset-parking/08-frontend-form.md"
     },
     "asset-facility.BREAKDOWN": {
-      "status": "passing",
+      "status": "failing",
       "priority": 5,
       "module": "asset-facility",
       "description": "Facility Asset Module - Building equipment with warranty tracking"
@@ -293,7 +293,7 @@
       "filePath": "asset-facility/08-frontend-form.md"
     },
     "asset-venue.BREAKDOWN": {
-      "status": "passing",
+      "status": "failing",
       "priority": 6,
       "module": "asset-venue",
       "description": "Venue Asset Module - Community spaces with availability status"
@@ -348,7 +348,7 @@
       "filePath": "asset-venue/07-frontend-form.md"
     },
     "asset-office.BREAKDOWN": {
-      "status": "passing",
+      "status": "failing",
       "priority": 7,
       "module": "asset-office",
       "description": "Office Asset Module - Furniture and IT equipment"
@@ -403,7 +403,7 @@
       "filePath": "asset-office/07-frontend-form.md"
     },
     "maintenance.BREAKDOWN": {
-      "status": "passing",
+      "status": "failing",
       "priority": 8,
       "module": "maintenance",
       "description": "Maintenance Module - Work order lifecycle with 6-state flow and asset status linkage"
@@ -479,7 +479,7 @@
       "filePath": "maintenance/10-frontend-form.md"
     },
     "import.BREAKDOWN": {
-      "status": "passing",
+      "status": "failing",
       "priority": 9,
       "module": "import",
       "description": "Import Module - Excel import with validation and template download"
@@ -527,7 +527,7 @@
       "filePath": "import/06-frontend-modal.md"
     },
     "dashboard.BREAKDOWN": {
-      "status": "passing",
+      "status": "failing",
       "priority": 10,
       "module": "dashboard",
       "description": "Dashboard Module - Role-based KPIs, charts, and manual refresh"

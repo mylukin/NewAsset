@@ -2,7 +2,7 @@
 id: import.row-validator-service
 module: import
 priority: 802
-status: passing
+status: failing
 version: 2
 origin: spec-workflow
 dependsOn:

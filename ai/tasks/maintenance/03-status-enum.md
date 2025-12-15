@@ -2,7 +2,7 @@
 id: maintenance.status-enum
 module: maintenance
 priority: 703
-status: passing
+status: failing
 version: 2
 origin: spec-workflow
 dependsOn:

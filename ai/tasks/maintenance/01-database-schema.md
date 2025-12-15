@@ -2,7 +2,7 @@
 id: maintenance.database-schema
 module: maintenance
 priority: 701
-status: passing
+status: failing
 version: 2
 origin: spec-workflow
 dependsOn:

@@ -2,7 +2,7 @@
 id: import.controller
 module: import
 priority: 805
-status: passing
+status: failing
 version: 2
 origin: spec-workflow
 dependsOn:

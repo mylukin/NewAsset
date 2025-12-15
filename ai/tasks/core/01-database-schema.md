@@ -2,7 +2,7 @@
 id: core.database-schema
 module: core
 priority: 101
-status: passing
+status: failing
 version: 7
 origin: spec-workflow
 dependsOn: []

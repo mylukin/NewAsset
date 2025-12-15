@@ -2,7 +2,7 @@
 id: asset-facility.warranty-alert
 module: asset-facility
 priority: 405
-status: passing
+status: failing
 version: 2
 origin: spec-workflow
 dependsOn:

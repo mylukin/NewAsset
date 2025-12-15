@@ -2,7 +2,7 @@
 id: dashboard.kpi-cards
 module: dashboard
 priority: 904
-status: passing
+status: failing
 version: 2
 origin: spec-workflow
 dependsOn:

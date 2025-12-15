@@ -2,7 +2,7 @@
 id: import.asset-import-service
 module: import
 priority: 803
-status: passing
+status: failing
 version: 2
 origin: spec-workflow
 dependsOn:

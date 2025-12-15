@@ -2,7 +2,7 @@
 id: core.BREAKDOWN
 module: core
 priority: 1
-status: passing
+status: failing
 version: 6
 origin: spec-workflow
 dependsOn: []

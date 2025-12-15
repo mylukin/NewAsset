@@ -2,7 +2,7 @@
 id: maintenance.frontend-list
 module: maintenance
 priority: 708
-status: passing
+status: failing
 version: 2
 origin: spec-workflow
 dependsOn:

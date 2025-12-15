@@ -2,7 +2,7 @@
 id: maintenance.entity
 module: maintenance
 priority: 702
-status: passing
+status: failing
 version: 2
 origin: spec-workflow
 dependsOn:

@@ -2,7 +2,7 @@
 id: maintenance.order-service
 module: maintenance
 priority: 706
-status: passing
+status: failing
 version: 2
 origin: spec-workflow
 dependsOn:

@@ -2,7 +2,7 @@
 id: asset-house.statistics
 module: asset-house
 priority: 205
-status: passing
+status: failing
 version: 4
 origin: spec-workflow
 dependsOn:

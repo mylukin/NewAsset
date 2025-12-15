@@ -2,7 +2,7 @@
 id: asset-facility.frontend-detail
 module: asset-facility
 priority: 407
-status: passing
+status: failing
 version: 2
 origin: spec-workflow
 dependsOn:

@@ -2,7 +2,7 @@
 id: maintenance.order-number-generator
 module: maintenance
 priority: 704
-status: passing
+status: failing
 version: 2
 origin: spec-workflow
 dependsOn:

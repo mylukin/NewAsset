@@ -2,7 +2,7 @@
 id: core.attachment-controller
 module: core
 priority: 110
-status: passing
+status: failing
 version: 3
 origin: spec-workflow
 dependsOn:

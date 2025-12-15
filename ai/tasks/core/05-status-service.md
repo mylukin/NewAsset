@@ -2,7 +2,7 @@
 id: core.status-service
 module: core
 priority: 105
-status: passing
+status: failing
 version: 4
 origin: spec-workflow
 dependsOn:

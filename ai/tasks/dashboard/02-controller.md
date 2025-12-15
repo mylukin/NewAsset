@@ -2,7 +2,7 @@
 id: dashboard.controller
 module: dashboard
 priority: 902
-status: passing
+status: failing
 version: 2
 origin: spec-workflow
 dependsOn:

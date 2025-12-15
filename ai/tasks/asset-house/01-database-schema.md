@@ -2,7 +2,7 @@
 id: asset-house.database-schema
 module: asset-house
 priority: 201
-status: passing
+status: failing
 version: 2
 origin: spec-workflow
 dependsOn:

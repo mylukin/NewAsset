@@ -2,7 +2,7 @@
 id: import.frontend-modal
 module: import
 priority: 806
-status: passing
+status: failing
 version: 2
 origin: spec-workflow
 dependsOn:

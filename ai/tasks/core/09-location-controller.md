@@ -2,7 +2,7 @@
 id: core.location-controller
 module: core
 priority: 109
-status: passing
+status: failing
 version: 3
 origin: spec-workflow
 dependsOn:

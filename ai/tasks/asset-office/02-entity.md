@@ -2,7 +2,7 @@
 id: asset-office.entity
 module: asset-office
 priority: 602
-status: passing
+status: failing
 version: 2
 origin: spec-workflow
 dependsOn:

@@ -2,7 +2,7 @@
 id: asset-office.frontend-list
 module: asset-office
 priority: 605
-status: passing
+status: failing
 version: 2
 origin: spec-workflow
 dependsOn:

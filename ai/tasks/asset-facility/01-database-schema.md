@@ -2,7 +2,7 @@
 id: asset-facility.database-schema
 module: asset-facility
 priority: 401
-status: passing
+status: failing
 version: 2
 origin: spec-workflow
 dependsOn:
