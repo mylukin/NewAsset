@@ -153,3 +153,4 @@
 2025-12-15T22:59:20.349Z STEP feature=asset-office.service status=passing tests="./ai/init.sh check" summary="Completed asset-office.service"
 2025-12-15T22:59:20.542Z STEP feature=asset-office.controller status=passing tests="./ai/init.sh check" summary="Completed asset-office.controller"
 2025-12-15T22:59:20.736Z STEP feature=asset-office.frontend-list status=passing tests="./ai/init.sh check" summary="Completed asset-office.frontend-list"
+2025-12-15T22:59:20.925Z STEP feature=asset-office.frontend-detail status=passing tests="./ai/init.sh check" summary="Completed asset-office.frontend-detail"
