@@ -4,80 +4,69 @@
     "hasTests": true,
     "testCommand": "npx vitest run",
     "testFramework": "vitest",
-    "hasTypeCheck": true,
-    "typeCheckCommand": "tsc",
+    "hasTypeCheck": false,
+    "typeCheckCommand": "",
     "hasLint": true,
-    "lintCommand": "eslint",
+    "lintCommand": "npm run lint",
     "hasBuild": true,
     "buildCommand": "npm run build",
     "hasGit": true,
     "source": "ai-discovered",
-    "confidence": 0.7625,
+    "confidence": 0.9333333333333332,
     "languages": [
-      "Vue 2",
-      "TypeScript",
-      "Java 17",
-      "Spring Boot"
+      "vue",
+      "javascript",
+      "typescript"
     ],
-    "detectedAt": "2025-12-15T15:09:26.525Z",
+    "detectedAt": "2025-12-15T15:22:56.137Z",
     "testInfo": {
       "available": true,
       "command": "npx vitest run",
       "framework": "vitest",
       "confidence": 0.95,
       "selectiveFileTemplate": "npx vitest run {files}",
-      "selectiveNameTemplate": "npx vitest run -t \"{pattern}\"",
+      "selectiveNameTemplate": "npx vitest run --testNamePattern \"{pattern}\"",
       "packageManager": "npm"
     },
     "e2eInfo": {
       "available": false,
-      "command": null,
-      "framework": null,
+      "command": "",
+      "framework": "",
       "confidence": 0,
-      "configFile": null,
-      "grepTemplate": null,
-      "fileTemplate": null
+      "configFile": "",
+      "grepTemplate": "",
+      "fileTemplate": ""
     },
     "typeCheckInfo": {
-      "available": true,
-      "command": "tsc",
-      "confidence": 0.9
+      "available": false,
+      "command": "",
+      "confidence": 0
     },
     "lintInfo": {
       "available": true,
-      "command": "eslint",
-      "confidence": 0.7
+      "command": "npm run lint",
+      "framework": "eslint",
+      "confidence": 0.9
     },
     "buildInfo": {
       "available": true,
       "command": "npm run build",
-      "confidence": 0.5
+      "framework": "vue-cli-service",
+      "confidence": 0.95
     },
     "customRules": [
       {
-        "id": "maven.test",
-        "description": "Run Maven tests for Java backend",
-        "command": "mvn test",
-        "type": "test"
-      },
-      {
-        "id": "maven.build",
-        "description": "Build Java backend with Maven",
-        "command": "mvn clean package",
-        "type": "build"
-      },
-      {
         "id": "vue.serve",
-        "description": "Start Vue development server",
+        "description": "Run development server",
         "command": "npm run serve",
         "type": "custom"
       }
     ]
   },
-  "commitHash": "c2ca5cba71638691156b4d0d186706ff48ddec39",
+  "commitHash": "0d1e37d15864ba28f8100b06c299b49ddaf9dabc",
   "trackedFiles": [
     "package.json",
-    "pom.xml",
+    "vitest.config.ts",
     "vue.config.js"
   ]
 }
