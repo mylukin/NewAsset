@@ -245,12 +245,12 @@
     },
     "core.environment-setup": {
       "featureId": "core.environment-setup",
-      "latestRun": 3,
-      "latestTimestamp": "2025-12-15T15:11:23.560Z",
-      "latestVerdict": "pass",
-      "totalRuns": 3,
+      "latestRun": 4,
+      "latestTimestamp": "2025-12-15T22:52:41.281Z",
+      "latestVerdict": "fail",
+      "totalRuns": 4,
       "passCount": 1,
-      "failCount": 2
+      "failCount": 3
     },
     "core.status-service": {
       "featureId": "core.status-service",
@@ -262,6 +262,6 @@
       "failCount": 1
     }
   },
-  "updatedAt": "2025-12-15T15:24:47.977Z",
+  "updatedAt": "2025-12-15T22:52:41.284Z",
   "version": "2.0.0"
 }

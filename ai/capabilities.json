@@ -4,21 +4,21 @@
     "hasTests": true,
     "testCommand": "npx vitest run",
     "testFramework": "vitest",
-    "hasTypeCheck": false,
-    "typeCheckCommand": "",
+    "hasTypeCheck": true,
+    "typeCheckCommand": "npx tsc --noEmit",
     "hasLint": true,
     "lintCommand": "npm run lint",
     "hasBuild": true,
     "buildCommand": "npm run build",
     "hasGit": true,
     "source": "ai-discovered",
-    "confidence": 0.9333333333333332,
+    "confidence": 0.93,
     "languages": [
-      "vue",
-      "javascript",
-      "typescript"
+      "Vue 2",
+      "JavaScript",
+      "TypeScript"
     ],
-    "detectedAt": "2025-12-15T15:22:56.137Z",
+    "detectedAt": "2025-12-15T22:50:52.350Z",
     "testInfo": {
       "available": true,
       "command": "npx vitest run",
@@ -29,44 +29,36 @@
       "packageManager": "npm"
     },
     "e2eInfo": {
-      "available": false,
-      "command": "",
-      "framework": "",
-      "confidence": 0,
-      "configFile": "",
-      "grepTemplate": "",
-      "fileTemplate": ""
+      "available": true,
+      "command": "npx playwright test",
+      "framework": "playwright",
+      "confidence": 0.95,
+      "configFile": "playwright.config.ts",
+      "grepTemplate": "npx playwright test --grep \"{tags}\"",
+      "fileTemplate": "npx playwright test {files}"
     },
     "typeCheckInfo": {
-      "available": false,
-      "command": "",
-      "confidence": 0
+      "available": true,
+      "command": "npx tsc --noEmit",
+      "confidence": 0.85
     },
     "lintInfo": {
       "available": true,
       "command": "npm run lint",
-      "framework": "eslint",
-      "confidence": 0.9
+      "confidence": 0.95
     },
     "buildInfo": {
       "available": true,
       "command": "npm run build",
-      "framework": "vue-cli-service",
       "confidence": 0.95
-    },
-    "customRules": [
-      {
-        "id": "vue.serve",
-        "description": "Run development server",
-        "command": "npm run serve",
-        "type": "custom"
-      }
-    ]
+    }
   },
-  "commitHash": "0d1e37d15864ba28f8100b06c299b49ddaf9dabc",
+  "commitHash": "db4af33d60db9bf74461a93f35fad255e97156e6",
   "trackedFiles": [
     "package.json",
     "vitest.config.ts",
-    "vue.config.js"
+    "playwright.config.ts",
+    "vue.config.js",
+    ".eslintrc.js"
   ]
 }

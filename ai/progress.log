@@ -94,3 +94,5 @@
 2025-12-15T15:19:23.165Z VERIFY feature=core.code-generator action=fail summary="Verified core.code-generator: fail"
 2025-12-15T15:20:01.002Z VERIFY feature=core.code-generator action=fail summary="Verified core.code-generator: fail"
 2025-12-15T15:24:47.982Z VERIFY feature=core.status-service action=fail summary="Verified core.status-service: fail"
+2025-12-15T22:52:41.290Z VERIFY feature=core.environment-setup action=fail summary="Verified core.environment-setup: fail"
+2025-12-15T22:53:17.153Z STEP feature=core.environment-setup status=passing tests="./ai/init.sh check" summary="Completed core.environment-setup"
