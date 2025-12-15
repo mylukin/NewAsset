@@ -279,14 +279,14 @@
       "filePath": "asset-facility/06-frontend-list.md"
     },
     "asset-facility.frontend-detail": {
-      "status": "passing",
+      "status": "failing",
       "priority": 408,
       "module": "asset-facility",
       "description": "Implement facility asset detail drawer (Vue)",
       "filePath": "asset-facility/07-frontend-detail.md"
     },
     "asset-facility.frontend-form": {
-      "status": "passing",
+      "status": "failing",
       "priority": 409,
       "module": "asset-facility",
       "description": "Implement facility asset form component (Vue)",
@@ -334,14 +334,14 @@
       "filePath": "asset-venue/05-frontend-list.md"
     },
     "asset-venue.frontend-detail": {
-      "status": "passing",
+      "status": "failing",
       "priority": 507,
       "module": "asset-venue",
       "description": "Implement venue asset detail drawer (Vue)",
       "filePath": "asset-venue/06-frontend-detail.md"
     },
     "asset-venue.frontend-form": {
-      "status": "passing",
+      "status": "failing",
       "priority": 508,
       "module": "asset-venue",
       "description": "Implement venue asset form component (Vue)",
@@ -389,14 +389,14 @@
       "filePath": "asset-office/05-frontend-list.md"
     },
     "asset-office.frontend-detail": {
-      "status": "passing",
+      "status": "failing",
       "priority": 607,
       "module": "asset-office",
       "description": "Implement office asset detail drawer (Vue)",
       "filePath": "asset-office/06-frontend-detail.md"
     },
     "asset-office.frontend-form": {
-      "status": "passing",
+      "status": "failing",
       "priority": 608,
       "module": "asset-office",
       "description": "Implement office asset form component (Vue)",
@@ -465,14 +465,14 @@
       "filePath": "maintenance/08-frontend-list.md"
     },
     "maintenance.frontend-detail": {
-      "status": "passing",
+      "status": "failing",
       "priority": 710,
       "module": "maintenance",
       "description": "Implement work order detail page with timeline (Vue)",
       "filePath": "maintenance/09-frontend-detail.md"
     },
     "maintenance.frontend-form": {
-      "status": "passing",
+      "status": "failing",
       "priority": 711,
       "module": "maintenance",
       "description": "Implement work order create form (Vue)",
