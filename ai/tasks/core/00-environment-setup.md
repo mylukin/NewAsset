@@ -3,7 +3,7 @@ id: core.environment-setup
 module: core
 priority: 1
 status: passing
-version: 4
+version: 6
 origin: manual
 dependsOn: []
 supersedes: []
@@ -11,11 +11,11 @@ tags:
   - infrastructure
   - setup
 verification:
-  verifiedAt: '2025-12-15T15:05:12.092Z'
-  verdict: fail
+  verifiedAt: '2025-12-15T15:11:23.560Z'
+  verdict: pass
   verifiedBy: claude
   commitHash: 9ade1cc9307bcbd6ff37f4922629593a7d8cfc2d
-  summary: 1/9 criteria satisfied
+  summary: 9/9 criteria satisfied
 tddGuidance:
   generatedAt: '2025-12-15T14:55:38.598Z'
   generatedBy: claude

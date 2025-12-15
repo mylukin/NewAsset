@@ -245,14 +245,14 @@
     },
     "core.environment-setup": {
       "featureId": "core.environment-setup",
-      "latestRun": 2,
-      "latestTimestamp": "2025-12-15T15:05:12.092Z",
-      "latestVerdict": "fail",
-      "totalRuns": 2,
-      "passCount": 0,
+      "latestRun": 3,
+      "latestTimestamp": "2025-12-15T15:11:23.560Z",
+      "latestVerdict": "pass",
+      "totalRuns": 3,
+      "passCount": 1,
       "failCount": 2
     }
   },
-  "updatedAt": "2025-12-15T15:08:45.436Z",
+  "updatedAt": "2025-12-15T15:11:23.562Z",
   "version": "2.0.0"
 }

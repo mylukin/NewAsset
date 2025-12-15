@@ -126,4 +126,22 @@ public enum AssetStatusEnum {
         Set<AssetStatusEnum> validTransitions = TRANSITION_MAP.get(this);
         return validTransitions != null ? new HashSet<>(validTransitions) : Collections.emptySet();
     }
+
+    /**
+     * Find AssetStatusEnum by code
+     *
+     * @param code status code
+     * @return AssetStatusEnum or null if not found
+     */
+    public static AssetStatusEnum fromCode(String code) {
+        if (code == null || code.isEmpty()) {
+            return null;
+        }
+        for (AssetStatusEnum status : AssetStatusEnum.values()) {
+            if (status.getCode().equals(code)) {
+                return status;
+            }
+        }
+        return null;
+    }
 }

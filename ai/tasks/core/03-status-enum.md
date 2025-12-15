@@ -24,61 +24,41 @@ verification:
   commitHash: 935327b8ce8950c9f34067c8d846e00c5b4b3442
   summary: 0/5 criteria satisfied
 tddGuidance:
-  generatedAt: '2025-12-15T12:14:06.007Z'
+  generatedAt: '2025-12-15T15:09:18.324Z'
   generatedBy: claude
-  forVersion: 1
+  forVersion: 4
   suggestedTestFiles:
     unit:
-      - tests/core/AssetStatusEnumTransition.test.ts
+      - >-
+        src/test/java/com/ruoyi/asset/domain/enums/AssetStatusEnumTransitionTest.java
     e2e: []
   unitTestCases:
-    - name: should create AssetStatusEnum with all required status values
-      assertions:
-        - expect(Object.keys(AssetStatusEnum)).toContain('IN_USE')
-        - expect(Object.keys(AssetStatusEnum)).toContain('IDLE')
-        - expect(Object.keys(AssetStatusEnum)).toContain('MAINTENANCE')
-        - expect(Object.keys(AssetStatusEnum)).toContain('RETIRED')
-        - expect(AssetStatusEnum.IN_USE).toBeDefined()
-        - expect(AssetStatusEnum.IDLE).toBeDefined()
-    - name: should define valid transition map in AssetStatusEnum
-      assertions:
-        - expect(AssetStatusEnum.transitionMap).toBeDefined()
-        - expect(AssetStatusEnum.transitionMap).toBeInstanceOf(Object)
-        - >-
-          expect(AssetStatusEnum.transitionMap[AssetStatusEnum.IN_USE]).toContain(AssetStatusEnum.IDLE)
-        - >-
-          expect(AssetStatusEnum.transitionMap[AssetStatusEnum.IN_USE]).toContain(AssetStatusEnum.MAINTENANCE)
-        - >-
-          expect(AssetStatusEnum.transitionMap[AssetStatusEnum.IDLE]).toContain(AssetStatusEnum.IN_USE)
-    - name: should validate transitions using canTransitionTo method
+    - name: should define all required status values in AssetStatusEnum
       assertions:
         - >-
-          expect(AssetStatusEnum.IN_USE.canTransitionTo(AssetStatusEnum.IDLE)).toBe(true)
-        - >-
-          expect(AssetStatusEnum.IN_USE.canTransitionTo(AssetStatusEnum.MAINTENANCE)).toBe(true)
-        - >-
-          expect(AssetStatusEnum.IN_USE.canTransitionTo(AssetStatusEnum.RETIRED)).toBe(true)
-        - >-
-          expect(AssetStatusEnum.IDLE.canTransitionTo(AssetStatusEnum.IN_USE)).toBe(true)
-        - >-
-          expect(AssetStatusEnum.IDLE.canTransitionTo(AssetStatusEnum.IN_USE)).toBe(true)
-        - >-
-          expect(AssetStatusEnum.IDLE.canTransitionTo(AssetStatusEnum.IN_USE)).toBe(false)
-    - name: should return valid transitions using getValidTransitions method
+          expect AssetStatusEnum to contain IDLE, IN_USE, UNDER_MAINTENANCE,
+          SCRAPPED, TRANSFERRED
+    - name: should have transition validation map configured for each status
       assertions:
+        - expect each status to have a non-null set of valid transitions
+        - expect SCRAPPED to have empty valid transitions
+    - name: should return true for valid state transitions via canTransitionTo
+      assertions:
+        - expect IDLE.canTransitionTo(IN_USE) to be true
+        - expect IN_USE.canTransitionTo(UNDER_MAINTENANCE) to be true
+        - expect UNDER_MAINTENANCE.canTransitionTo(IDLE) to be true
+    - name: should return false for invalid state transitions via canTransitionTo
+      assertions:
+        - expect SCRAPPED.canTransitionTo(IDLE) to be false
         - >-
-          expect(AssetStatusEnum.IN_USE.getValidTransitions()).toEqual([AssetStatusEnum.IDLE,
-          AssetStatusEnum.MAINTENANCE, AssetStatusEnum.RETIRED])
-        - >-
-          expect(AssetStatusEnum.IDLE.getValidTransitions()).toEqual([AssetStatusEnum.IN_USE])
-        - >-
-          expect(AssetStatusEnum.MAINTENANCE.getValidTransitions()).toEqual([AssetStatusEnum.IDLE,
-          AssetStatusEnum.IN_USE])
-        - expect(AssetStatusEnum.RETIRED.getValidTransitions()).toHaveLength(0)
-        - >-
-          expect(AssetStatusEnum.IN_USE.getValidTransitions()).toContain(AssetStatusEnum.IDLE)
+          expect IN_USE.canTransitionTo(SCRAPPED) to be false without
+          intermediate steps
+    - name: should return correct set of valid transitions via getValidTransitions
+      assertions:
+        - expect IDLE.getValidTransitions() to contain IN_USE and SCRAPPED
+        - expect SCRAPPED.getValidTransitions() to be empty
   e2eScenarios: []
-  frameworkHint: vitest
+  frameworkHint: junit5
 ---
 # Create Asset Status Enum and Transition Validation
 

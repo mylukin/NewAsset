@@ -12,14 +12,14 @@
     "buildCommand": "npm run build",
     "hasGit": true,
     "source": "ai-discovered",
-    "confidence": 0.8125,
+    "confidence": 0.7625,
     "languages": [
       "Vue 2",
       "TypeScript",
       "Java 17",
       "Spring Boot"
     ],
-    "detectedAt": "2025-12-15T15:04:45.677Z",
+    "detectedAt": "2025-12-15T15:09:26.525Z",
     "testInfo": {
       "available": true,
       "command": "npx vitest run",
@@ -51,7 +51,7 @@
     "buildInfo": {
       "available": true,
       "command": "npm run build",
-      "confidence": 0.7
+      "confidence": 0.5
     },
     "customRules": [
       {
@@ -74,7 +74,7 @@
       }
     ]
   },
-  "commitHash": "9ade1cc9307bcbd6ff37f4922629593a7d8cfc2d",
+  "commitHash": "c2ca5cba71638691156b4d0d186706ff48ddec39",
   "trackedFiles": [
     "package.json",
     "pom.xml",
