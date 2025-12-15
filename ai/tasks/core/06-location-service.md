@@ -2,8 +2,8 @@
 id: core.location-service
 module: core
 priority: 106
-status: failing
-version: 2
+status: passing
+version: 3
 origin: spec-workflow
 dependsOn:
   - core.database-schema
