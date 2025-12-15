@@ -2,7 +2,7 @@
   "version": "1.0.0",
   "capabilities": {
     "hasTests": true,
-    "testCommand": "",
+    "testCommand": "npx vitest run",
     "testFramework": "vitest",
     "hasTypeCheck": false,
     "typeCheckCommand": "",
@@ -12,21 +12,21 @@
     "buildCommand": "",
     "hasGit": true,
     "source": "ai-discovered",
-    "confidence": 0.3,
+    "confidence": 0.95,
     "languages": [
-      "java",
-      "sql",
-      "typescript"
+      "Java",
+      "TypeScript",
+      "SQL"
     ],
-    "detectedAt": "2025-12-15T12:13:49.398Z",
+    "detectedAt": "2025-12-15T12:21:06.322Z",
     "testInfo": {
       "available": true,
-      "command": "",
+      "command": "npx vitest run",
       "framework": "vitest",
-      "confidence": 0.3,
-      "selectiveFileTemplate": "",
-      "selectiveNameTemplate": "",
-      "packageManager": "unknown"
+      "confidence": 0.95,
+      "selectiveFileTemplate": "npx vitest run {files}",
+      "selectiveNameTemplate": "npx vitest run -t \"{pattern}\"",
+      "packageManager": "none"
     },
     "e2eInfo": {
       "available": false,
@@ -51,33 +51,8 @@
       "available": false,
       "command": "",
       "confidence": 0
-    },
-    "customRules": [
-      {
-        "id": "agent-foreman-check",
-        "description": "Run agent-foreman verification checks",
-        "command": "agent-foreman check",
-        "type": "custom"
-      },
-      {
-        "id": "agent-foreman-status",
-        "description": "Show task status and progress",
-        "command": "agent-foreman status",
-        "type": "custom"
-      },
-      {
-        "id": "vitest-run",
-        "description": "Run TypeScript tests with Vitest (requires setup)",
-        "command": "vitest run",
-        "type": "test"
-      }
-    ]
+    }
   },
-  "commitHash": "935327b8ce8950c9f34067c8d846e00c5b4b3442",
-  "trackedFiles": [
-    "sql/asset_core.sql",
-    "src/main/resources/mapper/asset/AssetMapper.xml",
-    "ai/capabilities.json",
-    "ai/tasks/index.json"
-  ]
+  "commitHash": "1bec1332eeac541eee79b86121949177ddcc3e8d",
+  "trackedFiles": []
 }

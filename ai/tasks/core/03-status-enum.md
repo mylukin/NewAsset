@@ -3,7 +3,7 @@ id: core.status-enum
 module: core
 priority: 103
 status: failed
-version: 3
+version: 4
 origin: spec-workflow
 dependsOn: []
 supersedes: []
@@ -18,7 +18,7 @@ testRequirements:
       - should have 9 status values
       - should validate status transitions
 verification:
-  verifiedAt: '2025-12-15T12:14:24.063Z'
+  verifiedAt: '2025-12-15T12:21:07.338Z'
   verdict: fail
   verifiedBy: strategy-framework
   commitHash: 935327b8ce8950c9f34067c8d846e00c5b4b3442

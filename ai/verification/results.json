@@ -1133,7 +1133,7 @@
     },
     "core.status-enum": {
       "featureId": "core.status-enum",
-      "timestamp": "2025-12-15T12:14:24.063Z",
+      "timestamp": "2025-12-15T12:21:07.338Z",
       "commitHash": "935327b8ce8950c9f34067c8d846e00c5b4b3442",
       "changedFiles": [
         "ai/capabilities.json",
@@ -1192,7 +1192,7 @@
       ],
       "verdict": "fail",
       "verifiedBy": "strategy-framework",
-      "overallReasoning": "[TEST] ✗ FAIL\n  No test framework detected in project",
+      "overallReasoning": "[TEST] ✗ FAIL\n  \n  \u001b[1m\u001b[46m RUN \u001b[49m\u001b[22m \u001b[36mv4.0.15 \u001b[39m\u001b[90m/Users/lukin/Projects/NewAsset\u001b[39m\n  \n  \u001b[31mNo test files found, exiting with code 1\n  \u001b[39m\n  \u001b[2mfilter: \u001b[22m\u001b[33mtests/core/**/*.test.*\u001b[39m\n  \u001b[2minclude: \u001b[22m\u001b[33m**/*.{test,spec}.?(c|m)[jt]s?(x)\u001b[39m\n  \u001b[2mexclude:  \u001b[22m\u001b[33m**/node_modules/**\u001b[2m, \u001b[22m**/.git/**\u001b[39m",
       "relatedFilesAnalyzed": [
         "ai/capabilities.json",
         "ai/progress.log",
@@ -1214,12 +1214,12 @@
           "type": "test",
           "required": true,
           "success": false,
-          "output": "No test framework detected in project",
-          "duration": 6
+          "output": "\n\u001b[1m\u001b[46m RUN \u001b[49m\u001b[22m \u001b[36mv4.0.15 \u001b[39m\u001b[90m/Users/lukin/Projects/NewAsset\u001b[39m\n\n\u001b[31mNo test files found, exiting with code 1\n\u001b[39m\n\u001b[2mfilter: \u001b[22m\u001b[33mtests/core/**/*.test.*\u001b[39m\n\u001b[2minclude: \u001b[22m\u001b[33m**/*.{test,spec}.?(c|m)[jt]s?(x)\u001b[39m\n\u001b[2mexclude:  \u001b[22m\u001b[33m**/node_modules/**\u001b[2m, \u001b[22m**/.git/**\u001b[39m\n\n",
+          "duration": 599455
         }
       ]
     }
   },
-  "updatedAt": "2025-12-15T12:14:24.067Z",
+  "updatedAt": "2025-12-15T12:21:07.340Z",
   "version": "1.0.0"
 }
