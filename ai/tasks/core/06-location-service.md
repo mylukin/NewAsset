@@ -15,6 +15,56 @@ testRequirements:
   unit:
     required: false
     pattern: tests/core/**/*.test.*
+tddGuidance:
+  generatedAt: '2025-12-15T15:25:37.032Z'
+  generatedBy: claude
+  forVersion: 2
+  suggestedTestFiles:
+    unit:
+      - tests/core/location-service.test.ts
+    e2e: []
+  unitTestCases:
+    - name: >-
+        should create AssetLocation entity with required fields (id, name,
+        parentId, level, path)
+      assertions:
+        - expect(location.id).toBeDefined()
+        - expect(location.name).toBe('Building A')
+        - expect(location.parentId).toBeNull()
+        - expect(location.level).toBe(0)
+    - name: should map AssetLocation to database via AssetLocationMapper
+      assertions:
+        - expect(mapper.insert).toBeDefined()
+        - expect(mapper.selectById).toBeDefined()
+        - expect(mapper.selectByParentId).toBeDefined()
+        - expect(mapper.selectAll).toBeDefined()
+    - name: should provide CRUD operations via AssetLocationService
+      assertions:
+        - expect(service.create(location)).resolves.toBeDefined()
+        - 'expect(service.getById(1)).resolves.toMatchObject({ id: 1 })'
+        - expect(service.update(location)).resolves.toBe(true)
+        - expect(service.delete(1)).resolves.toBe(true)
+    - name: should return locations as tree structure with nested children
+      assertions:
+        - expect(tree).toHaveLength(1)
+        - 'expect(tree[0].children).toBeDefined()'
+        - 'expect(tree[0].children[0].parentId).toBe(tree[0].id)'
+        - 'expect(tree[0].children[0].level).toBe(tree[0].level + 1)'
+    - name: >-
+        should validate location name is not empty and parentId references
+        existing location
+      assertions:
+        - >-
+          expect(() => service.create({ name: '' })).rejects.toThrow('Name is
+          required')
+        - >-
+          expect(() => service.create({ parentId: 999
+          })).rejects.toThrow('Parent location not found')
+        - >-
+          expect(() => service.create({ name: 'Valid', parentId: null
+          })).resolves.toBeDefined()
+  e2eScenarios: []
+  frameworkHint: vitest
 ---
 # Implement Location Hierarchy Service
 
