@@ -2,8 +2,8 @@
 id: asset-office.BREAKDOWN
 module: asset-office
 priority: 6
-status: failing
-version: 3
+status: passing
+version: 4
 origin: spec-workflow
 dependsOn:
   - core.BREAKDOWN
