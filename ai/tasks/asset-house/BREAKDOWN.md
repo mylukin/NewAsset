@@ -2,8 +2,8 @@
 id: asset-house.BREAKDOWN
 module: asset-house
 priority: 2
-status: failing
-version: 5
+status: passing
+version: 6
 origin: spec-workflow
 dependsOn:
   - core.BREAKDOWN
