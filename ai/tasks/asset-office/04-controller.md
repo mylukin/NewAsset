@@ -2,8 +2,8 @@
 id: asset-office.controller
 module: asset-office
 priority: 604
-status: failing
-version: 2
+status: passing
+version: 3
 origin: spec-workflow
 dependsOn:
   - asset-office.service
