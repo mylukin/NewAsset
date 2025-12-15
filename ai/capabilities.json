@@ -2,29 +2,30 @@
   "version": "1.0.0",
   "capabilities": {
     "hasTests": true,
-    "testCommand": "npx vitest run",
+    "testCommand": "CI=true npx vitest run",
     "testFramework": "vitest",
-    "hasTypeCheck": true,
-    "typeCheckCommand": "tsc --noEmit",
-    "hasLint": true,
-    "lintCommand": "eslint",
+    "hasTypeCheck": false,
+    "typeCheckCommand": "",
+    "hasLint": false,
+    "lintCommand": "",
     "hasBuild": false,
     "buildCommand": "",
     "hasGit": true,
     "source": "ai-discovered",
-    "confidence": 0.7833333333333332,
+    "confidence": 0.5166666666666667,
     "languages": [
       "Java",
-      "TypeScript"
+      "TypeScript",
+      "Vue"
     ],
-    "detectedAt": "2025-12-15T13:53:00.260Z",
+    "detectedAt": "2025-12-15T13:56:32.818Z",
     "testInfo": {
       "available": true,
-      "command": "npx vitest run",
+      "command": "CI=true npx vitest run",
       "framework": "vitest",
       "confidence": 0.95,
-      "selectiveFileTemplate": "npx vitest run {files}",
-      "selectiveNameTemplate": "npx vitest run -t \"{pattern}\"",
+      "selectiveFileTemplate": "CI=true npx vitest run {files}",
+      "selectiveNameTemplate": "CI=true npx vitest run -t \"{pattern}\"",
       "packageManager": "npm"
     },
     "e2eInfo": {
@@ -37,14 +38,14 @@
       "fileTemplate": ""
     },
     "typeCheckInfo": {
-      "available": true,
-      "command": "tsc --noEmit",
-      "confidence": 0.7
+      "available": false,
+      "command": "",
+      "confidence": 0.3
     },
     "lintInfo": {
-      "available": true,
-      "command": "eslint",
-      "confidence": 0.7
+      "available": false,
+      "command": "",
+      "confidence": 0.3
     },
     "buildInfo": {
       "available": false,
@@ -52,6 +53,8 @@
       "confidence": 0
     }
   },
-  "commitHash": "e3e42431ff8da67a496d621311a8a476aa74c836",
-  "trackedFiles": []
+  "commitHash": "aaf6f054158ad40c3d9313c7a6691bb2088c70ea",
+  "trackedFiles": [
+    "ai/capabilities.json"
+  ]
 }

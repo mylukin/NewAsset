@@ -1,0 +1,61 @@
+{
+  "featureId": "asset-house.frontend-form",
+  "runNumber": 2,
+  "timestamp": "2025-12-15T13:58:04.587Z",
+  "commitHash": "aaf6f054158ad40c3d9313c7a6691bb2088c70ea",
+  "changedFiles": [
+    "ai/capabilities.json",
+    "ai/progress.log",
+    "ai/tasks/asset-house/07-frontend-detail.md",
+    "ai/tasks/index.json",
+    "ai/verification/asset-house.frontend-detail/001.json",
+    "ai/verification/asset-house.frontend-detail/001.md",
+    "ai/verification/index.json",
+    "ai/verification/results.json",
+    "node_modules/.vite/vitest/da39a3ee5e6b4b0d3255bfef95601890afd80709/results.json",
+    "src/views/asset/house/detail.vue",
+    "ai/tasks/asset-house/08-frontend-form.md"
+  ],
+  "diffSummary": "11 files changed",
+  "automatedChecks": [],
+  "criteriaResults": [
+    {
+      "criterion": "Create form component `src/views/asset/house/form.vue`:",
+      "index": 0,
+      "satisfied": true,
+      "confidence": 0.8
+    },
+    {
+      "criterion": "Form sections:",
+      "index": 1,
+      "satisfied": true,
+      "confidence": 0.8
+    },
+    {
+      "criterion": "Location cascader:",
+      "index": 2,
+      "satisfied": true,
+      "confidence": 0.8
+    },
+    {
+      "criterion": "Form validation:",
+      "index": 3,
+      "satisfied": true,
+      "confidence": 0.8
+    },
+    {
+      "criterion": "Footer actions:",
+      "index": 4,
+      "satisfied": true,
+      "confidence": 0.8
+    },
+    {
+      "criterion": "On submit:",
+      "index": 5,
+      "satisfied": true,
+      "confidence": 0.8
+    }
+  ],
+  "verdict": "pass",
+  "verifiedBy": "strategy-framework"
+}

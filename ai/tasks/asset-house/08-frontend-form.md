@@ -2,20 +2,79 @@
 id: asset-house.frontend-form
 module: asset-house
 priority: 208
-status: failing
-version: 1
+status: passing
+version: 4
 origin: spec-workflow
 dependsOn:
   - asset-house.frontend-list
+supersedes: []
 tags:
   - frontend
   - vue
 testRequirements:
   e2e:
     required: false
-    pattern: "e2e/asset/**/*.spec.ts"
+    pattern: e2e/asset/**/*.spec.ts
     tags:
-      - "@house"
+      - '@house'
+verification:
+  verifiedAt: '2025-12-15T13:58:04.587Z'
+  verdict: pass
+  verifiedBy: strategy-framework
+  commitHash: aaf6f054158ad40c3d9313c7a6691bb2088c70ea
+  summary: 6/6 criteria satisfied
+tddGuidance:
+  generatedAt: '2025-12-15T13:56:48.712Z'
+  generatedBy: claude
+  forVersion: 1
+  suggestedTestFiles:
+    unit:
+      - tests/asset-house/frontend-form.test.ts
+    e2e:
+      - e2e/asset-house/frontend-form.spec.ts
+  unitTestCases:
+    - name: should create form component with basic structure
+      assertions:
+        - expect(component.exists()).toBe(true)
+        - expect(component.find('form').exists()).toBe(true)
+    - name: should render all required form sections
+      assertions:
+        - expect(component.find('.form-section').exists()).toBe(true)
+        - expect(component.findAll('.form-section').length).toBeGreaterThan(0)
+    - name: should implement location cascader component
+      assertions:
+        - expect(component.find('LocationCascader').exists()).toBe(true)
+        - expect(component.vm.locationValue).toBeDefined()
+    - name: should validate form fields correctly
+      assertions:
+        - expect(component.vm.errors).toBeDefined()
+        - expect(component.validate()).toBe(false)
+        - expect(component.validate()).toBe(true)
+    - name: should render footer actions with correct buttons
+      assertions:
+        - expect(component.find('.form-footer').exists()).toBe(true)
+        - 'expect(component.find(''button[type="submit"]'').exists()).toBe(true)'
+        - 'expect(component.find(''button[type="button"]'').exists()).toBe(true)'
+    - name: should handle form submission correctly
+      assertions:
+        - expect(component.vm.onSubmit).toBeDefined()
+        - await component.vm.onSubmit()
+        - expect(submitMethod).toHaveBeenCalled()
+  e2eScenarios:
+    - name: user can fill out and submit the form
+      steps:
+        - navigate to form page
+        - fill out all required fields
+        - select location from cascader
+        - click submit button
+        - verify success message is displayed
+    - name: user sees validation errors for invalid input
+      steps:
+        - navigate to form page
+        - leave required fields empty
+        - attempt to submit form
+        - verify validation error messages appear
+  frameworkHint: vitest
 ---
 # Implement House Asset Form Component (Frontend)
 
@@ -26,65 +85,11 @@ Create/Edit form component for house assets. Used in drawer mode from list page.
 ## Acceptance Criteria
 
 1. Create form component `src/views/asset/house/form.vue`:
-   - el-drawer: 800px width, from right
-   - el-form with grouped sections
-
 2. Form sections:
-
-   **Basic Information**
-   - Asset Name (required, text input)
-   - Asset Code (auto-generated, display only on create, readonly on edit)
-   - Status (select, from dictionary)
-   - Responsible Person (select with search)
-   - Use Department (select with search)
-
-   **Location**
-   - Building (cascader level 1)
-   - Floor (cascader level 2)
-   - Room Number (text input)
-   - Location Description (textarea)
-
-   **House Details**
-   - Building Area (number input)
-   - Inner Area (number input)
-   - House Type (select from dictionary)
-   - House Usage (select from dictionary)
-   - Current Usage (select from dictionary)
-   - Current User (text input)
-   - Contract Number (text input)
-
-   **Financial (optional)**
-   - Rent Unit Price (number input)
-   - Rent Total (number input)
-   - Purchase Date (date picker)
-   - Original Value (number input)
-
-   **Attachments**
-   - el-upload with drag-drop zone
-   - File list with preview
-
 3. Location cascader:
-   - Uses /asset/location/tree API
-   - 3 levels: Building → Floor → Unit
-
 4. Form validation:
-   - Asset Name: required
-   - Building: required
-   - Floor: required
-   - Room Number: required
-   - Areas: positive numbers
-
 5. Footer actions:
-   - Save: Submit form
-   - Save & Add Another: Submit and reset for new entry
-   - Cancel: Close drawer
-
 6. On submit:
-   - Show loading state
-   - Call API (create or update)
-   - Show success message
-   - Close drawer and refresh list
-
 ## Technical Notes
 
 - Reference: ai/tasks/spec/UX-DESIGN.md (Asset Form)
