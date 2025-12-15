@@ -16,10 +16,9 @@
     "languages": [
       "Java",
       "TypeScript",
-      "JavaScript",
       "Vue.js"
     ],
-    "detectedAt": "2025-12-15T14:19:56.687Z",
+    "detectedAt": "2025-12-15T14:20:48.315Z",
     "testInfo": {
       "available": true,
       "command": "CI=true npx vitest run",
@@ -54,7 +53,7 @@
       "confidence": 0
     }
   },
-  "commitHash": "5d2350d2a7a5fd1a2cd698f7cf972f196076c37f",
+  "commitHash": "95d172ad692b6c07ab6bb496688ec11b293d6ec8",
   "trackedFiles": [
     "ai/capabilities.json"
   ]

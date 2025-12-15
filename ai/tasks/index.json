@@ -189,7 +189,7 @@
       "filePath": "asset-parking/03-service.md"
     },
     "asset-parking.controller": {
-      "status": "failing",
+      "status": "passing",
       "priority": 304,
       "module": "asset-parking",
       "description": "Implement parking asset REST API",

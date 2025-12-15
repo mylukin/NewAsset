@@ -224,8 +224,17 @@
       "totalRuns": 1,
       "passCount": 0,
       "failCount": 1
+    },
+    "asset-parking.controller": {
+      "featureId": "asset-parking.controller",
+      "latestRun": 1,
+      "latestTimestamp": "2025-12-15T14:20:49.544Z",
+      "latestVerdict": "pass",
+      "totalRuns": 1,
+      "passCount": 1,
+      "failCount": 0
     }
   },
-  "updatedAt": "2025-12-15T14:13:45.708Z",
+  "updatedAt": "2025-12-15T14:20:49.545Z",
   "version": "2.0.0"
 }
