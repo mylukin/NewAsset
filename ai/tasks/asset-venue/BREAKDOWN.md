@@ -2,8 +2,8 @@
 id: asset-venue.BREAKDOWN
 module: asset-venue
 priority: 5
-status: failing
-version: 3
+status: passing
+version: 4
 origin: spec-workflow
 dependsOn:
   - core.BREAKDOWN
