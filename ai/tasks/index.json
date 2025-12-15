@@ -58,7 +58,7 @@
       "filePath": "core/05-status-service.md"
     },
     "core.location-service": {
-      "status": "failing",
+      "status": "passing",
       "priority": 108,
       "module": "core",
       "description": "Implement 3-level location hierarchy service",

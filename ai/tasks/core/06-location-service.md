@@ -2,7 +2,7 @@
 id: core.location-service
 module: core
 priority: 106
-status: failed
+status: passing
 version: 2
 origin: spec-workflow
 dependsOn:
