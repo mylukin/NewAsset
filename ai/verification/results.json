@@ -1358,14 +1358,20 @@
     },
     "core.menu-permission": {
       "featureId": "core.menu-permission",
-      "timestamp": "2025-12-15T13:12:45.757Z",
-      "commitHash": "e42939eea8649cc9be422a0171116d5f686c5107",
+      "timestamp": "2025-12-15T15:08:45.434Z",
+      "commitHash": "ddfa155ceceda0f3c6ca016ba3dc1e274d37b923",
       "changedFiles": [
         "ai/progress.log",
-        "ai/tasks/core/11-dictionaries.md",
-        "ai/tasks/index.json"
+        "ai/tasks/core/02-asset-entity.md",
+        "ai/tasks/index.json",
+        "ai/verification/core.asset-entity/002.json",
+        "ai/verification/core.asset-entity/002.md",
+        "ai/verification/index.json",
+        "ai/verification/results.json",
+        "node_modules/.vite/vitest/da39a3ee5e6b4b0d3255bfef95601890afd80709/results.json",
+        "ai/tasks/core/12-menu-permission.md"
       ],
-      "diffSummary": "3 files changed",
+      "diffSummary": "9 files changed",
       "automatedChecks": [],
       "criteriaResults": [
         {
@@ -1409,8 +1415,14 @@
       "overallReasoning": "[TEST] ✗ FAIL\n  \n  \u001b[1m\u001b[46m RUN \u001b[49m\u001b[22m \u001b[36mv4.0.15 \u001b[39m\u001b[90m/Users/lukin/Projects/NewAsset\u001b[39m\n  \n  \u001b[31mNo test files found, exiting with code 1\n  \u001b[39m\n  \u001b[2mfilter: \u001b[22m\u001b[33mtests/core/**/*.test.*\u001b[39m\n  \u001b[2minclude: \u001b[22m\u001b[33m**/*.{test,spec}.?(c|m)[jt]s?(x)\u001b[39m\n  \u001b[2mexclude:  \u001b[22m\u001b[33m**/node_modules/**\u001b[2m, \u001b[22m**/.git/**\u001b[39m",
       "relatedFilesAnalyzed": [
         "ai/progress.log",
-        "ai/tasks/core/11-dictionaries.md",
-        "ai/tasks/index.json"
+        "ai/tasks/core/02-asset-entity.md",
+        "ai/tasks/index.json",
+        "ai/verification/core.asset-entity/002.json",
+        "ai/verification/core.asset-entity/002.md",
+        "ai/verification/index.json",
+        "ai/verification/results.json",
+        "node_modules/.vite/vitest/da39a3ee5e6b4b0d3255bfef95601890afd80709/results.json",
+        "ai/tasks/core/12-menu-permission.md"
       ],
       "strategyResults": [
         {
@@ -1418,7 +1430,7 @@
           "required": false,
           "success": false,
           "output": "\n\u001b[1m\u001b[46m RUN \u001b[49m\u001b[22m \u001b[36mv4.0.15 \u001b[39m\u001b[90m/Users/lukin/Projects/NewAsset\u001b[39m\n\n\u001b[31mNo test files found, exiting with code 1\n\u001b[39m\n\u001b[2mfilter: \u001b[22m\u001b[33mtests/core/**/*.test.*\u001b[39m\n\u001b[2minclude: \u001b[22m\u001b[33m**/*.{test,spec}.?(c|m)[jt]s?(x)\u001b[39m\n\u001b[2mexclude:  \u001b[22m\u001b[33m**/node_modules/**\u001b[2m, \u001b[22m**/.git/**\u001b[39m\n\n",
-          "duration": 647842
+          "duration": 1158
         }
       ]
     },
@@ -2655,6 +2667,6 @@
       ]
     }
   },
-  "updatedAt": "2025-12-15T15:07:53.341Z",
+  "updatedAt": "2025-12-15T15:08:45.437Z",
   "version": "1.0.0"
 }

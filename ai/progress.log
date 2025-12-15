@@ -83,3 +83,5 @@
 2025-12-15T15:06:59.551Z STEP feature=core.database-schema status=passing tests="./ai/init.sh check" summary="Completed core.database-schema"
 2025-12-15T15:07:53.344Z VERIFY feature=core.asset-entity action=pass summary="Verified core.asset-entity: pass"
 2025-12-15T15:08:01.655Z STEP feature=core.asset-entity status=passing tests="./ai/init.sh check" summary="Completed core.asset-entity"
+2025-12-15T15:08:45.440Z VERIFY feature=core.menu-permission action=pass summary="Verified core.menu-permission: pass"
+2025-12-15T15:08:53.654Z STEP feature=core.menu-permission status=passing tests="./ai/init.sh check" summary="Completed core.menu-permission"

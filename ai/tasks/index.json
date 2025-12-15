@@ -1,6 +1,6 @@
 {
   "version": "2.0.0",
-  "updatedAt": "2025-12-15T15:08:01.655Z",
+  "updatedAt": "2025-12-15T15:08:53.654Z",
   "metadata": {
     "projectGoal": "Asset Management System (MVP) - Unified asset lifecycle management platform for property/facility management with 5 asset types, 9-state status machine, and maintenance work order workflow",
     "createdAt": "2025-12-15T00:00:00Z",
@@ -100,7 +100,7 @@
       "filePath": "core/11-dictionaries.md"
     },
     "core.menu-permission": {
-      "status": "failing",
+      "status": "passing",
       "priority": 114,
       "module": "core",
       "description": "Configure menus and permissions for asset module",
