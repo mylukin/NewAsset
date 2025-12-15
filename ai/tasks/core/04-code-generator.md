@@ -3,7 +3,7 @@ id: core.code-generator
 module: core
 priority: 104
 status: failed
-version: 3
+version: 4
 origin: spec-workflow
 dependsOn:
   - core.database-schema
@@ -20,10 +20,10 @@ testRequirements:
       - should handle concurrent generation
       - should format code correctly
 verification:
-  verifiedAt: '2025-12-15T12:24:45.099Z'
+  verifiedAt: '2025-12-15T12:28:27.310Z'
   verdict: fail
   verifiedBy: strategy-framework
-  commitHash: 1bec1332eeac541eee79b86121949177ddcc3e8d
+  commitHash: 3eadb6ecb4fe30acca07ab71895cc054689b8972
   summary: 0/6 criteria satisfied
 ---
 # Implement Asset Code Generator Service
