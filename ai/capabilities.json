@@ -17,7 +17,7 @@
       "Java",
       "TypeScript"
     ],
-    "detectedAt": "2025-12-15T13:40:50.188Z",
+    "detectedAt": "2025-12-15T13:44:31.993Z",
     "testInfo": {
       "available": true,
       "command": "npx vitest run",
@@ -52,6 +52,8 @@
       "confidence": 0
     }
   },
-  "commitHash": "c99f506426f013276cb6bba8325d426b81d7255a",
-  "trackedFiles": []
+  "commitHash": "ba9795eec250025d8e049885332816021e849bcd",
+  "trackedFiles": [
+    "node_modules/.vite/vitest"
+  ]
 }

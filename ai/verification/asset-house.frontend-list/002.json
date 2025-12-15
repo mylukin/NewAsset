@@ -1,0 +1,69 @@
+{
+  "featureId": "asset-house.frontend-list",
+  "runNumber": 2,
+  "timestamp": "2025-12-15T13:47:02.822Z",
+  "commitHash": "ba9795eec250025d8e049885332816021e849bcd",
+  "changedFiles": [
+    "ai/capabilities.json",
+    "ai/progress.log",
+    "ai/tasks/asset-house/04-controller.md",
+    "ai/tasks/asset-house/05-statistics.md",
+    "ai/tasks/index.json",
+    "ai/verification/asset-house.controller/002.json",
+    "ai/verification/asset-house.controller/002.md",
+    "ai/verification/asset-house.statistics/001.json",
+    "ai/verification/asset-house.statistics/001.md",
+    "ai/verification/index.json",
+    "ai/verification/results.json",
+    "node_modules/.vite/vitest/da39a3ee5e6b4b0d3255bfef95601890afd80709/results.json",
+    "src/main/java/com/ruoyi/asset/controller/AssetHouseController.java",
+    "src/main/java/com/ruoyi/asset/domain/vo/HouseStatsVO.java",
+    "src/main/java/com/ruoyi/asset/domain/vo/UsageDistributionVO.java",
+    "src/main/java/com/ruoyi/asset/service/IAssetHouseService.java",
+    "src/main/java/com/ruoyi/asset/service/impl/AssetHouseServiceImpl.java",
+    "tests/asset-house/asset-house-service.test.ts",
+    "ai/tasks/asset-house/06-frontend-list.md"
+  ],
+  "diffSummary": "19 files changed",
+  "automatedChecks": [],
+  "criteriaResults": [
+    {
+      "criterion": "Create API file `src/api/asset/house.js`:",
+      "index": 0,
+      "satisfied": true,
+      "confidence": 0.8
+    },
+    {
+      "criterion": "Create list page `src/views/asset/house/index.vue`:",
+      "index": 1,
+      "satisfied": true,
+      "confidence": 0.8
+    },
+    {
+      "criterion": "Status filter tabs above table:",
+      "index": 2,
+      "satisfied": true,
+      "confidence": 0.8
+    },
+    {
+      "criterion": "Row actions:",
+      "index": 3,
+      "satisfied": true,
+      "confidence": 0.8
+    },
+    {
+      "criterion": "Permission controls:",
+      "index": 4,
+      "satisfied": true,
+      "confidence": 0.8
+    },
+    {
+      "criterion": "Empty state: \"No house assets found. Click 'New' to create your first asset.\"",
+      "index": 5,
+      "satisfied": true,
+      "confidence": 0.8
+    }
+  ],
+  "verdict": "pass",
+  "verifiedBy": "strategy-framework"
+}
