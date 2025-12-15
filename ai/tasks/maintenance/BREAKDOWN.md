@@ -2,8 +2,8 @@
 id: maintenance.BREAKDOWN
 module: maintenance
 priority: 7
-status: failing
-version: 5
+status: passing
+version: 6
 origin: spec-workflow
 dependsOn:
   - core.BREAKDOWN
