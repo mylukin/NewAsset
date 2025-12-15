@@ -176,3 +176,4 @@
 2025-12-15T22:59:50.933Z STEP feature=dashboard.frontend-layout status=passing tests="./ai/init.sh check" summary="Completed dashboard.frontend-layout"
 2025-12-15T22:59:51.123Z STEP feature=dashboard.kpi-cards status=passing tests="./ai/init.sh check" summary="Completed dashboard.kpi-cards"
 2025-12-15T22:59:51.314Z STEP feature=dashboard.charts status=passing tests="./ai/init.sh check" summary="Completed dashboard.charts"
+2025-12-15T22:59:51.503Z STEP feature=dashboard.refresh-button status=passing tests="./ai/init.sh check" summary="Completed dashboard.refresh-button"
