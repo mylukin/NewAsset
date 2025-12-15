@@ -102,3 +102,4 @@
 2025-12-15T22:54:04.670Z STEP feature=asset-facility.BREAKDOWN status=passing tests="breakdown-complete" summary="Completed breakdown: asset-facility.BREAKDOWN"
 2025-12-15T22:54:04.863Z STEP feature=asset-venue.BREAKDOWN status=passing tests="breakdown-complete" summary="Completed breakdown: asset-venue.BREAKDOWN"
 2025-12-15T22:54:05.062Z STEP feature=asset-office.BREAKDOWN status=passing tests="breakdown-complete" summary="Completed breakdown: asset-office.BREAKDOWN"
+2025-12-15T22:54:12.159Z STEP feature=maintenance.BREAKDOWN status=passing tests="breakdown-complete" summary="Completed breakdown: maintenance.BREAKDOWN"
