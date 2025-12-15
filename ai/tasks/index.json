@@ -1,6 +1,6 @@
 {
   "version": "2.0.0",
-  "updatedAt": "2025-12-15T22:58:34.828Z",
+  "updatedAt": "2025-12-15T22:58:44.429Z",
   "metadata": {
     "projectGoal": "Asset Management System (MVP) - Unified asset lifecycle management platform for property/facility management with 5 asset types, 9-state status machine, and maintenance work order workflow",
     "createdAt": "2025-12-15T00:00:00Z",
@@ -113,7 +113,7 @@
       "description": "House Asset Module - Residential properties with vacancy/rental statistics"
     },
     "asset-house.database-schema": {
-      "status": "failing",
+      "status": "passing",
       "priority": 203,
       "module": "asset-house",
       "description": "Create house extension table (t_asset_house)",
