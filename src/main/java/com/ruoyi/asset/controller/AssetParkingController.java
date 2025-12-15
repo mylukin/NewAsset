@@ -4,6 +4,7 @@ import com.ruoyi.asset.domain.vo.AssetParkingCreateDTO;
 import com.ruoyi.asset.domain.vo.AssetParkingUpdateDTO;
 import com.ruoyi.asset.domain.vo.AssetParkingQueryDTO;
 import com.ruoyi.asset.domain.vo.AssetParkingVO;
+import com.ruoyi.asset.domain.vo.ParkingStatsVO;
 import com.ruoyi.asset.service.IAssetParkingService;
 import com.ruoyi.common.annotation.DataScope;
 import com.ruoyi.common.annotation.Log;
@@ -114,5 +115,15 @@ public class AssetParkingController extends BaseController {
         // Implementation for export
         // This would typically generate an Excel file and return download URL
         return AjaxResult.success("Export feature to be implemented");
+    }
+
+    /**
+     * Get parking asset statistics
+     */
+    @GetMapping("/stats")
+    @PreAuthorize(hasPermi = "asset:parking:list")
+    public AjaxResult getStats(@RequestParam Long projectId) {
+        ParkingStatsVO stats = assetParkingService.getStats(projectId);
+        return AjaxResult.success(stats);
     }
 }

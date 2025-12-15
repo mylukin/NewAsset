@@ -4,7 +4,11 @@ import com.ruoyi.asset.domain.vo.AssetParkingCreateDTO;
 import com.ruoyi.asset.domain.vo.AssetParkingUpdateDTO;
 import com.ruoyi.asset.domain.vo.AssetParkingQueryDTO;
 import com.ruoyi.asset.domain.vo.AssetParkingVO;
+import com.ruoyi.asset.domain.vo.ParkingStatsVO;
+import com.ruoyi.asset.domain.vo.ZoneStatsVO;
 import com.ruoyi.common.core.page.PageResult;
+
+import java.util.List;
 
 /**
  * AssetParking Service Interface
@@ -55,4 +59,20 @@ public interface IAssetParkingService {
      * @return page result
      */
     PageResult<AssetParkingVO> list(AssetParkingQueryDTO query);
+
+    /**
+     * Get parking statistics
+     *
+     * @param projectId project ID
+     * @return parking statistics
+     */
+    ParkingStatsVO getStats(Long projectId);
+
+    /**
+     * Get parking statistics by zone
+     *
+     * @param projectId project ID
+     * @return list of zone statistics
+     */
+    List<ZoneStatsVO> getStatsByZone(Long projectId);
 }

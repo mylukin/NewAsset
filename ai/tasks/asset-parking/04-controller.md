@@ -2,8 +2,8 @@
 id: asset-parking.controller
 module: asset-parking
 priority: 304
-status: passing
-version: 2
+status: failing
+version: 1
 origin: spec-workflow
 dependsOn:
   - asset-parking.service
@@ -15,12 +15,38 @@ testRequirements:
   unit:
     required: false
     pattern: tests/asset-parking/**/*.test.*
-verification:
-  verifiedAt: '2025-12-15T14:20:49.544Z'
-  verdict: pass
-  verifiedBy: strategy-framework
-  commitHash: 5d2350d2a7a5fd1a2cd698f7cf972f196076c37f
-  summary: 4/4 criteria satisfied
+tddGuidance:
+  generatedAt: '2025-12-15T14:27:16.700Z'
+  generatedBy: claude
+  forVersion: 1
+  suggestedTestFiles:
+    unit:
+      - tests/asset-parking/controller.test.ts
+    e2e: []
+  unitTestCases:
+    - name: should instantiate AssetParkingController with required dependencies
+      assertions:
+        - expect(AssetParkingController).toBeDefined()
+        - expect(controller).toHaveProperty('parkingService')
+    - name: should implement parking asset REST endpoints with correct routing
+      assertions:
+        - expect(parkingRoutes).toHaveLength(4)
+        - >-
+          expect(parkingRoutes).toContainEqual(expect.objectContaining({ method:
+          'GET', path: '/parking/list' }))
+        - >-
+          expect(parkingRoutes).toContainEqual(expect.objectContaining({ method:
+          'POST', path: '/parking' }))
+    - name: should add @Log annotation for audit logging on all endpoints
+      assertions:
+        - 'expect(controllerClass).toHaveProperty(''_logAnnotated'', true)'
+        - 'expect(methodMetadata).toEqual(expect.arrayContaining([''log'']))'
+    - name: should apply @DataScope annotation for project-based permission control
+      assertions:
+        - 'expect(controllerClass).toHaveProperty(''_dataScoped'', true)'
+        - expect(hasDataScopeAnnotation).toBe(true)
+  e2eScenarios: []
+  frameworkHint: vitest
 ---
 # Implement Parking Asset REST API
 

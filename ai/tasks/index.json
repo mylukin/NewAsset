@@ -1,6 +1,6 @@
 {
   "version": "2.0.0",
-  "updatedAt": "2025-12-15T14:13:56.290Z",
+  "updatedAt": "2025-12-15T14:29:23.316Z",
   "metadata": {
     "projectGoal": "Asset Management System (MVP) - Unified asset lifecycle management platform for property/facility management with 5 asset types, 9-state status machine, and maintenance work order workflow",
     "createdAt": "2025-12-15T00:00:00Z",
@@ -196,7 +196,7 @@
       "filePath": "asset-parking/04-controller.md"
     },
     "asset-parking.statistics": {
-      "status": "failing",
+      "status": "failed",
       "priority": 305,
       "module": "asset-parking",
       "description": "Implement parking utilization statistics",

@@ -2342,8 +2342,101 @@
           "duration": 222410
         }
       ]
+    },
+    "asset-parking.statistics": {
+      "featureId": "asset-parking.statistics",
+      "timestamp": "2025-12-15T14:28:47.598Z",
+      "commitHash": "36ac30dddb4e42c00b0b87ec314aa924189d8d6a",
+      "changedFiles": [
+        "ai/capabilities.json",
+        "ai/progress.log",
+        "ai/tasks/asset-parking/04-controller.md",
+        "ai/tasks/index.json",
+        "ai/verification/asset-parking.controller/001.json",
+        "ai/verification/asset-parking.controller/001.md",
+        "ai/verification/index.json",
+        "ai/verification/results.json",
+        "node_modules/.vite/vitest/da39a3ee5e6b4b0d3255bfef95601890afd80709/results.json",
+        "ai/tasks/asset-parking/05-statistics.md",
+        "src/main/java/com/ruoyi/asset/controller/AssetParkingController.java",
+        "src/main/java/com/ruoyi/asset/service/IAssetParkingService.java",
+        "src/main/java/com/ruoyi/asset/service/impl/AssetParkingServiceImpl.java"
+      ],
+      "diffSummary": "13 files changed",
+      "automatedChecks": [],
+      "criteriaResults": [
+        {
+          "criterion": "Add statistics methods to `IAssetParkingService`:",
+          "index": 0,
+          "satisfied": false,
+          "reasoning": "One or more required strategies failed",
+          "confidence": 0.3
+        },
+        {
+          "criterion": "Statistics calculations:",
+          "index": 1,
+          "satisfied": false,
+          "reasoning": "One or more required strategies failed",
+          "confidence": 0.3
+        },
+        {
+          "criterion": "Create `ParkingStatsVO`:",
+          "index": 2,
+          "satisfied": false,
+          "reasoning": "One or more required strategies failed",
+          "confidence": 0.3
+        },
+        {
+          "criterion": "Create `ZoneStatsVO`:",
+          "index": 3,
+          "satisfied": false,
+          "reasoning": "One or more required strategies failed",
+          "confidence": 0.3
+        },
+        {
+          "criterion": "Add API endpoint:",
+          "index": 4,
+          "satisfied": false,
+          "reasoning": "One or more required strategies failed",
+          "confidence": 0.3
+        },
+        {
+          "criterion": "Unit tests for calculation accuracy",
+          "index": 5,
+          "satisfied": false,
+          "reasoning": "One or more required strategies failed",
+          "confidence": 0.3
+        }
+      ],
+      "verdict": "fail",
+      "verifiedBy": "strategy-framework",
+      "overallReasoning": "[TEST] ✗ FAIL\n  \n  \u001b[1m\u001b[46m RUN \u001b[49m\u001b[22m \u001b[36mv4.0.15 \u001b[39m\u001b[90m/Users/lukin/Projects/NewAsset\u001b[39m\n  \n  \u001b[31mNo test files found, exiting with code 1\n  \u001b[39m\n  \u001b[2mfilter: \u001b[22m\u001b[33mtests/asset-parking/**/*.test.*\u001b[39m\n  \u001b[2minclude: \u001b[22m\u001b[33m**/*.{test,spec}.?(c|m)[jt]s?(x)\u001b[39m\n  \u001b[2mexclude:  \u001b[22m\u001b[33m**/node_modules/**\u001b[2m, \u001b[22m**/.git/**\u001b[39m",
+      "relatedFilesAnalyzed": [
+        "ai/capabilities.json",
+        "ai/progress.log",
+        "ai/tasks/asset-parking/04-controller.md",
+        "ai/tasks/index.json",
+        "ai/verification/asset-parking.controller/001.json",
+        "ai/verification/asset-parking.controller/001.md",
+        "ai/verification/index.json",
+        "ai/verification/results.json",
+        "node_modules/.vite/vitest/da39a3ee5e6b4b0d3255bfef95601890afd80709/results.json",
+        "ai/tasks/asset-parking/05-statistics.md",
+        "src/main/java/com/ruoyi/asset/controller/AssetParkingController.java",
+        "src/main/java/com/ruoyi/asset/service/IAssetParkingService.java",
+        "src/main/java/com/ruoyi/asset/service/impl/AssetParkingServiceImpl.java"
+      ],
+      "strategyResults": [
+        {
+          "type": "test",
+          "required": true,
+          "success": false,
+          "output": "\n\u001b[1m\u001b[46m RUN \u001b[49m\u001b[22m \u001b[36mv4.0.15 \u001b[39m\u001b[90m/Users/lukin/Projects/NewAsset\u001b[39m\n\n\u001b[31mNo test files found, exiting with code 1\n\u001b[39m\n\u001b[2mfilter: \u001b[22m\u001b[33mtests/asset-parking/**/*.test.*\u001b[39m\n\u001b[2minclude: \u001b[22m\u001b[33m**/*.{test,spec}.?(c|m)[jt]s?(x)\u001b[39m\n\u001b[2mexclude:  \u001b[22m\u001b[33m**/node_modules/**\u001b[2m, \u001b[22m**/.git/**\u001b[39m\n\n",
+          "duration": 1094
+        }
+      ]
     }
   },
-  "updatedAt": "2025-12-15T14:20:49.545Z",
+  "updatedAt": "2025-12-15T14:28:47.600Z",
   "version": "1.0.0"
 }
