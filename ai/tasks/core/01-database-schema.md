@@ -2,8 +2,8 @@
 id: core.database-schema
 module: core
 priority: 101
-status: failing
-version: 7
+status: passing
+version: 8
 origin: spec-workflow
 dependsOn: []
 supersedes: []
@@ -21,44 +21,71 @@ verification:
   commitHash: 6a44037e350f96554f6195959d0606d55ac2c995
   summary: 6/6 criteria satisfied
 tddGuidance:
-  generatedAt: '2025-12-15T23:12:01.186Z'
-  generatedBy: claude
-  forVersion: 6
+  generatedAt: '2025-12-15T23:25:25.068Z'
+  generatedBy: codex
+  forVersion: 7
   suggestedTestFiles:
     unit:
       - tests/core/database-schema.test.ts
-    e2e: []
+    e2e:
+      - e2e/core/database-schema.spec.ts
   unitTestCases:
-    - name: should create t_asset table with all common fields
+    - name: should create t_asset table with common fields
       assertions:
-        - expect(schema).toContain('CREATE TABLE t_asset')
-        - expect(assetTableColumns).toContain('id')
-        - expect(assetTableColumns).toContain('asset_code')
-        - expect(assetTableColumns).toContain('project_type')
-        - expect(assetTableColumns).toContain('status')
-    - name: should create t_asset_location table with 3-level hierarchy
+        - expect(sql).toMatch(/CREATE\s+TABLE\s+IF\s+NOT\s+EXISTS\s+t_asset\b/i)
+        - 'expect(sql).toMatch(/\bt_asset\b[\s\S]*\bid\b[\s\S]*PRIMARY\s+KEY/i)'
+        - 'expect(sql).toMatch(/\bt_asset\b[\s\S]*\basset_code\b/i)'
+        - 'expect(sql).toMatch(/\bt_asset\b[\s\S]*\bproject_id\b/i)'
+        - 'expect(sql).toMatch(/\bt_asset\b[\s\S]*\basset_type\b/i)'
+        - 'expect(sql).toMatch(/\bt_asset\b[\s\S]*\bstatus\b/i)'
+        - 'expect(sql).toMatch(/\bt_asset\b[\s\S]*\bcreated_at\b/i)'
+        - 'expect(sql).toMatch(/\bt_asset\b[\s\S]*\bupdated_at\b/i)'
+    - name: should create t_asset_location table for 3-level hierarchy
       assertions:
-        - expect(schema).toContain('CREATE TABLE t_asset_location')
-        - expect(locationTableColumns).toContain('level')
-        - expect(locationTableColumns).toContain('parent_id')
+        - >-
+          expect(sql).toMatch(/CREATE\s+TABLE\s+IF\s+NOT\s+EXISTS\s+t_asset_location\b/i)
+        - >-
+          expect(sql).toMatch(/\bt_asset_location\b[\s\S]*\bid\b[\s\S]*PRIMARY\s+KEY/i)
+        - 'expect(sql).toMatch(/\bt_asset_location\b[\s\S]*\basset_id\b/i)'
+        - 'expect(sql).toMatch(/\bt_asset_location\b[\s\S]*\blevel\b/i)'
+        - 'expect(sql).toMatch(/\bt_asset_location\b[\s\S]*\bparent_id\b/i)'
+        - >-
+          expect(sql).toMatch(/\bt_asset_location\b[\s\S]*\b(level\s*<=\s*3|level\s+IN\s*\(\s*1\s*,\s*2\s*,\s*3\s*\))/i)
     - name: should create t_asset_code_seq table for sequence management
       assertions:
-        - expect(schema).toContain('CREATE TABLE t_asset_code_seq')
-        - expect(seqTableColumns).toContain('prefix')
-        - expect(seqTableColumns).toContain('current_seq')
+        - >-
+          expect(sql).toMatch(/CREATE\s+TABLE\s+IF\s+NOT\s+EXISTS\s+t_asset_code_seq\b/i)
+        - >-
+          expect(sql).toMatch(/\bt_asset_code_seq\b[\s\S]*\bid\b[\s\S]*PRIMARY\s+KEY/i)
+        - 'expect(sql).toMatch(/\bt_asset_code_seq\b[\s\S]*\bproject_id\b/i)'
+        - 'expect(sql).toMatch(/\bt_asset_code_seq\b[\s\S]*\basset_type\b/i)'
+        - 'expect(sql).toMatch(/\bt_asset_code_seq\b[\s\S]*\bcurrent_seq\b/i)'
+        - 'expect(sql).toMatch(/\bt_asset_code_seq\b[\s\S]*\bupdated_at\b/i)'
     - name: should create t_asset_attachment table
       assertions:
-        - expect(schema).toContain('CREATE TABLE t_asset_attachment')
-        - expect(attachmentTableColumns).toContain('asset_id')
-        - expect(attachmentTableColumns).toContain('file_path')
-    - name: should add indexes idx_asset_code and idx_project_type_status on t_asset
+        - >-
+          expect(sql).toMatch(/CREATE\s+TABLE\s+IF\s+NOT\s+EXISTS\s+t_asset_attachment\b/i)
+        - >-
+          expect(sql).toMatch(/\bt_asset_attachment\b[\s\S]*\bid\b[\s\S]*PRIMARY\s+KEY/i)
+        - 'expect(sql).toMatch(/\bt_asset_attachment\b[\s\S]*\basset_id\b/i)'
+        - 'expect(sql).toMatch(/\bt_asset_attachment\b[\s\S]*\bfile_name\b/i)'
+        - 'expect(sql).toMatch(/\bt_asset_attachment\b[\s\S]*\bfile_url\b/i)'
+        - 'expect(sql).toMatch(/\bt_asset_attachment\b[\s\S]*\bmime_type\b/i)'
+        - 'expect(sql).toMatch(/\bt_asset_attachment\b[\s\S]*\bsize_bytes\b/i)'
+    - name: should add required indexes on t_asset
       assertions:
-        - expect(schema).toContain('CREATE INDEX idx_asset_code')
-        - expect(schema).toContain('CREATE INDEX idx_project_type_status')
-    - name: should have SQL migration file at sql/asset_core.sql
+        - >-
+          expect(sql).toMatch(/CREATE\s+INDEX\s+IF\s+NOT\s+EXISTS\s+idx_asset_code\s+ON\s+t_asset\s*\(\s*asset_code\s*\)/i)
+        - >-
+          expect(sql).toMatch(/CREATE\s+INDEX\s+IF\s+NOT\s+EXISTS\s+idx_project_type_status\s+ON\s+t_asset\s*\(\s*project_id\s*,\s*asset_type\s*,\s*status\s*\)/i)
+    - name: should create SQL migration file at sql/asset_core.sql
       assertions:
-        - expect(fs.existsSync('sql/asset_core.sql')).toBe(true)
-        - expect(migrationContent).toBeTruthy()
+        - expect(existsSync('sql/asset_core.sql')).toBe(true)
+        - expect(sql.length).toBeGreaterThan(0)
+        - expect(sql).toMatch(/t_asset\b/i)
+        - expect(sql).toMatch(/t_asset_location\b/i)
+        - expect(sql).toMatch(/t_asset_code_seq\b/i)
+        - expect(sql).toMatch(/t_asset_attachment\b/i)
   e2eScenarios: []
   frameworkHint: vitest
 ---
