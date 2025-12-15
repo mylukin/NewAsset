@@ -3,7 +3,7 @@ id: asset-facility.BREAKDOWN
 module: asset-facility
 priority: 4
 status: passing
-version: 4
+version: 5
 origin: spec-workflow
 dependsOn:
   - core.BREAKDOWN
