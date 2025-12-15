@@ -2,8 +2,8 @@
 id: import.template-generator
 module: import
 priority: 804
-status: failing
-version: 2
+status: passing
+version: 3
 origin: spec-workflow
 dependsOn:
   - import.excel-parser-service
