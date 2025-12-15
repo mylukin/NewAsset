@@ -12,13 +12,12 @@
     "buildCommand": "",
     "hasGit": true,
     "source": "ai-discovered",
-    "confidence": 0.5166666666666667,
+    "confidence": 0.95,
     "languages": [
       "Java",
-      "TypeScript",
-      "Vue"
+      "TypeScript"
     ],
-    "detectedAt": "2025-12-15T13:56:32.818Z",
+    "detectedAt": "2025-12-15T14:01:25.114Z",
     "testInfo": {
       "available": true,
       "command": "CI=true npx vitest run",
@@ -40,12 +39,12 @@
     "typeCheckInfo": {
       "available": false,
       "command": "",
-      "confidence": 0.3
+      "confidence": 0
     },
     "lintInfo": {
       "available": false,
       "command": "",
-      "confidence": 0.3
+      "confidence": 0
     },
     "buildInfo": {
       "available": false,
@@ -53,7 +52,7 @@
       "confidence": 0
     }
   },
-  "commitHash": "aaf6f054158ad40c3d9313c7a6691bb2088c70ea",
+  "commitHash": "6ac057763544910bf5899df800f9f1f2ad1c1da7",
   "trackedFiles": [
     "ai/capabilities.json"
   ]
