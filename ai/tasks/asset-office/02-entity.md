@@ -2,8 +2,8 @@
 id: asset-office.entity
 module: asset-office
 priority: 602
-status: failing
-version: 2
+status: passing
+version: 3
 origin: spec-workflow
 dependsOn:
   - asset-office.database-schema
