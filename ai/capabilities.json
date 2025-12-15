@@ -1,76 +1,36 @@
 {
   "version": "1.0.0",
   "capabilities": {
-    "hasTests": true,
-    "testCommand": "npx vitest run",
-    "testFramework": "vitest",
+    "hasTests": false,
     "hasTypeCheck": false,
-    "typeCheckCommand": "",
     "hasLint": false,
-    "lintCommand": "",
     "hasBuild": false,
-    "buildCommand": "",
-    "hasGit": true,
+    "hasGit": false,
     "source": "ai-discovered",
-    "confidence": 0.95,
-    "languages": [
-      "java",
-      "typescript",
-      "sql"
-    ],
-    "detectedAt": "2025-12-15T12:28:44.853Z",
+    "confidence": 0,
+    "languages": [],
+    "detectedAt": "2025-12-15T12:31:43.556Z",
     "testInfo": {
-      "available": true,
-      "command": "npx vitest run",
-      "framework": "vitest",
-      "confidence": 0.95,
-      "selectiveFileTemplate": "npx vitest run {files}",
-      "selectiveNameTemplate": "npx vitest run -t {pattern}",
-      "packageManager": "unknown"
+      "available": false,
+      "confidence": 0
     },
     "e2eInfo": {
       "available": false,
-      "command": "",
-      "framework": "",
-      "confidence": 0,
-      "configFile": "",
-      "grepTemplate": "",
-      "fileTemplate": ""
+      "confidence": 0
     },
     "typeCheckInfo": {
       "available": false,
-      "command": "",
       "confidence": 0
     },
     "lintInfo": {
       "available": false,
-      "command": "",
       "confidence": 0
     },
     "buildInfo": {
       "available": false,
-      "command": "",
       "confidence": 0
-    },
-    "customRules": [
-      {
-        "id": "agent-foreman-check",
-        "description": "Run agent-foreman verification checks",
-        "command": "agent-foreman check",
-        "type": "custom"
-      },
-      {
-        "id": "agent-foreman-status",
-        "description": "Show task status and progress",
-        "command": "agent-foreman status",
-        "type": "custom"
-      }
-    ]
+    }
   },
-  "commitHash": "c4205b6cdfb4626246ba20ed9dd68bdd86eb2ced",
-  "trackedFiles": [
-    "ai/capabilities.json",
-    "ai/tasks/index.json",
-    "sql/asset_core.sql"
-  ]
+  "commitHash": "7ae38751cecd1eb5f1e3ea1888676f6b27764c13",
+  "trackedFiles": []
 }
