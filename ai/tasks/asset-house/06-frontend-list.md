@@ -2,8 +2,8 @@
 id: asset-house.frontend-list
 module: asset-house
 priority: 206
-status: failing
-version: 4
+status: passing
+version: 5
 origin: spec-workflow
 dependsOn:
   - asset-house.controller
