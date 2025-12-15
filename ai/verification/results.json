@@ -1091,13 +1091,20 @@
     },
     "core.asset-entity": {
       "featureId": "core.asset-entity",
-      "timestamp": "2025-12-15T12:05:25.103Z",
-      "commitHash": "7378be2ea7d8558992e919b4362b6be28771672b",
+      "timestamp": "2025-12-15T15:07:53.338Z",
+      "commitHash": "ac57aedffb2da0cbe7b08a8b74d3afe05e68fe77",
       "changedFiles": [
-        "ai/capabilities.json",
-        "ai/tasks/core/02-asset-entity.md"
+        "ai/progress.log",
+        "ai/tasks/core/01-database-schema.md",
+        "ai/tasks/index.json",
+        "ai/verification/core.database-schema/002.json",
+        "ai/verification/core.database-schema/002.md",
+        "ai/verification/index.json",
+        "ai/verification/results.json",
+        "ai/tasks/core/02-asset-entity.md",
+        "node_modules/.vite/vitest/da39a3ee5e6b4b0d3255bfef95601890afd80709/results.json"
       ],
-      "diffSummary": "2 files changed",
+      "diffSummary": "9 files changed",
       "automatedChecks": [],
       "criteriaResults": [
         {
@@ -1138,18 +1145,25 @@
       ],
       "verdict": "pass",
       "verifiedBy": "strategy-framework",
-      "overallReasoning": "[TEST] ✗ FAIL\n  No test framework detected in project",
+      "overallReasoning": "[TEST] ✗ FAIL\n  \n  \u001b[1m\u001b[46m RUN \u001b[49m\u001b[22m \u001b[36mv4.0.15 \u001b[39m\u001b[90m/Users/lukin/Projects/NewAsset\u001b[39m\n  \n  \u001b[31mNo test files found, exiting with code 1\n  \u001b[39m\n  \u001b[2mfilter: \u001b[22m\u001b[33mtests/core/**/*.test.*\u001b[39m\n  \u001b[2minclude: \u001b[22m\u001b[33m**/*.{test,spec}.?(c|m)[jt]s?(x)\u001b[39m\n  \u001b[2mexclude:  \u001b[22m\u001b[33m**/node_modules/**\u001b[2m, \u001b[22m**/.git/**\u001b[39m",
       "relatedFilesAnalyzed": [
-        "ai/capabilities.json",
-        "ai/tasks/core/02-asset-entity.md"
+        "ai/progress.log",
+        "ai/tasks/core/01-database-schema.md",
+        "ai/tasks/index.json",
+        "ai/verification/core.database-schema/002.json",
+        "ai/verification/core.database-schema/002.md",
+        "ai/verification/index.json",
+        "ai/verification/results.json",
+        "ai/tasks/core/02-asset-entity.md",
+        "node_modules/.vite/vitest/da39a3ee5e6b4b0d3255bfef95601890afd80709/results.json"
       ],
       "strategyResults": [
         {
           "type": "test",
           "required": false,
           "success": false,
-          "output": "No test framework detected in project",
-          "duration": 5
+          "output": "\n\u001b[1m\u001b[46m RUN \u001b[49m\u001b[22m \u001b[36mv4.0.15 \u001b[39m\u001b[90m/Users/lukin/Projects/NewAsset\u001b[39m\n\n\u001b[31mNo test files found, exiting with code 1\n\u001b[39m\n\u001b[2mfilter: \u001b[22m\u001b[33mtests/core/**/*.test.*\u001b[39m\n\u001b[2minclude: \u001b[22m\u001b[33m**/*.{test,spec}.?(c|m)[jt]s?(x)\u001b[39m\n\u001b[2mexclude:  \u001b[22m\u001b[33m**/node_modules/**\u001b[2m, \u001b[22m**/.git/**\u001b[39m\n\n",
+          "duration": 1068
         }
       ]
     },
@@ -2641,6 +2655,6 @@
       ]
     }
   },
-  "updatedAt": "2025-12-15T15:06:49.854Z",
+  "updatedAt": "2025-12-15T15:07:53.341Z",
   "version": "1.0.0"
 }
