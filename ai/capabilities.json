@@ -14,19 +14,19 @@
     "source": "ai-discovered",
     "confidence": 0.95,
     "languages": [
-      "Java",
-      "TypeScript",
-      "SQL"
+      "java",
+      "typescript",
+      "sql"
     ],
-    "detectedAt": "2025-12-15T12:28:26.241Z",
+    "detectedAt": "2025-12-15T12:28:44.853Z",
     "testInfo": {
       "available": true,
       "command": "npx vitest run",
       "framework": "vitest",
       "confidence": 0.95,
       "selectiveFileTemplate": "npx vitest run {files}",
-      "selectiveNameTemplate": "npx vitest run -t \"{pattern}\"",
-      "packageManager": "none"
+      "selectiveNameTemplate": "npx vitest run -t {pattern}",
+      "packageManager": "unknown"
     },
     "e2eInfo": {
       "available": false,
@@ -51,9 +51,23 @@
       "available": false,
       "command": "",
       "confidence": 0
-    }
+    },
+    "customRules": [
+      {
+        "id": "agent-foreman-check",
+        "description": "Run agent-foreman verification checks",
+        "command": "agent-foreman check",
+        "type": "custom"
+      },
+      {
+        "id": "agent-foreman-status",
+        "description": "Show task status and progress",
+        "command": "agent-foreman status",
+        "type": "custom"
+      }
+    ]
   },
-  "commitHash": "ae05e05d28754474a0cd721ce5cfa23a42d5344e",
+  "commitHash": "c4205b6cdfb4626246ba20ed9dd68bdd86eb2ced",
   "trackedFiles": [
     "ai/capabilities.json",
     "ai/tasks/index.json",

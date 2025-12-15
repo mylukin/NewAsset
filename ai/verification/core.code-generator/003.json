@@ -1,0 +1,61 @@
+{
+  "featureId": "core.code-generator",
+  "runNumber": 3,
+  "timestamp": "2025-12-15T12:28:38.604Z",
+  "commitHash": "1bec1332eeac541eee79b86121949177ddcc3e8d",
+  "changedFiles": [
+    "ai/capabilities.json",
+    "ai/progress.log",
+    "ai/tasks/core/03-status-enum.md",
+    "ai/tasks/index.json",
+    "ai/verification/core.status-enum/001.json",
+    "ai/verification/core.status-enum/001.md",
+    "ai/verification/index.json",
+    "ai/verification/results.json",
+    "node_modules/.vite/vitest/da39a3ee5e6b4b0d3255bfef95601890afd80709/results.json",
+    "src/main/java/com/ruoyi/asset/domain/enums/AssetStatusEnum.java",
+    "tests/core/asset-status-enum-transition.test.ts"
+  ],
+  "diffSummary": "11 files changed",
+  "automatedChecks": [],
+  "criteriaResults": [
+    {
+      "criterion": "Create `AssetCodeGenerator` service in `com.ruoyi.asset.service.rule`:",
+      "index": 0,
+      "satisfied": false,
+      "confidence": 0.3
+    },
+    {
+      "criterion": "Code format: `{TYPE_PREFIX}-{6_DIGIT_SEQ}`:",
+      "index": 1,
+      "satisfied": false,
+      "confidence": 0.3
+    },
+    {
+      "criterion": "Implement optimistic locking for concurrent generation:",
+      "index": 2,
+      "satisfied": false,
+      "confidence": 0.3
+    },
+    {
+      "criterion": "Handle sequence initialization:",
+      "index": 3,
+      "satisfied": false,
+      "confidence": 0.3
+    },
+    {
+      "criterion": "Unit test `AssetCodeGeneratorTest`:",
+      "index": 4,
+      "satisfied": false,
+      "confidence": 0.3
+    },
+    {
+      "criterion": "Add unique constraint check:",
+      "index": 5,
+      "satisfied": false,
+      "confidence": 0.3
+    }
+  ],
+  "verdict": "fail",
+  "verifiedBy": "strategy-framework"
+}
