@@ -2,8 +2,8 @@
 id: import.asset-import-service
 module: import
 priority: 803
-status: failing
-version: 2
+status: passing
+version: 3
 origin: spec-workflow
 dependsOn:
   - import.row-validator-service
