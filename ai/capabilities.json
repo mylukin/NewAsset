@@ -12,12 +12,12 @@
     "buildCommand": "",
     "hasGit": true,
     "source": "ai-discovered",
-    "confidence": 0.9,
+    "confidence": 0.7833333333333332,
     "languages": [
       "Java",
       "TypeScript"
     ],
-    "detectedAt": "2025-12-15T13:44:31.993Z",
+    "detectedAt": "2025-12-15T13:53:00.260Z",
     "testInfo": {
       "available": true,
       "command": "npx vitest run",
@@ -39,12 +39,12 @@
     "typeCheckInfo": {
       "available": true,
       "command": "tsc --noEmit",
-      "confidence": 0.9
+      "confidence": 0.7
     },
     "lintInfo": {
       "available": true,
       "command": "eslint",
-      "confidence": 0.85
+      "confidence": 0.7
     },
     "buildInfo": {
       "available": false,
@@ -52,8 +52,6 @@
       "confidence": 0
     }
   },
-  "commitHash": "ba9795eec250025d8e049885332816021e849bcd",
-  "trackedFiles": [
-    "node_modules/.vite/vitest"
-  ]
+  "commitHash": "e3e42431ff8da67a496d621311a8a476aa74c836",
+  "trackedFiles": []
 }

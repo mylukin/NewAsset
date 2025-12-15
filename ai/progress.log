@@ -57,3 +57,5 @@
 2025-12-15T13:46:51.268Z VERIFY feature=asset-house.frontend-list action=pass summary="Verified asset-house.frontend-list: pass"
 2025-12-15T13:47:02.827Z VERIFY feature=asset-house.frontend-list action=pass summary="Verified asset-house.frontend-list: pass"
 2025-12-15T13:47:02.832Z STEP feature=asset-house.frontend-list status=passing tests="./ai/init.sh check" summary="Completed asset-house.frontend-list"
+2025-12-15T13:54:35.009Z VERIFY feature=asset-house.frontend-detail action=pass summary="Verified asset-house.frontend-detail: pass"
+2025-12-15T13:54:35.015Z STEP feature=asset-house.frontend-detail status=passing tests="./ai/init.sh check" summary="Completed asset-house.frontend-detail"
