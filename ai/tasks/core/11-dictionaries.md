@@ -2,8 +2,8 @@
 id: core.dictionaries
 module: core
 priority: 111
-status: failed
-version: 2
+status: passing
+version: 3
 origin: spec-workflow
 dependsOn: []
 supersedes: []
