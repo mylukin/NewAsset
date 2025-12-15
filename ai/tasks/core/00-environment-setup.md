@@ -2,8 +2,8 @@
 id: core.environment-setup
 module: core
 priority: 1
-status: failed
-version: 10
+status: passing
+version: 11
 origin: manual
 dependsOn: []
 supersedes: []
