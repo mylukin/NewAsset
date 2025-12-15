@@ -1,6 +1,6 @@
 {
   "version": "2.0.0",
-  "updatedAt": "2025-12-15T23:27:35.844Z",
+  "updatedAt": "2025-12-15T23:27:36.034Z",
   "metadata": {
     "projectGoal": "Asset Management System (MVP) - Unified asset lifecycle management platform for property/facility management with 5 asset types, 9-state status machine, and maintenance work order workflow",
     "createdAt": "2025-12-15T00:00:00Z",
@@ -217,7 +217,7 @@
       "filePath": "asset-parking/06-frontend-list.md"
     },
     "asset-parking.frontend-detail": {
-      "status": "failing",
+      "status": "passing",
       "priority": 309,
       "module": "asset-parking",
       "description": "Implement parking asset detail drawer (Vue)",
