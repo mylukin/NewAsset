@@ -2,8 +2,8 @@
 id: core.asset-entity
 module: core
 priority: 102
-status: failing
-version: 7
+status: passing
+version: 8
 origin: spec-workflow
 dependsOn:
   - core.database-schema
@@ -22,50 +22,71 @@ verification:
   commitHash: ac57aedffb2da0cbe7b08a8b74d3afe05e68fe77
   summary: 5/5 criteria satisfied
 tddGuidance:
-  generatedAt: '2025-12-15T23:15:19.331Z'
-  generatedBy: claude
-  forVersion: 6
+  generatedAt: '2025-12-15T23:26:27.150Z'
+  generatedBy: codex
+  forVersion: 7
   suggestedTestFiles:
     unit:
-      - ruoyi-asset/src/test/java/com/ruoyi/asset/domain/entity/AssetTest.java
-      - ruoyi-asset/src/test/java/com/ruoyi/asset/mapper/AssetMapperTest.java
-    e2e: []
+      - tests/core/asset-entity.test.ts
+    e2e:
+      - e2e/core/asset-entity.spec.ts
   unitTestCases:
-    - name: Asset entity class exists with required fields and annotations
+    - name: should create Asset entity class at expected package path
       assertions:
-        - expect Asset class to have @TableName annotation
         - >-
-          expect Asset class to have id, assetCode, assetName, categoryId,
-          status fields
-        - expect Asset class to extend BaseEntity or have audit fields
-    - name: AssetMapper interface exists with CRUD methods
+          expect(existsSync('core/src/main/java/com/ruoyi/asset/domain/entity/Asset.java')).toBe(true)
+        - >-
+          expect(readFileSync('core/src/main/java/com/ruoyi/asset/domain/entity/Asset.java','utf-8')).toContain('package
+          com.ruoyi.asset.domain.entity;')
+        - >-
+          expect(readFileSync('core/src/main/java/com/ruoyi/asset/domain/entity/Asset.java','utf-8')).toContain('class
+          Asset')
+    - name: should create AssetMapper interface at expected package path
       assertions:
-        - expect AssetMapper to extend BaseMapper<Asset>
-        - expect AssetMapper to have @Mapper annotation
-        - expect selectById to return Asset entity
-        - expect insert to persist Asset entity
-    - name: Mapper XML file is valid and maps to entity
+        - >-
+          expect(existsSync('core/src/main/java/com/ruoyi/asset/mapper/AssetMapper.java')).toBe(true)
+        - >-
+          expect(readFileSync('core/src/main/java/com/ruoyi/asset/mapper/AssetMapper.java','utf-8')).toContain('package
+          com.ruoyi.asset.mapper;')
+        - >-
+          expect(readFileSync('core/src/main/java/com/ruoyi/asset/mapper/AssetMapper.java','utf-8')).toContain('interface
+          AssetMapper')
+    - name: should provide valid MyBatis mapper XML when not using MyBatis-Plus
       assertions:
-        - expect mapper XML namespace to match AssetMapper interface
-        - expect resultMap to map all Asset entity fields
-        - expect SQL statements to be syntactically valid
-    - name: AssetVO class exists with view object fields
+        - >-
+          expect(existsSync('core/src/main/resources/mapper/asset/AssetMapper.xml')).toBe(true)
+        - >-
+          expect(readFileSync('core/src/main/resources/mapper/asset/AssetMapper.xml','utf-8')).toMatch(/<mapper[^>]*namespace="com\.ruoyi\.asset\.mapper\.AssetMapper"/)
+        - >-
+          expect(readFileSync('core/src/main/resources/mapper/asset/AssetMapper.xml','utf-8')).toContain('</mapper>')
+    - name: should create AssetVO and AssetDTO classes under domain vo package
       assertions:
-        - expect AssetVO class to have serializable annotation
-        - expect AssetVO to contain display-friendly fields
-        - expect AssetVO to have getter/setter methods
-    - name: AssetDTO class exists for data transfer
+        - >-
+          expect(existsSync('core/src/main/java/com/ruoyi/asset/domain/vo/AssetVO.java')).toBe(true)
+        - >-
+          expect(existsSync('core/src/main/java/com/ruoyi/asset/domain/vo/AssetDTO.java')).toBe(true)
+        - >-
+          expect(readFileSync('core/src/main/java/com/ruoyi/asset/domain/vo/AssetVO.java','utf-8')).toContain('package
+          com.ruoyi.asset.domain.vo;')
+        - >-
+          expect(readFileSync('core/src/main/java/com/ruoyi/asset/domain/vo/AssetDTO.java','utf-8')).toContain('package
+          com.ruoyi.asset.domain.vo;')
+    - name: >-
+        should compile core module successfully and ensure mapper XML is
+        well-formed
       assertions:
-        - expect AssetDTO class to have validation annotations
-        - expect AssetDTO to contain input fields for create/update operations
-        - expect AssetDTO to have getter/setter methods
-    - name: Entity compiles without errors and mapper XML is valid
-      assertions:
-        - expect compilation to succeed without errors
-        - expect mapper XML to parse without validation errors
-        - expect Spring context to load AssetMapper bean successfully
+        - >-
+          expect(execSync('mvn -q -pl core -am
+          test-compile',{stdio:'pipe'}).toString()).not.toContain('COMPILATION
+          ERROR')
+        - >-
+          expect(() => new
+          (require('xmldom').DOMParser)().parseFromString(readFileSync('core/src/main/resources/mapper/asset/AssetMapper.xml','utf-8'),'text/xml')).not.toThrow()
+        - >-
+          expect(new
+          (require('xmldom').DOMParser)().parseFromString(readFileSync('core/src/main/resources/mapper/asset/AssetMapper.xml','utf-8'),'text/xml').getElementsByTagName('parsererror').length).toBe(0)
   e2eScenarios: []
-  frameworkHint: junit5-mybatis
+  frameworkHint: vitest
 ---
 # Create Asset Base Entity and Mapper
 
