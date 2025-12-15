@@ -2,7 +2,7 @@
 id: core.code-generator
 module: core
 priority: 104
-status: failed
+status: passing
 version: 8
 origin: spec-workflow
 dependsOn:
