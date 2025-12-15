@@ -2,8 +2,8 @@
 id: import.controller
 module: import
 priority: 805
-status: failing
-version: 2
+status: passing
+version: 3
 origin: spec-workflow
 dependsOn:
   - import.asset-import-service
