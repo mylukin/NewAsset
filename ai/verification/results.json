@@ -2649,8 +2649,74 @@
         "package.json",
         "node_modules/.vite/vitest/da39a3ee5e6b4b0d3255bfef95601890afd80709/results.json"
       ]
+    },
+    "core.status-service": {
+      "featureId": "core.status-service",
+      "timestamp": "2025-12-15T15:24:47.976Z",
+      "commitHash": "c2cf89524f86700813d6e3432bcd31dd3de96b0c",
+      "changedFiles": [
+        "ai/tasks/index.json",
+        "ai/tasks/core/05-status-service.md",
+        "node_modules/.vite/vitest/da39a3ee5e6b4b0d3255bfef95601890afd80709/results.json"
+      ],
+      "diffSummary": "3 files changed",
+      "automatedChecks": [],
+      "criteriaResults": [
+        {
+          "criterion": "Create `AssetStatusService` in `com.ruoyi.asset.service`:",
+          "index": 0,
+          "satisfied": false,
+          "reasoning": "One or more required strategies failed",
+          "confidence": 0.3
+        },
+        {
+          "criterion": "Validate transition before change:",
+          "index": 1,
+          "satisfied": false,
+          "reasoning": "One or more required strategies failed",
+          "confidence": 0.3
+        },
+        {
+          "criterion": "Update asset status:",
+          "index": 2,
+          "satisfied": false,
+          "reasoning": "One or more required strategies failed",
+          "confidence": 0.3
+        },
+        {
+          "criterion": "Log status change (optional table or use RuoYi @Log):",
+          "index": 3,
+          "satisfied": false,
+          "reasoning": "One or more required strategies failed",
+          "confidence": 0.3
+        },
+        {
+          "criterion": "Unit test `AssetStatusServiceTest`:",
+          "index": 4,
+          "satisfied": false,
+          "reasoning": "One or more required strategies failed",
+          "confidence": 0.3
+        }
+      ],
+      "verdict": "fail",
+      "verifiedBy": "strategy-framework",
+      "overallReasoning": "[TEST] ✗ FAIL\n  \n  \u001b[1m\u001b[46m RUN \u001b[49m\u001b[22m \u001b[36mv4.0.15 \u001b[39m\u001b[90m/Users/lukin/Projects/NewAsset\u001b[39m\n  \n  \u001b[31mNo test files found, exiting with code 1\n  \u001b[39m\n  \u001b[2mfilter: \u001b[22m\u001b[33mtests/core/**/*.test.*\u001b[39m\n  \u001b[2minclude: \u001b[22m\u001b[33mtests/**/*.test.*\u001b[39m\n  \u001b[2mexclude:  \u001b[22m\u001b[33mnode_modules\u001b[2m, \u001b[22mdist\u001b[2m, \u001b[22m.git\u001b[2m, \u001b[22m.cache\u001b[39m",
+      "relatedFilesAnalyzed": [
+        "ai/tasks/index.json",
+        "ai/tasks/core/05-status-service.md",
+        "node_modules/.vite/vitest/da39a3ee5e6b4b0d3255bfef95601890afd80709/results.json"
+      ],
+      "strategyResults": [
+        {
+          "type": "test",
+          "required": true,
+          "success": false,
+          "output": "\n\u001b[1m\u001b[46m RUN \u001b[49m\u001b[22m \u001b[36mv4.0.15 \u001b[39m\u001b[90m/Users/lukin/Projects/NewAsset\u001b[39m\n\n\u001b[31mNo test files found, exiting with code 1\n\u001b[39m\n\u001b[2mfilter: \u001b[22m\u001b[33mtests/core/**/*.test.*\u001b[39m\n\u001b[2minclude: \u001b[22m\u001b[33mtests/**/*.test.*\u001b[39m\n\u001b[2mexclude:  \u001b[22m\u001b[33mnode_modules\u001b[2m, \u001b[22mdist\u001b[2m, \u001b[22m.git\u001b[2m, \u001b[22m.cache\u001b[39m\n\n",
+          "duration": 382
+        }
+      ]
     }
   },
-  "updatedAt": "2025-12-15T15:20:00.999Z",
+  "updatedAt": "2025-12-15T15:24:47.978Z",
   "version": "1.0.0"
 }

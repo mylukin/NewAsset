@@ -51,7 +51,7 @@
       "filePath": "core/04-code-generator.md"
     },
     "core.status-service": {
-      "status": "failing",
+      "status": "passing",
       "priority": 107,
       "module": "core",
       "description": "Implement asset status change service with validation",

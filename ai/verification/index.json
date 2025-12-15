@@ -251,8 +251,17 @@
       "totalRuns": 3,
       "passCount": 1,
       "failCount": 2
+    },
+    "core.status-service": {
+      "featureId": "core.status-service",
+      "latestRun": 1,
+      "latestTimestamp": "2025-12-15T15:24:47.976Z",
+      "latestVerdict": "fail",
+      "totalRuns": 1,
+      "passCount": 0,
+      "failCount": 1
     }
   },
-  "updatedAt": "2025-12-15T15:20:00.998Z",
+  "updatedAt": "2025-12-15T15:24:47.977Z",
   "version": "2.0.0"
 }
