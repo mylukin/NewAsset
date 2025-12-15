@@ -1,6 +1,6 @@
 {
   "version": "2.0.0",
-  "updatedAt": "2025-12-15T13:21:52.354Z",
+  "updatedAt": "2025-12-15T13:29:09.767Z",
   "metadata": {
     "projectGoal": "Asset Management System (MVP) - Unified asset lifecycle management platform for property/facility management with 5 asset types, 9-state status machine, and maintenance work order workflow",
     "createdAt": "2025-12-15T00:00:00Z",
@@ -120,7 +120,7 @@
       "filePath": "asset-house/02-entity.md"
     },
     "asset-house.service": {
-      "status": "failing",
+      "status": "failed",
       "priority": 203,
       "module": "asset-house",
       "description": "Implement house asset service with copy feature",

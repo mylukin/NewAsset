@@ -1516,8 +1516,83 @@
           "duration": 297946
         }
       ]
+    },
+    "asset-house.service": {
+      "featureId": "asset-house.service",
+      "timestamp": "2025-12-15T13:28:15.872Z",
+      "commitHash": "d8ff591d1758da811b4e736e9d38122819f3ff7f",
+      "changedFiles": [
+        "ai/capabilities.json",
+        "ai/tasks/asset-house/02-entity.md",
+        "node_modules/.vite/vitest/da39a3ee5e6b4b0d3255bfef95601890afd80709/results.json",
+        "ai/tasks/asset-house/03-service.md"
+      ],
+      "diffSummary": "4 files changed",
+      "automatedChecks": [],
+      "criteriaResults": [
+        {
+          "criterion": "Create `IAssetHouseService` interface in `com.ruoyi.asset.service`:",
+          "index": 0,
+          "satisfied": false,
+          "reasoning": "One or more required strategies failed",
+          "confidence": 0.3
+        },
+        {
+          "criterion": "Create `AssetHouseServiceImpl`:",
+          "index": 1,
+          "satisfied": false,
+          "reasoning": "One or more required strategies failed",
+          "confidence": 0.3
+        },
+        {
+          "criterion": "Create operation:",
+          "index": 2,
+          "satisfied": false,
+          "reasoning": "One or more required strategies failed",
+          "confidence": 0.3
+        },
+        {
+          "criterion": "Update operation:",
+          "index": 3,
+          "satisfied": false,
+          "reasoning": "One or more required strategies failed",
+          "confidence": 0.3
+        },
+        {
+          "criterion": "Copy operation:",
+          "index": 4,
+          "satisfied": false,
+          "reasoning": "One or more required strategies failed",
+          "confidence": 0.3
+        },
+        {
+          "criterion": "Delete operation:",
+          "index": 5,
+          "satisfied": false,
+          "reasoning": "One or more required strategies failed",
+          "confidence": 0.3
+        }
+      ],
+      "verdict": "fail",
+      "verifiedBy": "strategy-framework",
+      "overallReasoning": "[TEST] ✗ FAIL\n  \n  \u001b[1m\u001b[46m RUN \u001b[49m\u001b[22m \u001b[36mv4.0.15 \u001b[39m\u001b[90m/Users/lukin/Projects/NewAsset\u001b[39m\n  \n  \u001b[31mNo test files found, exiting with code 1\n  \u001b[39m\n  \u001b[2mfilter: \u001b[22m\u001b[33mtests/asset-house/**/*.test.*\u001b[39m\n  \u001b[2minclude: \u001b[22m\u001b[33m**/*.{test,spec}.?(c|m)[jt]s?(x)\u001b[39m\n  \u001b[2mexclude:  \u001b[22m\u001b[33m**/node_modules/**\u001b[2m, \u001b[22m**/.git/**\u001b[39m",
+      "relatedFilesAnalyzed": [
+        "ai/capabilities.json",
+        "ai/tasks/asset-house/02-entity.md",
+        "node_modules/.vite/vitest/da39a3ee5e6b4b0d3255bfef95601890afd80709/results.json",
+        "ai/tasks/asset-house/03-service.md"
+      ],
+      "strategyResults": [
+        {
+          "type": "test",
+          "required": true,
+          "success": false,
+          "output": "\n\u001b[1m\u001b[46m RUN \u001b[49m\u001b[22m \u001b[36mv4.0.15 \u001b[39m\u001b[90m/Users/lukin/Projects/NewAsset\u001b[39m\n\n\u001b[31mNo test files found, exiting with code 1\n\u001b[39m\n\u001b[2mfilter: \u001b[22m\u001b[33mtests/asset-house/**/*.test.*\u001b[39m\n\u001b[2minclude: \u001b[22m\u001b[33m**/*.{test,spec}.?(c|m)[jt]s?(x)\u001b[39m\n\u001b[2mexclude:  \u001b[22m\u001b[33m**/node_modules/**\u001b[2m, \u001b[22m**/.git/**\u001b[39m\n\n",
+          "duration": 1160
+        }
+      ]
     }
   },
-  "updatedAt": "2025-12-15T13:21:52.324Z",
+  "updatedAt": "2025-12-15T13:28:15.874Z",
   "version": "1.0.0"
 }

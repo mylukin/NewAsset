@@ -6,18 +6,18 @@
     "testFramework": "vitest",
     "hasTypeCheck": true,
     "typeCheckCommand": "tsc --noEmit",
-    "hasLint": true,
-    "lintCommand": "cd /Users/lukin/Projects/AssetBoard/frontend && npm run lint",
-    "hasBuild": true,
-    "buildCommand": "cd /Users/lukin/Projects/AssetBoard/backend && mvn clean package -DskipTests",
+    "hasLint": false,
+    "lintCommand": "",
+    "hasBuild": false,
+    "buildCommand": "",
     "hasGit": true,
     "source": "ai-discovered",
-    "confidence": 0.9,
+    "confidence": 0.825,
     "languages": [
       "Java",
       "TypeScript"
     ],
-    "detectedAt": "2025-12-15T13:23:17.800Z",
+    "detectedAt": "2025-12-15T13:26:34.022Z",
     "testInfo": {
       "available": true,
       "command": "npx vitest run",
@@ -28,13 +28,13 @@
       "packageManager": "npm"
     },
     "e2eInfo": {
-      "available": true,
-      "command": "cd /Users/lukin/Projects/AssetBoard/tests/e2e && npm test",
-      "framework": "playwright",
-      "confidence": 0.95,
-      "configFile": "/Users/lukin/Projects/AssetBoard/tests/e2e/playwright.config.ts",
-      "grepTemplate": "npm test --grep {tags}",
-      "fileTemplate": "npm test {files}"
+      "available": false,
+      "command": "",
+      "framework": "",
+      "confidence": 0,
+      "configFile": "",
+      "grepTemplate": "",
+      "fileTemplate": ""
     },
     "typeCheckInfo": {
       "available": true,
@@ -42,50 +42,16 @@
       "confidence": 0.7
     },
     "lintInfo": {
-      "available": true,
-      "command": "cd /Users/lukin/Projects/AssetBoard/frontend && npm run lint",
-      "confidence": 0.95
+      "available": false,
+      "command": "",
+      "confidence": 0
     },
     "buildInfo": {
-      "available": true,
-      "command": "cd /Users/lukin/Projects/AssetBoard/backend && mvn clean package -DskipTests",
-      "confidence": 0.95
-    },
-    "customRules": [
-      {
-        "id": "java.test",
-        "description": "Run Java unit tests with Maven",
-        "command": "cd /Users/lukin/Projects/AssetBoard/backend && mvn test",
-        "type": "test"
-      },
-      {
-        "id": "java.build.with.tests",
-        "description": "Build Java project including tests",
-        "command": "cd /Users/lukin/Projects/AssetBoard/backend && mvn clean package",
-        "type": "build"
-      },
-      {
-        "id": "frontend.build",
-        "description": "Build Vue.js frontend application",
-        "command": "cd /Users/lukin/Projects/AssetBoard/frontend && npm run build",
-        "type": "build"
-      },
-      {
-        "id": "frontend.lint",
-        "description": "Lint Vue.js frontend code",
-        "command": "cd /Users/lukin/Projects/AssetBoard/frontend && npm run lint",
-        "type": "lint"
-      }
-    ]
+      "available": false,
+      "command": "",
+      "confidence": 0
+    }
   },
-  "commitHash": "4040f03d9991867592ef4c72804b18047a0c44cc",
-  "trackedFiles": [
-    "/Users/lukin/Projects/NewAsset/ai/capabilities.json",
-    "/Users/lukin/Projects/AssetBoard/backend/pom.xml",
-    "/Users/lukin/Projects/AssetBoard/frontend/package.json",
-    "/Users/lukin/Projects/AssetBoard/frontend/vue.config.js",
-    "/Users/lukin/Projects/AssetBoard/frontend/babel.config.js",
-    "/Users/lukin/Projects/AssetBoard/tests/e2e/package.json",
-    "/Users/lukin/Projects/AssetBoard/tests/e2e/playwright.config.ts"
-  ]
+  "commitHash": "d8ff591d1758da811b4e736e9d38122819f3ff7f",
+  "trackedFiles": []
 }

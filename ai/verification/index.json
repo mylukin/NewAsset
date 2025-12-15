@@ -143,8 +143,17 @@
       "totalRuns": 2,
       "passCount": 2,
       "failCount": 0
+    },
+    "asset-house.service": {
+      "featureId": "asset-house.service",
+      "latestRun": 1,
+      "latestTimestamp": "2025-12-15T13:28:15.872Z",
+      "latestVerdict": "fail",
+      "totalRuns": 1,
+      "passCount": 0,
+      "failCount": 1
     }
   },
-  "updatedAt": "2025-12-15T13:21:52.321Z",
+  "updatedAt": "2025-12-15T13:28:15.873Z",
   "version": "2.0.0"
 }
