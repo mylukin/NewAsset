@@ -2,8 +2,8 @@
 id: core.code-generator
 module: core
 priority: 104
-status: failing
-version: 9
+status: passing
+version: 10
 origin: spec-workflow
 dependsOn:
   - core.database-schema
