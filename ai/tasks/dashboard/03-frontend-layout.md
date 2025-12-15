@@ -2,8 +2,8 @@
 id: dashboard.frontend-layout
 module: dashboard
 priority: 903
-status: failing
-version: 2
+status: passing
+version: 3
 origin: spec-workflow
 dependsOn:
   - dashboard.controller
