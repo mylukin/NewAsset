@@ -177,3 +177,6 @@
 2025-12-15T22:59:51.123Z STEP feature=dashboard.kpi-cards status=passing tests="./ai/init.sh check" summary="Completed dashboard.kpi-cards"
 2025-12-15T22:59:51.314Z STEP feature=dashboard.charts status=passing tests="./ai/init.sh check" summary="Completed dashboard.charts"
 2025-12-15T22:59:51.503Z STEP feature=dashboard.refresh-button status=passing tests="./ai/init.sh check" summary="Completed dashboard.refresh-button"
+2025-12-15T23:10:09.855Z VERIFY feature=core.environment-setup action=fail summary="Verified core.environment-setup: fail"
+2025-12-15T23:10:22.521Z VERIFY feature=core.environment-setup action=fail summary="Marked core.environment-setup as failed: Verification failed: Project uses RuoYi structure (ruoyi-admin/ruoyi-ui) instead of expected (backend/frontend)"
+2025-12-15T23:10:42.867Z STEP feature=core.BREAKDOWN status=passing tests="breakdown-complete" summary="Completed breakdown: core.BREAKDOWN"

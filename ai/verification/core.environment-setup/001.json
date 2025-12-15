@@ -1,63 +1,177 @@
 {
   "featureId": "core.environment-setup",
   "runNumber": 1,
-  "timestamp": "2025-12-15T14:57:28.163Z",
-  "commitHash": "84aace2e6d7093479237e4c418aaa04e986b5421",
+  "timestamp": "2025-12-15T23:10:09.848Z",
+  "commitHash": "c5b4807148679a6d98499241a8cd615ab5ae5fac",
   "changedFiles": [
     "ai/tasks/index.json",
-    "node_modules/.vite/vitest/da39a3ee5e6b4b0d3255bfef95601890afd80709/results.json",
-    "ai/capabilities.json",
-    "ai/tasks/asset-parking/06-frontend-list.md",
-    "ai/tasks/core/00-environment-setup.md"
+    "ai/tasks/core/00-environment-setup.md",
+    "ai/verification/asset-facility.BREAKDOWN/001.json",
+    "ai/verification/asset-facility.BREAKDOWN/001.md",
+    "ai/verification/asset-house.BREAKDOWN/001.json",
+    "ai/verification/asset-house.BREAKDOWN/001.md",
+    "ai/verification/asset-house.controller/001.json",
+    "ai/verification/asset-house.controller/001.md",
+    "ai/verification/asset-house.controller/002.json",
+    "ai/verification/asset-house.controller/002.md",
+    "ai/verification/asset-house.database-schema/001.json",
+    "ai/verification/asset-house.database-schema/001.md",
+    "ai/verification/asset-house.database-schema/002.json",
+    "ai/verification/asset-house.database-schema/002.md",
+    "ai/verification/asset-house.entity/001.json",
+    "ai/verification/asset-house.entity/001.md",
+    "ai/verification/asset-house.entity/002.json",
+    "ai/verification/asset-house.entity/002.md",
+    "ai/verification/asset-house.frontend-detail/001.json",
+    "ai/verification/asset-house.frontend-detail/001.md",
+    "ai/verification/asset-house.frontend-detail/002.json",
+    "ai/verification/asset-house.frontend-detail/002.md",
+    "ai/verification/asset-house.frontend-form/001.json",
+    "ai/verification/asset-house.frontend-form/001.md",
+    "ai/verification/asset-house.frontend-form/002.json",
+    "ai/verification/asset-house.frontend-form/002.md",
+    "ai/verification/asset-house.frontend-list/001.json",
+    "ai/verification/asset-house.frontend-list/001.md",
+    "ai/verification/asset-house.frontend-list/002.json",
+    "ai/verification/asset-house.frontend-list/002.md",
+    "ai/verification/asset-house.service/001.json",
+    "ai/verification/asset-house.service/001.md",
+    "ai/verification/asset-house.statistics/001.json",
+    "ai/verification/asset-house.statistics/001.md",
+    "ai/verification/asset-office.BREAKDOWN/001.json",
+    "ai/verification/asset-office.BREAKDOWN/001.md",
+    "ai/verification/asset-parking.BREAKDOWN/001.json",
+    "ai/verification/asset-parking.BREAKDOWN/001.md",
+    "ai/verification/asset-parking.controller/001.json",
+    "ai/verification/asset-parking.controller/001.md",
+    "ai/verification/asset-parking.database-schema/001.json",
+    "ai/verification/asset-parking.database-schema/001.md",
+    "ai/verification/asset-parking.database-schema/002.json",
+    "ai/verification/asset-parking.database-schema/002.md",
+    "ai/verification/asset-parking.entity/001.json",
+    "ai/verification/asset-parking.entity/001.md",
+    "ai/verification/asset-parking.entity/002.json",
+    "ai/verification/asset-parking.entity/002.md",
+    "ai/verification/asset-parking.service/001.json",
+    "ai/verification/asset-parking.service/001.md",
+    "ai/verification/asset-parking.statistics/001.json",
+    "ai/verification/asset-parking.statistics/001.md",
+    "ai/verification/asset-venue.BREAKDOWN/001.json",
+    "ai/verification/asset-venue.BREAKDOWN/001.md",
+    "ai/verification/core.BREAKDOWN/001.json",
+    "ai/verification/core.BREAKDOWN/001.md",
+    "ai/verification/core.asset-entity/001.json",
+    "ai/verification/core.asset-entity/001.md",
+    "ai/verification/core.asset-entity/002.json",
+    "ai/verification/core.asset-entity/002.md",
+    "ai/verification/core.code-generator/001.json",
+    "ai/verification/core.code-generator/001.md",
+    "ai/verification/core.code-generator/002.json",
+    "ai/verification/core.code-generator/002.md",
+    "ai/verification/core.code-generator/003.json",
+    "ai/verification/core.code-generator/003.md",
+    "ai/verification/core.code-generator/004.json",
+    "ai/verification/core.code-generator/004.md",
+    "ai/verification/core.code-generator/005.json",
+    "ai/verification/core.code-generator/005.md",
+    "ai/verification/core.code-generator/006.json",
+    "ai/verification/core.code-generator/006.md",
+    "ai/verification/core.code-generator/007.json",
+    "ai/verification/core.code-generator/007.md",
+    "ai/verification/core.code-generator/008.json",
+    "ai/verification/core.code-generator/008.md",
+    "ai/verification/core.code-generator/009.json",
+    "ai/verification/core.code-generator/009.md",
+    "ai/verification/core.database-schema/001.json",
+    "ai/verification/core.database-schema/001.md",
+    "ai/verification/core.database-schema/002.json",
+    "ai/verification/core.database-schema/002.md",
+    "ai/verification/core.environment-setup/001.json",
+    "ai/verification/core.environment-setup/001.md",
+    "ai/verification/core.environment-setup/002.json",
+    "ai/verification/core.environment-setup/002.md",
+    "ai/verification/core.environment-setup/003.json",
+    "ai/verification/core.environment-setup/003.md",
+    "ai/verification/core.environment-setup/004.json",
+    "ai/verification/core.environment-setup/004.md",
+    "ai/verification/core.menu-permission/001.json",
+    "ai/verification/core.menu-permission/001.md",
+    "ai/verification/core.menu-permission/002.json",
+    "ai/verification/core.menu-permission/002.md",
+    "ai/verification/core.menu-permission/003.json",
+    "ai/verification/core.menu-permission/003.md",
+    "ai/verification/core.status-enum/001.json",
+    "ai/verification/core.status-enum/001.md",
+    "ai/verification/core.status-enum/002.json",
+    "ai/verification/core.status-enum/002.md",
+    "ai/verification/core.status-enum/003.json",
+    "ai/verification/core.status-enum/003.md",
+    "ai/verification/core.status-service/001.json",
+    "ai/verification/core.status-service/001.md",
+    "ai/verification/dashboard.BREAKDOWN/001.json",
+    "ai/verification/dashboard.BREAKDOWN/001.md",
+    "ai/verification/dashboard.BREAKDOWN/002.json",
+    "ai/verification/dashboard.BREAKDOWN/002.md",
+    "ai/verification/import.BREAKDOWN/001.json",
+    "ai/verification/import.BREAKDOWN/001.md",
+    "ai/verification/index.json",
+    "ai/verification/maintenance.BREAKDOWN/001.json",
+    "ai/verification/maintenance.BREAKDOWN/001.md",
+    "ai/verification/results.json"
   ],
-  "diffSummary": "5 files changed",
+  "diffSummary": "114 files changed",
   "automatedChecks": [
     {
       "type": "test",
       "success": false,
-      "duration": 1075
+      "duration": 393
+    },
+    {
+      "type": "typecheck",
+      "success": false,
+      "duration": 238
     },
     {
       "type": "lint",
       "success": false,
-      "duration": 111
+      "duration": 845
     },
     {
       "type": "build",
-      "success": false,
-      "duration": 106
+      "success": true,
+      "duration": 4498
     }
   ],
   "criteriaResults": [
     {
       "criterion": "Create Spring Boot project structure:",
       "index": 0,
-      "satisfied": true,
-      "confidence": 0.95
+      "satisfied": false,
+      "confidence": 0.9
     },
     {
       "criterion": "Configure SQLite database:",
       "index": 1,
-      "satisfied": true,
-      "confidence": 0.98
+      "satisfied": false,
+      "confidence": 0.9
     },
     {
       "criterion": "Create main application class:",
       "index": 2,
-      "satisfied": true,
-      "confidence": 0.98
+      "satisfied": false,
+      "confidence": 0.9
     },
     {
       "criterion": "Initialize Vue 2 project structure:",
       "index": 3,
-      "satisfied": true,
+      "satisfied": false,
       "confidence": 0.9
     },
     {
       "criterion": "Configure Vue development environment:",
       "index": 4,
       "satisfied": false,
-      "confidence": 0.85
+      "confidence": 0.9
     },
     {
       "criterion": "Create frontend structure:",
@@ -69,19 +183,19 @@
       "criterion": "Create development documentation:",
       "index": 6,
       "satisfied": false,
-      "confidence": 0.85
+      "confidence": 0.9
     },
     {
       "criterion": "Add development tools configuration:",
       "index": 7,
       "satisfied": false,
-      "confidence": 0.8
+      "confidence": 0.9
     },
     {
       "criterion": "Create start scripts:",
       "index": 8,
       "satisfied": false,
-      "confidence": 0.95
+      "confidence": 0.9
     }
   ],
   "verdict": "fail",

@@ -2,8 +2,8 @@
 id: core.environment-setup
 module: core
 priority: 1
-status: passing
-version: 8
+status: failed
+version: 10
 origin: manual
 dependsOn: []
 supersedes: []
@@ -11,15 +11,15 @@ tags:
   - infrastructure
   - setup
 verification:
-  verifiedAt: '2025-12-15T22:52:41.281Z'
+  verifiedAt: '2025-12-15T23:10:09.848Z'
   verdict: fail
   verifiedBy: claude
-  commitHash: db4af33d60db9bf74461a93f35fad255e97156e6
-  summary: 6/9 criteria satisfied
+  commitHash: c5b4807148679a6d98499241a8cd615ab5ae5fac
+  summary: 0/9 criteria satisfied
 tddGuidance:
-  generatedAt: '2025-12-15T22:51:06.071Z'
+  generatedAt: '2025-12-15T23:09:29.008Z'
   generatedBy: claude
-  forVersion: 6
+  forVersion: 8
   suggestedTestFiles:
     unit:
       - tests/core/environment-setup.test.ts
@@ -28,49 +28,63 @@ tddGuidance:
   unitTestCases:
     - name: should have valid Spring Boot project structure
       assertions:
-        - expect(fs.existsSync('src/main/java')).toBe(true)
-        - expect(fs.existsSync('src/main/resources')).toBe(true)
-        - expect(fs.existsSync('pom.xml')).toBe(true)
+        - expect(fs.existsSync('backend/src/main/java')).toBe(true)
+        - expect(fs.existsSync('backend/pom.xml')).toBe(true)
+        - expect(fs.existsSync('backend/src/main/resources')).toBe(true)
     - name: should have SQLite database configuration
       assertions:
-        - expect(applicationProperties).toContain('sqlite')
+        - expect(applicationProperties).toContain('spring.datasource.url')
+        - 'expect(applicationProperties).toContain(''jdbc:sqlite'')'
         - >-
-          expect(fs.existsSync('src/main/resources/application.properties')).toBe(true)
-    - name: should have main application class with SpringBootApplication annotation
+          expect(applicationProperties).toContain('spring.jpa.database-platform')
+    - name: should have main application class with correct annotations
       assertions:
+        - >-
+          expect(fs.existsSync('backend/src/main/java/com/newasset/NewAssetApplication.java')).toBe(true)
         - expect(mainAppContent).toContain('@SpringBootApplication')
         - expect(mainAppContent).toContain('public static void main')
     - name: should have Vue 2 project structure initialized
       assertions:
+        - expect(fs.existsSync('frontend/package.json')).toBe(true)
         - expect(packageJson.dependencies).toHaveProperty('vue')
-        - expect(fs.existsSync('frontend/src')).toBe(true)
+        - expect(packageJson.dependencies.vue).toMatch(/^2\./)
     - name: should have Vue development environment configured
       assertions:
-        - expect(fs.existsSync('frontend/vite.config.ts')).toBe(true)
-        - expect(packageJson.scripts).toHaveProperty('dev')
+        - expect(fs.existsSync('frontend/vue.config.js')).toBe(true)
+        - expect(packageJson.devDependencies).toHaveProperty('@vue/cli-service')
+        - expect(vueConfig).toContain('devServer')
     - name: should have proper frontend directory structure
       assertions:
         - expect(fs.existsSync('frontend/src/components')).toBe(true)
         - expect(fs.existsSync('frontend/src/views')).toBe(true)
-        - expect(fs.existsSync('frontend/src/App.vue')).toBe(true)
+        - expect(fs.existsSync('frontend/src/router')).toBe(true)
+        - expect(fs.existsSync('frontend/src/store')).toBe(true)
     - name: should have development documentation
       assertions:
-        - expect(fs.existsSync('docs/development.md')).toBe(true)
-        - expect(devDocsContent).toContain('setup')
+        - expect(fs.existsSync('docs/DEVELOPMENT.md')).toBe(true)
+        - expect(devDocsContent).toContain('Getting Started')
+        - expect(devDocsContent).toContain('Prerequisites')
     - name: should have development tools configuration files
       assertions:
         - expect(fs.existsSync('.editorconfig')).toBe(true)
-        - expect(fs.existsSync('.prettierrc')).toBe(true)
+        - expect(fs.existsSync('.gitignore')).toBe(true)
+        - expect(fs.existsSync('frontend/.eslintrc.js')).toBe(true)
     - name: should have start scripts for development
       assertions:
         - expect(fs.existsSync('scripts/start-backend.sh')).toBe(true)
         - expect(fs.existsSync('scripts/start-frontend.sh')).toBe(true)
+        - expect(packageJson.scripts).toHaveProperty('dev')
   e2eScenarios:
-    - name: development environment loads successfully
+    - name: frontend application loads successfully
       steps:
-        - start frontend development server
-        - 'navigate to localhost:5173'
-        - verify Vue app renders without errors
+        - 'navigate to http://localhost:8080'
+        - wait for Vue app to mount
+        - verify main app container is visible
+    - name: backend API is accessible
+      steps:
+        - 'send GET request to http://localhost:3000/api/health'
+        - verify response status is 200
+        - verify response contains health status
   frameworkHint: vitest
 ---
 # Project Environment Setup
@@ -113,3 +127,7 @@ Configure complete development environment for Asset Management System with Spri
 2. Start frontend: `npm run serve` or `yarn serve`
 3. Access application: http://localhost:8081
 4. Backend API: http://localhost:8080
+
+## Notes
+
+Verification failed: Verification failed: Project uses RuoYi structure (ruoyi-admin/ruoyi-ui) instead of expected (backend/frontend)
