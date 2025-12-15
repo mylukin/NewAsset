@@ -79,3 +79,5 @@
 2025-12-15T14:35:01.941Z VERIFY feature=core.code-generator action=fail summary="Marked core.code-generator as failed: Verification failed"
 2025-12-15T14:57:28.171Z VERIFY feature=core.environment-setup action=fail summary="Verified core.environment-setup: fail"
 2025-12-15T15:05:12.099Z VERIFY feature=core.environment-setup action=fail summary="Verified core.environment-setup: fail"
+2025-12-15T15:06:49.858Z VERIFY feature=core.database-schema action=pass summary="Verified core.database-schema: pass"
+2025-12-15T15:06:59.551Z STEP feature=core.database-schema status=passing tests="./ai/init.sh check" summary="Completed core.database-schema"

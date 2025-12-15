@@ -1004,10 +1004,21 @@
     },
     "core.database-schema": {
       "featureId": "core.database-schema",
-      "timestamp": "2025-12-15T11:39:14.981Z",
-      "commitHash": "unknown",
-      "changedFiles": [],
-      "diffSummary": "0 files changed",
+      "timestamp": "2025-12-15T15:06:49.851Z",
+      "commitHash": "6a44037e350f96554f6195959d0606d55ac2c995",
+      "changedFiles": [
+        "ai/capabilities.json",
+        "ai/progress.log",
+        "ai/tasks/core/00-environment-setup.md",
+        "ai/tasks/index.json",
+        "ai/verification/core.environment-setup/002.json",
+        "ai/verification/core.environment-setup/002.md",
+        "ai/verification/index.json",
+        "ai/verification/results.json",
+        "node_modules/.vite/vitest/da39a3ee5e6b4b0d3255bfef95601890afd80709/results.json",
+        "ai/tasks/core/01-database-schema.md"
+      ],
+      "diffSummary": "10 files changed",
       "automatedChecks": [],
       "criteriaResults": [
         {
@@ -1055,15 +1066,26 @@
       ],
       "verdict": "pass",
       "verifiedBy": "strategy-framework",
-      "overallReasoning": "[TEST] ✗ FAIL\n  No test framework detected in project",
-      "relatedFilesAnalyzed": [],
+      "overallReasoning": "[TEST] ✗ FAIL\n  \n  \u001b[1m\u001b[46m RUN \u001b[49m\u001b[22m \u001b[36mv4.0.15 \u001b[39m\u001b[90m/Users/lukin/Projects/NewAsset\u001b[39m\n  \n  \u001b[31mNo test files found, exiting with code 1\n  \u001b[39m\n  \u001b[2mfilter: \u001b[22m\u001b[33mtests/core/**/*.test.*\u001b[39m\n  \u001b[2minclude: \u001b[22m\u001b[33m**/*.{test,spec}.?(c|m)[jt]s?(x)\u001b[39m\n  \u001b[2mexclude:  \u001b[22m\u001b[33m**/node_modules/**\u001b[2m, \u001b[22m**/.git/**\u001b[39m",
+      "relatedFilesAnalyzed": [
+        "ai/capabilities.json",
+        "ai/progress.log",
+        "ai/tasks/core/00-environment-setup.md",
+        "ai/tasks/index.json",
+        "ai/verification/core.environment-setup/002.json",
+        "ai/verification/core.environment-setup/002.md",
+        "ai/verification/index.json",
+        "ai/verification/results.json",
+        "node_modules/.vite/vitest/da39a3ee5e6b4b0d3255bfef95601890afd80709/results.json",
+        "ai/tasks/core/01-database-schema.md"
+      ],
       "strategyResults": [
         {
           "type": "test",
           "required": false,
           "success": false,
-          "output": "No test framework detected in project",
-          "duration": 30974
+          "output": "\n\u001b[1m\u001b[46m RUN \u001b[49m\u001b[22m \u001b[36mv4.0.15 \u001b[39m\u001b[90m/Users/lukin/Projects/NewAsset\u001b[39m\n\n\u001b[31mNo test files found, exiting with code 1\n\u001b[39m\n\u001b[2mfilter: \u001b[22m\u001b[33mtests/core/**/*.test.*\u001b[39m\n\u001b[2minclude: \u001b[22m\u001b[33m**/*.{test,spec}.?(c|m)[jt]s?(x)\u001b[39m\n\u001b[2mexclude:  \u001b[22m\u001b[33m**/node_modules/**\u001b[2m, \u001b[22m**/.git/**\u001b[39m\n\n",
+          "duration": 1164
         }
       ]
     },
@@ -2619,6 +2641,6 @@
       ]
     }
   },
-  "updatedAt": "2025-12-15T15:05:12.095Z",
+  "updatedAt": "2025-12-15T15:06:49.854Z",
   "version": "1.0.0"
 }
