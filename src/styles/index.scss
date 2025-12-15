@@ -1,0 +1,106 @@
+@import './variables.scss';
+@import './mixins.scss';
+@import './layout.scss';
+
+// Global styles
+body {
+  font-family: 'Helvetica Neue', Helvetica, 'PingFang SC', 'Hiragino Sans GB',
+    'Microsoft YaHei', '微软雅黑', Arial, sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  background-color: #f5f5f5;
+}
+
+// Element UI customizations
+.el-header {
+  padding: 0 20px;
+  background-color: #fff;
+  box-shadow: 0 1px 4px rgba(0, 21, 41, 0.08);
+}
+
+.el-aside {
+  background-color: #304156;
+  overflow-x: hidden;
+}
+
+.el-main {
+  background-color: #f0f2f5;
+  padding: 20px;
+}
+
+// Card styles
+.dashboard-card {
+  margin-bottom: 20px;
+  border-radius: 4px;
+  box-shadow: 0 2px 12px 0 rgba(0, 0, 0, 0.1);
+}
+
+// Table styles
+.el-table {
+  margin-top: 20px;
+}
+
+// Button styles
+.action-button {
+  margin-right: 10px;
+}
+
+// Status badges
+.status-badge {
+  padding: 4px 8px;
+  border-radius: 4px;
+  font-size: 12px;
+  font-weight: 500;
+}
+
+.status-available {
+  background-color: #f0f9ff;
+  color: #1890ff;
+}
+
+.status-in-use {
+  background-color: #f6ffed;
+  color: #52c41a;
+}
+
+.status-maintenance {
+  background-color: #fffbe6;
+  color: #faad14;
+}
+
+.status-idle {
+  background-color: #f5f5f5;
+  color: #8c8c8c;
+}
+
+// Form styles
+.form-container {
+  max-width: 800px;
+  margin: 0 auto;
+  padding: 20px;
+  background: #fff;
+  border-radius: 4px;
+  box-shadow: 0 2px 12px 0 rgba(0, 0, 0, 0.1);
+}
+
+// Empty state
+.empty-state {
+  text-align: center;
+  padding: 40px 20px;
+  color: #8c8c8c;
+
+  .empty-icon {
+    font-size: 64px;
+    margin-bottom: 20px;
+  }
+
+  .empty-text {
+    font-size: 16px;
+    margin-bottom: 10px;
+  }
+
+  .empty-description {
+    font-size: 14px;
+    color: #8c8c8c;
+  }
+}

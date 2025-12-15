@@ -37,18 +37,18 @@ Configure complete development environment for Asset Management System with Spri
    - Add @SpringBootApplication annotation
    - Enable transaction management
 
-### Frontend (Vue 3)
+### Frontend (Vue 2)
 
-4. Initialize Vue 3 project structure:
-   - `package.json` with Vue 3, Vite, Element Plus dependencies
-   - `vite.config.js` for build configuration
+4. Initialize Vue 2 project structure:
+   - `package.json` with Vue 2, Vue CLI, Element UI dependencies
+   - `vue.config.js` for build configuration
    - `src/main.js` entry point
    - `src/App.vue` root component
 
 5. Configure Vue development environment:
    - Set up Vue Router for SPA routing
-   - Configure Element Plus UI framework
-   - Set up API client for backend communication
+   - Configure Element UI framework
+   - Set up Axios for backend API communication
    - Configure proxy for backend API calls
 
 6. Create frontend structure:
@@ -87,16 +87,16 @@ Configure complete development environment for Asset Management System with Spri
 - Database file location: `./data/asset.db`
 
 ### Frontend
-- Vue 3 with Composition API
-- Vite for build tooling
-- Element Plus for UI components
+- Vue 2 with Options API
+- Vue CLI for build tooling
+- Element UI for UI components
 - Vue Router for routing
 - Axios for API calls
-- Port: 5173 (default Vite dev server)
+- Port: 8081 (default Vue CLI dev server)
 
 ## Development Workflow
 
 1. Start backend: `mvn spring-boot:run` or `./mvnw spring-boot:run`
-2. Start frontend: `npm run dev` or `pnpm dev`
-3. Access application: http://localhost:5173
+2. Start frontend: `npm run serve` or `yarn serve`
+3. Access application: http://localhost:8081
 4. Backend API: http://localhost:8080

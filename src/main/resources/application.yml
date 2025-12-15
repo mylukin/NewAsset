@@ -1,0 +1,112 @@
+# Spring Boot Application Configuration
+spring:
+  application:
+    name: asset-management
+
+  profiles:
+    active: dev
+
+  # Profile-specific configurations
+  config:
+    activate:
+      on-profile: dev
+
+  datasource:
+    driver-class-name: org.sqlite.JDBC
+    url: jdbc:sqlite:./data/asset.db
+    username:
+    password:
+
+  # MyBatis Plus Configuration
+  mybatis-plus:
+    configuration:
+      map-underscore-to-camel-case: true
+      cache-enabled: false
+      log-impl: org.apache.ibatis.logging.stdout.StdOutImpl
+    global-config:
+      db-config:
+        id-type: auto
+        logic-delete-field: delFlag
+        logic-delete-value: 2
+    mapper-locations: classpath*:/mapper/**/*.xml
+
+  # Redis Configuration (for sessions, cache)
+  redis:
+    host: localhost
+    port: 6379
+    password:
+    database: 0
+    timeout: 10000ms
+    lettuce:
+      pool:
+        max-active: 8
+        max-wait: -1ms
+        max-idle: 8
+        min-idle: 0
+
+  # File Upload Configuration
+  servlet:
+    multipart:
+      max-file-size: 10MB
+      max-request-size: 10MB
+
+# Server Configuration
+server:
+  port: 8080
+  servlet:
+    context-path: /
+    encoding:
+      charset: UTF-8
+      enabled: true
+      force: true
+
+# Management Endpoints
+management:
+  endpoints:
+    web:
+      exposure:
+        include: '*'
+  endpoint:
+    health:
+      show-details: always
+
+# Logging Configuration
+logging:
+  level:
+    com.ruoyi.asset: debug
+    org.springframework.web: info
+  pattern:
+    console: '%d{yyyy-MM-dd HH:mm:ss.SSS} [%thread] %-5level %logger{50} - %msg%n'
+    file: '%d{yyyy-MM-dd HH:mm:ss.SSS} [%thread] %-5level %logger{50} - %msg%n'
+  file:
+    name: logs/asset-management.log
+
+# Application Custom Properties
+asset:
+  # File upload directory
+  upload:
+    path: ./uploads/
+    max-size: 10485760  # 10MB
+
+  # Code generation configuration
+  code:
+    format: '{TYPE_PREFIX}-{6_DIGIT_SEQ}'
+    prefix:
+      house: HA
+      parking: PA
+      facility: FA
+      venue: VE
+      office: OF
+
+  # Location hierarchy levels
+  location:
+    levels: 3
+
+  # Attachment limits
+  attachment:
+    max-count: 10
+    max-size: 5242880  # 5MB
+
+# Custom Banner
+banner:
+  charset: UTF-8
