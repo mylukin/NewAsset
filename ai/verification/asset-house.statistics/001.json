@@ -1,0 +1,54 @@
+{
+  "featureId": "asset-house.statistics",
+  "runNumber": 1,
+  "timestamp": "2025-12-15T13:40:29.565Z",
+  "commitHash": "c99f506426f013276cb6bba8325d426b81d7255a",
+  "changedFiles": [
+    "node_modules/.vite/vitest/da39a3ee5e6b4b0d3255bfef95601890afd80709/results.json",
+    "ai/capabilities.json",
+    "ai/progress.log",
+    "ai/tasks/asset-house/04-controller.md",
+    "ai/verification/index.json",
+    "ai/verification/results.json",
+    "src/main/java/com/ruoyi/asset/controller/AssetHouseController.java",
+    "src/main/java/com/ruoyi/asset/service/IAssetHouseService.java",
+    "src/main/java/com/ruoyi/asset/service/impl/AssetHouseServiceImpl.java",
+    "tests/asset-house/asset-house-service.test.ts"
+  ],
+  "diffSummary": "10 files changed",
+  "automatedChecks": [],
+  "criteriaResults": [
+    {
+      "criterion": "Add statistics methods to `IAssetHouseService`:",
+      "index": 0,
+      "satisfied": false,
+      "confidence": 0.3
+    },
+    {
+      "criterion": "Statistics calculations:",
+      "index": 1,
+      "satisfied": false,
+      "confidence": 0.3
+    },
+    {
+      "criterion": "Create `HouseStatsVO`:",
+      "index": 2,
+      "satisfied": false,
+      "confidence": 0.3
+    },
+    {
+      "criterion": "Add API endpoint:",
+      "index": 3,
+      "satisfied": false,
+      "confidence": 0.3
+    },
+    {
+      "criterion": "Unit tests for calculation accuracy",
+      "index": 4,
+      "satisfied": false,
+      "confidence": 0.3
+    }
+  ],
+  "verdict": "fail",
+  "verifiedBy": "strategy-framework"
+}

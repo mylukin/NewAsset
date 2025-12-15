@@ -10,6 +10,8 @@ import com.ruoyi.asset.domain.vo.AssetHouseCreateDTO;
 import com.ruoyi.asset.domain.vo.AssetHouseUpdateDTO;
 import com.ruoyi.asset.domain.vo.AssetHouseQueryDTO;
 import com.ruoyi.asset.domain.vo.AssetHouseVO;
+import com.ruoyi.asset.domain.vo.HouseStatsVO;
+import com.ruoyi.asset.domain.vo.UsageDistributionVO;
 import com.ruoyi.asset.mapper.AssetHouseMapper;
 import com.ruoyi.asset.mapper.AssetMapper;
 import com.ruoyi.asset.service.IAssetHouseService;
@@ -21,7 +23,11 @@ import lombok.extern.slf4j.Slf4j;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
+import java.math.BigDecimal;
+import java.math.RoundingMode;
 import java.time.LocalDateTime;
+import java.util.ArrayList;
+import java.util.List;
 
 /**
  * AssetHouse Service Implementation
@@ -278,6 +284,117 @@ public class AssetHouseServiceImpl extends ServiceImpl<AssetHouseMapper, AssetHo
         log.info("Copied house asset from ID: {} to ID: {}", sourceId, newAsset.getId());
 
         return getById(newAsset.getId());
+    }
+
+    @Override
+    public HouseStatsVO getStats(Long projectId) {
+        // Get total count
+        LambdaQueryWrapper<Asset> totalWrapper = new LambdaQueryWrapper<>();
+        totalWrapper.eq(Asset::getAssetType, "HOUSE")
+                    .eq(Asset::getDelFlag, "0");
+        if (projectId != null) {
+            totalWrapper.eq(Asset::getProjectId, projectId);
+        }
+        Integer totalCount = assetMapper.selectCount(totalWrapper);
+
+        // Get self-use count
+        Integer selfUseCount = getCountByUsage(projectId, "self_use");
+
+        // Get rental count
+        Integer rentalCount = getCountByUsage(projectId, "rented");
+
+        // Get idle count
+        Integer idleCount = getCountByUsage(projectId, "idle");
+
+        // Calculate rates
+        BigDecimal vacancyRate = BigDecimal.ZERO;
+        BigDecimal rentalRate = BigDecimal.ZERO;
+
+        if (totalCount > 0) {
+            vacancyRate = new BigDecimal(idleCount)
+                    .divide(new BigDecimal(totalCount), 2, RoundingMode.HALF_UP)
+                    .multiply(new BigDecimal(100));
+            rentalRate = new BigDecimal(rentalCount)
+                    .divide(new BigDecimal(totalCount), 2, RoundingMode.HALF_UP)
+                    .multiply(new BigDecimal(100));
+        }
+
+        HouseStatsVO stats = new HouseStatsVO();
+        stats.setTotalCount(totalCount);
+        stats.setSelfUseCount(selfUseCount);
+        stats.setRentalCount(rentalCount);
+        stats.setIdleCount(idleCount);
+        stats.setVacancyRate(vacancyRate);
+        stats.setRentalRate(rentalRate);
+
+        return stats;
+    }
+
+    @Override
+    public List<UsageDistributionVO> getUsageDistribution(Long projectId) {
+        List<UsageDistributionVO> distribution = new ArrayList<>();
+
+        // Get counts for each usage type
+        Integer selfUseCount = getCountByUsage(projectId, "self_use");
+        Integer rentalCount = getCountByUsage(projectId, "rented");
+        Integer idleCount = getCountByUsage(projectId, "idle");
+
+        Integer total = selfUseCount + rentalCount + idleCount;
+
+        // Create distribution entries
+        if (total > 0) {
+            UsageDistributionVO selfUse = new UsageDistributionVO();
+            selfUse.setUsageType("self_use");
+            selfUse.setCount(selfUseCount);
+            selfUse.setPercentage(new BigDecimal(selfUseCount)
+                    .divide(new BigDecimal(total), 4, RoundingMode.HALF_UP)
+                    .multiply(new BigDecimal(100))
+                    .doubleValue());
+            distribution.add(selfUse);
+
+            UsageDistributionVO rented = new UsageDistributionVO();
+            rented.setUsageType("rented");
+            rented.setCount(rentalCount);
+            rented.setPercentage(new BigDecimal(rentalCount)
+                    .divide(new BigDecimal(total), 4, RoundingMode.HALF_UP)
+                    .multiply(new BigDecimal(100))
+                    .doubleValue());
+            distribution.add(rented);
+
+            UsageDistributionVO idle = new UsageDistributionVO();
+            idle.setUsageType("idle");
+            idle.setCount(idleCount);
+            idle.setPercentage(new BigDecimal(idleCount)
+                    .divide(new BigDecimal(total), 4, RoundingMode.HALF_UP)
+                    .multiply(new BigDecimal(100))
+                    .doubleValue());
+            distribution.add(idle);
+        }
+
+        return distribution;
+    }
+
+    private Integer getCountByUsage(Long projectId, String usage) {
+        LambdaQueryWrapper<AssetHouse> wrapper = new LambdaQueryWrapper<>();
+        wrapper.eq(AssetHouse::getCurrentUsage, usage);
+
+        if (projectId != null) {
+            // Join with asset table to filter by project
+            // For simplicity, we'll query all and filter in code
+            // In production, this should be optimized with proper SQL joins
+        }
+
+        List<AssetHouse> houses = baseMapper.selectList(wrapper);
+        if (projectId != null) {
+            houses = houses.stream()
+                    .filter(h -> {
+                        Asset asset = assetMapper.selectById(h.getAssetId());
+                        return asset != null && projectId.equals(asset.getProjectId());
+                    })
+                    .collect(java.util.stream.Collectors.toList());
+        }
+
+        return houses.size();
     }
 
     private AssetHouseVO convertToVO(Asset asset) {

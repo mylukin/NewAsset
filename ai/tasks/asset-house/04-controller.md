@@ -3,7 +3,7 @@ id: asset-house.controller
 module: asset-house
 priority: 204
 status: passing
-version: 3
+version: 4
 origin: spec-workflow
 dependsOn:
   - asset-house.service
@@ -16,7 +16,7 @@ testRequirements:
     required: false
     pattern: tests/asset-house/**/*.test.*
 verification:
-  verifiedAt: '2025-12-15T13:35:17.891Z'
+  verifiedAt: '2025-12-15T13:38:07.499Z'
   verdict: pass
   verifiedBy: strategy-framework
   commitHash: e891425567f4c342f198c866888a6e9a21b1caa5

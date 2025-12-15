@@ -4,6 +4,7 @@ import com.ruoyi.asset.domain.vo.AssetHouseCreateDTO;
 import com.ruoyi.asset.domain.vo.AssetHouseUpdateDTO;
 import com.ruoyi.asset.domain.vo.AssetHouseQueryDTO;
 import com.ruoyi.asset.domain.vo.AssetHouseVO;
+import com.ruoyi.asset.domain.vo.HouseStatsVO;
 import com.ruoyi.asset.service.IAssetHouseService;
 import com.ruoyi.common.annotation.DataScope;
 import com.ruoyi.common.annotation.Log;
@@ -130,5 +131,16 @@ public class AssetHouseController extends BaseController {
         // Implementation for export
         // This would typically generate an Excel file and return download URL
         return AjaxResult.success("Export feature to be implemented");
+    }
+
+    /**
+     * Get house asset statistics
+     */
+    @GetMapping("/stats")
+    @PreAuthorize(hasPermi = "asset:house:list")
+    @DataScope
+    public AjaxResult getStats(@RequestParam @NotNull Long projectId) {
+        HouseStatsVO stats = assetHouseService.getStats(projectId);
+        return AjaxResult.success(stats);
     }
 }

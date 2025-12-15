@@ -1594,7 +1594,7 @@
     },
     "asset-house.controller": {
       "featureId": "asset-house.controller",
-      "timestamp": "2025-12-15T13:35:17.891Z",
+      "timestamp": "2025-12-15T13:38:07.499Z",
       "commitHash": "e891425567f4c342f198c866888a6e9a21b1caa5",
       "changedFiles": [
         "ai/capabilities.json",
@@ -1609,10 +1609,9 @@
         "src/main/java/com/ruoyi/asset/domain/vo/AssetHouseQueryDTO.java",
         "src/main/java/com/ruoyi/asset/service/IAssetHouseService.java",
         "src/main/java/com/ruoyi/asset/service/impl/AssetHouseServiceImpl.java",
-        "tests/asset-house/asset-house-service.test.ts",
-        "ai/tasks/asset-house/04-controller.md"
+        "tests/asset-house/asset-house-service.test.ts"
       ],
-      "diffSummary": "14 files changed",
+      "diffSummary": "13 files changed",
       "automatedChecks": [],
       "criteriaResults": [
         {
@@ -1660,8 +1659,7 @@
         "src/main/java/com/ruoyi/asset/domain/vo/AssetHouseQueryDTO.java",
         "src/main/java/com/ruoyi/asset/service/IAssetHouseService.java",
         "src/main/java/com/ruoyi/asset/service/impl/AssetHouseServiceImpl.java",
-        "tests/asset-house/asset-house-service.test.ts",
-        "ai/tasks/asset-house/04-controller.md"
+        "tests/asset-house/asset-house-service.test.ts"
       ],
       "strategyResults": [
         {
@@ -1669,11 +1667,91 @@
           "required": false,
           "success": false,
           "output": "\n\u001b[1m\u001b[46m RUN \u001b[49m\u001b[22m \u001b[36mv4.0.15 \u001b[39m\u001b[90m/Users/lukin/Projects/NewAsset\u001b[39m\n\n\u001b[31mNo test files found, exiting with code 1\n\u001b[39m\n\u001b[2mfilter: \u001b[22m\u001b[33mtests/asset-house/**/*.test.*\u001b[39m\n\u001b[2minclude: \u001b[22m\u001b[33m**/*.{test,spec}.?(c|m)[jt]s?(x)\u001b[39m\n\u001b[2mexclude:  \u001b[22m\u001b[33m**/node_modules/**\u001b[2m, \u001b[22m**/.git/**\u001b[39m\n\n",
-          "duration": 1160
+          "duration": 349028
+        }
+      ]
+    },
+    "asset-house.statistics": {
+      "featureId": "asset-house.statistics",
+      "timestamp": "2025-12-15T13:40:29.565Z",
+      "commitHash": "c99f506426f013276cb6bba8325d426b81d7255a",
+      "changedFiles": [
+        "node_modules/.vite/vitest/da39a3ee5e6b4b0d3255bfef95601890afd80709/results.json",
+        "ai/capabilities.json",
+        "ai/progress.log",
+        "ai/tasks/asset-house/04-controller.md",
+        "ai/verification/index.json",
+        "ai/verification/results.json",
+        "src/main/java/com/ruoyi/asset/controller/AssetHouseController.java",
+        "src/main/java/com/ruoyi/asset/service/IAssetHouseService.java",
+        "src/main/java/com/ruoyi/asset/service/impl/AssetHouseServiceImpl.java",
+        "tests/asset-house/asset-house-service.test.ts"
+      ],
+      "diffSummary": "10 files changed",
+      "automatedChecks": [],
+      "criteriaResults": [
+        {
+          "criterion": "Add statistics methods to `IAssetHouseService`:",
+          "index": 0,
+          "satisfied": false,
+          "reasoning": "One or more required strategies failed",
+          "confidence": 0.3
+        },
+        {
+          "criterion": "Statistics calculations:",
+          "index": 1,
+          "satisfied": false,
+          "reasoning": "One or more required strategies failed",
+          "confidence": 0.3
+        },
+        {
+          "criterion": "Create `HouseStatsVO`:",
+          "index": 2,
+          "satisfied": false,
+          "reasoning": "One or more required strategies failed",
+          "confidence": 0.3
+        },
+        {
+          "criterion": "Add API endpoint:",
+          "index": 3,
+          "satisfied": false,
+          "reasoning": "One or more required strategies failed",
+          "confidence": 0.3
+        },
+        {
+          "criterion": "Unit tests for calculation accuracy",
+          "index": 4,
+          "satisfied": false,
+          "reasoning": "One or more required strategies failed",
+          "confidence": 0.3
+        }
+      ],
+      "verdict": "fail",
+      "verifiedBy": "strategy-framework",
+      "overallReasoning": "[TEST] ✗ FAIL\n  \n  \u001b[1m\u001b[46m RUN \u001b[49m\u001b[22m \u001b[36mv4.0.15 \u001b[39m\u001b[90m/Users/lukin/Projects/NewAsset\u001b[39m\n  \n  \u001b[31mNo test files found, exiting with code 1\n  \u001b[39m\n  \u001b[2mfilter: \u001b[22m\u001b[33mtests/asset-house/**/*.test.*\u001b[39m\n  \u001b[2minclude: \u001b[22m\u001b[33m**/*.{test,spec}.?(c|m)[jt]s?(x)\u001b[39m\n  \u001b[2mexclude:  \u001b[22m\u001b[33m**/node_modules/**\u001b[2m, \u001b[22m**/.git/**\u001b[39m",
+      "relatedFilesAnalyzed": [
+        "node_modules/.vite/vitest/da39a3ee5e6b4b0d3255bfef95601890afd80709/results.json",
+        "ai/capabilities.json",
+        "ai/progress.log",
+        "ai/tasks/asset-house/04-controller.md",
+        "ai/verification/index.json",
+        "ai/verification/results.json",
+        "src/main/java/com/ruoyi/asset/controller/AssetHouseController.java",
+        "src/main/java/com/ruoyi/asset/service/IAssetHouseService.java",
+        "src/main/java/com/ruoyi/asset/service/impl/AssetHouseServiceImpl.java",
+        "tests/asset-house/asset-house-service.test.ts"
+      ],
+      "strategyResults": [
+        {
+          "type": "test",
+          "required": true,
+          "success": false,
+          "output": "\n\u001b[1m\u001b[46m RUN \u001b[49m\u001b[22m \u001b[36mv4.0.15 \u001b[39m\u001b[90m/Users/lukin/Projects/NewAsset\u001b[39m\n\n\u001b[31mNo test files found, exiting with code 1\n\u001b[39m\n\u001b[2mfilter: \u001b[22m\u001b[33mtests/asset-house/**/*.test.*\u001b[39m\n\u001b[2minclude: \u001b[22m\u001b[33m**/*.{test,spec}.?(c|m)[jt]s?(x)\u001b[39m\n\u001b[2mexclude:  \u001b[22m\u001b[33m**/node_modules/**\u001b[2m, \u001b[22m**/.git/**\u001b[39m\n\n",
+          "duration": 1096
         }
       ]
     }
   },
-  "updatedAt": "2025-12-15T13:35:17.896Z",
+  "updatedAt": "2025-12-15T13:40:29.567Z",
   "version": "1.0.0"
 }

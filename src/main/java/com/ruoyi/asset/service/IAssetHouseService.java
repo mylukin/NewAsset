@@ -4,7 +4,11 @@ import com.ruoyi.asset.domain.vo.AssetHouseCreateDTO;
 import com.ruoyi.asset.domain.vo.AssetHouseUpdateDTO;
 import com.ruoyi.asset.domain.vo.AssetHouseQueryDTO;
 import com.ruoyi.asset.domain.vo.AssetHouseVO;
+import com.ruoyi.asset.domain.vo.HouseStatsVO;
+import com.ruoyi.asset.domain.vo.UsageDistributionVO;
 import com.ruoyi.common.core.page.PageResult;
+
+import java.util.List;
 
 /**
  * AssetHouse Service Interface
@@ -64,4 +68,20 @@ public interface IAssetHouseService {
      * @return copied asset
      */
     AssetHouseVO copy(Long sourceId, Long operatorId);
+
+    /**
+     * Get house statistics for a project
+     *
+     * @param projectId project ID
+     * @return statistics
+     */
+    HouseStatsVO getStats(Long projectId);
+
+    /**
+     * Get usage distribution for a project
+     *
+     * @param projectId project ID
+     * @return usage distribution
+     */
+    List<UsageDistributionVO> getUsageDistribution(Long projectId);
 }
