@@ -12,16 +12,18 @@
     "start": "vue-cli-service serve"
   },
   "dependencies": {
-    "vue": "^2.7.16",
-    "vue-router": "^3.6.5",
-    "vuex": "^3.6.2",
-    "element-ui": "^2.15.14",
     "axios": "^1.6.2",
     "echarts": "^5.4.3",
+    "element-ui": "^2.15.14",
     "file-saver": "^2.0.5",
-    "js-cookie": "^3.0.5"
+    "js-cookie": "^3.0.5",
+    "vue": "^2.7.16",
+    "vue-router": "^3.6.5",
+    "vuex": "^3.6.2"
   },
   "devDependencies": {
+    "@vitejs/plugin-vue2": "^2.3.4",
+    "@vitest/ui": "^4.0.15",
     "@vue/cli-plugin-babel": "~5.0.8",
     "@vue/cli-plugin-eslint": "~5.0.8",
     "@vue/cli-plugin-router": "~5.0.8",
@@ -34,8 +36,11 @@
     "eslint-plugin-node": "^11.1.0",
     "eslint-plugin-promise": "^6.1.1",
     "eslint-plugin-vue": "^9.18.1",
+    "jsdom": "^27.3.0",
     "sass": "^1.69.5",
     "sass-loader": "^13.3.2",
+    "vite": "^7.3.0",
+    "vitest": "^4.0.15",
     "vue-template-compiler": "^2.7.16"
   },
   "engines": {

@@ -3,7 +3,7 @@ id: core.code-generator
 module: core
 priority: 104
 status: failed
-version: 4
+version: 8
 origin: spec-workflow
 dependsOn:
   - core.database-schema
@@ -20,46 +20,49 @@ testRequirements:
       - should handle concurrent generation
       - should format code correctly
 verification:
-  verifiedAt: '2025-12-15T14:35:01.932Z'
+  verifiedAt: '2025-12-15T15:20:00.995Z'
   verdict: fail
   verifiedBy: strategy-framework
-  commitHash: c1b23275e816d02c41ff450104dc1c00893243d5
+  commitHash: 02b90ed62f67c329ce68bef1a848df4c9436b074
   summary: 0/6 criteria satisfied
 tddGuidance:
-  generatedAt: '2025-12-15T12:29:00.526Z'
+  generatedAt: '2025-12-15T15:13:58.120Z'
   generatedBy: claude
-  forVersion: 1
+  forVersion: 4
   suggestedTestFiles:
     unit:
       - tests/core/code-generator.test.ts
     e2e: []
   unitTestCases:
-    - name: should create AssetCodeGenerator service with required methods
+    - name: should create AssetCodeGenerator service in correct package
       assertions:
         - expect(AssetCodeGenerator).toBeDefined()
-        - expect(typeof assetCodeGenerator.generateCode).toBe('function')
-        - expect(typeof assetCodeGenerator.initializeSequence).toBe('function')
-    - name: should generate code in TYPE_PREFIX-6_DIGIT_SEQ format
+        - expect(typeof AssetCodeGenerator.generateCode).toBe('function')
+    - name: should generate code with TYPE_PREFIX-6_DIGIT_SEQ format
       assertions:
-        - 'expect(generatedCode).toMatch(/^[A-Z]+-\d{6}$/)'
-        - expect(codeParts.length).toBe(2)
-        - 'expect(codeParts[0]).toBe(''ASSET'')'
-        - 'expect(codeParts[1]).toHaveLength(6)'
+        - const code = await AssetCodeGenerator.generateCode('ASSET');
+        - 'expect(code).toMatch(/^[A-Z]+-\d{6}$/);'
+        - expect(code.startsWith('ASSET-')).toBe(true)
     - name: should handle concurrent code generation with optimistic locking
       assertions:
-        - expect(concurrentResults.length).toBe(10)
-        - expect(new Set(concurrentResults).size).toBe(10)
-        - expect(noDuplicates).toBe(true)
-    - name: should initialize sequence for asset types
+        - >-
+          const promises = Array(10).fill(null).map(() =>
+          AssetCodeGenerator.generateCode('TEST'));
+        - const results = await Promise.all(promises);
+        - expect(results).toHaveLength(10);
+        - expect(new Set(results).size).toBe(10)
+    - name: should initialize sequence on first use
       assertions:
-        - expect(initializationResult).toBe(true)
-        - expect(sequenceValue).toBe(1)
-        - expect(assetCodeGenerator.getNextSequence('ASSET')).toBe(1)
-    - name: should ensure generated codes are unique
+        - await AssetCodeGenerator.resetSequence('NEW_TYPE');
+        - const code = await AssetCodeGenerator.generateCode('NEW_TYPE');
+        - expect(code).toMatch(/^NEW_TYPE-000001$/);
+    - name: should add unique constraint check for generated codes
       assertions:
-        - expect(generatedCodes.length).toBe(100)
-        - expect(new Set(generatedCodes).size).toBe(100)
-        - expect(duplicateCheckResult).toBe(false)
+        - await AssetCodeGenerator.generateCode('CONSTRAINT');
+        - >-
+          expect(mockRepository.save).toHaveBeenCalledWith(expect.objectContaining({
+        - '  code: expect.stringMatching(/^CONSTRAINT-\d{6}$/)'
+        - '}));'
   e2eScenarios: []
   frameworkHint: vitest
 ---

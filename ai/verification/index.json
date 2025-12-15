@@ -110,12 +110,12 @@
     },
     "core.code-generator": {
       "featureId": "core.code-generator",
-      "latestRun": 5,
-      "latestTimestamp": "2025-12-15T14:35:01.932Z",
+      "latestRun": 9,
+      "latestTimestamp": "2025-12-15T15:20:00.995Z",
       "latestVerdict": "fail",
-      "totalRuns": 5,
+      "totalRuns": 9,
       "passCount": 0,
-      "failCount": 5
+      "failCount": 9
     },
     "core.menu-permission": {
       "featureId": "core.menu-permission",
@@ -253,6 +253,6 @@
       "failCount": 2
     }
   },
-  "updatedAt": "2025-12-15T15:11:41.596Z",
+  "updatedAt": "2025-12-15T15:20:00.998Z",
   "version": "2.0.0"
 }
