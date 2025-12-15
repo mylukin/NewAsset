@@ -6,18 +6,18 @@
     "testFramework": "vitest",
     "hasTypeCheck": true,
     "typeCheckCommand": "tsc --noEmit",
-    "hasLint": false,
-    "lintCommand": "",
+    "hasLint": true,
+    "lintCommand": "eslint",
     "hasBuild": false,
     "buildCommand": "",
     "hasGit": true,
     "source": "ai-discovered",
-    "confidence": 0.825,
+    "confidence": 0.9,
     "languages": [
       "Java",
       "TypeScript"
     ],
-    "detectedAt": "2025-12-15T13:26:34.022Z",
+    "detectedAt": "2025-12-15T13:33:12.312Z",
     "testInfo": {
       "available": true,
       "command": "npx vitest run",
@@ -39,12 +39,12 @@
     "typeCheckInfo": {
       "available": true,
       "command": "tsc --noEmit",
-      "confidence": 0.7
+      "confidence": 0.9
     },
     "lintInfo": {
-      "available": false,
-      "command": "",
-      "confidence": 0
+      "available": true,
+      "command": "eslint",
+      "confidence": 0.85
     },
     "buildInfo": {
       "available": false,
@@ -52,6 +52,6 @@
       "confidence": 0
     }
   },
-  "commitHash": "d8ff591d1758da811b4e736e9d38122819f3ff7f",
+  "commitHash": "e891425567f4c342f198c866888a6e9a21b1caa5",
   "trackedFiles": []
 }

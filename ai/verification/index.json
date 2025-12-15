@@ -152,8 +152,17 @@
       "totalRuns": 1,
       "passCount": 0,
       "failCount": 1
+    },
+    "asset-house.controller": {
+      "featureId": "asset-house.controller",
+      "latestRun": 1,
+      "latestTimestamp": "2025-12-15T13:35:17.891Z",
+      "latestVerdict": "pass",
+      "totalRuns": 1,
+      "passCount": 1,
+      "failCount": 0
     }
   },
-  "updatedAt": "2025-12-15T13:28:15.873Z",
+  "updatedAt": "2025-12-15T13:35:17.894Z",
   "version": "2.0.0"
 }

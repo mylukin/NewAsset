@@ -1,0 +1,52 @@
+{
+  "featureId": "asset-house.controller",
+  "runNumber": 1,
+  "timestamp": "2025-12-15T13:35:17.891Z",
+  "commitHash": "e891425567f4c342f198c866888a6e9a21b1caa5",
+  "changedFiles": [
+    "ai/capabilities.json",
+    "ai/progress.log",
+    "ai/tasks/asset-house/03-service.md",
+    "ai/tasks/index.json",
+    "ai/verification/asset-house.service/001.json",
+    "ai/verification/asset-house.service/001.md",
+    "ai/verification/index.json",
+    "ai/verification/results.json",
+    "node_modules/.vite/vitest/da39a3ee5e6b4b0d3255bfef95601890afd80709/results.json",
+    "src/main/java/com/ruoyi/asset/domain/vo/AssetHouseQueryDTO.java",
+    "src/main/java/com/ruoyi/asset/service/IAssetHouseService.java",
+    "src/main/java/com/ruoyi/asset/service/impl/AssetHouseServiceImpl.java",
+    "tests/asset-house/asset-house-service.test.ts",
+    "ai/tasks/asset-house/04-controller.md"
+  ],
+  "diffSummary": "14 files changed",
+  "automatedChecks": [],
+  "criteriaResults": [
+    {
+      "criterion": "Create `AssetHouseController` in `com.ruoyi.asset.controller`:",
+      "index": 0,
+      "satisfied": true,
+      "confidence": 0.8
+    },
+    {
+      "criterion": "Implement endpoints:",
+      "index": 1,
+      "satisfied": true,
+      "confidence": 0.8
+    },
+    {
+      "criterion": "Add @Log annotation for audit logging",
+      "index": 2,
+      "satisfied": true,
+      "confidence": 0.8
+    },
+    {
+      "criterion": "Apply @DataScope for project-based data permission",
+      "index": 3,
+      "satisfied": true,
+      "confidence": 0.8
+    }
+  ],
+  "verdict": "pass",
+  "verifiedBy": "strategy-framework"
+}
