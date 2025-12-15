@@ -2,8 +2,8 @@
 id: asset-parking.service
 module: asset-parking
 priority: 303
-status: failed
-version: 3
+status: passing
+version: 4
 origin: spec-workflow
 dependsOn:
   - asset-parking.entity
