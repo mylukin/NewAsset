@@ -200,14 +200,23 @@
     },
     "asset-parking.database-schema": {
       "featureId": "asset-parking.database-schema",
-      "latestRun": 1,
-      "latestTimestamp": "2025-12-15T14:03:26.540Z",
+      "latestRun": 2,
+      "latestTimestamp": "2025-12-15T14:04:17.925Z",
       "latestVerdict": "pass",
-      "totalRuns": 1,
-      "passCount": 1,
+      "totalRuns": 2,
+      "passCount": 2,
+      "failCount": 0
+    },
+    "asset-parking.entity": {
+      "featureId": "asset-parking.entity",
+      "latestRun": 2,
+      "latestTimestamp": "2025-12-15T14:06:54.739Z",
+      "latestVerdict": "pass",
+      "totalRuns": 2,
+      "passCount": 2,
       "failCount": 0
     }
   },
-  "updatedAt": "2025-12-15T14:03:26.542Z",
+  "updatedAt": "2025-12-15T14:06:54.741Z",
   "version": "2.0.0"
 }

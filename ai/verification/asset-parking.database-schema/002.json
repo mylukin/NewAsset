@@ -1,0 +1,50 @@
+{
+  "featureId": "asset-parking.database-schema",
+  "runNumber": 2,
+  "timestamp": "2025-12-15T14:04:17.925Z",
+  "commitHash": "6ac057763544910bf5899df800f9f1f2ad1c1da7",
+  "changedFiles": [
+    "ai/capabilities.json",
+    "ai/progress.log",
+    "ai/tasks/asset-house/08-frontend-form.md",
+    "ai/tasks/index.json",
+    "ai/verification/asset-house.frontend-form/001.json",
+    "ai/verification/asset-house.frontend-form/001.md",
+    "ai/verification/asset-house.frontend-form/002.json",
+    "ai/verification/asset-house.frontend-form/002.md",
+    "ai/verification/index.json",
+    "ai/verification/results.json",
+    "node_modules/.vite/vitest/da39a3ee5e6b4b0d3255bfef95601890afd80709/results.json",
+    "src/views/asset/house/form.vue"
+  ],
+  "diffSummary": "12 files changed",
+  "automatedChecks": [],
+  "criteriaResults": [
+    {
+      "criterion": "Create `t_asset_parking` table:",
+      "index": 0,
+      "satisfied": true,
+      "confidence": 0.8
+    },
+    {
+      "criterion": "Add foreign key constraint to t_asset.id",
+      "index": 1,
+      "satisfied": true,
+      "confidence": 0.8
+    },
+    {
+      "criterion": "SQL migration file: `sql/asset_parking.sql`",
+      "index": 2,
+      "satisfied": true,
+      "confidence": 0.8
+    },
+    {
+      "criterion": "Add dictionary entries:",
+      "index": 3,
+      "satisfied": true,
+      "confidence": 0.8
+    }
+  ],
+  "verdict": "pass",
+  "verifiedBy": "strategy-framework"
+}

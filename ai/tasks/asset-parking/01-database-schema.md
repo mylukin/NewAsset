@@ -3,7 +3,7 @@ id: asset-parking.database-schema
 module: asset-parking
 priority: 301
 status: passing
-version: 3
+version: 4
 origin: spec-workflow
 dependsOn:
   - core.database-schema
@@ -16,7 +16,7 @@ testRequirements:
     required: false
     pattern: tests/asset-parking/**/*.test.*
 verification:
-  verifiedAt: '2025-12-15T14:03:26.540Z'
+  verifiedAt: '2025-12-15T14:04:17.925Z'
   verdict: pass
   verifiedBy: strategy-framework
   commitHash: 6ac057763544910bf5899df800f9f1f2ad1c1da7
