@@ -2,8 +2,8 @@
 id: core.menu-permission
 module: core
 priority: 112
-status: failing
-version: 4
+status: passing
+version: 5
 origin: spec-workflow
 dependsOn: []
 supersedes: []
