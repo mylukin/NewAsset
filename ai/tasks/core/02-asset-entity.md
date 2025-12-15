@@ -2,8 +2,8 @@
 id: core.asset-entity
 module: core
 priority: 102
-status: failing
-version: 5
+status: passing
+version: 6
 origin: spec-workflow
 dependsOn:
   - core.database-schema
@@ -22,37 +22,48 @@ verification:
   commitHash: ac57aedffb2da0cbe7b08a8b74d3afe05e68fe77
   summary: 5/5 criteria satisfied
 tddGuidance:
-  generatedAt: '2025-12-15T15:07:38.945Z'
+  generatedAt: '2025-12-15T22:55:07.534Z'
   generatedBy: claude
-  forVersion: 3
+  forVersion: 5
   suggestedTestFiles:
     unit:
       - tests/core/asset-entity.test.ts
     e2e: []
   unitTestCases:
-    - name: should have Asset entity class with required fields and annotations
+    - name: should create Asset entity class with all required fields
       assertions:
-        - expect(assetEntityFile).toContain('@TableName')
-        - expect(assetEntityFile).toContain('private Long id')
+        - expect(Asset).toBeDefined()
+        - expect(new Asset()).toHaveProperty('id')
+        - expect(new Asset()).toHaveProperty('assetCode')
+        - expect(new Asset()).toHaveProperty('assetName')
+        - expect(new Asset()).toHaveProperty('categoryId')
+        - expect(new Asset()).toHaveProperty('status')
+    - name: should create AssetMapper interface with CRUD operations
+      assertions:
+        - expect(AssetMapper).toBeDefined()
+        - expect(typeof AssetMapper.selectById).toBe('function')
+        - expect(typeof AssetMapper.insert).toBe('function')
+        - expect(typeof AssetMapper.updateById).toBe('function')
+        - expect(typeof AssetMapper.deleteById).toBe('function')
+    - name: should have valid mapper XML configuration
+      assertions:
+        - expect(mapperXmlExists).toBe(true)
         - >-
-          expect(assetEntityFile).toContain('package
-          com.ruoyi.asset.domain.entity')
-    - name: should have AssetMapper interface extending BaseMapper
+          expect(mapperXmlContent).toContain('namespace="com.ruoyi.asset.mapper.AssetMapper"')
+        - expect(mapperXmlContent).toContain('resultMap')
+    - name: should create AssetVO class with view properties
       assertions:
-        - expect(assetMapperFile).toContain('interface AssetMapper')
-        - expect(assetMapperFile).toContain('@Mapper')
-        - expect(assetMapperFile).toContain('package com.ruoyi.asset.mapper')
-    - name: should have valid mapper XML with proper namespace
+        - expect(AssetVO).toBeDefined()
+        - expect(new AssetVO()).toHaveProperty('id')
+        - expect(new AssetVO()).toHaveProperty('assetCode')
+        - expect(new AssetVO()).toHaveProperty('categoryName')
+    - name: should create AssetDTO class with transfer properties
       assertions:
-        - >-
-          expect(mapperXmlFile).toContain('namespace="com.ruoyi.asset.mapper.AssetMapper"')
-        - expect(mapperXmlFile).toContain('<resultMap')
-    - name: should have AssetVO and AssetDTO classes in domain.vo package
-      assertions:
-        - expect(assetVoFile).toContain('class AssetVO')
-        - expect(assetDtoFile).toContain('class AssetDTO')
-        - expect(assetVoFile).toContain('package com.ruoyi.asset.domain.vo')
-    - name: should compile all entity and mapper classes without errors
+        - expect(AssetDTO).toBeDefined()
+        - expect(new AssetDTO()).toHaveProperty('assetCode')
+        - expect(new AssetDTO()).toHaveProperty('assetName')
+        - expect(new AssetDTO()).toHaveProperty('categoryId')
+    - name: should compile entity and mapper without errors
       assertions:
         - expect(compileResult.exitCode).toBe(0)
         - expect(compileResult.errors).toHaveLength(0)
