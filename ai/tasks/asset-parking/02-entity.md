@@ -2,8 +2,8 @@
 id: asset-parking.entity
 module: asset-parking
 priority: 302
-status: failing
-version: 1
+status: passing
+version: 2
 origin: spec-workflow
 dependsOn:
   - asset-parking.database-schema
