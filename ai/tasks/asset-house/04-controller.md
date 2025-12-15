@@ -2,7 +2,7 @@
 id: asset-house.controller
 module: asset-house
 priority: 204
-status: passing
+status: failing
 version: 4
 origin: spec-workflow
 dependsOn:

@@ -2,7 +2,7 @@
 id: asset-house.frontend-form
 module: asset-house
 priority: 208
-status: passing
+status: failing
 version: 4
 origin: spec-workflow
 dependsOn:

@@ -2,7 +2,7 @@
 id: core.asset-entity
 module: core
 priority: 102
-status: passing
+status: failing
 version: 5
 origin: spec-workflow
 dependsOn:
