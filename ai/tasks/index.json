@@ -44,7 +44,7 @@
       "filePath": "core/03-status-enum.md"
     },
     "core.code-generator": {
-      "status": "failing",
+      "status": "passing",
       "priority": 106,
       "module": "core",
       "description": "Implement asset code generator with optimistic locking",
