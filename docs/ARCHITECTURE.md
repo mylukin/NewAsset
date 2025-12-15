@@ -2,18 +2,22 @@
 
 ## Summary
 
-NewAsset is an Asset Management System MVP for property/facility management, built with Vue 2 frontend and Spring Boot backend (RuoYi framework). It manages 5 asset types (House, Parking, Facility, Venue, Office) with a 9-state status machine and maintenance work order workflow. Currently, the frontend house module is mostly implemented, SQL schemas are defined, but backend services and most other frontend modules are placeholder stubs awaiting implementation.
+NewAsset is a full-stack asset management MVP with a Vue 2 + Element UI admin frontend and a Spring Boot + MyBatis-Plus backend.
+> NewAsset 是一个全栈资产管理 MVP：前端为 Vue 2 + Element UI，后端为 Spring Boot + MyBatis-Plus。
 
-> Analyzed by: claude
+It implements core asset capabilities (codes, locations, status machine, attachments) and initial house/parking modules, with E2E tests covering the UI flow.
+> 它实现了资产核心能力（编码、位置层级、状态机、附件）以及房源/车位模块初版，并提供覆盖 UI 流程的 E2E 测试。
+
+> Analyzed by: codex
 
 ## Tech Stack
 
 | Aspect | Value |
 |--------|-------|
-| Language | JavaScript/TypeScript |
-| Framework | Vue 2.7 + Spring Boot 3.1 (RuoYi) |
+| Language | JavaScript/TypeScript + Java |
+| Framework | Vue 2 + Spring Boot (RuoYi-style) |
 | Build Tool | Vue CLI + Maven |
-| Test Framework | Vitest + Playwright |
+| Test Framework | Vitest (configured but failing) + Playwright + JUnit |
 | Package Manager | npm |
 
 ## Directory Structure
@@ -26,55 +30,95 @@ NewAsset is an Asset Management System MVP for property/facility management, bui
 
 ## Modules
 
-### core
-- **Path**: `src/types, src/utils, sql/asset_core.sql`
+### frontend.app-shell
+- **Path**: `src`
 - **Status**: partial
-- **Description**: Base asset entity, code generator, status machine, attachments, location hierarchy
+- **Description**: Vue 2 app bootstrap (Element UI, router, store), layout shell, and global Axios setup.
 
-### asset-house
+### frontend.asset-house
 - **Path**: `src/views/asset/house`
 - **Status**: partial
-- **Description**: House/residential property management with vacancy/rental statistics
+- **Description**: House asset UI: list page + detail drawer + form component; calls house APIs.
 
-### asset-parking
-- **Path**: `src/views/asset/parking`
+### frontend.asset-parking
+- **Path**: `src/views/asset/parking/index.vue`
 - **Status**: stub
-- **Description**: Vehicle parking space management with utilization statistics
+- **Description**: Parking page placeholder UI; API wrapper exists.
 
-### asset-facility
-- **Path**: `src/views/asset/facility`
+### frontend.asset-facility
+- **Path**: `src/views/asset/facility/index.vue`
 - **Status**: stub
-- **Description**: Building equipment management with warranty tracking
+- **Description**: Facility page placeholder UI; API wrapper exists (including warranty alerts).
 
-### asset-venue
-- **Path**: `src/views/asset/venue`
+### frontend.asset-venue
+- **Path**: `src/views/asset/venue/index.vue`
 - **Status**: stub
-- **Description**: Community spaces management with availability status
+- **Description**: Venue page placeholder UI; API wrapper exists.
 
-### asset-office
-- **Path**: `src/views/asset/office`
+### frontend.asset-office
+- **Path**: `src/views/asset/office/index.vue`
 - **Status**: stub
-- **Description**: Furniture and IT equipment management
+- **Description**: Office page placeholder UI; API wrapper exists.
 
-### maintenance
-- **Path**: `src/views/maintenance`
+### frontend.maintenance
+- **Path**: `src/views/maintenance/index.vue`
 - **Status**: stub
-- **Description**: Work order lifecycle management with 6-state flow and asset status linkage
+- **Description**: Maintenance page placeholder UI; API wrapper exists for work orders.
 
-### dashboard
-- **Path**: `src/views/Dashboard.vue`
+### frontend.api
+- **Path**: `src/api`
 - **Status**: partial
-- **Description**: Role-based KPIs, charts, and statistics overview
+- **Description**: Axios wrapper functions for asset and maintenance endpoints.
 
-### import
-- **Path**: `ai/tasks/import`
-- **Status**: stub
-- **Description**: Excel import with validation and template download (planned)
+### frontend.http
+- **Path**: `src/utils/request.js`
+- **Status**: complete
+- **Description**: Axios instance with interceptors and Element UI messaging for API errors.
 
-### auth
-- **Path**: `src/views/Login.vue, src/store`
+### frontend.domain-types
+- **Path**: `src/types/asset.js`
+- **Status**: complete
+- **Description**: Asset type/status constants and helper functions (client-side).
+
+### frontend.code-generator
+- **Path**: `src/utils/codeGenerator.js`
+- **Status**: complete
+- **Description**: Client-side in-memory asset code generator (optimistic lock simulation).
+
+### backend.app
+- **Path**: `src/main/java/com/ruoyi/AssetApplication.java`
+- **Status**: complete
+- **Description**: Spring Boot entrypoint with mapper scanning; config in application.yml.
+
+### backend.asset-core
+- **Path**: `src/main/java/com/ruoyi/asset`
 - **Status**: partial
-- **Description**: User authentication, session management, permissions
+- **Description**: Core asset entities/mappers/services (code generator, status, attachments, locations) plus house/parking modules; some controller endpoints are stubbed.
+
+### backend.mybatis-mappers
+- **Path**: `src/main/resources/mapper/asset`
+- **Status**: partial
+- **Description**: MyBatis XML result maps for Asset/House/Parking.
+
+### database-schema
+- **Path**: `sql`
+- **Status**: complete
+- **Description**: SQL DDL for core asset tables, extensions, dictionaries, and menu/permissions.
+
+### tests.unit
+- **Path**: `tests`
+- **Status**: partial
+- **Description**: Vitest unit tests (mostly in-memory mocks); Vitest currently fails to start due to ESM/CJS config issue.
+
+### tests.e2e
+- **Path**: `e2e`
+- **Status**: partial
+- **Description**: Playwright E2E tests for navigation and module pages.
+
+### tests.junit
+- **Path**: `src/test/java`
+- **Status**: partial
+- **Description**: JUnit test for backend AssetStatusEnum transitions.
 
 ## Feature Completion Status
 
@@ -174,28 +218,27 @@ NewAsset is an Asset Management System MVP for property/facility management, bui
 
 ## Recommendations
 
-- Prioritize implementing the Spring Boot backend - no Java source code exists yet despite pom.xml
-- Complete the core module services (status-service, location-service, base-service) before asset-specific modules
-- Implement the remaining 4 asset type frontends using the house module as a template
-- Add missing backend API endpoints that the frontend already calls
-- Set up proper dev environment with backend server (currently frontend-only)
-- Consider adding TypeScript configuration for better type safety in Vue components
-- Implement the import module for bulk asset creation via Excel
+- Make tests runnable by choosing one unit test stack (Vitest vs Vue CLI) and fixing the ESM/CJS config mismatch.
+> 让测试可运行：在 Vitest 与 Vue CLI 单测方案中选择其一，并修复 ESM/CJS 配置不匹配问题。
+- Align frontend/backend API paths and implement missing backend endpoints already called by the frontend (base asset, status, attachments).
+> 对齐前后端 API 路径，并补齐前端已调用但后端缺失的接口（基础资产、状态、附件）。
+- Replace stubbed backend list/export endpoints with real pagination queries and export implementation; add integration tests against the real Spring services and DB.
+> 将后端占位的 list/export 接口替换为真实分页查询与导出实现，并增加针对真实 Spring 服务与数据库的集成测试。
 
 ## Commands
 
 ```bash
 # Install dependencies
-npm install
+npm install && mvn clean install
 
 # Start development server
-npm run dev
+./scripts/start-backend.sh & ./scripts/start-frontend.sh
 
 # Build for production
 npm run build
 
 # Run tests
-npm run test
+npx vitest run (currently fails); npm test (currently fails); npm run test:e2e (requires Playwright browsers)
 ```
 
 ---

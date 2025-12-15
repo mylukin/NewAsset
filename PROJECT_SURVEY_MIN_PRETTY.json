@@ -1,0 +1,2218 @@
+{
+  "techStack": {
+    "language": "JavaScript/TypeScript + Java",
+    "framework": "Vue 2 + Spring Boot (RuoYi)",
+    "buildTool": "Vue CLI + Maven",
+    "testFramework": "Vitest + Playwright + JUnit",
+    "packageManager": "npm"
+  },
+  "modules": [
+    {
+      "name": "frontend",
+      "path": "src",
+      "description": "Vue 2 frontend (house module most complete).",
+      "status": "partial"
+    },
+    {
+      "name": "backend",
+      "path": "src/main/java",
+      "description": "Spring Boot backend with MyBatis-Plus; some endpoints stubbed.",
+      "status": "partial"
+    },
+    {
+      "name": "db",
+      "path": "sql",
+      "description": "SQL schemas for core + extensions.",
+      "status": "complete"
+    },
+    {
+      "name": "tests",
+      "path": "tests",
+      "description": "Vitest unit tests (currently failing to run).",
+      "status": "partial"
+    },
+    {
+      "name": "e2e",
+      "path": "e2e",
+      "description": "Playwright E2E specs.",
+      "status": "partial"
+    }
+  ],
+  "features": [
+    {
+      "id": "be.AssetApplication.AssetApplication",
+      "description": "class AssetApplication",
+      "module": "be.AssetApplication",
+      "source": "code",
+      "confidence": 0.85
+    },
+    {
+      "id": "be.AssetApplication.AssetApplication.main",
+      "description": "public main()",
+      "module": "be.AssetApplication",
+      "source": "code",
+      "confidence": 0.75
+    },
+    {
+      "id": "be.api.asset.attachment.download.{id}.get",
+      "description": "GET /asset/attachment/download/{id}",
+      "module": "backend.api",
+      "source": "route",
+      "confidence": 0.9
+    },
+    {
+      "id": "be.api.asset.attachment.list.{assetId}.get",
+      "description": "GET /asset/attachment/list/{assetId}",
+      "module": "backend.api",
+      "source": "route",
+      "confidence": 0.9
+    },
+    {
+      "id": "be.api.asset.attachment.upload.post",
+      "description": "POST /asset/attachment/upload",
+      "module": "backend.api",
+      "source": "route",
+      "confidence": 0.9
+    },
+    {
+      "id": "be.api.asset.attachment.{id}.delete",
+      "description": "DELETE /asset/attachment/{id}",
+      "module": "backend.api",
+      "source": "route",
+      "confidence": 0.9
+    },
+    {
+      "id": "be.api.asset.attachment.{id}.get",
+      "description": "GET /asset/attachment/{id}",
+      "module": "backend.api",
+      "source": "route",
+      "confidence": 0.9
+    },
+    {
+      "id": "be.api.asset.house.copy.{id}.post",
+      "description": "POST /asset/house/copy/{id}",
+      "module": "backend.api",
+      "source": "route",
+      "confidence": 0.9
+    },
+    {
+      "id": "be.api.asset.house.export.post",
+      "description": "POST /asset/house/export",
+      "module": "backend.api",
+      "source": "route",
+      "confidence": 0.9
+    },
+    {
+      "id": "be.api.asset.house.list.get",
+      "description": "GET /asset/house/list",
+      "module": "backend.api",
+      "source": "route",
+      "confidence": 0.9
+    },
+    {
+      "id": "be.api.asset.house.post",
+      "description": "POST /asset/house/",
+      "module": "backend.api",
+      "source": "route",
+      "confidence": 0.9
+    },
+    {
+      "id": "be.api.asset.house.put",
+      "description": "PUT /asset/house/",
+      "module": "backend.api",
+      "source": "route",
+      "confidence": 0.9
+    },
+    {
+      "id": "be.api.asset.house.stats.get",
+      "description": "GET /asset/house/stats",
+      "module": "backend.api",
+      "source": "route",
+      "confidence": 0.9
+    },
+    {
+      "id": "be.api.asset.house.{ids}.delete",
+      "description": "DELETE /asset/house/{ids}",
+      "module": "backend.api",
+      "source": "route",
+      "confidence": 0.9
+    },
+    {
+      "id": "be.api.asset.house.{id}.get",
+      "description": "GET /asset/house/{id}",
+      "module": "backend.api",
+      "source": "route",
+      "confidence": 0.9
+    },
+    {
+      "id": "be.api.asset.location.list.get",
+      "description": "GET /asset/location/list",
+      "module": "backend.api",
+      "source": "route",
+      "confidence": 0.9
+    },
+    {
+      "id": "be.api.asset.location.post",
+      "description": "POST /asset/location/",
+      "module": "backend.api",
+      "source": "route",
+      "confidence": 0.9
+    },
+    {
+      "id": "be.api.asset.location.put",
+      "description": "PUT /asset/location/",
+      "module": "backend.api",
+      "source": "route",
+      "confidence": 0.9
+    },
+    {
+      "id": "be.api.asset.location.tree.get",
+      "description": "GET /asset/location/tree",
+      "module": "backend.api",
+      "source": "route",
+      "confidence": 0.9
+    },
+    {
+      "id": "be.api.asset.location.{id}.delete",
+      "description": "DELETE /asset/location/{id}",
+      "module": "backend.api",
+      "source": "route",
+      "confidence": 0.9
+    },
+    {
+      "id": "be.api.asset.location.{id}.get",
+      "description": "GET /asset/location/{id}",
+      "module": "backend.api",
+      "source": "route",
+      "confidence": 0.9
+    },
+    {
+      "id": "be.api.asset.parking.export.post",
+      "description": "POST /asset/parking/export",
+      "module": "backend.api",
+      "source": "route",
+      "confidence": 0.9
+    },
+    {
+      "id": "be.api.asset.parking.list.get",
+      "description": "GET /asset/parking/list",
+      "module": "backend.api",
+      "source": "route",
+      "confidence": 0.9
+    },
+    {
+      "id": "be.api.asset.parking.post",
+      "description": "POST /asset/parking/",
+      "module": "backend.api",
+      "source": "route",
+      "confidence": 0.9
+    },
+    {
+      "id": "be.api.asset.parking.put",
+      "description": "PUT /asset/parking/",
+      "module": "backend.api",
+      "source": "route",
+      "confidence": 0.9
+    },
+    {
+      "id": "be.api.asset.parking.stats.get",
+      "description": "GET /asset/parking/stats",
+      "module": "backend.api",
+      "source": "route",
+      "confidence": 0.9
+    },
+    {
+      "id": "be.api.asset.parking.{ids}.delete",
+      "description": "DELETE /asset/parking/{ids}",
+      "module": "backend.api",
+      "source": "route",
+      "confidence": 0.9
+    },
+    {
+      "id": "be.api.asset.parking.{id}.get",
+      "description": "GET /asset/parking/{id}",
+      "module": "backend.api",
+      "source": "route",
+      "confidence": 0.9
+    },
+    {
+      "id": "be.asset.controller.AssetAttachmentController.AssetAttachmentController",
+      "description": "class AssetAttachmentController",
+      "module": "be.asset.controller.AssetAttachmentController",
+      "source": "code",
+      "confidence": 0.85
+    },
+    {
+      "id": "be.asset.controller.AssetAttachmentController.AssetAttachmentController.delete",
+      "description": "public delete()",
+      "module": "be.asset.controller.AssetAttachmentController",
+      "source": "code",
+      "confidence": 0.75
+    },
+    {
+      "id": "be.asset.controller.AssetAttachmentController.AssetAttachmentController.download",
+      "description": "public download()",
+      "module": "be.asset.controller.AssetAttachmentController",
+      "source": "code",
+      "confidence": 0.75
+    },
+    {
+      "id": "be.asset.controller.AssetAttachmentController.AssetAttachmentController.getInfo",
+      "description": "public getInfo()",
+      "module": "be.asset.controller.AssetAttachmentController",
+      "source": "code",
+      "confidence": 0.75
+    },
+    {
+      "id": "be.asset.controller.AssetAttachmentController.AssetAttachmentController.list",
+      "description": "public list()",
+      "module": "be.asset.controller.AssetAttachmentController",
+      "source": "code",
+      "confidence": 0.75
+    },
+    {
+      "id": "be.asset.controller.AssetAttachmentController.AssetAttachmentController.upload",
+      "description": "public upload()",
+      "module": "be.asset.controller.AssetAttachmentController",
+      "source": "code",
+      "confidence": 0.75
+    },
+    {
+      "id": "be.asset.controller.AssetHouseController.AssetHouseController",
+      "description": "class AssetHouseController",
+      "module": "be.asset.controller.AssetHouseController",
+      "source": "code",
+      "confidence": 0.85
+    },
+    {
+      "id": "be.asset.controller.AssetHouseController.AssetHouseController.copy",
+      "description": "public copy()",
+      "module": "be.asset.controller.AssetHouseController",
+      "source": "code",
+      "confidence": 0.75
+    },
+    {
+      "id": "be.asset.controller.AssetHouseController.AssetHouseController.create",
+      "description": "public create()",
+      "module": "be.asset.controller.AssetHouseController",
+      "source": "code",
+      "confidence": 0.75
+    },
+    {
+      "id": "be.asset.controller.AssetHouseController.AssetHouseController.delete",
+      "description": "public delete()",
+      "module": "be.asset.controller.AssetHouseController",
+      "source": "code",
+      "confidence": 0.75
+    },
+    {
+      "id": "be.asset.controller.AssetHouseController.AssetHouseController.export",
+      "description": "public export()",
+      "module": "be.asset.controller.AssetHouseController",
+      "source": "code",
+      "confidence": 0.75
+    },
+    {
+      "id": "be.asset.controller.AssetHouseController.AssetHouseController.getInfo",
+      "description": "public getInfo()",
+      "module": "be.asset.controller.AssetHouseController",
+      "source": "code",
+      "confidence": 0.75
+    },
+    {
+      "id": "be.asset.controller.AssetHouseController.AssetHouseController.getStats",
+      "description": "public getStats()",
+      "module": "be.asset.controller.AssetHouseController",
+      "source": "code",
+      "confidence": 0.75
+    },
+    {
+      "id": "be.asset.controller.AssetHouseController.AssetHouseController.list",
+      "description": "public list()",
+      "module": "be.asset.controller.AssetHouseController",
+      "source": "code",
+      "confidence": 0.75
+    },
+    {
+      "id": "be.asset.controller.AssetHouseController.AssetHouseController.update",
+      "description": "public update()",
+      "module": "be.asset.controller.AssetHouseController",
+      "source": "code",
+      "confidence": 0.75
+    },
+    {
+      "id": "be.asset.controller.AssetLocationController.AssetLocationController",
+      "description": "class AssetLocationController",
+      "module": "be.asset.controller.AssetLocationController",
+      "source": "code",
+      "confidence": 0.85
+    },
+    {
+      "id": "be.asset.controller.AssetLocationController.AssetLocationController.create",
+      "description": "public create()",
+      "module": "be.asset.controller.AssetLocationController",
+      "source": "code",
+      "confidence": 0.75
+    },
+    {
+      "id": "be.asset.controller.AssetLocationController.AssetLocationController.delete",
+      "description": "public delete()",
+      "module": "be.asset.controller.AssetLocationController",
+      "source": "code",
+      "confidence": 0.75
+    },
+    {
+      "id": "be.asset.controller.AssetLocationController.AssetLocationController.getInfo",
+      "description": "public getInfo()",
+      "module": "be.asset.controller.AssetLocationController",
+      "source": "code",
+      "confidence": 0.75
+    },
+    {
+      "id": "be.asset.controller.AssetLocationController.AssetLocationController.getTree",
+      "description": "public getTree()",
+      "module": "be.asset.controller.AssetLocationController",
+      "source": "code",
+      "confidence": 0.75
+    },
+    {
+      "id": "be.asset.controller.AssetLocationController.AssetLocationController.list",
+      "description": "public list()",
+      "module": "be.asset.controller.AssetLocationController",
+      "source": "code",
+      "confidence": 0.75
+    },
+    {
+      "id": "be.asset.controller.AssetLocationController.AssetLocationController.update",
+      "description": "public update()",
+      "module": "be.asset.controller.AssetLocationController",
+      "source": "code",
+      "confidence": 0.75
+    },
+    {
+      "id": "be.asset.controller.AssetParkingController.AssetParkingController",
+      "description": "class AssetParkingController",
+      "module": "be.asset.controller.AssetParkingController",
+      "source": "code",
+      "confidence": 0.85
+    },
+    {
+      "id": "be.asset.controller.AssetParkingController.AssetParkingController.create",
+      "description": "public create()",
+      "module": "be.asset.controller.AssetParkingController",
+      "source": "code",
+      "confidence": 0.75
+    },
+    {
+      "id": "be.asset.controller.AssetParkingController.AssetParkingController.delete",
+      "description": "public delete()",
+      "module": "be.asset.controller.AssetParkingController",
+      "source": "code",
+      "confidence": 0.75
+    },
+    {
+      "id": "be.asset.controller.AssetParkingController.AssetParkingController.export",
+      "description": "public export()",
+      "module": "be.asset.controller.AssetParkingController",
+      "source": "code",
+      "confidence": 0.75
+    },
+    {
+      "id": "be.asset.controller.AssetParkingController.AssetParkingController.getInfo",
+      "description": "public getInfo()",
+      "module": "be.asset.controller.AssetParkingController",
+      "source": "code",
+      "confidence": 0.75
+    },
+    {
+      "id": "be.asset.controller.AssetParkingController.AssetParkingController.getStats",
+      "description": "public getStats()",
+      "module": "be.asset.controller.AssetParkingController",
+      "source": "code",
+      "confidence": 0.75
+    },
+    {
+      "id": "be.asset.controller.AssetParkingController.AssetParkingController.list",
+      "description": "public list()",
+      "module": "be.asset.controller.AssetParkingController",
+      "source": "code",
+      "confidence": 0.75
+    },
+    {
+      "id": "be.asset.controller.AssetParkingController.AssetParkingController.update",
+      "description": "public update()",
+      "module": "be.asset.controller.AssetParkingController",
+      "source": "code",
+      "confidence": 0.75
+    },
+    {
+      "id": "be.asset.domain.entity.Asset.Asset",
+      "description": "class Asset",
+      "module": "be.asset.domain.entity.Asset",
+      "source": "code",
+      "confidence": 0.85
+    },
+    {
+      "id": "be.asset.domain.entity.AssetAttachment.AssetAttachment",
+      "description": "class AssetAttachment",
+      "module": "be.asset.domain.entity.AssetAttachment",
+      "source": "code",
+      "confidence": 0.85
+    },
+    {
+      "id": "be.asset.domain.entity.AssetCodeSeq.AssetCodeSeq",
+      "description": "class AssetCodeSeq",
+      "module": "be.asset.domain.entity.AssetCodeSeq",
+      "source": "code",
+      "confidence": 0.85
+    },
+    {
+      "id": "be.asset.domain.entity.AssetHouse.AssetHouse",
+      "description": "class AssetHouse",
+      "module": "be.asset.domain.entity.AssetHouse",
+      "source": "code",
+      "confidence": 0.85
+    },
+    {
+      "id": "be.asset.domain.entity.AssetLocation.AssetLocation",
+      "description": "class AssetLocation",
+      "module": "be.asset.domain.entity.AssetLocation",
+      "source": "code",
+      "confidence": 0.85
+    },
+    {
+      "id": "be.asset.domain.entity.AssetParking.AssetParking",
+      "description": "class AssetParking",
+      "module": "be.asset.domain.entity.AssetParking",
+      "source": "code",
+      "confidence": 0.85
+    },
+    {
+      "id": "be.asset.domain.entity.AssetStatusChangeLog.AssetStatusChangeLog",
+      "description": "class AssetStatusChangeLog",
+      "module": "be.asset.domain.entity.AssetStatusChangeLog",
+      "source": "code",
+      "confidence": 0.85
+    },
+    {
+      "id": "be.asset.domain.enums.AssetStatusEnum.AssetStatusEnum",
+      "description": "enum AssetStatusEnum",
+      "module": "be.asset.domain.enums.AssetStatusEnum",
+      "source": "code",
+      "confidence": 0.85
+    },
+    {
+      "id": "be.asset.domain.enums.AssetStatusEnum.AssetStatusEnum.canTransitionTo",
+      "description": "public canTransitionTo()",
+      "module": "be.asset.domain.enums.AssetStatusEnum",
+      "source": "code",
+      "confidence": 0.75
+    },
+    {
+      "id": "be.asset.domain.enums.AssetStatusEnum.AssetStatusEnum.fromCode",
+      "description": "public fromCode()",
+      "module": "be.asset.domain.enums.AssetStatusEnum",
+      "source": "code",
+      "confidence": 0.75
+    },
+    {
+      "id": "be.asset.domain.enums.AssetStatusEnum.AssetStatusEnum.getValidTransitions",
+      "description": "public getValidTransitions()",
+      "module": "be.asset.domain.enums.AssetStatusEnum",
+      "source": "code",
+      "confidence": 0.75
+    },
+    {
+      "id": "be.asset.domain.vo.AssetCreateDTO.AssetCreateDTO",
+      "description": "class AssetCreateDTO",
+      "module": "be.asset.domain.vo.AssetCreateDTO",
+      "source": "code",
+      "confidence": 0.85
+    },
+    {
+      "id": "be.asset.domain.vo.AssetDTO.AssetDTO",
+      "description": "class AssetDTO",
+      "module": "be.asset.domain.vo.AssetDTO",
+      "source": "code",
+      "confidence": 0.85
+    },
+    {
+      "id": "be.asset.domain.vo.AssetHouseCreateDTO.AssetHouseCreateDTO",
+      "description": "class AssetHouseCreateDTO",
+      "module": "be.asset.domain.vo.AssetHouseCreateDTO",
+      "source": "code",
+      "confidence": 0.85
+    },
+    {
+      "id": "be.asset.domain.vo.AssetHouseQueryDTO.AssetHouseQueryDTO",
+      "description": "class AssetHouseQueryDTO",
+      "module": "be.asset.domain.vo.AssetHouseQueryDTO",
+      "source": "code",
+      "confidence": 0.85
+    },
+    {
+      "id": "be.asset.domain.vo.AssetHouseUpdateDTO.AssetHouseUpdateDTO",
+      "description": "class AssetHouseUpdateDTO",
+      "module": "be.asset.domain.vo.AssetHouseUpdateDTO",
+      "source": "code",
+      "confidence": 0.85
+    },
+    {
+      "id": "be.asset.domain.vo.AssetHouseVO.AssetHouseVO",
+      "description": "class AssetHouseVO",
+      "module": "be.asset.domain.vo.AssetHouseVO",
+      "source": "code",
+      "confidence": 0.85
+    },
+    {
+      "id": "be.asset.domain.vo.AssetParkingCreateDTO.AssetParkingCreateDTO",
+      "description": "class AssetParkingCreateDTO",
+      "module": "be.asset.domain.vo.AssetParkingCreateDTO",
+      "source": "code",
+      "confidence": 0.85
+    },
+    {
+      "id": "be.asset.domain.vo.AssetParkingQueryDTO.AssetParkingQueryDTO",
+      "description": "class AssetParkingQueryDTO",
+      "module": "be.asset.domain.vo.AssetParkingQueryDTO",
+      "source": "code",
+      "confidence": 0.85
+    },
+    {
+      "id": "be.asset.domain.vo.AssetParkingUpdateDTO.AssetParkingUpdateDTO",
+      "description": "class AssetParkingUpdateDTO",
+      "module": "be.asset.domain.vo.AssetParkingUpdateDTO",
+      "source": "code",
+      "confidence": 0.85
+    },
+    {
+      "id": "be.asset.domain.vo.AssetParkingVO.AssetParkingVO",
+      "description": "class AssetParkingVO",
+      "module": "be.asset.domain.vo.AssetParkingVO",
+      "source": "code",
+      "confidence": 0.85
+    },
+    {
+      "id": "be.asset.domain.vo.AssetQueryDTO.AssetQueryDTO",
+      "description": "class AssetQueryDTO",
+      "module": "be.asset.domain.vo.AssetQueryDTO",
+      "source": "code",
+      "confidence": 0.85
+    },
+    {
+      "id": "be.asset.domain.vo.AssetUpdateDTO.AssetUpdateDTO",
+      "description": "class AssetUpdateDTO",
+      "module": "be.asset.domain.vo.AssetUpdateDTO",
+      "source": "code",
+      "confidence": 0.85
+    },
+    {
+      "id": "be.asset.domain.vo.AssetVO.AssetVO",
+      "description": "class AssetVO",
+      "module": "be.asset.domain.vo.AssetVO",
+      "source": "code",
+      "confidence": 0.85
+    },
+    {
+      "id": "be.asset.domain.vo.HouseStatsVO.HouseStatsVO",
+      "description": "class HouseStatsVO",
+      "module": "be.asset.domain.vo.HouseStatsVO",
+      "source": "code",
+      "confidence": 0.85
+    },
+    {
+      "id": "be.asset.domain.vo.LocationCreateDTO.LocationCreateDTO",
+      "description": "class LocationCreateDTO",
+      "module": "be.asset.domain.vo.LocationCreateDTO",
+      "source": "code",
+      "confidence": 0.85
+    },
+    {
+      "id": "be.asset.domain.vo.LocationUpdateDTO.LocationUpdateDTO",
+      "description": "class LocationUpdateDTO",
+      "module": "be.asset.domain.vo.LocationUpdateDTO",
+      "source": "code",
+      "confidence": 0.85
+    },
+    {
+      "id": "be.asset.domain.vo.ParkingStatsVO.ParkingStatsVO",
+      "description": "class ParkingStatsVO",
+      "module": "be.asset.domain.vo.ParkingStatsVO",
+      "source": "code",
+      "confidence": 0.85
+    },
+    {
+      "id": "be.asset.domain.vo.UsageDistributionVO.UsageDistributionVO",
+      "description": "class UsageDistributionVO",
+      "module": "be.asset.domain.vo.UsageDistributionVO",
+      "source": "code",
+      "confidence": 0.85
+    },
+    {
+      "id": "be.asset.domain.vo.ZoneStatsVO.ZoneStatsVO",
+      "description": "class ZoneStatsVO",
+      "module": "be.asset.domain.vo.ZoneStatsVO",
+      "source": "code",
+      "confidence": 0.85
+    },
+    {
+      "id": "be.asset.mapper.AssetAttachmentMapper.AssetAttachmentMapper",
+      "description": "interface AssetAttachmentMapper",
+      "module": "be.asset.mapper.AssetAttachmentMapper",
+      "source": "code",
+      "confidence": 0.85
+    },
+    {
+      "id": "be.asset.mapper.AssetCodeSeqMapper.AssetCodeSeqMapper",
+      "description": "interface AssetCodeSeqMapper",
+      "module": "be.asset.mapper.AssetCodeSeqMapper",
+      "source": "code",
+      "confidence": 0.85
+    },
+    {
+      "id": "be.asset.mapper.AssetHouseMapper.AssetHouseMapper",
+      "description": "interface AssetHouseMapper",
+      "module": "be.asset.mapper.AssetHouseMapper",
+      "source": "code",
+      "confidence": 0.85
+    },
+    {
+      "id": "be.asset.mapper.AssetLocationMapper.AssetLocationMapper",
+      "description": "interface AssetLocationMapper",
+      "module": "be.asset.mapper.AssetLocationMapper",
+      "source": "code",
+      "confidence": 0.85
+    },
+    {
+      "id": "be.asset.mapper.AssetMapper.AssetMapper",
+      "description": "interface AssetMapper",
+      "module": "be.asset.mapper.AssetMapper",
+      "source": "code",
+      "confidence": 0.85
+    },
+    {
+      "id": "be.asset.mapper.AssetParkingMapper.AssetParkingMapper",
+      "description": "interface AssetParkingMapper",
+      "module": "be.asset.mapper.AssetParkingMapper",
+      "source": "code",
+      "confidence": 0.85
+    },
+    {
+      "id": "be.asset.mapper.AssetStatusChangeLogMapper.AssetStatusChangeLogMapper",
+      "description": "interface AssetStatusChangeLogMapper",
+      "module": "be.asset.mapper.AssetStatusChangeLogMapper",
+      "source": "code",
+      "confidence": 0.85
+    },
+    {
+      "id": "be.asset.service.AssetAttachmentService.AssetAttachmentService",
+      "description": "class AssetAttachmentService",
+      "module": "be.asset.service.AssetAttachmentService",
+      "source": "code",
+      "confidence": 0.85
+    },
+    {
+      "id": "be.asset.service.AssetAttachmentService.AssetAttachmentService.delete",
+      "description": "public delete()",
+      "module": "be.asset.service.AssetAttachmentService",
+      "source": "code",
+      "confidence": 0.75
+    },
+    {
+      "id": "be.asset.service.AssetAttachmentService.AssetAttachmentService.getByAssetId",
+      "description": "public getByAssetId()",
+      "module": "be.asset.service.AssetAttachmentService",
+      "source": "code",
+      "confidence": 0.75
+    },
+    {
+      "id": "be.asset.service.AssetAttachmentService.AssetAttachmentService.getFileExtension",
+      "description": "private getFileExtension()",
+      "module": "be.asset.service.AssetAttachmentService",
+      "source": "code",
+      "confidence": 0.75
+    },
+    {
+      "id": "be.asset.service.AssetAttachmentService.AssetAttachmentService.upload",
+      "description": "public upload()",
+      "module": "be.asset.service.AssetAttachmentService",
+      "source": "code",
+      "confidence": 0.75
+    },
+    {
+      "id": "be.asset.service.AssetAttachmentService.AssetAttachmentService.validateFile",
+      "description": "private validateFile()",
+      "module": "be.asset.service.AssetAttachmentService",
+      "source": "code",
+      "confidence": 0.75
+    },
+    {
+      "id": "be.asset.service.AssetLocationService.AssetLocationService",
+      "description": "class AssetLocationService",
+      "module": "be.asset.service.AssetLocationService",
+      "source": "code",
+      "confidence": 0.85
+    },
+    {
+      "id": "be.asset.service.AssetLocationService.AssetLocationService.addLocation",
+      "description": "public addLocation()",
+      "module": "be.asset.service.AssetLocationService",
+      "source": "code",
+      "confidence": 0.75
+    },
+    {
+      "id": "be.asset.service.AssetLocationService.AssetLocationService.buildNode",
+      "description": "private buildNode()",
+      "module": "be.asset.service.AssetLocationService",
+      "source": "code",
+      "confidence": 0.75
+    },
+    {
+      "id": "be.asset.service.AssetLocationService.AssetLocationService.buildTree",
+      "description": "private buildTree()",
+      "module": "be.asset.service.AssetLocationService",
+      "source": "code",
+      "confidence": 0.75
+    },
+    {
+      "id": "be.asset.service.AssetLocationService.AssetLocationService.deleteLocation",
+      "description": "public deleteLocation()",
+      "module": "be.asset.service.AssetLocationService",
+      "source": "code",
+      "confidence": 0.75
+    },
+    {
+      "id": "be.asset.service.AssetLocationService.AssetLocationService.getTreeByProject",
+      "description": "public getTreeByProject()",
+      "module": "be.asset.service.AssetLocationService",
+      "source": "code",
+      "confidence": 0.75
+    },
+    {
+      "id": "be.asset.service.AssetLocationService.AssetLocationService.updateLocation",
+      "description": "public updateLocation()",
+      "module": "be.asset.service.AssetLocationService",
+      "source": "code",
+      "confidence": 0.75
+    },
+    {
+      "id": "be.asset.service.AssetLocationService.AssetLocationService.validateLocation",
+      "description": "private validateLocation()",
+      "module": "be.asset.service.AssetLocationService",
+      "source": "code",
+      "confidence": 0.75
+    },
+    {
+      "id": "be.asset.service.AssetStatusService.AssetStatusService",
+      "description": "class AssetStatusService",
+      "module": "be.asset.service.AssetStatusService",
+      "source": "code",
+      "confidence": 0.85
+    },
+    {
+      "id": "be.asset.service.AssetStatusService.AssetStatusService.changeStatus",
+      "description": "public changeStatus()",
+      "module": "be.asset.service.AssetStatusService",
+      "source": "code",
+      "confidence": 0.75
+    },
+    {
+      "id": "be.asset.service.AssetStatusService.AssetStatusService.logStatusChange",
+      "description": "private logStatusChange()",
+      "module": "be.asset.service.AssetStatusService",
+      "source": "code",
+      "confidence": 0.75
+    },
+    {
+      "id": "be.asset.service.IAssetHouseService.IAssetHouseService",
+      "description": "interface IAssetHouseService",
+      "module": "be.asset.service.IAssetHouseService",
+      "source": "code",
+      "confidence": 0.85
+    },
+    {
+      "id": "be.asset.service.IAssetParkingService.IAssetParkingService",
+      "description": "interface IAssetParkingService",
+      "module": "be.asset.service.IAssetParkingService",
+      "source": "code",
+      "confidence": 0.85
+    },
+    {
+      "id": "be.asset.service.IAssetService.IAssetService",
+      "description": "interface IAssetService",
+      "module": "be.asset.service.IAssetService",
+      "source": "code",
+      "confidence": 0.85
+    },
+    {
+      "id": "be.asset.service.impl.AssetHouseServiceImpl.AssetHouseServiceImpl",
+      "description": "class AssetHouseServiceImpl",
+      "module": "be.asset.service.impl.AssetHouseServiceImpl",
+      "source": "code",
+      "confidence": 0.85
+    },
+    {
+      "id": "be.asset.service.impl.AssetHouseServiceImpl.AssetHouseServiceImpl.convertToVO",
+      "description": "private convertToVO()",
+      "module": "be.asset.service.impl.AssetHouseServiceImpl",
+      "source": "code",
+      "confidence": 0.75
+    },
+    {
+      "id": "be.asset.service.impl.AssetHouseServiceImpl.AssetHouseServiceImpl.copy",
+      "description": "public copy()",
+      "module": "be.asset.service.impl.AssetHouseServiceImpl",
+      "source": "code",
+      "confidence": 0.75
+    },
+    {
+      "id": "be.asset.service.impl.AssetHouseServiceImpl.AssetHouseServiceImpl.create",
+      "description": "public create()",
+      "module": "be.asset.service.impl.AssetHouseServiceImpl",
+      "source": "code",
+      "confidence": 0.75
+    },
+    {
+      "id": "be.asset.service.impl.AssetHouseServiceImpl.AssetHouseServiceImpl.delete",
+      "description": "public delete()",
+      "module": "be.asset.service.impl.AssetHouseServiceImpl",
+      "source": "code",
+      "confidence": 0.75
+    },
+    {
+      "id": "be.asset.service.impl.AssetHouseServiceImpl.AssetHouseServiceImpl.getById",
+      "description": "public getById()",
+      "module": "be.asset.service.impl.AssetHouseServiceImpl",
+      "source": "code",
+      "confidence": 0.75
+    },
+    {
+      "id": "be.asset.service.impl.AssetHouseServiceImpl.AssetHouseServiceImpl.getCountByUsage",
+      "description": "private getCountByUsage()",
+      "module": "be.asset.service.impl.AssetHouseServiceImpl",
+      "source": "code",
+      "confidence": 0.75
+    },
+    {
+      "id": "be.asset.service.impl.AssetHouseServiceImpl.AssetHouseServiceImpl.getStats",
+      "description": "public getStats()",
+      "module": "be.asset.service.impl.AssetHouseServiceImpl",
+      "source": "code",
+      "confidence": 0.75
+    },
+    {
+      "id": "be.asset.service.impl.AssetHouseServiceImpl.AssetHouseServiceImpl.getUsageDistribution",
+      "description": "public getUsageDistribution()",
+      "module": "be.asset.service.impl.AssetHouseServiceImpl",
+      "source": "code",
+      "confidence": 0.75
+    },
+    {
+      "id": "be.asset.service.impl.AssetHouseServiceImpl.AssetHouseServiceImpl.list",
+      "description": "public list()",
+      "module": "be.asset.service.impl.AssetHouseServiceImpl",
+      "source": "code",
+      "confidence": 0.75
+    },
+    {
+      "id": "be.asset.service.impl.AssetHouseServiceImpl.AssetHouseServiceImpl.update",
+      "description": "public update()",
+      "module": "be.asset.service.impl.AssetHouseServiceImpl",
+      "source": "code",
+      "confidence": 0.75
+    },
+    {
+      "id": "be.asset.service.impl.AssetParkingServiceImpl.AssetParkingServiceImpl",
+      "description": "class AssetParkingServiceImpl",
+      "module": "be.asset.service.impl.AssetParkingServiceImpl",
+      "source": "code",
+      "confidence": 0.85
+    },
+    {
+      "id": "be.asset.service.impl.AssetParkingServiceImpl.AssetParkingServiceImpl.convertToVO",
+      "description": "private convertToVO()",
+      "module": "be.asset.service.impl.AssetParkingServiceImpl",
+      "source": "code",
+      "confidence": 0.75
+    },
+    {
+      "id": "be.asset.service.impl.AssetParkingServiceImpl.AssetParkingServiceImpl.create",
+      "description": "public create()",
+      "module": "be.asset.service.impl.AssetParkingServiceImpl",
+      "source": "code",
+      "confidence": 0.75
+    },
+    {
+      "id": "be.asset.service.impl.AssetParkingServiceImpl.AssetParkingServiceImpl.delete",
+      "description": "public delete()",
+      "module": "be.asset.service.impl.AssetParkingServiceImpl",
+      "source": "code",
+      "confidence": 0.75
+    },
+    {
+      "id": "be.asset.service.impl.AssetParkingServiceImpl.AssetParkingServiceImpl.getById",
+      "description": "public getById()",
+      "module": "be.asset.service.impl.AssetParkingServiceImpl",
+      "source": "code",
+      "confidence": 0.75
+    },
+    {
+      "id": "be.asset.service.impl.AssetParkingServiceImpl.AssetParkingServiceImpl.getStats",
+      "description": "public getStats()",
+      "module": "be.asset.service.impl.AssetParkingServiceImpl",
+      "source": "code",
+      "confidence": 0.75
+    },
+    {
+      "id": "be.asset.service.impl.AssetParkingServiceImpl.AssetParkingServiceImpl.getStatsByZone",
+      "description": "public getStatsByZone()",
+      "module": "be.asset.service.impl.AssetParkingServiceImpl",
+      "source": "code",
+      "confidence": 0.75
+    },
+    {
+      "id": "be.asset.service.impl.AssetParkingServiceImpl.AssetParkingServiceImpl.list",
+      "description": "public list()",
+      "module": "be.asset.service.impl.AssetParkingServiceImpl",
+      "source": "code",
+      "confidence": 0.75
+    },
+    {
+      "id": "be.asset.service.impl.AssetParkingServiceImpl.AssetParkingServiceImpl.update",
+      "description": "public update()",
+      "module": "be.asset.service.impl.AssetParkingServiceImpl",
+      "source": "code",
+      "confidence": 0.75
+    },
+    {
+      "id": "be.asset.service.impl.AssetServiceImpl.AssetServiceImpl",
+      "description": "class AssetServiceImpl",
+      "module": "be.asset.service.impl.AssetServiceImpl",
+      "source": "code",
+      "confidence": 0.85
+    },
+    {
+      "id": "be.asset.service.impl.AssetServiceImpl.AssetServiceImpl.convertToVO",
+      "description": "private convertToVO()",
+      "module": "be.asset.service.impl.AssetServiceImpl",
+      "source": "code",
+      "confidence": 0.75
+    },
+    {
+      "id": "be.asset.service.impl.AssetServiceImpl.AssetServiceImpl.create",
+      "description": "public create()",
+      "module": "be.asset.service.impl.AssetServiceImpl",
+      "source": "code",
+      "confidence": 0.75
+    },
+    {
+      "id": "be.asset.service.impl.AssetServiceImpl.AssetServiceImpl.delete",
+      "description": "public delete()",
+      "module": "be.asset.service.impl.AssetServiceImpl",
+      "source": "code",
+      "confidence": 0.75
+    },
+    {
+      "id": "be.asset.service.impl.AssetServiceImpl.AssetServiceImpl.getById",
+      "description": "public getById()",
+      "module": "be.asset.service.impl.AssetServiceImpl",
+      "source": "code",
+      "confidence": 0.75
+    },
+    {
+      "id": "be.asset.service.impl.AssetServiceImpl.AssetServiceImpl.getVOById",
+      "description": "public getVOById()",
+      "module": "be.asset.service.impl.AssetServiceImpl",
+      "source": "code",
+      "confidence": 0.75
+    },
+    {
+      "id": "be.asset.service.impl.AssetServiceImpl.AssetServiceImpl.list",
+      "description": "public list()",
+      "module": "be.asset.service.impl.AssetServiceImpl",
+      "source": "code",
+      "confidence": 0.75
+    },
+    {
+      "id": "be.asset.service.impl.AssetServiceImpl.AssetServiceImpl.update",
+      "description": "public update()",
+      "module": "be.asset.service.impl.AssetServiceImpl",
+      "source": "code",
+      "confidence": 0.75
+    },
+    {
+      "id": "be.asset.service.rule.AssetCodeGenerator.AssetCodeGenerator",
+      "description": "class AssetCodeGenerator",
+      "module": "be.asset.service.rule.AssetCodeGenerator",
+      "source": "code",
+      "confidence": 0.85
+    },
+    {
+      "id": "be.asset.service.rule.AssetCodeGenerator.AssetCodeGenerator.generate",
+      "description": "public generate()",
+      "module": "be.asset.service.rule.AssetCodeGenerator",
+      "source": "code",
+      "confidence": 0.75
+    },
+    {
+      "id": "be.asset.service.rule.AssetCodeGenerator.AssetCodeGenerator.generateWithLock",
+      "description": "private generateWithLock()",
+      "module": "be.asset.service.rule.AssetCodeGenerator",
+      "source": "code",
+      "confidence": 0.75
+    },
+    {
+      "id": "be.common.core.page.PageResult.PageResult",
+      "description": "class PageResult",
+      "module": "be.common.core.page.PageResult",
+      "source": "code",
+      "confidence": 0.85
+    },
+    {
+      "id": "be.common.core.page.PageResult.PageResult.of",
+      "description": "public of()",
+      "module": "be.common.core.page.PageResult",
+      "source": "code",
+      "confidence": 0.75
+    },
+    {
+      "id": "cfg.be.asset.code",
+      "description": "{TYPE_PREFIX}-{6_DIGIT_SEQ}",
+      "module": "config.backend",
+      "source": "config",
+      "confidence": 0.85
+    },
+    {
+      "id": "cfg.be.port",
+      "description": "8080",
+      "module": "config.backend",
+      "source": "config",
+      "confidence": 0.9
+    },
+    {
+      "id": "cfg.be.redis",
+      "description": "host=localhost",
+      "module": "config.backend",
+      "source": "config",
+      "confidence": 0.7
+    },
+    {
+      "id": "cfg.be.sqlite",
+      "description": "jdbc:sqlite:./data/asset.db",
+      "module": "config.backend",
+      "source": "config",
+      "confidence": 0.9
+    },
+    {
+      "id": "cfg.fe.proxy.asset",
+      "description": "/asset->:8080",
+      "module": "config.frontend",
+      "source": "config",
+      "confidence": 0.9
+    },
+    {
+      "id": "db.tbl.t_asset",
+      "description": "t_asset",
+      "module": "db.schema",
+      "source": "code",
+      "confidence": 0.9
+    },
+    {
+      "id": "db.tbl.t_asset_attachment",
+      "description": "t_asset_attachment",
+      "module": "db.schema",
+      "source": "code",
+      "confidence": 0.9
+    },
+    {
+      "id": "db.tbl.t_asset_code_seq",
+      "description": "t_asset_code_seq",
+      "module": "db.schema",
+      "source": "code",
+      "confidence": 0.9
+    },
+    {
+      "id": "db.tbl.t_asset_house",
+      "description": "t_asset_house",
+      "module": "db.schema",
+      "source": "code",
+      "confidence": 0.9
+    },
+    {
+      "id": "db.tbl.t_asset_location",
+      "description": "t_asset_location",
+      "module": "db.schema",
+      "source": "code",
+      "confidence": 0.9
+    },
+    {
+      "id": "db.tbl.t_asset_parking",
+      "description": "t_asset_parking",
+      "module": "db.schema",
+      "source": "code",
+      "confidence": 0.9
+    },
+    {
+      "id": "fe.c.App",
+      "description": "App",
+      "module": "frontend.ui",
+      "source": "code",
+      "confidence": 0.8
+    },
+    {
+      "id": "fe.c.Dashboard",
+      "description": "Dashboard",
+      "module": "frontend.ui",
+      "source": "code",
+      "confidence": 0.8
+    },
+    {
+      "id": "fe.c.FacilityAsset",
+      "description": "FacilityAsset",
+      "module": "frontend.ui",
+      "source": "code",
+      "confidence": 0.8
+    },
+    {
+      "id": "fe.c.FacilityAsset.getList",
+      "description": "getList",
+      "module": "frontend.ui",
+      "source": "code",
+      "confidence": 0.7
+    },
+    {
+      "id": "fe.c.FacilityAssetDetail",
+      "description": "FacilityAssetDetail",
+      "module": "frontend.ui",
+      "source": "code",
+      "confidence": 0.8
+    },
+    {
+      "id": "fe.c.FacilityAssetDetail.getFacilityDetail",
+      "description": "getFacilityDetail",
+      "module": "frontend.ui",
+      "source": "code",
+      "confidence": 0.7
+    },
+    {
+      "id": "fe.c.FacilityAssetForm",
+      "description": "FacilityAssetForm",
+      "module": "frontend.ui",
+      "source": "code",
+      "confidence": 0.8
+    },
+    {
+      "id": "fe.c.FacilityAssetForm.getAssetDetail",
+      "description": "getAssetDetail",
+      "module": "frontend.ui",
+      "source": "code",
+      "confidence": 0.7
+    },
+    {
+      "id": "fe.c.HouseAsset",
+      "description": "HouseAsset",
+      "module": "frontend.ui",
+      "source": "code",
+      "confidence": 0.8
+    },
+    {
+      "id": "fe.c.HouseAsset.getList",
+      "description": "getList",
+      "module": "frontend.ui",
+      "source": "code",
+      "confidence": 0.7
+    },
+    {
+      "id": "fe.c.HouseAssetDetail",
+      "description": "HouseAssetDetail",
+      "module": "frontend.ui",
+      "source": "code",
+      "confidence": 0.8
+    },
+    {
+      "id": "fe.c.HouseAssetDetail.getHouseDetail",
+      "description": "getHouseDetail",
+      "module": "frontend.ui",
+      "source": "code",
+      "confidence": 0.7
+    },
+    {
+      "id": "fe.c.HouseAssetForm",
+      "description": "HouseAssetForm",
+      "module": "frontend.ui",
+      "source": "code",
+      "confidence": 0.8
+    },
+    {
+      "id": "fe.c.HouseAssetForm.getAssetDetail",
+      "description": "getAssetDetail",
+      "module": "frontend.ui",
+      "source": "code",
+      "confidence": 0.7
+    },
+    {
+      "id": "fe.c.Layout",
+      "description": "Layout",
+      "module": "frontend.ui",
+      "source": "code",
+      "confidence": 0.8
+    },
+    {
+      "id": "fe.c.Layout.toggleCollapse",
+      "description": "toggleCollapse",
+      "module": "frontend.ui",
+      "source": "code",
+      "confidence": 0.7
+    },
+    {
+      "id": "fe.c.Login",
+      "description": "Login",
+      "module": "frontend.ui",
+      "source": "code",
+      "confidence": 0.8
+    },
+    {
+      "id": "fe.c.MaintenanceOrder",
+      "description": "MaintenanceOrder",
+      "module": "frontend.ui",
+      "source": "code",
+      "confidence": 0.8
+    },
+    {
+      "id": "fe.c.MaintenanceOrder.getList",
+      "description": "getList",
+      "module": "frontend.ui",
+      "source": "code",
+      "confidence": 0.7
+    },
+    {
+      "id": "fe.c.MaintenanceOrderDetail",
+      "description": "MaintenanceOrderDetail",
+      "module": "frontend.ui",
+      "source": "code",
+      "confidence": 0.8
+    },
+    {
+      "id": "fe.c.MaintenanceOrderDetail.getOrderDetail",
+      "description": "getOrderDetail",
+      "module": "frontend.ui",
+      "source": "code",
+      "confidence": 0.7
+    },
+    {
+      "id": "fe.c.MaintenanceOrderForm",
+      "description": "MaintenanceOrderForm",
+      "module": "frontend.ui",
+      "source": "code",
+      "confidence": 0.8
+    },
+    {
+      "id": "fe.c.MaintenanceOrderForm.getOrderDetail",
+      "description": "getOrderDetail",
+      "module": "frontend.ui",
+      "source": "code",
+      "confidence": 0.7
+    },
+    {
+      "id": "fe.c.OfficeAsset",
+      "description": "OfficeAsset",
+      "module": "frontend.ui",
+      "source": "code",
+      "confidence": 0.8
+    },
+    {
+      "id": "fe.c.OfficeAsset.getList",
+      "description": "getList",
+      "module": "frontend.ui",
+      "source": "code",
+      "confidence": 0.7
+    },
+    {
+      "id": "fe.c.OfficeAssetDetail",
+      "description": "OfficeAssetDetail",
+      "module": "frontend.ui",
+      "source": "code",
+      "confidence": 0.8
+    },
+    {
+      "id": "fe.c.OfficeAssetDetail.getOfficeDetail",
+      "description": "getOfficeDetail",
+      "module": "frontend.ui",
+      "source": "code",
+      "confidence": 0.7
+    },
+    {
+      "id": "fe.c.OfficeAssetForm",
+      "description": "OfficeAssetForm",
+      "module": "frontend.ui",
+      "source": "code",
+      "confidence": 0.8
+    },
+    {
+      "id": "fe.c.OfficeAssetForm.getAssetDetail",
+      "description": "getAssetDetail",
+      "module": "frontend.ui",
+      "source": "code",
+      "confidence": 0.7
+    },
+    {
+      "id": "fe.c.ParkingAsset",
+      "description": "ParkingAsset",
+      "module": "frontend.ui",
+      "source": "code",
+      "confidence": 0.8
+    },
+    {
+      "id": "fe.c.ParkingAsset.getList",
+      "description": "getList",
+      "module": "frontend.ui",
+      "source": "code",
+      "confidence": 0.7
+    },
+    {
+      "id": "fe.c.ParkingAssetDetail",
+      "description": "ParkingAssetDetail",
+      "module": "frontend.ui",
+      "source": "code",
+      "confidence": 0.8
+    },
+    {
+      "id": "fe.c.ParkingAssetDetail.getParkingDetail",
+      "description": "getParkingDetail",
+      "module": "frontend.ui",
+      "source": "code",
+      "confidence": 0.7
+    },
+    {
+      "id": "fe.c.ParkingAssetForm",
+      "description": "ParkingAssetForm",
+      "module": "frontend.ui",
+      "source": "code",
+      "confidence": 0.8
+    },
+    {
+      "id": "fe.c.ParkingAssetForm.getAssetDetail",
+      "description": "getAssetDetail",
+      "module": "frontend.ui",
+      "source": "code",
+      "confidence": 0.7
+    },
+    {
+      "id": "fe.c.VenueAsset",
+      "description": "VenueAsset",
+      "module": "frontend.ui",
+      "source": "code",
+      "confidence": 0.8
+    },
+    {
+      "id": "fe.c.VenueAsset.getList",
+      "description": "getList",
+      "module": "frontend.ui",
+      "source": "code",
+      "confidence": 0.7
+    },
+    {
+      "id": "fe.c.VenueAssetDetail",
+      "description": "VenueAssetDetail",
+      "module": "frontend.ui",
+      "source": "code",
+      "confidence": 0.8
+    },
+    {
+      "id": "fe.c.VenueAssetDetail.getVenueDetail",
+      "description": "getVenueDetail",
+      "module": "frontend.ui",
+      "source": "code",
+      "confidence": 0.7
+    },
+    {
+      "id": "fe.c.VenueAssetForm",
+      "description": "VenueAssetForm",
+      "module": "frontend.ui",
+      "source": "code",
+      "confidence": 0.8
+    },
+    {
+      "id": "fe.c.VenueAssetForm.getAssetDetail",
+      "description": "getAssetDetail",
+      "module": "frontend.ui",
+      "source": "code",
+      "confidence": 0.7
+    },
+    {
+      "id": "fe.fn.asset.createEmptyAsset",
+      "description": "createEmptyAsset",
+      "module": "frontend.code",
+      "source": "code",
+      "confidence": 0.85
+    },
+    {
+      "id": "fe.fn.asset.getAvailableStatusTransitions",
+      "description": "getAvailableStatusTransitions",
+      "module": "frontend.code",
+      "source": "code",
+      "confidence": 0.85
+    },
+    {
+      "id": "fe.fn.base.changeAssetStatus",
+      "description": "changeAssetStatus",
+      "module": "frontend.api",
+      "source": "code",
+      "confidence": 0.85
+    },
+    {
+      "id": "fe.fn.base.deleteAssetAttachment",
+      "description": "deleteAssetAttachment",
+      "module": "frontend.api",
+      "source": "code",
+      "confidence": 0.85
+    },
+    {
+      "id": "fe.fn.base.getAsset",
+      "description": "getAsset",
+      "module": "frontend.api",
+      "source": "code",
+      "confidence": 0.85
+    },
+    {
+      "id": "fe.fn.base.getAssetAttachments",
+      "description": "getAssetAttachments",
+      "module": "frontend.api",
+      "source": "code",
+      "confidence": 0.85
+    },
+    {
+      "id": "fe.fn.base.getAssetByCode",
+      "description": "getAssetByCode",
+      "module": "frontend.api",
+      "source": "code",
+      "confidence": 0.85
+    },
+    {
+      "id": "fe.fn.base.getAssetStatusHistory",
+      "description": "getAssetStatusHistory",
+      "module": "frontend.api",
+      "source": "code",
+      "confidence": 0.85
+    },
+    {
+      "id": "fe.fn.base.uploadAssetAttachment",
+      "description": "uploadAssetAttachment",
+      "module": "frontend.api",
+      "source": "code",
+      "confidence": 0.85
+    },
+    {
+      "id": "fe.fn.codeGenerator.formatSequence",
+      "description": "formatSequence",
+      "module": "frontend.code",
+      "source": "code",
+      "confidence": 0.85
+    },
+    {
+      "id": "fe.fn.codeGenerator.generateAssetCode",
+      "description": "generateAssetCode",
+      "module": "frontend.code",
+      "source": "code",
+      "confidence": 0.85
+    },
+    {
+      "id": "fe.fn.codeGenerator.getCurrentSequence",
+      "description": "getCurrentSequence",
+      "module": "frontend.code",
+      "source": "code",
+      "confidence": 0.85
+    },
+    {
+      "id": "fe.fn.codeGenerator.getNextSequence",
+      "description": "getNextSequence",
+      "module": "frontend.code",
+      "source": "code",
+      "confidence": 0.85
+    },
+    {
+      "id": "fe.fn.codeGenerator.initializeSequence",
+      "description": "initializeSequence",
+      "module": "frontend.code",
+      "source": "code",
+      "confidence": 0.85
+    },
+    {
+      "id": "fe.fn.codeGenerator.isValidAssetCode",
+      "description": "isValidAssetCode",
+      "module": "frontend.code",
+      "source": "code",
+      "confidence": 0.85
+    },
+    {
+      "id": "fe.fn.codeGenerator.parseAssetCode",
+      "description": "parseAssetCode",
+      "module": "frontend.code",
+      "source": "code",
+      "confidence": 0.85
+    },
+    {
+      "id": "fe.fn.codeGenerator.resetSequence",
+      "description": "resetSequence",
+      "module": "frontend.code",
+      "source": "code",
+      "confidence": 0.85
+    },
+    {
+      "id": "fe.fn.codeGenerator.updateSequence",
+      "description": "updateSequence",
+      "module": "frontend.code",
+      "source": "code",
+      "confidence": 0.85
+    },
+    {
+      "id": "fe.fn.dashboard.getAssetDistribution",
+      "description": "getAssetDistribution",
+      "module": "frontend.api",
+      "source": "code",
+      "confidence": 0.85
+    },
+    {
+      "id": "fe.fn.dashboard.getAssetTrend",
+      "description": "getAssetTrend",
+      "module": "frontend.api",
+      "source": "code",
+      "confidence": 0.85
+    },
+    {
+      "id": "fe.fn.dashboard.getDashboardStats",
+      "description": "getDashboardStats",
+      "module": "frontend.api",
+      "source": "code",
+      "confidence": 0.85
+    },
+    {
+      "id": "fe.fn.dashboard.getMaintenanceStats",
+      "description": "getMaintenanceStats",
+      "module": "frontend.api",
+      "source": "code",
+      "confidence": 0.85
+    },
+    {
+      "id": "fe.fn.dashboard.getRecentActivities",
+      "description": "getRecentActivities",
+      "module": "frontend.api",
+      "source": "code",
+      "confidence": 0.85
+    },
+    {
+      "id": "fe.fn.facility.addFacility",
+      "description": "addFacility",
+      "module": "frontend.api",
+      "source": "code",
+      "confidence": 0.85
+    },
+    {
+      "id": "fe.fn.facility.delFacility",
+      "description": "delFacility",
+      "module": "frontend.api",
+      "source": "code",
+      "confidence": 0.85
+    },
+    {
+      "id": "fe.fn.facility.exportFacility",
+      "description": "exportFacility",
+      "module": "frontend.api",
+      "source": "code",
+      "confidence": 0.85
+    },
+    {
+      "id": "fe.fn.facility.getFacility",
+      "description": "getFacility",
+      "module": "frontend.api",
+      "source": "code",
+      "confidence": 0.85
+    },
+    {
+      "id": "fe.fn.facility.getWarrantyAlerts",
+      "description": "getWarrantyAlerts",
+      "module": "frontend.api",
+      "source": "code",
+      "confidence": 0.85
+    },
+    {
+      "id": "fe.fn.facility.listFacility",
+      "description": "listFacility",
+      "module": "frontend.api",
+      "source": "code",
+      "confidence": 0.85
+    },
+    {
+      "id": "fe.fn.facility.updateFacility",
+      "description": "updateFacility",
+      "module": "frontend.api",
+      "source": "code",
+      "confidence": 0.85
+    },
+    {
+      "id": "fe.fn.house.addHouse",
+      "description": "addHouse",
+      "module": "frontend.api",
+      "source": "code",
+      "confidence": 0.85
+    },
+    {
+      "id": "fe.fn.house.copyHouse",
+      "description": "copyHouse",
+      "module": "frontend.api",
+      "source": "code",
+      "confidence": 0.85
+    },
+    {
+      "id": "fe.fn.house.delHouse",
+      "description": "delHouse",
+      "module": "frontend.api",
+      "source": "code",
+      "confidence": 0.85
+    },
+    {
+      "id": "fe.fn.house.exportHouse",
+      "description": "exportHouse",
+      "module": "frontend.api",
+      "source": "code",
+      "confidence": 0.85
+    },
+    {
+      "id": "fe.fn.house.getHouse",
+      "description": "getHouse",
+      "module": "frontend.api",
+      "source": "code",
+      "confidence": 0.85
+    },
+    {
+      "id": "fe.fn.house.getHouseStats",
+      "description": "getHouseStats",
+      "module": "frontend.api",
+      "source": "code",
+      "confidence": 0.85
+    },
+    {
+      "id": "fe.fn.house.listHouse",
+      "description": "listHouse",
+      "module": "frontend.api",
+      "source": "code",
+      "confidence": 0.85
+    },
+    {
+      "id": "fe.fn.house.updateHouse",
+      "description": "updateHouse",
+      "module": "frontend.api",
+      "source": "code",
+      "confidence": 0.85
+    },
+    {
+      "id": "fe.fn.office.addOffice",
+      "description": "addOffice",
+      "module": "frontend.api",
+      "source": "code",
+      "confidence": 0.85
+    },
+    {
+      "id": "fe.fn.office.delOffice",
+      "description": "delOffice",
+      "module": "frontend.api",
+      "source": "code",
+      "confidence": 0.85
+    },
+    {
+      "id": "fe.fn.office.exportOffice",
+      "description": "exportOffice",
+      "module": "frontend.api",
+      "source": "code",
+      "confidence": 0.85
+    },
+    {
+      "id": "fe.fn.office.getOffice",
+      "description": "getOffice",
+      "module": "frontend.api",
+      "source": "code",
+      "confidence": 0.85
+    },
+    {
+      "id": "fe.fn.office.listOffice",
+      "description": "listOffice",
+      "module": "frontend.api",
+      "source": "code",
+      "confidence": 0.85
+    },
+    {
+      "id": "fe.fn.office.updateOffice",
+      "description": "updateOffice",
+      "module": "frontend.api",
+      "source": "code",
+      "confidence": 0.85
+    },
+    {
+      "id": "fe.fn.order.addOrder",
+      "description": "addOrder",
+      "module": "frontend.api",
+      "source": "code",
+      "confidence": 0.85
+    },
+    {
+      "id": "fe.fn.order.assignOrder",
+      "description": "assignOrder",
+      "module": "frontend.api",
+      "source": "code",
+      "confidence": 0.85
+    },
+    {
+      "id": "fe.fn.order.cancelOrder",
+      "description": "cancelOrder",
+      "module": "frontend.api",
+      "source": "code",
+      "confidence": 0.85
+    },
+    {
+      "id": "fe.fn.order.closeOrder",
+      "description": "closeOrder",
+      "module": "frontend.api",
+      "source": "code",
+      "confidence": 0.85
+    },
+    {
+      "id": "fe.fn.order.completeOrder",
+      "description": "completeOrder",
+      "module": "frontend.api",
+      "source": "code",
+      "confidence": 0.85
+    },
+    {
+      "id": "fe.fn.order.delOrder",
+      "description": "delOrder",
+      "module": "frontend.api",
+      "source": "code",
+      "confidence": 0.85
+    },
+    {
+      "id": "fe.fn.order.exportOrder",
+      "description": "exportOrder",
+      "module": "frontend.api",
+      "source": "code",
+      "confidence": 0.85
+    },
+    {
+      "id": "fe.fn.order.getOrder",
+      "description": "getOrder",
+      "module": "frontend.api",
+      "source": "code",
+      "confidence": 0.85
+    },
+    {
+      "id": "fe.fn.order.listOrder",
+      "description": "listOrder",
+      "module": "frontend.api",
+      "source": "code",
+      "confidence": 0.85
+    },
+    {
+      "id": "fe.fn.order.startOrder",
+      "description": "startOrder",
+      "module": "frontend.api",
+      "source": "code",
+      "confidence": 0.85
+    },
+    {
+      "id": "fe.fn.order.updateOrder",
+      "description": "updateOrder",
+      "module": "frontend.api",
+      "source": "code",
+      "confidence": 0.85
+    },
+    {
+      "id": "fe.fn.parking.addParking",
+      "description": "addParking",
+      "module": "frontend.api",
+      "source": "code",
+      "confidence": 0.85
+    },
+    {
+      "id": "fe.fn.parking.delParking",
+      "description": "delParking",
+      "module": "frontend.api",
+      "source": "code",
+      "confidence": 0.85
+    },
+    {
+      "id": "fe.fn.parking.exportParking",
+      "description": "exportParking",
+      "module": "frontend.api",
+      "source": "code",
+      "confidence": 0.85
+    },
+    {
+      "id": "fe.fn.parking.getParking",
+      "description": "getParking",
+      "module": "frontend.api",
+      "source": "code",
+      "confidence": 0.85
+    },
+    {
+      "id": "fe.fn.parking.getParkingStats",
+      "description": "getParkingStats",
+      "module": "frontend.api",
+      "source": "code",
+      "confidence": 0.85
+    },
+    {
+      "id": "fe.fn.parking.listParking",
+      "description": "listParking",
+      "module": "frontend.api",
+      "source": "code",
+      "confidence": 0.85
+    },
+    {
+      "id": "fe.fn.parking.updateParking",
+      "description": "updateParking",
+      "module": "frontend.api",
+      "source": "code",
+      "confidence": 0.85
+    },
+    {
+      "id": "fe.fn.venue.addVenue",
+      "description": "addVenue",
+      "module": "frontend.api",
+      "source": "code",
+      "confidence": 0.85
+    },
+    {
+      "id": "fe.fn.venue.delVenue",
+      "description": "delVenue",
+      "module": "frontend.api",
+      "source": "code",
+      "confidence": 0.85
+    },
+    {
+      "id": "fe.fn.venue.exportVenue",
+      "description": "exportVenue",
+      "module": "frontend.api",
+      "source": "code",
+      "confidence": 0.85
+    },
+    {
+      "id": "fe.fn.venue.getVenue",
+      "description": "getVenue",
+      "module": "frontend.api",
+      "source": "code",
+      "confidence": 0.85
+    },
+    {
+      "id": "fe.fn.venue.listVenue",
+      "description": "listVenue",
+      "module": "frontend.api",
+      "source": "code",
+      "confidence": 0.85
+    },
+    {
+      "id": "fe.fn.venue.updateVenue",
+      "description": "updateVenue",
+      "module": "frontend.api",
+      "source": "code",
+      "confidence": 0.85
+    },
+    {
+      "id": "fe.route.AssetFacility",
+      "description": "asset/facility",
+      "module": "frontend.router",
+      "source": "code",
+      "confidence": 0.85
+    },
+    {
+      "id": "fe.route.AssetHouse",
+      "description": "asset/house",
+      "module": "frontend.router",
+      "source": "code",
+      "confidence": 0.85
+    },
+    {
+      "id": "fe.route.AssetOffice",
+      "description": "asset/office",
+      "module": "frontend.router",
+      "source": "code",
+      "confidence": 0.85
+    },
+    {
+      "id": "fe.route.AssetParking",
+      "description": "asset/parking",
+      "module": "frontend.router",
+      "source": "code",
+      "confidence": 0.85
+    },
+    {
+      "id": "fe.route.AssetVenue",
+      "description": "asset/venue",
+      "module": "frontend.router",
+      "source": "code",
+      "confidence": 0.85
+    },
+    {
+      "id": "fe.route.Dashboard",
+      "description": "dashboard",
+      "module": "frontend.router",
+      "source": "code",
+      "confidence": 0.85
+    },
+    {
+      "id": "fe.route.Layout",
+      "description": "/",
+      "module": "frontend.router",
+      "source": "code",
+      "confidence": 0.85
+    },
+    {
+      "id": "fe.route.Login",
+      "description": "/login",
+      "module": "frontend.router",
+      "source": "code",
+      "confidence": 0.85
+    },
+    {
+      "id": "fe.route.Maintenance",
+      "description": "maintenance",
+      "module": "frontend.router",
+      "source": "code",
+      "confidence": 0.85
+    },
+    {
+      "id": "fe.store.a.commit",
+      "description": "commit",
+      "module": "frontend.store",
+      "source": "code",
+      "confidence": 0.8
+    },
+    {
+      "id": "fe.store.a.login",
+      "description": "login",
+      "module": "frontend.store",
+      "source": "code",
+      "confidence": 0.8
+    },
+    {
+      "id": "fe.store.g.hasPermission",
+      "description": "hasPermission",
+      "module": "frontend.store",
+      "source": "code",
+      "confidence": 0.8
+    },
+    {
+      "id": "fe.store.g.isAuthenticated",
+      "description": "isAuthenticated",
+      "module": "frontend.store",
+      "source": "code",
+      "confidence": 0.8
+    },
+    {
+      "id": "fe.store.g.permissions",
+      "description": "permissions",
+      "module": "frontend.store",
+      "source": "code",
+      "confidence": 0.8
+    },
+    {
+      "id": "fe.store.g.roles",
+      "description": "roles",
+      "module": "frontend.store",
+      "source": "code",
+      "confidence": 0.8
+    },
+    {
+      "id": "fe.store.g.user",
+      "description": "user",
+      "module": "frontend.store",
+      "source": "code",
+      "confidence": 0.8
+    },
+    {
+      "id": "fe.store.m.SET_USER",
+      "description": "SET_USER",
+      "module": "frontend.store",
+      "source": "code",
+      "confidence": 0.8
+    },
+    {
+      "id": "t.e2e.dashboard.spec",
+      "description": "dashboard.spec.ts",
+      "module": "tests.e2e",
+      "source": "test",
+      "confidence": 0.9
+    },
+    {
+      "id": "t.e2e.facility-assets.spec",
+      "description": "facility-assets.spec.ts",
+      "module": "tests.e2e",
+      "source": "test",
+      "confidence": 0.9
+    },
+    {
+      "id": "t.e2e.house-assets-detail.spec",
+      "description": "house-assets-detail.spec.ts",
+      "module": "tests.e2e",
+      "source": "test",
+      "confidence": 0.9
+    },
+    {
+      "id": "t.e2e.house-assets-form.spec",
+      "description": "house-assets-form.spec.ts",
+      "module": "tests.e2e",
+      "source": "test",
+      "confidence": 0.9
+    },
+    {
+      "id": "t.e2e.house-assets.spec",
+      "description": "house-assets.spec.ts",
+      "module": "tests.e2e",
+      "source": "test",
+      "confidence": 0.9
+    },
+    {
+      "id": "t.e2e.login.spec",
+      "description": "login.spec.ts",
+      "module": "tests.e2e",
+      "source": "test",
+      "confidence": 0.9
+    },
+    {
+      "id": "t.e2e.maintenance.spec",
+      "description": "maintenance.spec.ts",
+      "module": "tests.e2e",
+      "source": "test",
+      "confidence": 0.9
+    },
+    {
+      "id": "t.e2e.navigation.spec",
+      "description": "navigation.spec.ts",
+      "module": "tests.e2e",
+      "source": "test",
+      "confidence": 0.9
+    },
+    {
+      "id": "t.e2e.office-assets.spec",
+      "description": "office-assets.spec.ts",
+      "module": "tests.e2e",
+      "source": "test",
+      "confidence": 0.9
+    },
+    {
+      "id": "t.e2e.parking-assets.spec",
+      "description": "parking-assets.spec.ts",
+      "module": "tests.e2e",
+      "source": "test",
+      "confidence": 0.9
+    },
+    {
+      "id": "t.e2e.venue-assets.spec",
+      "description": "venue-assets.spec.ts",
+      "module": "tests.e2e",
+      "source": "test",
+      "confidence": 0.9
+    },
+    {
+      "id": "t.junit.AssetStatusEnumTransitionTest",
+      "description": "AssetStatusEnumTransitionTest.java",
+      "module": "tests.junit",
+      "source": "test",
+      "confidence": 0.9
+    },
+    {
+      "id": "t.unit.asset-code-generator.test",
+      "description": "asset-code-generator.test.ts",
+      "module": "tests.unit",
+      "source": "test",
+      "confidence": 0.9
+    },
+    {
+      "id": "t.unit.asset-house-service.test",
+      "description": "asset-house-service.test.ts",
+      "module": "tests.unit",
+      "source": "test",
+      "confidence": 0.9
+    },
+    {
+      "id": "t.unit.asset-parking-service.test",
+      "description": "asset-parking-service.test.ts",
+      "module": "tests.unit",
+      "source": "test",
+      "confidence": 0.9
+    },
+    {
+      "id": "t.unit.asset-parking-statistics.test",
+      "description": "asset-parking-statistics.test.ts",
+      "module": "tests.unit",
+      "source": "test",
+      "confidence": 0.9
+    },
+    {
+      "id": "t.unit.asset-status-enum-transition.test",
+      "description": "asset-status-enum-transition.test.ts",
+      "module": "tests.unit",
+      "source": "test",
+      "confidence": 0.9
+    },
+    {
+      "id": "t.unit.asset-status-service.test",
+      "description": "asset-status-service.test.ts",
+      "module": "tests.unit",
+      "source": "test",
+      "confidence": 0.9
+    },
+    {
+      "id": "t.unit.attachment-service.test",
+      "description": "attachment-service.test.ts",
+      "module": "tests.unit",
+      "source": "test",
+      "confidence": 0.9
+    },
+    {
+      "id": "t.unit.base-service.test",
+      "description": "base-service.test.ts",
+      "module": "tests.unit",
+      "source": "test",
+      "confidence": 0.9
+    },
+    {
+      "id": "t.unit.code-generator.test",
+      "description": "code-generator.test.ts",
+      "module": "tests.unit",
+      "source": "test",
+      "confidence": 0.9
+    },
+    {
+      "id": "t.unit.location-service.test",
+      "description": "location-service.test.ts",
+      "module": "tests.unit",
+      "source": "test",
+      "confidence": 0.9
+    },
+    {
+      "id": "t.unit.status-service.test",
+      "description": "status-service.test.ts",
+      "module": "tests.unit",
+      "source": "test",
+      "confidence": 0.9
+    }
+  ],
+  "completion": {
+    "overall": 55,
+    "notes": [
+      "Vitest currently fails to start due to Vite ESM/CJS config mismatch.\n> Vitest 目前因 Vite 的 ESM/CJS 配置不匹配而无法启动。",
+      "`npm test` fails because `vue-cli-service test:unit` is not configured.\n> `npm test` 失败，因为没有配置 `test:unit`。",
+      "Frontend/back-end API paths are inconsistent for attachments/status.\n> 前后端附件/状态相关接口路径不一致。"
+    ]
+  },
+  "commands": {
+    "install": "npm install && mvn clean install",
+    "dev": "./scripts/start-backend.sh & ./scripts/start-frontend.sh",
+    "build": "npm run build",
+    "test": "npx vitest run (fails)"
+  },
+  "summary": "NewAsset is a Vue 2 + Spring Boot asset management MVP.\n> NewAsset 是一个 Vue 2 + Spring Boot 的资产管理 MVP。\n\nIt includes core asset code/location/status/attachment capabilities and initial house/parking modules.\n> 它包含资产编码/位置/状态/附件等核心能力与房源/车位模块初版。",
+  "recommendations": [
+    "Fix test tooling so unit tests run in CI.\n> 修复测试工具链，让单元测试可在 CI 运行。",
+    "Align API routes and implement missing backend endpoints used by the frontend.\n> 对齐 API 路由并补齐前端使用但后端缺失的接口。"
+  ]
+}
