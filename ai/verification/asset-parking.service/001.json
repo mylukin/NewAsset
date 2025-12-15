@@ -1,0 +1,52 @@
+{
+  "featureId": "asset-parking.service",
+  "runNumber": 1,
+  "timestamp": "2025-12-15T14:13:45.707Z",
+  "commitHash": "0f6e8ea54e2e9fb7aef4d0b584ed31318f3535d3",
+  "changedFiles": [
+    "ai/capabilities.json",
+    "ai/tasks/asset-parking/02-entity.md",
+    "node_modules/.vite/vitest/da39a3ee5e6b4b0d3255bfef95601890afd80709/results.json",
+    "ai/progress.log",
+    "ai/tasks/asset-house/07-frontend-detail.md",
+    "ai/tasks/asset-parking/03-service.md",
+    "ai/verification/index.json",
+    "ai/verification/results.json"
+  ],
+  "diffSummary": "8 files changed",
+  "automatedChecks": [],
+  "criteriaResults": [
+    {
+      "criterion": "Create `IAssetParkingService` interface:",
+      "index": 0,
+      "satisfied": false,
+      "confidence": 0.3
+    },
+    {
+      "criterion": "Create `AssetParkingServiceImpl`:",
+      "index": 1,
+      "satisfied": false,
+      "confidence": 0.3
+    },
+    {
+      "criterion": "Create operation:",
+      "index": 2,
+      "satisfied": false,
+      "confidence": 0.3
+    },
+    {
+      "criterion": "Update operation:",
+      "index": 3,
+      "satisfied": false,
+      "confidence": 0.3
+    },
+    {
+      "criterion": "Delete operation:",
+      "index": 4,
+      "satisfied": false,
+      "confidence": 0.3
+    }
+  ],
+  "verdict": "fail",
+  "verifiedBy": "strategy-framework"
+}

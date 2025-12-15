@@ -1858,7 +1858,7 @@
     },
     "asset-house.frontend-detail": {
       "featureId": "asset-house.frontend-detail",
-      "timestamp": "2025-12-15T13:54:35.004Z",
+      "timestamp": "2025-12-15T14:11:49.229Z",
       "commitHash": "e3e42431ff8da67a496d621311a8a476aa74c836",
       "changedFiles": [
         "ai/capabilities.json",
@@ -1873,10 +1873,9 @@
         "ai/verification/results.json",
         "node_modules/.vite/vitest/da39a3ee5e6b4b0d3255bfef95601890afd80709/results.json",
         "src/api/asset/house.js",
-        "src/views/asset/house/index.vue",
-        "ai/tasks/asset-house/07-frontend-detail.md"
+        "src/views/asset/house/index.vue"
       ],
-      "diffSummary": "14 files changed",
+      "diffSummary": "13 files changed",
       "automatedChecks": [],
       "criteriaResults": [
         {
@@ -1931,8 +1930,7 @@
         "ai/verification/results.json",
         "node_modules/.vite/vitest/da39a3ee5e6b4b0d3255bfef95601890afd80709/results.json",
         "src/api/asset/house.js",
-        "src/views/asset/house/index.vue",
-        "ai/tasks/asset-house/07-frontend-detail.md"
+        "src/views/asset/house/index.vue"
       ],
       "strategyResults": [
         {
@@ -1940,7 +1938,7 @@
           "required": false,
           "success": false,
           "output": "No E2E framework detected in project",
-          "duration": 6
+          "duration": 1219191
         }
       ]
     },
@@ -2183,8 +2181,84 @@
           "duration": 1151
         }
       ]
+    },
+    "asset-parking.service": {
+      "featureId": "asset-parking.service",
+      "timestamp": "2025-12-15T14:13:45.707Z",
+      "commitHash": "0f6e8ea54e2e9fb7aef4d0b584ed31318f3535d3",
+      "changedFiles": [
+        "ai/capabilities.json",
+        "ai/tasks/asset-parking/02-entity.md",
+        "node_modules/.vite/vitest/da39a3ee5e6b4b0d3255bfef95601890afd80709/results.json",
+        "ai/progress.log",
+        "ai/tasks/asset-house/07-frontend-detail.md",
+        "ai/tasks/asset-parking/03-service.md",
+        "ai/verification/index.json",
+        "ai/verification/results.json"
+      ],
+      "diffSummary": "8 files changed",
+      "automatedChecks": [],
+      "criteriaResults": [
+        {
+          "criterion": "Create `IAssetParkingService` interface:",
+          "index": 0,
+          "satisfied": false,
+          "reasoning": "One or more required strategies failed",
+          "confidence": 0.3
+        },
+        {
+          "criterion": "Create `AssetParkingServiceImpl`:",
+          "index": 1,
+          "satisfied": false,
+          "reasoning": "One or more required strategies failed",
+          "confidence": 0.3
+        },
+        {
+          "criterion": "Create operation:",
+          "index": 2,
+          "satisfied": false,
+          "reasoning": "One or more required strategies failed",
+          "confidence": 0.3
+        },
+        {
+          "criterion": "Update operation:",
+          "index": 3,
+          "satisfied": false,
+          "reasoning": "One or more required strategies failed",
+          "confidence": 0.3
+        },
+        {
+          "criterion": "Delete operation:",
+          "index": 4,
+          "satisfied": false,
+          "reasoning": "One or more required strategies failed",
+          "confidence": 0.3
+        }
+      ],
+      "verdict": "fail",
+      "verifiedBy": "strategy-framework",
+      "overallReasoning": "[TEST] ✗ FAIL\n  \n  \u001b[1m\u001b[46m RUN \u001b[49m\u001b[22m \u001b[36mv4.0.15 \u001b[39m\u001b[90m/Users/lukin/Projects/NewAsset\u001b[39m\n  \n  \u001b[31mNo test files found, exiting with code 1\n  \u001b[39m\n  \u001b[2mfilter: \u001b[22m\u001b[33mtests/asset-parking/**/*.test.*\u001b[39m\n  \u001b[2minclude: \u001b[22m\u001b[33m**/*.{test,spec}.?(c|m)[jt]s?(x)\u001b[39m\n  \u001b[2mexclude:  \u001b[22m\u001b[33m**/node_modules/**\u001b[2m, \u001b[22m**/.git/**\u001b[39m",
+      "relatedFilesAnalyzed": [
+        "ai/capabilities.json",
+        "ai/tasks/asset-parking/02-entity.md",
+        "node_modules/.vite/vitest/da39a3ee5e6b4b0d3255bfef95601890afd80709/results.json",
+        "ai/progress.log",
+        "ai/tasks/asset-house/07-frontend-detail.md",
+        "ai/tasks/asset-parking/03-service.md",
+        "ai/verification/index.json",
+        "ai/verification/results.json"
+      ],
+      "strategyResults": [
+        {
+          "type": "test",
+          "required": true,
+          "success": false,
+          "output": "\n\u001b[1m\u001b[46m RUN \u001b[49m\u001b[22m \u001b[36mv4.0.15 \u001b[39m\u001b[90m/Users/lukin/Projects/NewAsset\u001b[39m\n\n\u001b[31mNo test files found, exiting with code 1\n\u001b[39m\n\u001b[2mfilter: \u001b[22m\u001b[33mtests/asset-parking/**/*.test.*\u001b[39m\n\u001b[2minclude: \u001b[22m\u001b[33m**/*.{test,spec}.?(c|m)[jt]s?(x)\u001b[39m\n\u001b[2mexclude:  \u001b[22m\u001b[33m**/node_modules/**\u001b[2m, \u001b[22m**/.git/**\u001b[39m\n\n",
+          "duration": 1086
+        }
+      ]
     }
   },
-  "updatedAt": "2025-12-15T14:06:54.741Z",
+  "updatedAt": "2025-12-15T14:13:45.709Z",
   "version": "1.0.0"
 }

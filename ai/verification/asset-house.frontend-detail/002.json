@@ -1,0 +1,57 @@
+{
+  "featureId": "asset-house.frontend-detail",
+  "runNumber": 2,
+  "timestamp": "2025-12-15T14:11:49.229Z",
+  "commitHash": "e3e42431ff8da67a496d621311a8a476aa74c836",
+  "changedFiles": [
+    "ai/capabilities.json",
+    "ai/progress.log",
+    "ai/tasks/asset-house/06-frontend-list.md",
+    "ai/tasks/index.json",
+    "ai/verification/asset-house.frontend-list/001.json",
+    "ai/verification/asset-house.frontend-list/001.md",
+    "ai/verification/asset-house.frontend-list/002.json",
+    "ai/verification/asset-house.frontend-list/002.md",
+    "ai/verification/index.json",
+    "ai/verification/results.json",
+    "node_modules/.vite/vitest/da39a3ee5e6b4b0d3255bfef95601890afd80709/results.json",
+    "src/api/asset/house.js",
+    "src/views/asset/house/index.vue"
+  ],
+  "diffSummary": "13 files changed",
+  "automatedChecks": [],
+  "criteriaResults": [
+    {
+      "criterion": "Create detail drawer component `src/views/asset/house/detail.vue`:",
+      "index": 0,
+      "satisfied": true,
+      "confidence": 0.8
+    },
+    {
+      "criterion": "Implement 3 tabs (el-tabs):",
+      "index": 1,
+      "satisfied": true,
+      "confidence": 0.8
+    },
+    {
+      "criterion": "Header actions:",
+      "index": 2,
+      "satisfied": true,
+      "confidence": 0.8
+    },
+    {
+      "criterion": "Status badge:",
+      "index": 3,
+      "satisfied": true,
+      "confidence": 0.8
+    },
+    {
+      "criterion": "Close drawer returns to list page",
+      "index": 4,
+      "satisfied": true,
+      "confidence": 0.8
+    }
+  ],
+  "verdict": "pass",
+  "verifiedBy": "strategy-framework"
+}

@@ -3,7 +3,7 @@ id: asset-house.frontend-detail
 module: asset-house
 priority: 207
 status: passing
-version: 3
+version: 4
 origin: spec-workflow
 dependsOn:
   - asset-house.frontend-list
@@ -18,7 +18,7 @@ testRequirements:
     tags:
       - '@house'
 verification:
-  verifiedAt: '2025-12-15T13:54:35.004Z'
+  verifiedAt: '2025-12-15T14:11:49.229Z'
   verdict: pass
   verifiedBy: strategy-framework
   commitHash: e3e42431ff8da67a496d621311a8a476aa74c836
