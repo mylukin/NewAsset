@@ -14,11 +14,9 @@
     "source": "ai-discovered",
     "confidence": 0.5,
     "languages": [
-      "java",
-      "vue",
       "sql"
     ],
-    "detectedAt": "2025-12-15T11:39:14.976Z",
+    "detectedAt": "2025-12-15T11:43:31.124Z",
     "testInfo": {
       "available": false,
       "command": "",
@@ -53,10 +51,13 @@
       "confidence": 0
     }
   },
+  "commitHash": "7378be2ea7d8558992e919b4362b6be28771672b",
   "trackedFiles": [
-    "docs/TECH.md",
-    "docs/PRD.md",
     "ai/tasks/index.json",
-    "ai/capabilities.json"
+    "ai/capabilities.json",
+    "ai/verification/results.json",
+    "docs/PRD.md",
+    "docs/TECH.md",
+    "sql/asset_core.sql"
   ]
 }

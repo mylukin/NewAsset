@@ -89,8 +89,17 @@
       "totalRuns": 1,
       "passCount": 1,
       "failCount": 0
+    },
+    "core.asset-entity": {
+      "featureId": "core.asset-entity",
+      "latestRun": 1,
+      "latestTimestamp": "2025-12-15T12:05:25.103Z",
+      "latestVerdict": "pass",
+      "totalRuns": 1,
+      "passCount": 1,
+      "failCount": 0
     }
   },
-  "updatedAt": "2025-12-15T11:39:14.989Z",
+  "updatedAt": "2025-12-15T12:05:25.104Z",
   "version": "2.0.0"
 }

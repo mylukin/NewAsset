@@ -1,0 +1,46 @@
+{
+  "featureId": "core.asset-entity",
+  "runNumber": 1,
+  "timestamp": "2025-12-15T12:05:25.103Z",
+  "commitHash": "7378be2ea7d8558992e919b4362b6be28771672b",
+  "changedFiles": [
+    "ai/capabilities.json",
+    "ai/tasks/core/02-asset-entity.md"
+  ],
+  "diffSummary": "2 files changed",
+  "automatedChecks": [],
+  "criteriaResults": [
+    {
+      "criterion": "Create `Asset` entity class in `com.ruoyi.asset.domain.entity`:",
+      "index": 0,
+      "satisfied": true,
+      "confidence": 0.8
+    },
+    {
+      "criterion": "Create `AssetMapper` interface in `com.ruoyi.asset.mapper`:",
+      "index": 1,
+      "satisfied": true,
+      "confidence": 0.8
+    },
+    {
+      "criterion": "Create mapper XML file (if not using MyBatis-Plus):",
+      "index": 2,
+      "satisfied": true,
+      "confidence": 0.8
+    },
+    {
+      "criterion": "Create `AssetVO` and `AssetDTO` classes in `com.ruoyi.asset.domain.vo`:",
+      "index": 3,
+      "satisfied": true,
+      "confidence": 0.8
+    },
+    {
+      "criterion": "Entity compiles without errors and mapper XML is valid",
+      "index": 4,
+      "satisfied": true,
+      "confidence": 0.8
+    }
+  ],
+  "verdict": "pass",
+  "verifiedBy": "strategy-framework"
+}

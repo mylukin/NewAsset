@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.ruoyi.asset.mapper.AssetMapper">
+
+    <resultMap type="com.ruoyi.asset.domain.entity.Asset" id="AssetResult">
+        <id property="id" column="id"/>
+        <result property="assetCode" column="asset_code"/>
+        <result property="name" column="name"/>
+        <result property="assetType" column="asset_type"/>
+        <result property="status" column="status"/>
+        <result property="projectId" column="project_id"/>
+        <result property="buildingId" column="building_id"/>
+        <result property="floorId" column="floor_id"/>
+        <result property="unitId" column="unit_id"/>
+        <result property="locationDesc" column="location_desc"/>
+        <result property="responsiblePerson" column="responsible_person"/>
+        <result property="responsiblePhone" column="responsible_phone"/>
+        <result property="purchaseDate" column="purchase_date"/>
+        <result property="purchasePrice" column="purchase_price"/>
+        <result property="warrantyExpireDate" column="warranty_expire_date"/>
+        <result property="description" column="description"/>
+        <result property="statusChangedAt" column="status_changed_at"/>
+        <result property="statusChangedBy" column="status_changed_by"/>
+        <result property="delFlag" column="del_flag"/>
+        <result property="createBy" column="create_by"/>
+        <result property="createTime" column="create_time"/>
+        <result property="updateBy" column="update_by"/>
+        <result property="updateTime" column="update_time"/>
+        <result property="remark" column="remark"/>
+    </resultMap>
+
+    <!-- Custom SQL queries can be added here when needed -->
+
+</mapper>
