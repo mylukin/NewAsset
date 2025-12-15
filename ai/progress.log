@@ -43,3 +43,5 @@
 2025-12-15T13:08:23.641Z VERIFY feature=asset-house.database-schema action=pass summary="Verified asset-house.database-schema: pass"
 2025-12-15T13:08:36.234Z VERIFY feature=asset-house.database-schema action=pass summary="Verified asset-house.database-schema: pass"
 2025-12-15T13:08:36.240Z STEP feature=asset-house.database-schema status=passing tests="./ai/init.sh check" summary="Completed asset-house.database-schema"
+2025-12-15T13:12:45.773Z VERIFY feature=core.menu-permission action=pass summary="Verified core.menu-permission: pass"
+2025-12-15T13:17:38.815Z VERIFY feature=asset-house.entity action=pass summary="Verified asset-house.entity: pass"

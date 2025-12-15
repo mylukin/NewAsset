@@ -4,28 +4,28 @@
     "hasTests": true,
     "testCommand": "npx vitest run",
     "testFramework": "vitest",
-    "hasTypeCheck": false,
-    "typeCheckCommand": "",
+    "hasTypeCheck": true,
+    "typeCheckCommand": "tsc --noEmit",
     "hasLint": false,
     "lintCommand": "",
-    "hasBuild": false,
-    "buildCommand": "",
+    "hasBuild": true,
+    "buildCommand": "mvn clean package -DskipTests",
     "hasGit": true,
     "source": "ai-discovered",
-    "confidence": 0.95,
+    "confidence": 0.8666666666666666,
     "languages": [
       "Java",
       "TypeScript"
     ],
-    "detectedAt": "2025-12-15T13:06:09.189Z",
+    "detectedAt": "2025-12-15T13:17:36.713Z",
     "testInfo": {
       "available": true,
       "command": "npx vitest run",
       "framework": "vitest",
       "confidence": 0.95,
       "selectiveFileTemplate": "npx vitest run {files}",
-      "selectiveNameTemplate": "npx vitest run --testNamePattern \"{pattern}\"",
-      "packageManager": "none"
+      "selectiveNameTemplate": "npx vitest run -t \"{pattern}\"",
+      "packageManager": "npm"
     },
     "e2eInfo": {
       "available": false,
@@ -37,9 +37,9 @@
       "fileTemplate": ""
     },
     "typeCheckInfo": {
-      "available": false,
-      "command": "",
-      "confidence": 0
+      "available": true,
+      "command": "tsc --noEmit",
+      "confidence": 0.7
     },
     "lintInfo": {
       "available": false,
@@ -47,11 +47,28 @@
       "confidence": 0
     },
     "buildInfo": {
-      "available": false,
-      "command": "",
-      "confidence": 0
-    }
+      "available": true,
+      "command": "mvn clean package -DskipTests",
+      "confidence": 0.95
+    },
+    "customRules": [
+      {
+        "id": "java.test",
+        "description": "Run Java unit tests with Maven",
+        "command": "cd /Users/lukin/Projects/AssetBoard/backend && mvn test",
+        "type": "test"
+      },
+      {
+        "id": "java.build.with.tests",
+        "description": "Build Java project including tests",
+        "command": "cd /Users/lukin/Projects/AssetBoard/backend && mvn clean package",
+        "type": "build"
+      }
+    ]
   },
-  "commitHash": "96183823449aa5b14e0ac004815c98cd0595ba2e",
-  "trackedFiles": []
+  "commitHash": "23156e39a4a994a0c0424979f863efbb45a8a297",
+  "trackedFiles": [
+    "/Users/lukin/Projects/AssetBoard/backend/pom.xml",
+    "/Users/lukin/Projects/NewAsset/ai/capabilities.json"
+  ]
 }

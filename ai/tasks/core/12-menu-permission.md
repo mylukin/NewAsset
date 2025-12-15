@@ -3,7 +3,7 @@ id: core.menu-permission
 module: core
 priority: 112
 status: failing
-version: 1
+version: 2
 origin: spec-workflow
 dependsOn: []
 supersedes: []
@@ -14,6 +14,12 @@ testRequirements:
   unit:
     required: false
     pattern: tests/core/**/*.test.*
+verification:
+  verifiedAt: '2025-12-15T13:12:45.757Z'
+  verdict: pass
+  verifiedBy: strategy-framework
+  commitHash: e42939eea8649cc9be422a0171116d5f686c5107
+  summary: 5/5 criteria satisfied
 tddGuidance:
   generatedAt: '2025-12-15T13:05:14.730Z'
   generatedBy: claude

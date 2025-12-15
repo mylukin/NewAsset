@@ -1310,16 +1310,14 @@
     },
     "core.menu-permission": {
       "featureId": "core.menu-permission",
-      "timestamp": "2025-12-15T13:05:04.282Z",
+      "timestamp": "2025-12-15T13:12:45.757Z",
       "commitHash": "e42939eea8649cc9be422a0171116d5f686c5107",
       "changedFiles": [
         "ai/progress.log",
         "ai/tasks/core/11-dictionaries.md",
-        "ai/tasks/index.json",
-        "ai/capabilities.json",
-        "node_modules/.vite/vitest/da39a3ee5e6b4b0d3255bfef95601890afd80709/results.json"
+        "ai/tasks/index.json"
       ],
-      "diffSummary": "5 files changed",
+      "diffSummary": "3 files changed",
       "automatedChecks": [],
       "criteriaResults": [
         {
@@ -1364,9 +1362,7 @@
       "relatedFilesAnalyzed": [
         "ai/progress.log",
         "ai/tasks/core/11-dictionaries.md",
-        "ai/tasks/index.json",
-        "ai/capabilities.json",
-        "node_modules/.vite/vitest/da39a3ee5e6b4b0d3255bfef95601890afd80709/results.json"
+        "ai/tasks/index.json"
       ],
       "strategyResults": [
         {
@@ -1374,7 +1370,7 @@
           "required": false,
           "success": false,
           "output": "\n\u001b[1m\u001b[46m RUN \u001b[49m\u001b[22m \u001b[36mv4.0.15 \u001b[39m\u001b[90m/Users/lukin/Projects/NewAsset\u001b[39m\n\n\u001b[31mNo test files found, exiting with code 1\n\u001b[39m\n\u001b[2mfilter: \u001b[22m\u001b[33mtests/core/**/*.test.*\u001b[39m\n\u001b[2minclude: \u001b[22m\u001b[33m**/*.{test,spec}.?(c|m)[jt]s?(x)\u001b[39m\n\u001b[2mexclude:  \u001b[22m\u001b[33m**/node_modules/**\u001b[2m, \u001b[22m**/.git/**\u001b[39m\n\n",
-          "duration": 1327
+          "duration": 647842
         }
       ]
     },
@@ -1444,8 +1440,84 @@
           "duration": 1617
         }
       ]
+    },
+    "asset-house.entity": {
+      "featureId": "asset-house.entity",
+      "timestamp": "2025-12-15T13:17:38.810Z",
+      "commitHash": "23156e39a4a994a0c0424979f863efbb45a8a297",
+      "changedFiles": [
+        "node_modules/.vite/vitest/da39a3ee5e6b4b0d3255bfef95601890afd80709/results.json",
+        "ai/capabilities.json",
+        "ai/progress.log",
+        "ai/tasks/asset-house/01-database-schema.md",
+        "ai/tasks/asset-house/02-entity.md",
+        "ai/tasks/core/12-menu-permission.md",
+        "ai/verification/index.json",
+        "ai/verification/results.json"
+      ],
+      "diffSummary": "8 files changed",
+      "automatedChecks": [],
+      "criteriaResults": [
+        {
+          "criterion": "Create `AssetHouse` entity in `com.ruoyi.asset.domain.entity`:",
+          "index": 0,
+          "satisfied": true,
+          "reasoning": "Verified by strategy execution",
+          "confidence": 0.8
+        },
+        {
+          "criterion": "Create `AssetHouseMapper` interface in `com.ruoyi.asset.mapper`:",
+          "index": 1,
+          "satisfied": true,
+          "reasoning": "Verified by strategy execution",
+          "confidence": 0.8
+        },
+        {
+          "criterion": "Create mapper XML file:",
+          "index": 2,
+          "satisfied": true,
+          "reasoning": "Verified by strategy execution",
+          "confidence": 0.8
+        },
+        {
+          "criterion": "Create DTO/VO classes:",
+          "index": 3,
+          "satisfied": true,
+          "reasoning": "Verified by strategy execution",
+          "confidence": 0.8
+        },
+        {
+          "criterion": "Entity compiles without errors",
+          "index": 4,
+          "satisfied": true,
+          "reasoning": "Verified by strategy execution",
+          "confidence": 0.8
+        }
+      ],
+      "verdict": "pass",
+      "verifiedBy": "strategy-framework",
+      "overallReasoning": "[TEST] ✗ FAIL\n  \n  \u001b[1m\u001b[46m RUN \u001b[49m\u001b[22m \u001b[36mv4.0.15 \u001b[39m\u001b[90m/Users/lukin/Projects/NewAsset\u001b[39m\n  \n  \u001b[31mNo test files found, exiting with code 1\n  \u001b[39m\n  \u001b[2mfilter: \u001b[22m\u001b[33mtests/asset-house/**/*.test.*\u001b[39m\n  \u001b[2minclude: \u001b[22m\u001b[33m**/*.{test,spec}.?(c|m)[jt]s?(x)\u001b[39m\n  \u001b[2mexclude:  \u001b[22m\u001b[33m**/node_modules/**\u001b[2m, \u001b[22m**/.git/**\u001b[39m",
+      "relatedFilesAnalyzed": [
+        "node_modules/.vite/vitest/da39a3ee5e6b4b0d3255bfef95601890afd80709/results.json",
+        "ai/capabilities.json",
+        "ai/progress.log",
+        "ai/tasks/asset-house/01-database-schema.md",
+        "ai/tasks/asset-house/02-entity.md",
+        "ai/tasks/core/12-menu-permission.md",
+        "ai/verification/index.json",
+        "ai/verification/results.json"
+      ],
+      "strategyResults": [
+        {
+          "type": "test",
+          "required": false,
+          "success": false,
+          "output": "\n\u001b[1m\u001b[46m RUN \u001b[49m\u001b[22m \u001b[36mv4.0.15 \u001b[39m\u001b[90m/Users/lukin/Projects/NewAsset\u001b[39m\n\n\u001b[31mNo test files found, exiting with code 1\n\u001b[39m\n\u001b[2mfilter: \u001b[22m\u001b[33mtests/asset-house/**/*.test.*\u001b[39m\n\u001b[2minclude: \u001b[22m\u001b[33m**/*.{test,spec}.?(c|m)[jt]s?(x)\u001b[39m\n\u001b[2mexclude:  \u001b[22m\u001b[33m**/node_modules/**\u001b[2m, \u001b[22m**/.git/**\u001b[39m\n\n",
+          "duration": 208539
+        }
+      ]
     }
   },
-  "updatedAt": "2025-12-15T13:08:36.232Z",
+  "updatedAt": "2025-12-15T13:17:38.812Z",
   "version": "1.0.0"
 }
