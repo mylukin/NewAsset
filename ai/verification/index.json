@@ -107,8 +107,17 @@
       "totalRuns": 2,
       "passCount": 0,
       "failCount": 2
+    },
+    "core.code-generator": {
+      "featureId": "core.code-generator",
+      "latestRun": 1,
+      "latestTimestamp": "2025-12-15T12:24:45.099Z",
+      "latestVerdict": "fail",
+      "totalRuns": 1,
+      "passCount": 0,
+      "failCount": 1
     }
   },
-  "updatedAt": "2025-12-15T12:21:07.339Z",
+  "updatedAt": "2025-12-15T12:24:45.105Z",
   "version": "2.0.0"
 }

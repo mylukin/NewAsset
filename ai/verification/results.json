@@ -1218,8 +1218,97 @@
           "duration": 599455
         }
       ]
+    },
+    "core.code-generator": {
+      "featureId": "core.code-generator",
+      "timestamp": "2025-12-15T12:24:45.099Z",
+      "commitHash": "1bec1332eeac541eee79b86121949177ddcc3e8d",
+      "changedFiles": [
+        "ai/capabilities.json",
+        "ai/progress.log",
+        "ai/tasks/core/03-status-enum.md",
+        "ai/tasks/index.json",
+        "ai/verification/core.status-enum/001.json",
+        "ai/verification/core.status-enum/001.md",
+        "ai/verification/index.json",
+        "ai/verification/results.json",
+        "node_modules/.vite/vitest/da39a3ee5e6b4b0d3255bfef95601890afd80709/results.json",
+        "src/main/java/com/ruoyi/asset/domain/enums/AssetStatusEnum.java",
+        "tests/core/asset-status-enum-transition.test.ts"
+      ],
+      "diffSummary": "11 files changed",
+      "automatedChecks": [],
+      "criteriaResults": [
+        {
+          "criterion": "Create `AssetCodeGenerator` service in `com.ruoyi.asset.service.rule`:",
+          "index": 0,
+          "satisfied": false,
+          "reasoning": "One or more required strategies failed",
+          "confidence": 0.3
+        },
+        {
+          "criterion": "Code format: `{TYPE_PREFIX}-{6_DIGIT_SEQ}`:",
+          "index": 1,
+          "satisfied": false,
+          "reasoning": "One or more required strategies failed",
+          "confidence": 0.3
+        },
+        {
+          "criterion": "Implement optimistic locking for concurrent generation:",
+          "index": 2,
+          "satisfied": false,
+          "reasoning": "One or more required strategies failed",
+          "confidence": 0.3
+        },
+        {
+          "criterion": "Handle sequence initialization:",
+          "index": 3,
+          "satisfied": false,
+          "reasoning": "One or more required strategies failed",
+          "confidence": 0.3
+        },
+        {
+          "criterion": "Unit test `AssetCodeGeneratorTest`:",
+          "index": 4,
+          "satisfied": false,
+          "reasoning": "One or more required strategies failed",
+          "confidence": 0.3
+        },
+        {
+          "criterion": "Add unique constraint check:",
+          "index": 5,
+          "satisfied": false,
+          "reasoning": "One or more required strategies failed",
+          "confidence": 0.3
+        }
+      ],
+      "verdict": "fail",
+      "verifiedBy": "strategy-framework",
+      "overallReasoning": "[TEST] ✗ FAIL\n  \n  \u001b[1m\u001b[46m RUN \u001b[49m\u001b[22m \u001b[36mv4.0.15 \u001b[39m\u001b[90m/Users/lukin/Projects/NewAsset\u001b[39m\n  \n  \u001b[31mNo test files found, exiting with code 1\n  \u001b[39m\n  \u001b[2mfilter: \u001b[22m\u001b[33mtests/core/**/*.test.*\u001b[39m\n  \u001b[2minclude: \u001b[22m\u001b[33m**/*.{test,spec}.?(c|m)[jt]s?(x)\u001b[39m\n  \u001b[2mexclude:  \u001b[22m\u001b[33m**/node_modules/**\u001b[2m, \u001b[22m**/.git/**\u001b[39m",
+      "relatedFilesAnalyzed": [
+        "ai/capabilities.json",
+        "ai/progress.log",
+        "ai/tasks/core/03-status-enum.md",
+        "ai/tasks/index.json",
+        "ai/verification/core.status-enum/001.json",
+        "ai/verification/core.status-enum/001.md",
+        "ai/verification/index.json",
+        "ai/verification/results.json",
+        "node_modules/.vite/vitest/da39a3ee5e6b4b0d3255bfef95601890afd80709/results.json",
+        "src/main/java/com/ruoyi/asset/domain/enums/AssetStatusEnum.java",
+        "tests/core/asset-status-enum-transition.test.ts"
+      ],
+      "strategyResults": [
+        {
+          "type": "test",
+          "required": true,
+          "success": false,
+          "output": "\n\u001b[1m\u001b[46m RUN \u001b[49m\u001b[22m \u001b[36mv4.0.15 \u001b[39m\u001b[90m/Users/lukin/Projects/NewAsset\u001b[39m\n\n\u001b[31mNo test files found, exiting with code 1\n\u001b[39m\n\u001b[2mfilter: \u001b[22m\u001b[33mtests/core/**/*.test.*\u001b[39m\n\u001b[2minclude: \u001b[22m\u001b[33m**/*.{test,spec}.?(c|m)[jt]s?(x)\u001b[39m\n\u001b[2mexclude:  \u001b[22m\u001b[33m**/node_modules/**\u001b[2m, \u001b[22m**/.git/**\u001b[39m\n\n",
+          "duration": 410741
+        }
+      ]
     }
   },
-  "updatedAt": "2025-12-15T12:21:07.340Z",
+  "updatedAt": "2025-12-15T12:24:45.107Z",
   "version": "1.0.0"
 }
