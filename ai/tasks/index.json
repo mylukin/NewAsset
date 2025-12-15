@@ -1,6 +1,6 @@
 {
   "version": "2.0.0",
-  "updatedAt": "2025-12-15T22:58:45.432Z",
+  "updatedAt": "2025-12-15T22:58:45.627Z",
   "metadata": {
     "projectGoal": "Asset Management System (MVP) - Unified asset lifecycle management platform for property/facility management with 5 asset types, 9-state status machine, and maintenance work order workflow",
     "createdAt": "2025-12-15T00:00:00Z",
@@ -155,7 +155,7 @@
       "filePath": "asset-house/06-frontend-list.md"
     },
     "asset-house.frontend-detail": {
-      "status": "failing",
+      "status": "passing",
       "priority": 209,
       "module": "asset-house",
       "description": "Implement house asset detail drawer (Vue)",
