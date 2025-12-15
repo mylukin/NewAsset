@@ -2,7 +2,7 @@
 id: core.code-generator
 module: core
 priority: 104
-status: passing
+status: failed
 version: 8
 origin: spec-workflow
 dependsOn:
@@ -26,43 +26,42 @@ verification:
   commitHash: 02b90ed62f67c329ce68bef1a848df4c9436b074
   summary: 0/6 criteria satisfied
 tddGuidance:
-  generatedAt: '2025-12-15T15:13:58.120Z'
+  generatedAt: '2025-12-15T15:23:11.322Z'
   generatedBy: claude
-  forVersion: 4
+  forVersion: 8
   suggestedTestFiles:
     unit:
       - tests/core/code-generator.test.ts
     e2e: []
   unitTestCases:
-    - name: should create AssetCodeGenerator service in correct package
+    - name: >-
+        should create AssetCodeGenerator service in com.ruoyi.asset.service.rule
+        package
       assertions:
         - expect(AssetCodeGenerator).toBeDefined()
-        - expect(typeof AssetCodeGenerator.generateCode).toBe('function')
+        - expect(AssetCodeGenerator.name).toBe('AssetCodeGenerator')
     - name: should generate code with TYPE_PREFIX-6_DIGIT_SEQ format
       assertions:
-        - const code = await AssetCodeGenerator.generateCode('ASSET');
-        - 'expect(code).toMatch(/^[A-Z]+-\d{6}$/);'
-        - expect(code.startsWith('ASSET-')).toBe(true)
-    - name: should handle concurrent code generation with optimistic locking
+        - 'expect(generateCode(''FIXED'')).toMatch(/^[A-Z]+-\d{6}$/)'
+        - 'expect(generateCode(''ASSET'')).toMatch(/^ASSET-\d{6}$/)'
+        - expect(generateCode('EQ').length).toBeGreaterThan(0)
+    - name: should implement optimistic locking for concurrent generation
       assertions:
+        - expect(gen1.getVersion()).toBeDefined()
         - >-
-          const promises = Array(10).fill(null).map(() =>
-          AssetCodeGenerator.generateCode('TEST'));
-        - const results = await Promise.all(promises);
-        - expect(results).toHaveLength(10);
-        - expect(new Set(results).size).toBe(10)
-    - name: should initialize sequence on first use
+          expect(() => gen1.updateWithConflict(existingVersion,
+          newCode)).not.toThrow()
+        - 'expect(() => gen1.updateWithConflict(staleVersion, newCode)).toThrow()'
+    - name: should handle sequence initialization
       assertions:
-        - await AssetCodeGenerator.resetSequence('NEW_TYPE');
-        - const code = await AssetCodeGenerator.generateCode('NEW_TYPE');
-        - expect(code).toMatch(/^NEW_TYPE-000001$/);
-    - name: should add unique constraint check for generated codes
+        - expect(initSequence('FIXED')).toBe(true)
+        - expect(getCurrentSequence('FIXED')).toBe(1)
+        - expect(initSequence('FIXED')).toBe(false)
+    - name: should enforce unique constraint for generated codes
       assertions:
-        - await AssetCodeGenerator.generateCode('CONSTRAINT');
-        - >-
-          expect(mockRepository.save).toHaveBeenCalledWith(expect.objectContaining({
-        - '  code: expect.stringMatching(/^CONSTRAINT-\d{6}$/)'
-        - '}));'
+        - expect(() => saveCode('FIXED-000001')).not.toThrow()
+        - expect(() => saveCode('FIXED-000001')).toThrow()
+        - expect(saveCode('FIXED-000002')).toBe(true)
   e2eScenarios: []
   frameworkHint: vitest
 ---
