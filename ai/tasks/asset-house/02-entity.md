@@ -2,8 +2,8 @@
 id: asset-house.entity
 module: asset-house
 priority: 202
-status: failing
-version: 2
+status: passing
+version: 4
 origin: spec-workflow
 dependsOn:
   - asset-house.database-schema
@@ -17,7 +17,7 @@ testRequirements:
     required: false
     pattern: tests/asset-house/**/*.test.*
 verification:
-  verifiedAt: '2025-12-15T13:17:38.810Z'
+  verifiedAt: '2025-12-15T13:21:52.313Z'
   verdict: pass
   verifiedBy: strategy-framework
   commitHash: 23156e39a4a994a0c0424979f863efbb45a8a297

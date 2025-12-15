@@ -1,0 +1,52 @@
+{
+  "featureId": "asset-house.entity",
+  "runNumber": 2,
+  "timestamp": "2025-12-15T13:21:52.313Z",
+  "commitHash": "23156e39a4a994a0c0424979f863efbb45a8a297",
+  "changedFiles": [
+    "node_modules/.vite/vitest/da39a3ee5e6b4b0d3255bfef95601890afd80709/results.json",
+    "ai/capabilities.json",
+    "ai/progress.log",
+    "ai/tasks/asset-house/01-database-schema.md",
+    "ai/tasks/asset-house/02-entity.md",
+    "ai/tasks/core/12-menu-permission.md",
+    "ai/verification/index.json",
+    "ai/verification/results.json"
+  ],
+  "diffSummary": "8 files changed",
+  "automatedChecks": [],
+  "criteriaResults": [
+    {
+      "criterion": "Create `AssetHouse` entity in `com.ruoyi.asset.domain.entity`:",
+      "index": 0,
+      "satisfied": true,
+      "confidence": 0.8
+    },
+    {
+      "criterion": "Create `AssetHouseMapper` interface in `com.ruoyi.asset.mapper`:",
+      "index": 1,
+      "satisfied": true,
+      "confidence": 0.8
+    },
+    {
+      "criterion": "Create mapper XML file:",
+      "index": 2,
+      "satisfied": true,
+      "confidence": 0.8
+    },
+    {
+      "criterion": "Create DTO/VO classes:",
+      "index": 3,
+      "satisfied": true,
+      "confidence": 0.8
+    },
+    {
+      "criterion": "Entity compiles without errors",
+      "index": 4,
+      "satisfied": true,
+      "confidence": 0.8
+    }
+  ],
+  "verdict": "pass",
+  "verifiedBy": "strategy-framework"
+}

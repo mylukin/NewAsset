@@ -1443,7 +1443,7 @@
     },
     "asset-house.entity": {
       "featureId": "asset-house.entity",
-      "timestamp": "2025-12-15T13:17:38.810Z",
+      "timestamp": "2025-12-15T13:21:52.313Z",
       "commitHash": "23156e39a4a994a0c0424979f863efbb45a8a297",
       "changedFiles": [
         "node_modules/.vite/vitest/da39a3ee5e6b4b0d3255bfef95601890afd80709/results.json",
@@ -1513,11 +1513,11 @@
           "required": false,
           "success": false,
           "output": "\n\u001b[1m\u001b[46m RUN \u001b[49m\u001b[22m \u001b[36mv4.0.15 \u001b[39m\u001b[90m/Users/lukin/Projects/NewAsset\u001b[39m\n\n\u001b[31mNo test files found, exiting with code 1\n\u001b[39m\n\u001b[2mfilter: \u001b[22m\u001b[33mtests/asset-house/**/*.test.*\u001b[39m\n\u001b[2minclude: \u001b[22m\u001b[33m**/*.{test,spec}.?(c|m)[jt]s?(x)\u001b[39m\n\u001b[2mexclude:  \u001b[22m\u001b[33m**/node_modules/**\u001b[2m, \u001b[22m**/.git/**\u001b[39m\n\n",
-          "duration": 208539
+          "duration": 297946
         }
       ]
     }
   },
-  "updatedAt": "2025-12-15T13:17:38.812Z",
+  "updatedAt": "2025-12-15T13:21:52.324Z",
   "version": "1.0.0"
 }
