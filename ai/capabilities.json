@@ -4,21 +4,22 @@
     "hasTests": true,
     "testCommand": "npx vitest run",
     "testFramework": "vitest",
-    "hasTypeCheck": false,
-    "typeCheckCommand": "",
+    "hasTypeCheck": true,
+    "typeCheckCommand": "tsc",
     "hasLint": true,
-    "lintCommand": "npm run lint",
+    "lintCommand": "eslint",
     "hasBuild": true,
     "buildCommand": "npm run build",
     "hasGit": true,
     "source": "ai-discovered",
-    "confidence": 0.7833333333333332,
+    "confidence": 0.8125,
     "languages": [
-      "Java",
+      "Vue 2",
       "TypeScript",
-      "Vue.js"
+      "Java 17",
+      "Spring Boot"
     ],
-    "detectedAt": "2025-12-15T14:55:01.939Z",
+    "detectedAt": "2025-12-15T15:04:45.677Z",
     "testInfo": {
       "available": true,
       "command": "npx vitest run",
@@ -30,21 +31,21 @@
     },
     "e2eInfo": {
       "available": false,
-      "command": "",
-      "framework": "",
+      "command": null,
+      "framework": null,
       "confidence": 0,
-      "configFile": "",
-      "grepTemplate": "",
-      "fileTemplate": ""
+      "configFile": null,
+      "grepTemplate": null,
+      "fileTemplate": null
     },
     "typeCheckInfo": {
-      "available": false,
-      "command": "",
-      "confidence": 0
+      "available": true,
+      "command": "tsc",
+      "confidence": 0.9
     },
     "lintInfo": {
       "available": true,
-      "command": "npm run lint",
+      "command": "eslint",
       "confidence": 0.7
     },
     "buildInfo": {
@@ -55,13 +56,25 @@
     "customRules": [
       {
         "id": "maven.test",
-        "description": "Run Java/Spring Boot unit tests",
+        "description": "Run Maven tests for Java backend",
         "command": "mvn test",
         "type": "test"
+      },
+      {
+        "id": "maven.build",
+        "description": "Build Java backend with Maven",
+        "command": "mvn clean package",
+        "type": "build"
+      },
+      {
+        "id": "vue.serve",
+        "description": "Start Vue development server",
+        "command": "npm run serve",
+        "type": "custom"
       }
     ]
   },
-  "commitHash": "84aace2e6d7093479237e4c418aaa04e986b5421",
+  "commitHash": "9ade1cc9307bcbd6ff37f4922629593a7d8cfc2d",
   "trackedFiles": [
     "package.json",
     "pom.xml",

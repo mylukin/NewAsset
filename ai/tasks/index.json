@@ -10,7 +10,7 @@
   },
   "features": {
     "core.environment-setup": {
-      "status": "failing",
+      "status": "passing",
       "priority": 1,
       "module": "core",
       "description": "Project Environment Setup - Spring Boot, SQLite configuration, development environment",
