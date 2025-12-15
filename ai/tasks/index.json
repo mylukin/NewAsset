@@ -1,0 +1,571 @@
+{
+  "version": "2.0.0",
+  "updatedAt": "2025-12-15T11:39:22.044Z",
+  "metadata": {
+    "projectGoal": "Asset Management System (MVP) - Unified asset lifecycle management platform for property/facility management with 5 asset types, 9-state status machine, and maintenance work order workflow",
+    "createdAt": "2025-12-15T00:00:00Z",
+    "updatedAt": "2025-12-15T00:00:00Z",
+    "version": "1.0.0",
+    "tddMode": "recommended"
+  },
+  "features": {
+    "core.BREAKDOWN": {
+      "status": "passing",
+      "priority": 1,
+      "module": "core",
+      "description": "Core Module - Base asset entity, code generator, status machine, attachments, location hierarchy"
+    },
+    "core.database-schema": {
+      "status": "passing",
+      "priority": 101,
+      "module": "core",
+      "description": "Create core database schema (t_asset, t_asset_location, t_asset_code_seq, t_asset_attachment)",
+      "filePath": "core/01-database-schema.md"
+    },
+    "core.asset-entity": {
+      "status": "failing",
+      "priority": 102,
+      "module": "core",
+      "description": "Create Asset base entity and MyBatis mapper",
+      "filePath": "core/02-asset-entity.md"
+    },
+    "core.status-enum": {
+      "status": "failing",
+      "priority": 103,
+      "module": "core",
+      "description": "Create 9-state status enum with transition validation",
+      "filePath": "core/03-status-enum.md"
+    },
+    "core.code-generator": {
+      "status": "failing",
+      "priority": 104,
+      "module": "core",
+      "description": "Implement asset code generator with optimistic locking",
+      "filePath": "core/04-code-generator.md"
+    },
+    "core.status-service": {
+      "status": "failing",
+      "priority": 105,
+      "module": "core",
+      "description": "Implement asset status change service with validation",
+      "filePath": "core/05-status-service.md"
+    },
+    "core.location-service": {
+      "status": "failing",
+      "priority": 106,
+      "module": "core",
+      "description": "Implement 3-level location hierarchy service",
+      "filePath": "core/06-location-service.md"
+    },
+    "core.attachment-service": {
+      "status": "failing",
+      "priority": 107,
+      "module": "core",
+      "description": "Implement file attachment management service",
+      "filePath": "core/07-attachment-service.md"
+    },
+    "core.base-service": {
+      "status": "failing",
+      "priority": 108,
+      "module": "core",
+      "description": "Implement base asset service with CRUD operations",
+      "filePath": "core/08-base-service.md"
+    },
+    "core.location-controller": {
+      "status": "failing",
+      "priority": 109,
+      "module": "core",
+      "description": "Implement location hierarchy REST API",
+      "filePath": "core/09-location-controller.md"
+    },
+    "core.attachment-controller": {
+      "status": "failing",
+      "priority": 110,
+      "module": "core",
+      "description": "Implement file attachment REST API",
+      "filePath": "core/10-attachment-controller.md"
+    },
+    "core.dictionaries": {
+      "status": "failing",
+      "priority": 111,
+      "module": "core",
+      "description": "Configure RuoYi dictionaries for asset module",
+      "filePath": "core/11-dictionaries.md"
+    },
+    "core.menu-permission": {
+      "status": "failing",
+      "priority": 112,
+      "module": "core",
+      "description": "Configure menus and permissions for asset module",
+      "filePath": "core/12-menu-permission.md"
+    },
+    "asset-house.BREAKDOWN": {
+      "status": "passing",
+      "priority": 2,
+      "module": "asset-house",
+      "description": "House Asset Module - Residential properties with vacancy/rental statistics"
+    },
+    "asset-house.database-schema": {
+      "status": "failing",
+      "priority": 201,
+      "module": "asset-house",
+      "description": "Create house extension table (t_asset_house)",
+      "filePath": "asset-house/01-database-schema.md"
+    },
+    "asset-house.entity": {
+      "status": "failing",
+      "priority": 202,
+      "module": "asset-house",
+      "description": "Create AssetHouse entity and mapper",
+      "filePath": "asset-house/02-entity.md"
+    },
+    "asset-house.service": {
+      "status": "failing",
+      "priority": 203,
+      "module": "asset-house",
+      "description": "Implement house asset service with copy feature",
+      "filePath": "asset-house/03-service.md"
+    },
+    "asset-house.controller": {
+      "status": "failing",
+      "priority": 204,
+      "module": "asset-house",
+      "description": "Implement house asset REST API",
+      "filePath": "asset-house/04-controller.md"
+    },
+    "asset-house.statistics": {
+      "status": "failing",
+      "priority": 205,
+      "module": "asset-house",
+      "description": "Implement house vacancy and rental statistics",
+      "filePath": "asset-house/05-statistics.md"
+    },
+    "asset-house.frontend-list": {
+      "status": "failing",
+      "priority": 206,
+      "module": "asset-house",
+      "description": "Implement house asset list page (Vue)",
+      "filePath": "asset-house/06-frontend-list.md"
+    },
+    "asset-house.frontend-detail": {
+      "status": "failing",
+      "priority": 207,
+      "module": "asset-house",
+      "description": "Implement house asset detail drawer (Vue)",
+      "filePath": "asset-house/07-frontend-detail.md"
+    },
+    "asset-house.frontend-form": {
+      "status": "failing",
+      "priority": 208,
+      "module": "asset-house",
+      "description": "Implement house asset form component (Vue)",
+      "filePath": "asset-house/08-frontend-form.md"
+    },
+    "asset-parking.BREAKDOWN": {
+      "status": "passing",
+      "priority": 3,
+      "module": "asset-parking",
+      "description": "Parking Asset Module - Vehicle spots with utilization statistics"
+    },
+    "asset-parking.database-schema": {
+      "status": "failing",
+      "priority": 301,
+      "module": "asset-parking",
+      "description": "Create parking extension table (t_asset_parking)",
+      "filePath": "asset-parking/01-database-schema.md"
+    },
+    "asset-parking.entity": {
+      "status": "failing",
+      "priority": 302,
+      "module": "asset-parking",
+      "description": "Create AssetParking entity and mapper",
+      "filePath": "asset-parking/02-entity.md"
+    },
+    "asset-parking.service": {
+      "status": "failing",
+      "priority": 303,
+      "module": "asset-parking",
+      "description": "Implement parking asset service",
+      "filePath": "asset-parking/03-service.md"
+    },
+    "asset-parking.controller": {
+      "status": "failing",
+      "priority": 304,
+      "module": "asset-parking",
+      "description": "Implement parking asset REST API",
+      "filePath": "asset-parking/04-controller.md"
+    },
+    "asset-parking.statistics": {
+      "status": "failing",
+      "priority": 305,
+      "module": "asset-parking",
+      "description": "Implement parking utilization statistics",
+      "filePath": "asset-parking/05-statistics.md"
+    },
+    "asset-parking.frontend-list": {
+      "status": "failing",
+      "priority": 306,
+      "module": "asset-parking",
+      "description": "Implement parking asset list page (Vue)",
+      "filePath": "asset-parking/06-frontend-list.md"
+    },
+    "asset-parking.frontend-detail": {
+      "status": "failing",
+      "priority": 307,
+      "module": "asset-parking",
+      "description": "Implement parking asset detail drawer (Vue)",
+      "filePath": "asset-parking/07-frontend-detail.md"
+    },
+    "asset-parking.frontend-form": {
+      "status": "failing",
+      "priority": 308,
+      "module": "asset-parking",
+      "description": "Implement parking asset form component (Vue)",
+      "filePath": "asset-parking/08-frontend-form.md"
+    },
+    "asset-facility.BREAKDOWN": {
+      "status": "passing",
+      "priority": 4,
+      "module": "asset-facility",
+      "description": "Facility Asset Module - Building equipment with warranty tracking"
+    },
+    "asset-facility.database-schema": {
+      "status": "failing",
+      "priority": 401,
+      "module": "asset-facility",
+      "description": "Create facility extension table (t_asset_facility)",
+      "filePath": "asset-facility/01-database-schema.md"
+    },
+    "asset-facility.entity": {
+      "status": "failing",
+      "priority": 402,
+      "module": "asset-facility",
+      "description": "Create AssetFacility entity and mapper",
+      "filePath": "asset-facility/02-entity.md"
+    },
+    "asset-facility.service": {
+      "status": "failing",
+      "priority": 403,
+      "module": "asset-facility",
+      "description": "Implement facility asset service",
+      "filePath": "asset-facility/03-service.md"
+    },
+    "asset-facility.controller": {
+      "status": "failing",
+      "priority": 404,
+      "module": "asset-facility",
+      "description": "Implement facility asset REST API",
+      "filePath": "asset-facility/04-controller.md"
+    },
+    "asset-facility.warranty-alert": {
+      "status": "failing",
+      "priority": 405,
+      "module": "asset-facility",
+      "description": "Implement warranty expiration alerts",
+      "filePath": "asset-facility/05-warranty-alert.md"
+    },
+    "asset-facility.frontend-list": {
+      "status": "failing",
+      "priority": 406,
+      "module": "asset-facility",
+      "description": "Implement facility asset list page (Vue)",
+      "filePath": "asset-facility/06-frontend-list.md"
+    },
+    "asset-facility.frontend-detail": {
+      "status": "failing",
+      "priority": 407,
+      "module": "asset-facility",
+      "description": "Implement facility asset detail drawer (Vue)",
+      "filePath": "asset-facility/07-frontend-detail.md"
+    },
+    "asset-facility.frontend-form": {
+      "status": "failing",
+      "priority": 408,
+      "module": "asset-facility",
+      "description": "Implement facility asset form component (Vue)",
+      "filePath": "asset-facility/08-frontend-form.md"
+    },
+    "asset-venue.BREAKDOWN": {
+      "status": "passing",
+      "priority": 5,
+      "module": "asset-venue",
+      "description": "Venue Asset Module - Community spaces with availability status"
+    },
+    "asset-venue.database-schema": {
+      "status": "failing",
+      "priority": 501,
+      "module": "asset-venue",
+      "description": "Create venue extension table (t_asset_venue)",
+      "filePath": "asset-venue/01-database-schema.md"
+    },
+    "asset-venue.entity": {
+      "status": "failing",
+      "priority": 502,
+      "module": "asset-venue",
+      "description": "Create AssetVenue entity and mapper",
+      "filePath": "asset-venue/02-entity.md"
+    },
+    "asset-venue.service": {
+      "status": "failing",
+      "priority": 503,
+      "module": "asset-venue",
+      "description": "Implement venue asset service",
+      "filePath": "asset-venue/03-service.md"
+    },
+    "asset-venue.controller": {
+      "status": "failing",
+      "priority": 504,
+      "module": "asset-venue",
+      "description": "Implement venue asset REST API",
+      "filePath": "asset-venue/04-controller.md"
+    },
+    "asset-venue.frontend-list": {
+      "status": "failing",
+      "priority": 505,
+      "module": "asset-venue",
+      "description": "Implement venue asset list page (Vue)",
+      "filePath": "asset-venue/05-frontend-list.md"
+    },
+    "asset-venue.frontend-detail": {
+      "status": "failing",
+      "priority": 506,
+      "module": "asset-venue",
+      "description": "Implement venue asset detail drawer (Vue)",
+      "filePath": "asset-venue/06-frontend-detail.md"
+    },
+    "asset-venue.frontend-form": {
+      "status": "failing",
+      "priority": 507,
+      "module": "asset-venue",
+      "description": "Implement venue asset form component (Vue)",
+      "filePath": "asset-venue/07-frontend-form.md"
+    },
+    "asset-office.BREAKDOWN": {
+      "status": "passing",
+      "priority": 6,
+      "module": "asset-office",
+      "description": "Office Asset Module - Furniture and IT equipment"
+    },
+    "asset-office.database-schema": {
+      "status": "failing",
+      "priority": 601,
+      "module": "asset-office",
+      "description": "Create office extension table (t_asset_office)",
+      "filePath": "asset-office/01-database-schema.md"
+    },
+    "asset-office.entity": {
+      "status": "failing",
+      "priority": 602,
+      "module": "asset-office",
+      "description": "Create AssetOffice entity and mapper",
+      "filePath": "asset-office/02-entity.md"
+    },
+    "asset-office.service": {
+      "status": "failing",
+      "priority": 603,
+      "module": "asset-office",
+      "description": "Implement office asset service",
+      "filePath": "asset-office/03-service.md"
+    },
+    "asset-office.controller": {
+      "status": "failing",
+      "priority": 604,
+      "module": "asset-office",
+      "description": "Implement office asset REST API",
+      "filePath": "asset-office/04-controller.md"
+    },
+    "asset-office.frontend-list": {
+      "status": "failing",
+      "priority": 605,
+      "module": "asset-office",
+      "description": "Implement office asset list page (Vue)",
+      "filePath": "asset-office/05-frontend-list.md"
+    },
+    "asset-office.frontend-detail": {
+      "status": "failing",
+      "priority": 606,
+      "module": "asset-office",
+      "description": "Implement office asset detail drawer (Vue)",
+      "filePath": "asset-office/06-frontend-detail.md"
+    },
+    "asset-office.frontend-form": {
+      "status": "failing",
+      "priority": 607,
+      "module": "asset-office",
+      "description": "Implement office asset form component (Vue)",
+      "filePath": "asset-office/07-frontend-form.md"
+    },
+    "maintenance.BREAKDOWN": {
+      "status": "passing",
+      "priority": 7,
+      "module": "maintenance",
+      "description": "Maintenance Module - Work order lifecycle with 6-state flow and asset status linkage"
+    },
+    "maintenance.database-schema": {
+      "status": "failing",
+      "priority": 701,
+      "module": "maintenance",
+      "description": "Create work order database schema (t_asset_maint_order, t_asset_maint_log)",
+      "filePath": "maintenance/01-database-schema.md"
+    },
+    "maintenance.entity": {
+      "status": "failing",
+      "priority": 702,
+      "module": "maintenance",
+      "description": "Create MaintOrder and MaintLog entities and mappers",
+      "filePath": "maintenance/02-entity.md"
+    },
+    "maintenance.status-enum": {
+      "status": "failing",
+      "priority": 703,
+      "module": "maintenance",
+      "description": "Create 6-state work order status enum with transitions",
+      "filePath": "maintenance/03-status-enum.md"
+    },
+    "maintenance.order-number-generator": {
+      "status": "failing",
+      "priority": 704,
+      "module": "maintenance",
+      "description": "Implement work order number generator (WO-YYYYMMDD-NNN)",
+      "filePath": "maintenance/04-order-number-generator.md"
+    },
+    "maintenance.status-linkage-service": {
+      "status": "failing",
+      "priority": 705,
+      "module": "maintenance",
+      "description": "Implement asset status linkage service",
+      "filePath": "maintenance/05-status-linkage-service.md"
+    },
+    "maintenance.order-service": {
+      "status": "failing",
+      "priority": 706,
+      "module": "maintenance",
+      "description": "Implement work order service with workflow operations",
+      "filePath": "maintenance/06-order-service.md"
+    },
+    "maintenance.controller": {
+      "status": "failing",
+      "priority": 707,
+      "module": "maintenance",
+      "description": "Implement work order REST API",
+      "filePath": "maintenance/07-controller.md"
+    },
+    "maintenance.frontend-list": {
+      "status": "failing",
+      "priority": 708,
+      "module": "maintenance",
+      "description": "Implement work order list page (Vue)",
+      "filePath": "maintenance/08-frontend-list.md"
+    },
+    "maintenance.frontend-detail": {
+      "status": "failing",
+      "priority": 709,
+      "module": "maintenance",
+      "description": "Implement work order detail page with timeline (Vue)",
+      "filePath": "maintenance/09-frontend-detail.md"
+    },
+    "maintenance.frontend-form": {
+      "status": "failing",
+      "priority": 710,
+      "module": "maintenance",
+      "description": "Implement work order create form (Vue)",
+      "filePath": "maintenance/10-frontend-form.md"
+    },
+    "import.BREAKDOWN": {
+      "status": "passing",
+      "priority": 8,
+      "module": "import",
+      "description": "Import Module - Excel import with validation and template download"
+    },
+    "import.excel-parser-service": {
+      "status": "failing",
+      "priority": 801,
+      "module": "import",
+      "description": "Implement Excel parser service using EasyExcel",
+      "filePath": "import/01-excel-parser-service.md"
+    },
+    "import.row-validator-service": {
+      "status": "failing",
+      "priority": 802,
+      "module": "import",
+      "description": "Implement row validation service",
+      "filePath": "import/02-row-validator-service.md"
+    },
+    "import.asset-import-service": {
+      "status": "failing",
+      "priority": 803,
+      "module": "import",
+      "description": "Implement asset import service with batch insert",
+      "filePath": "import/03-asset-import-service.md"
+    },
+    "import.template-generator": {
+      "status": "failing",
+      "priority": 804,
+      "module": "import",
+      "description": "Implement template generator for each asset type",
+      "filePath": "import/04-template-generator.md"
+    },
+    "import.controller": {
+      "status": "failing",
+      "priority": 805,
+      "module": "import",
+      "description": "Implement import REST API",
+      "filePath": "import/05-controller.md"
+    },
+    "import.frontend-modal": {
+      "status": "failing",
+      "priority": 806,
+      "module": "import",
+      "description": "Implement import modal (3-step wizard)",
+      "filePath": "import/06-frontend-modal.md"
+    },
+    "dashboard.BREAKDOWN": {
+      "status": "passing",
+      "priority": 9,
+      "module": "dashboard",
+      "description": "Dashboard Module - Role-based KPIs, charts, and manual refresh"
+    },
+    "dashboard.statistics-service": {
+      "status": "failing",
+      "priority": 901,
+      "module": "dashboard",
+      "description": "Implement dashboard statistics service",
+      "filePath": "dashboard/01-statistics-service.md"
+    },
+    "dashboard.controller": {
+      "status": "failing",
+      "priority": 902,
+      "module": "dashboard",
+      "description": "Implement dashboard REST API",
+      "filePath": "dashboard/02-controller.md"
+    },
+    "dashboard.frontend-layout": {
+      "status": "failing",
+      "priority": 903,
+      "module": "dashboard",
+      "description": "Implement dashboard layout with role variants (Vue)",
+      "filePath": "dashboard/03-frontend-layout.md"
+    },
+    "dashboard.kpi-cards": {
+      "status": "failing",
+      "priority": 904,
+      "module": "dashboard",
+      "description": "Implement KPI summary cards (Vue)",
+      "filePath": "dashboard/04-kpi-cards.md"
+    },
+    "dashboard.charts": {
+      "status": "failing",
+      "priority": 905,
+      "module": "dashboard",
+      "description": "Implement dashboard charts with ECharts (Vue)",
+      "filePath": "dashboard/05-charts.md"
+    },
+    "dashboard.refresh-button": {
+      "status": "failing",
+      "priority": 906,
+      "module": "dashboard",
+      "description": "Implement manual refresh functionality (Vue)",
+      "filePath": "dashboard/06-refresh-button.md"
+    }
+  }
+}

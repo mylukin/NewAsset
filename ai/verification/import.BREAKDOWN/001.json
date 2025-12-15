@@ -1,0 +1,55 @@
+{
+  "featureId": "import.BREAKDOWN",
+  "runNumber": 1,
+  "timestamp": "2025-12-15T08:32:36.360Z",
+  "commitHash": "unknown",
+  "changedFiles": [],
+  "diffSummary": "0 files changed",
+  "automatedChecks": [],
+  "criteriaResults": [
+    {
+      "criterion": "All fine-grained implementation tasks are created in ai/tasks/import/",
+      "index": 0,
+      "satisfied": true,
+      "confidence": 1
+    },
+    {
+      "criterion": "Each task has specific, testable acceptance criteria",
+      "index": 1,
+      "satisfied": true,
+      "confidence": 0.95
+    },
+    {
+      "criterion": "Task dependencies on core and asset type modules are correctly defined",
+      "index": 2,
+      "satisfied": true,
+      "confidence": 0.95
+    },
+    {
+      "criterion": "Excel parsing and validation service tasks are included",
+      "index": 3,
+      "satisfied": true,
+      "confidence": 0.95
+    },
+    {
+      "criterion": "Template generation tasks for each asset type are included",
+      "index": 4,
+      "satisfied": true,
+      "confidence": 1
+    },
+    {
+      "criterion": "Import result and error reporting tasks are included",
+      "index": 5,
+      "satisfied": true,
+      "confidence": 0.95
+    },
+    {
+      "criterion": "Frontend import modal tasks (3-step wizard) are included",
+      "index": 6,
+      "satisfied": true,
+      "confidence": 1
+    }
+  ],
+  "verdict": "pass",
+  "verifiedBy": "claude"
+}

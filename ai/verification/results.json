@@ -1,0 +1,1073 @@
+{
+  "results": {
+    "core.BREAKDOWN": {
+      "featureId": "core.BREAKDOWN",
+      "timestamp": "2025-12-15T08:00:42.525Z",
+      "commitHash": "unknown",
+      "changedFiles": [],
+      "diffSummary": "0 files changed",
+      "automatedChecks": [],
+      "criteriaResults": [
+        {
+          "criterion": "All fine-grained implementation tasks are created in ai/tasks/core/",
+          "index": 0,
+          "satisfied": true,
+          "reasoning": "12 fine-grained implementation tasks have been created in ai/tasks/core/: database-schema, asset-entity, status-enum, code-generator, status-service, location-service, attachment-service, base-service, location-controller, attachment-controller, dictionaries, and menu-permission. All tasks are properly structured with YAML frontmatter and markdown content.",
+          "evidence": [
+            "ai/tasks/core/01-database-schema.md",
+            "ai/tasks/core/02-asset-entity.md",
+            "ai/tasks/core/03-status-enum.md",
+            "ai/tasks/core/04-code-generator.md",
+            "ai/tasks/core/05-status-service.md",
+            "ai/tasks/core/06-location-service.md",
+            "ai/tasks/core/07-attachment-service.md",
+            "ai/tasks/core/08-base-service.md",
+            "ai/tasks/core/09-location-controller.md",
+            "ai/tasks/core/10-attachment-controller.md",
+            "ai/tasks/core/11-dictionaries.md",
+            "ai/tasks/core/12-menu-permission.md"
+          ],
+          "confidence": 1
+        },
+        {
+          "criterion": "Each task has specific, testable acceptance criteria",
+          "index": 1,
+          "satisfied": true,
+          "reasoning": "Each task file contains specific, testable acceptance criteria. For example: core.database-schema has 6 detailed criteria with exact field specifications; core.status-enum has 5 criteria including specific enum values and method signatures; core.code-generator has 6 criteria including format rules and error handling. All criteria are numbered and measurable.",
+          "evidence": [
+            "ai/tasks/core/01-database-schema.md:25-75 (6 criteria)",
+            "ai/tasks/core/03-status-enum.md:28-56 (5 criteria with enum values)",
+            "ai/tasks/core/04-code-generator.md:29-58 (6 criteria with format specs)"
+          ],
+          "confidence": 0.95
+        },
+        {
+          "criterion": "Task dependencies are correctly defined",
+          "index": 2,
+          "satisfied": true,
+          "reasoning": "Task dependencies are correctly defined using dependsOn arrays in frontmatter. core.asset-entity depends on core.database-schema; core.status-service depends on both core.asset-entity and core.status-enum; core.base-service depends on core.asset-entity, core.code-generator, and core.status-service; core.location-controller depends on core.location-service; core.attachment-controller depends on core.attachment-service.",
+          "evidence": [
+            "ai/tasks/core/02-asset-entity.md:8-9 (dependsOn: core.database-schema)",
+            "ai/tasks/core/05-status-service.md:8-10 (dependsOn: core.asset-entity, core.status-enum)",
+            "ai/tasks/core/08-base-service.md:8-11 (dependsOn: 3 tasks)",
+            "ai/tasks/core/09-location-controller.md:8-9",
+            "ai/tasks/core/10-attachment-controller.md:8-9"
+          ],
+          "confidence": 0.95
+        },
+        {
+          "criterion": "Base entity and database schema tasks are prioritized",
+          "index": 3,
+          "satisfied": true,
+          "reasoning": "Base entity and database schema tasks are correctly prioritized. In index.json, core.database-schema has priority 101 (lowest/first in core sequence) and core.asset-entity has priority 102. Within task files, database-schema has priority 1 and asset-entity has priority 2. Database schema has no dependencies (dependsOn: []) ensuring it runs first.",
+          "evidence": [
+            "ai/tasks/index.json:18-23 (database-schema priority 101)",
+            "ai/tasks/index.json:25-30 (asset-entity priority 102)",
+            "ai/tasks/core/01-database-schema.md:4 (priority: 1)",
+            "ai/tasks/core/02-asset-entity.md:4 (priority: 2)"
+          ],
+          "confidence": 0.95
+        },
+        {
+          "criterion": "Code generator and status machine tasks are included",
+          "index": 4,
+          "satisfied": true,
+          "reasoning": "Code generator task (core.code-generator, priority 104/4) includes detailed requirements: format rules (HA-000001), optimistic locking implementation, retry logic, and unique constraint handling. Status machine task (core.status-enum, priority 103/3) defines all 9 states, transition validation methods (canTransitionTo, getValidTransitions), and terminal state handling. Status service task (core.status-service, priority 105/5) implements status change logic.",
+          "evidence": [
+            "ai/tasks/core/04-code-generator.md (full task definition)",
+            "ai/tasks/core/03-status-enum.md (9 states, transition map)",
+            "ai/tasks/core/05-status-service.md (status change service)"
+          ],
+          "confidence": 0.95
+        },
+        {
+          "criterion": "Attachment and location hierarchy tasks are included",
+          "index": 5,
+          "satisfied": true,
+          "reasoning": "Attachment tasks include: core.attachment-service (priority 107/7) with upload limits (10 files, 5MB), file type validation, storage path generation; core.attachment-controller (priority 110/10) with REST API endpoints. Location hierarchy tasks include: core.location-service (priority 106/6) with 3-level hierarchy, tree structure, validation; core.location-controller (priority 109/9) with tree API endpoint.",
+          "evidence": [
+            "ai/tasks/core/07-attachment-service.md (service with limits)",
+            "ai/tasks/core/10-attachment-controller.md (API endpoints)",
+            "ai/tasks/core/06-location-service.md (3-level hierarchy)",
+            "ai/tasks/core/09-location-controller.md (tree API)"
+          ],
+          "confidence": 0.95
+        },
+        {
+          "criterion": "Test requirements from QA strategy are addressed",
+          "index": 6,
+          "satisfied": true,
+          "reasoning": "Test requirements from QA-STRATEGY.md are addressed. The QA strategy specifies AssetCodeGeneratorTest, AssetStatusServiceTest, and AssetStatusEnumTransitionTest - all referenced in task testRequirements. core.status-enum has testRequirements.unit.required: true with cases matching QA strategy. core.code-generator has required: true with concurrent generation tests. core.status-service has required: true with transition validation tests. Performance target (<500ms) referenced in code-generator technical notes.",
+          "evidence": [
+            "ai/tasks/core/03-status-enum.md:14-18 (testRequirements with cases)",
+            "ai/tasks/core/04-code-generator.md:14-20 (testRequirements with concurrency)",
+            "ai/tasks/core/05-status-service.md:14-21 (testRequirements)",
+            "ai/tasks/spec/QA-STRATEGY.md:27-31 (test class structure)"
+          ],
+          "confidence": 0.9
+        }
+      ],
+      "verdict": "pass",
+      "verifiedBy": "claude",
+      "overallReasoning": "All 7 acceptance criteria for the core.BREAKDOWN task are satisfied with high confidence. The breakdown created 12 fine-grained implementation tasks in ai/tasks/core/, each with specific and testable acceptance criteria. Dependencies are correctly defined with database-schema as the foundation. Database schema and base entity tasks are properly prioritized (priority 1-2). Code generator (priority 4) and status machine (priority 3, 5) tasks are included with detailed specifications. Attachment (priority 7, 10) and location hierarchy (priority 6, 9) tasks are properly defined. Test requirements align with QA-STRATEGY.md specifications, including unit test requirements for critical components and performance targets.",
+      "suggestions": [
+        "Consider adding explicit e2e testRequirements to location-controller and attachment-controller tasks to match QA-STRATEGY.md E2E test structure",
+        "The index.json uses priorities 101-112 while task files use 1-12 - consider unifying for consistency",
+        "Some tasks have testRequirements.unit.required: false - consider making all core service tasks require unit tests given 90% coverage target"
+      ],
+      "codeQualityNotes": [
+        "Task file structure is consistent and follows the schema defined in 04-feature-schema.md",
+        "All tasks reference relevant specification documents in Technical Notes sections",
+        "Dependencies form a logical DAG with no circular dependencies",
+        "Test cases in testRequirements align with QA strategy critical test cases"
+      ],
+      "relatedFilesAnalyzed": []
+    },
+    "asset-house.BREAKDOWN": {
+      "featureId": "asset-house.BREAKDOWN",
+      "timestamp": "2025-12-15T08:04:41.203Z",
+      "commitHash": "unknown",
+      "changedFiles": [],
+      "diffSummary": "0 files changed",
+      "automatedChecks": [],
+      "criteriaResults": [
+        {
+          "criterion": "All fine-grained implementation tasks are created in ai/tasks/asset-house/",
+          "index": 0,
+          "satisfied": true,
+          "reasoning": "All fine-grained implementation tasks are created in ai/tasks/asset-house/. There are 8 task files: 01-database-schema.md, 02-entity.md, 03-service.md, 04-controller.md, 05-statistics.md, 06-frontend-list.md, 07-frontend-detail.md, 08-frontend-form.md. Each represents a distinct implementation step.",
+          "evidence": [
+            "ai/tasks/asset-house/01-database-schema.md",
+            "ai/tasks/asset-house/02-entity.md",
+            "ai/tasks/asset-house/03-service.md",
+            "ai/tasks/asset-house/04-controller.md",
+            "ai/tasks/asset-house/05-statistics.md",
+            "ai/tasks/asset-house/06-frontend-list.md",
+            "ai/tasks/asset-house/07-frontend-detail.md",
+            "ai/tasks/asset-house/08-frontend-form.md"
+          ],
+          "confidence": 1
+        },
+        {
+          "criterion": "Each task has specific, testable acceptance criteria",
+          "index": 1,
+          "satisfied": true,
+          "reasoning": "Each task has specific, testable acceptance criteria. For example: database-schema has 4 criteria about table creation; entity has 5 criteria about entity/mapper creation; service has 6 criteria about service methods; controller has 4 criteria about REST endpoints; statistics has 5 criteria about calculation methods; frontend tasks each have 5-6 criteria about Vue components and UI elements.",
+          "evidence": [
+            "ai/tasks/asset-house/01-database-schema.md:26-45",
+            "ai/tasks/asset-house/02-entity.md:27-45",
+            "ai/tasks/asset-house/03-service.md:31-62",
+            "ai/tasks/asset-house/04-controller.md:26-68",
+            "ai/tasks/asset-house/05-statistics.md:29-59",
+            "ai/tasks/asset-house/06-frontend-list.md:28-61",
+            "ai/tasks/asset-house/07-frontend-detail.md:28-61",
+            "ai/tasks/asset-house/08-frontend-form.md:28-86"
+          ],
+          "confidence": 0.95
+        },
+        {
+          "criterion": "Task dependencies on core module are correctly defined",
+          "index": 2,
+          "satisfied": true,
+          "reasoning": "Task dependencies on core module are correctly defined using YAML frontmatter 'dependsOn' field. database-schema depends on core.database-schema; entity depends on core.asset-entity and asset-house.database-schema; service depends on core.base-service and asset-house.entity; controller depends on asset-house.service; statistics depends on asset-house.service; frontend tasks depend on controller/list as appropriate.",
+          "evidence": [
+            "ai/tasks/asset-house/01-database-schema.md:8-9 (dependsOn: core.database-schema)",
+            "ai/tasks/asset-house/02-entity.md:8-11 (dependsOn: asset-house.database-schema, core.asset-entity)",
+            "ai/tasks/asset-house/03-service.md:8-11 (dependsOn: asset-house.entity, core.base-service)",
+            "ai/tasks/asset-house/04-controller.md:8-9 (dependsOn: asset-house.service)"
+          ],
+          "confidence": 0.98
+        },
+        {
+          "criterion": "Database schema for extension table is included",
+          "index": 3,
+          "satisfied": true,
+          "reasoning": "Database schema for extension table t_asset_house is fully defined in 01-database-schema.md with all required fields: asset_id (PK/FK), building_area, inner_area, house_type, house_usage, current_usage, current_user, contract_no, rent_unit_price, rent_total. Foreign key constraint and dictionary entries are specified.",
+          "evidence": [
+            "ai/tasks/asset-house/01-database-schema.md:26-45"
+          ],
+          "confidence": 1
+        },
+        {
+          "criterion": "House-specific service and controller tasks are included",
+          "index": 4,
+          "satisfied": true,
+          "reasoning": "House-specific service task (03-service.md) includes all CRUD operations plus copy feature. Controller task (04-controller.md) includes all REST endpoints: list, get, create, update, delete, copy, export with proper permissions.",
+          "evidence": [
+            "ai/tasks/asset-house/03-service.md:31-62",
+            "ai/tasks/asset-house/04-controller.md:26-68"
+          ],
+          "confidence": 1
+        },
+        {
+          "criterion": "Statistics calculation tasks are included",
+          "index": 5,
+          "satisfied": true,
+          "reasoning": "Statistics calculation task (05-statistics.md) is fully defined with: vacancy rate calculation, rental rate calculation, usage distribution, HouseStatsVO definition, and dedicated API endpoint GET /asset/house/stats.",
+          "evidence": [
+            "ai/tasks/asset-house/05-statistics.md:29-59"
+          ],
+          "confidence": 1
+        },
+        {
+          "criterion": "Frontend list, detail, and form tasks are included",
+          "index": 6,
+          "satisfied": true,
+          "reasoning": "All frontend tasks are included: 06-frontend-list.md covers list page with search, table, pagination; 07-frontend-detail.md covers detail drawer with tabs for info/maintenance/attachments; 08-frontend-form.md covers create/edit form with sections and validation.",
+          "evidence": [
+            "ai/tasks/asset-house/06-frontend-list.md:28-61",
+            "ai/tasks/asset-house/07-frontend-detail.md:28-61",
+            "ai/tasks/asset-house/08-frontend-form.md:28-86"
+          ],
+          "confidence": 1
+        }
+      ],
+      "verdict": "pass",
+      "verifiedBy": "claude",
+      "overallReasoning": "All 7 acceptance criteria are fully satisfied with high confidence. The asset-house module breakdown includes 8 well-structured task files covering database schema, entity, service, controller, statistics, and 3 frontend components (list, detail, form). Each task has specific testable acceptance criteria with detailed requirements. Dependencies on core module components are properly defined. The database schema includes the complete t_asset_house extension table design. Service and controller tasks cover all CRUD operations plus house-specific features like copy and statistics. Frontend tasks comprehensively cover the list page, detail drawer, and form component with Vue/Element UI specifications.",
+      "suggestions": [
+        "Consider adding integration test requirements to the testRequirements section for backend tasks",
+        "The frontend tasks could benefit from explicit mobile responsiveness criteria",
+        "Consider adding a task for house asset import functionality (Excel import)"
+      ],
+      "codeQualityNotes": [
+        "Good use of YAML frontmatter for structured metadata",
+        "Consistent task ID naming convention (module.feature-name)",
+        "Dependencies are properly ordered to ensure correct implementation sequence",
+        "Test requirements are specified with appropriate patterns"
+      ],
+      "relatedFilesAnalyzed": []
+    },
+    "asset-parking.BREAKDOWN": {
+      "featureId": "asset-parking.BREAKDOWN",
+      "timestamp": "2025-12-15T08:08:12.110Z",
+      "commitHash": "unknown",
+      "changedFiles": [],
+      "diffSummary": "0 files changed",
+      "automatedChecks": [],
+      "criteriaResults": [
+        {
+          "criterion": "All fine-grained implementation tasks are created in ai/tasks/asset-parking/",
+          "index": 0,
+          "satisfied": true,
+          "reasoning": "All fine-grained implementation tasks are created in ai/tasks/asset-parking/. Found 8 task files: 01-database-schema.md, 02-entity.md, 03-service.md, 04-controller.md, 05-statistics.md, 06-frontend-list.md, 07-frontend-detail.md, 08-frontend-form.md",
+          "evidence": [
+            "ai/tasks/asset-parking/01-database-schema.md",
+            "ai/tasks/asset-parking/02-entity.md",
+            "ai/tasks/asset-parking/03-service.md",
+            "ai/tasks/asset-parking/04-controller.md",
+            "ai/tasks/asset-parking/05-statistics.md",
+            "ai/tasks/asset-parking/06-frontend-list.md",
+            "ai/tasks/asset-parking/07-frontend-detail.md",
+            "ai/tasks/asset-parking/08-frontend-form.md"
+          ],
+          "confidence": 1
+        },
+        {
+          "criterion": "Each task has specific, testable acceptance criteria",
+          "index": 1,
+          "satisfied": true,
+          "reasoning": "Each task has specific, testable acceptance criteria with numbered items. For example: database-schema has 4 criteria (table creation, FK constraint, SQL file, dictionary entries); entity has 5 criteria (entity class, mapper, XML, DTOs, compilation); service has 5 criteria (interface, impl, create/update/delete operations); controller has 4 criteria (class, endpoints, logging, data scope); statistics has 6 criteria (methods, calculations, VOs, API endpoint, tests); frontend tasks each have 4-5 criteria.",
+          "evidence": [
+            "ai/tasks/asset-parking/01-database-schema.md:26-43",
+            "ai/tasks/asset-parking/02-entity.md:27-43",
+            "ai/tasks/asset-parking/03-service.md:30-51",
+            "ai/tasks/asset-parking/04-controller.md:26-53",
+            "ai/tasks/asset-parking/05-statistics.md:28-53"
+          ],
+          "confidence": 0.95
+        },
+        {
+          "criterion": "Task dependencies on core module are correctly defined",
+          "index": 2,
+          "satisfied": true,
+          "reasoning": "Task dependencies on core module are correctly defined. database-schema depends on core.database-schema; entity depends on asset-parking.database-schema and core.asset-entity; service depends on asset-parking.entity and core.base-service; controller depends on asset-parking.service; statistics depends on asset-parking.service; frontend tasks depend on asset-parking.controller",
+          "evidence": [
+            "ai/tasks/asset-parking/01-database-schema.md:8-9",
+            "ai/tasks/asset-parking/02-entity.md:8-10",
+            "ai/tasks/asset-parking/03-service.md:8-10",
+            "ai/tasks/asset-parking/04-controller.md:8-9",
+            "ai/tasks/asset-parking/05-statistics.md:8-9"
+          ],
+          "confidence": 1
+        },
+        {
+          "criterion": "Database schema for extension table is included",
+          "index": 3,
+          "satisfied": true,
+          "reasoning": "Database schema for extension table is included in 01-database-schema.md with detailed field specifications including asset_id (PK/FK), parking_no, parking_zone, parking_type, area, current_user, plate_no, rent_price, contract_no. Also includes FK constraint requirement and dictionary entries for parking_type and parking_zone.",
+          "evidence": [
+            "ai/tasks/asset-parking/01-database-schema.md:26-44"
+          ],
+          "confidence": 1
+        },
+        {
+          "criterion": "Parking-specific service and controller tasks are included",
+          "index": 4,
+          "satisfied": true,
+          "reasoning": "Parking-specific service task (03-service.md) and controller task (04-controller.md) are included with detailed acceptance criteria. Service includes interface definition, implementation class, CRUD operations with transaction handling. Controller includes REST endpoints (list, get, create, update, delete, export) with permission annotations.",
+          "evidence": [
+            "ai/tasks/asset-parking/03-service.md:1-55",
+            "ai/tasks/asset-parking/04-controller.md:1-57"
+          ],
+          "confidence": 1
+        },
+        {
+          "criterion": "Statistics calculation tasks are included",
+          "index": 5,
+          "satisfied": true,
+          "reasoning": "Statistics calculation task (05-statistics.md) is included with detailed criteria: getStats and getStatsByZone methods, calculation formulas for total/self-use/rented/idle counts and utilization rate, ParkingStatsVO and ZoneStatsVO definitions, API endpoint /asset/parking/stats, and unit test requirement.",
+          "evidence": [
+            "ai/tasks/asset-parking/05-statistics.md:1-57"
+          ],
+          "confidence": 1
+        },
+        {
+          "criterion": "Frontend list, detail, and form tasks are included",
+          "index": 6,
+          "satisfied": true,
+          "reasoning": "Frontend list (06-frontend-list.md), detail (07-frontend-detail.md), and form (08-frontend-form.md) tasks are all included. List page includes API file, page component with search/action bar/data table. Detail drawer includes 3 tabs (basic info, maintenance records, attachments). Form component includes grouped sections for basic info, parking details, usage info, and attachments.",
+          "evidence": [
+            "ai/tasks/asset-parking/06-frontend-list.md:1-53",
+            "ai/tasks/asset-parking/07-frontend-detail.md:1-54",
+            "ai/tasks/asset-parking/08-frontend-form.md:1-64"
+          ],
+          "confidence": 1
+        }
+      ],
+      "verdict": "pass",
+      "verifiedBy": "claude",
+      "overallReasoning": "All 7 acceptance criteria are fully satisfied. The ai/tasks/asset-parking/ directory contains 8 well-structured task files covering the complete parking asset module implementation: database schema, entity/mapper, service, controller, statistics, and 3 frontend components (list, detail, form). Each task has specific, numbered acceptance criteria that are testable. Dependencies are correctly defined with core module tasks (core.database-schema, core.asset-entity, core.base-service) and sequential dependencies within the module. The index.json is also properly updated with all 8 tasks registered with correct priorities (301-308), status (failing), and file paths.",
+      "suggestions": [
+        "Consider adding integration test requirements for the controller endpoints",
+        "The statistics task could benefit from specifying caching strategy for performance"
+      ],
+      "codeQualityNotes": [
+        "Good use of consistent task structure across all files",
+        "Clear separation of concerns with database -> entity -> service -> controller flow",
+        "Dependencies are logically organized with both core module and intra-module dependencies",
+        "Test requirements are appropriately specified with unit tests for service/statistics and e2e for frontend"
+      ],
+      "relatedFilesAnalyzed": []
+    },
+    "asset-facility.BREAKDOWN": {
+      "featureId": "asset-facility.BREAKDOWN",
+      "timestamp": "2025-12-15T08:18:13.000Z",
+      "commitHash": "unknown",
+      "changedFiles": [],
+      "diffSummary": "0 files changed",
+      "automatedChecks": [],
+      "criteriaResults": [
+        {
+          "criterion": "All fine-grained implementation tasks are created in ai/tasks/asset-facility/",
+          "index": 0,
+          "satisfied": true,
+          "reasoning": "All fine-grained implementation tasks are created in ai/tasks/asset-facility/. Found 8 task files: 01-database-schema.md, 02-entity.md, 03-service.md, 04-controller.md, 05-warranty-alert.md, 06-frontend-list.md, 07-frontend-detail.md, 08-frontend-form.md",
+          "evidence": [
+            "ai/tasks/asset-facility/01-database-schema.md",
+            "ai/tasks/asset-facility/02-entity.md",
+            "ai/tasks/asset-facility/03-service.md",
+            "ai/tasks/asset-facility/04-controller.md",
+            "ai/tasks/asset-facility/05-warranty-alert.md",
+            "ai/tasks/asset-facility/06-frontend-list.md",
+            "ai/tasks/asset-facility/07-frontend-detail.md",
+            "ai/tasks/asset-facility/08-frontend-form.md"
+          ],
+          "confidence": 1
+        },
+        {
+          "criterion": "Each task has specific, testable acceptance criteria",
+          "index": 1,
+          "satisfied": true,
+          "reasoning": "Each task has specific, testable acceptance criteria. The database-schema task has 4 criteria with specific table fields. The entity task has 5 criteria with specific classes. The service task has 4 criteria with specific methods. The controller task has 6 criteria with specific endpoints. The warranty-alert task has 4 criteria. The frontend tasks each have 4-5 criteria with specific UI elements and functionality.",
+          "evidence": [
+            "ai/tasks/asset-facility/01-database-schema.md:26-47 (4 testable criteria)",
+            "ai/tasks/asset-facility/02-entity.md:27-46 (5 testable criteria)",
+            "ai/tasks/asset-facility/03-service.md:27-46 (4 testable criteria)",
+            "ai/tasks/asset-facility/04-controller.md:27-49 (6 testable criteria)",
+            "ai/tasks/asset-facility/05-warranty-alert.md:26-41 (4 testable criteria)",
+            "ai/tasks/asset-facility/06-frontend-list.md:28-50 (5 testable criteria)",
+            "ai/tasks/asset-facility/07-frontend-detail.md:28-53 (4 testable criteria)",
+            "ai/tasks/asset-facility/08-frontend-form.md:28-63 (4 testable criteria)"
+          ],
+          "confidence": 0.95
+        },
+        {
+          "criterion": "Task dependencies on core module are correctly defined",
+          "index": 2,
+          "satisfied": true,
+          "reasoning": "Task dependencies on core module are correctly defined. The database-schema task depends on core.database-schema. The entity task depends on asset-facility.database-schema and core.asset-entity. The service task depends on asset-facility.entity and core.base-service. The controller depends on asset-facility.service. Frontend tasks depend on the controller. All dependencies follow logical order.",
+          "evidence": [
+            "ai/tasks/asset-facility/01-database-schema.md:8-9 (dependsOn: core.database-schema)",
+            "ai/tasks/asset-facility/02-entity.md:8-10 (dependsOn: asset-facility.database-schema, core.asset-entity)",
+            "ai/tasks/asset-facility/03-service.md:8-10 (dependsOn: asset-facility.entity, core.base-service)",
+            "ai/tasks/asset-facility/04-controller.md:8-9 (dependsOn: asset-facility.service)",
+            "ai/tasks/asset-facility/BREAKDOWN.md:8-9 (dependsOn: core.BREAKDOWN)"
+          ],
+          "confidence": 0.95
+        },
+        {
+          "criterion": "Database schema for extension table is included",
+          "index": 3,
+          "satisfied": true,
+          "reasoning": "Database schema for extension table is included in 01-database-schema.md task. It specifies t_asset_facility table with all facility-specific fields: asset_id, facility_type, device_code, install_location, maintenance_org, maintenance_phone, warranty_expire_date. Also includes FK constraint and dictionary entries for facility types.",
+          "evidence": [
+            "ai/tasks/asset-facility/01-database-schema.md:26-34 (table structure with 7 fields)",
+            "ai/tasks/asset-facility/01-database-schema.md:35 (FK constraint)",
+            "ai/tasks/asset-facility/01-database-schema.md:37 (migration file location)",
+            "ai/tasks/asset-facility/01-database-schema.md:39-47 (dictionary entries for 8 facility types)"
+          ],
+          "confidence": 1
+        },
+        {
+          "criterion": "Facility-specific service and controller tasks are included",
+          "index": 4,
+          "satisfied": true,
+          "reasoning": "Facility-specific service and controller tasks are included. 03-service.md defines IAssetFacilityService interface with list, getById, create, update, delete, export methods plus transactional operations. 04-controller.md defines REST API with all CRUD endpoints. 05-warranty-alert.md adds facility-specific warranty tracking feature.",
+          "evidence": [
+            "ai/tasks/asset-facility/03-service.md (complete service layer task)",
+            "ai/tasks/asset-facility/04-controller.md (complete controller task)",
+            "ai/tasks/asset-facility/05-warranty-alert.md (facility-specific warranty feature)"
+          ],
+          "confidence": 1
+        },
+        {
+          "criterion": "Frontend list, detail, and form tasks are included",
+          "index": 5,
+          "satisfied": true,
+          "reasoning": "Frontend list, detail, and form tasks are all included. 06-frontend-list.md defines the list page with search, data table, status filters. 07-frontend-detail.md defines detail drawer with 3 tabs (Basic Info, Maintenance Records, Attachments). 08-frontend-form.md defines create/edit form with all sections.",
+          "evidence": [
+            "ai/tasks/asset-facility/06-frontend-list.md (list page with table, filters, actions)",
+            "ai/tasks/asset-facility/07-frontend-detail.md (detail drawer with tabs)",
+            "ai/tasks/asset-facility/08-frontend-form.md (form component with validation)"
+          ],
+          "confidence": 1
+        }
+      ],
+      "verdict": "pass",
+      "verifiedBy": "claude",
+      "overallReasoning": "All 6 acceptance criteria are fully satisfied. The asset-facility module has 8 well-structured implementation tasks created in ai/tasks/asset-facility/. Each task has specific, testable acceptance criteria with clear requirements. Dependencies on core module tasks are correctly defined (core.database-schema, core.asset-entity, core.base-service). The database schema task includes complete extension table design with all fields, FK constraints, and dictionary entries. Backend service and controller tasks cover all CRUD operations plus facility-specific warranty alerts. Frontend tasks cover list page, detail drawer, and form component with full specifications.",
+      "suggestions": [
+        "Consider adding integration test task for the complete facility asset workflow",
+        "The warranty-alert task could be expanded to include notification/email alerts in future iterations",
+        "Consider adding a statistics task similar to asset-house.statistics for facility utilization metrics"
+      ],
+      "codeQualityNotes": [
+        "Good task structure following established patterns from asset-house module",
+        "Clear dependency chain: database -> entity -> service -> controller -> frontend",
+        "Consistent use of testRequirements patterns for both unit and e2e tests",
+        "Well-documented acceptance criteria with specific field names, method signatures, and UI elements"
+      ],
+      "relatedFilesAnalyzed": []
+    },
+    "asset-venue.BREAKDOWN": {
+      "featureId": "asset-venue.BREAKDOWN",
+      "timestamp": "2025-12-15T08:21:31.165Z",
+      "commitHash": "unknown",
+      "changedFiles": [],
+      "diffSummary": "0 files changed",
+      "automatedChecks": [],
+      "criteriaResults": [
+        {
+          "criterion": "All fine-grained implementation tasks are created in ai/tasks/asset-venue/",
+          "index": 0,
+          "satisfied": true,
+          "reasoning": "All fine-grained implementation tasks are created in ai/tasks/asset-venue/. There are 7 implementation task files: 01-database-schema.md, 02-entity.md, 03-service.md, 04-controller.md, 05-frontend-list.md, 06-frontend-detail.md, and 07-frontend-form.md",
+          "evidence": [
+            "ai/tasks/asset-venue/01-database-schema.md",
+            "ai/tasks/asset-venue/02-entity.md",
+            "ai/tasks/asset-venue/03-service.md",
+            "ai/tasks/asset-venue/04-controller.md",
+            "ai/tasks/asset-venue/05-frontend-list.md",
+            "ai/tasks/asset-venue/06-frontend-detail.md",
+            "ai/tasks/asset-venue/07-frontend-form.md"
+          ],
+          "confidence": 1
+        },
+        {
+          "criterion": "Each task has specific, testable acceptance criteria",
+          "index": 1,
+          "satisfied": true,
+          "reasoning": "Each task has specific, testable acceptance criteria. For example: database-schema task has 4 criteria including specific table structure and dictionary entries; entity task has 5 criteria for entity, mapper, XML, and DTO classes; service task has 4 criteria for interface methods and implementation; controller task has 6 criteria for endpoints and permissions; frontend tasks have detailed criteria for components, forms, and behaviors",
+          "evidence": [
+            "ai/tasks/asset-venue/01-database-schema.md:26-41",
+            "ai/tasks/asset-venue/02-entity.md:27-46",
+            "ai/tasks/asset-venue/03-service.md:27-44",
+            "ai/tasks/asset-venue/04-controller.md:29-49",
+            "ai/tasks/asset-venue/05-frontend-list.md:28-48",
+            "ai/tasks/asset-venue/06-frontend-detail.md:28-52",
+            "ai/tasks/asset-venue/07-frontend-form.md:28-59"
+          ],
+          "confidence": 0.95
+        },
+        {
+          "criterion": "Task dependencies on core module are correctly defined",
+          "index": 2,
+          "satisfied": true,
+          "reasoning": "Task dependencies on core module are correctly defined. database-schema depends on core.database-schema; entity depends on asset-venue.database-schema and core.asset-entity; service depends on asset-venue.entity and core.base-service; controller depends on asset-venue.service; frontend tasks chain correctly with frontend-list depending on controller, and detail/form depending on frontend-list",
+          "evidence": [
+            "ai/tasks/asset-venue/01-database-schema.md:8-9 (dependsOn: core.database-schema)",
+            "ai/tasks/asset-venue/02-entity.md:8-10 (dependsOn: asset-venue.database-schema, core.asset-entity)",
+            "ai/tasks/asset-venue/03-service.md:8-10 (dependsOn: asset-venue.entity, core.base-service)",
+            "ai/tasks/asset-venue/04-controller.md:8-9 (dependsOn: asset-venue.service)"
+          ],
+          "confidence": 0.98
+        },
+        {
+          "criterion": "Database schema for extension table is included",
+          "index": 3,
+          "satisfied": true,
+          "reasoning": "Database schema for extension table is included in 01-database-schema.md with detailed field specifications including asset_id (PK/FK), venue_type, capacity, usage_mode, open_time_desc, and availability_status. Foreign key constraint and SQL migration file location are specified. Dictionary entries for venue_type, usage_mode, and availability_status are defined",
+          "evidence": [
+            "ai/tasks/asset-venue/01-database-schema.md:26-41"
+          ],
+          "confidence": 0.98
+        },
+        {
+          "criterion": "Venue-specific service and controller tasks are included",
+          "index": 4,
+          "satisfied": true,
+          "reasoning": "Venue-specific service and controller tasks are included. Service task (03-service.md) defines IAssetVenueService interface with CRUD methods and AssetVenueServiceImpl with transactional operations. Controller task (04-controller.md) defines AssetVenueController with REST endpoints at /api/asset/venue including list, get, create, update, delete, and export operations with proper RuoYi permission annotations",
+          "evidence": [
+            "ai/tasks/asset-venue/03-service.md:27-44",
+            "ai/tasks/asset-venue/04-controller.md:26-49"
+          ],
+          "confidence": 0.98
+        },
+        {
+          "criterion": "Frontend list, detail, and form tasks are included",
+          "index": 5,
+          "satisfied": true,
+          "reasoning": "Frontend list, detail, and form tasks are included. 05-frontend-list.md defines the list page with API file, search bar, action bar, data table, and status filter tabs. 06-frontend-detail.md defines a detail drawer with 3 tabs (Basic Info, Maintenance Records, Attachments) and availability badges. 07-frontend-form.md defines a form component with Basic Information, Location, Venue Details, and Attachments sections with validation rules",
+          "evidence": [
+            "ai/tasks/asset-venue/05-frontend-list.md:28-48",
+            "ai/tasks/asset-venue/06-frontend-detail.md:28-52",
+            "ai/tasks/asset-venue/07-frontend-form.md:28-59"
+          ],
+          "confidence": 0.98
+        }
+      ],
+      "verdict": "pass",
+      "verifiedBy": "claude",
+      "overallReasoning": "All 6 acceptance criteria are fully satisfied. The asset-venue module has been properly broken down into 7 fine-grained implementation tasks (database-schema, entity, service, controller, frontend-list, frontend-detail, frontend-form). Each task has specific, testable acceptance criteria with detailed field specifications, API endpoints, UI components, and validation rules. Dependencies on core module tasks are correctly defined with proper dependency chains. The tasks are properly registered in ai/tasks/index.json with appropriate priorities (501-507) and file path references.",
+      "suggestions": [
+        "Consider adding an explicit 'statistics' task similar to asset-house and asset-parking modules if venue utilization metrics are needed",
+        "The testRequirements patterns could be more specific (e.g., tests/asset-venue/database-schema.test.ts) rather than generic glob patterns"
+      ],
+      "codeQualityNotes": [
+        "Good task structure following the established pattern from other asset modules (house, parking, facility)",
+        "Clear dependency chain from database → entity → service → controller → frontend",
+        "Proper use of YAML frontmatter with all required fields (id, module, priority, status, version, origin, dependsOn, tags, testRequirements)",
+        "Detailed technical notes referencing related tasks for consistency"
+      ],
+      "relatedFilesAnalyzed": []
+    },
+    "asset-office.BREAKDOWN": {
+      "featureId": "asset-office.BREAKDOWN",
+      "timestamp": "2025-12-15T08:24:46.844Z",
+      "commitHash": "unknown",
+      "changedFiles": [],
+      "diffSummary": "0 files changed",
+      "automatedChecks": [],
+      "criteriaResults": [
+        {
+          "criterion": "All fine-grained implementation tasks are created in ai/tasks/asset-office/",
+          "index": 0,
+          "satisfied": true,
+          "reasoning": "Fine-grained implementation tasks exist in ai/tasks/asset-office/ directory: 01-database-schema.md, 02-entity.md, 03-service.md, 04-controller.md, 05-frontend-list.md, 06-frontend-detail.md, and 07-frontend-form.md. Each file contains detailed task definitions.",
+          "evidence": [
+            "ai/tasks/asset-office/01-database-schema.md",
+            "ai/tasks/asset-office/02-entity.md",
+            "ai/tasks/asset-office/03-service.md",
+            "ai/tasks/asset-office/04-controller.md",
+            "ai/tasks/asset-office/05-frontend-list.md",
+            "ai/tasks/asset-office/06-frontend-detail.md",
+            "ai/tasks/asset-office/07-frontend-form.md"
+          ],
+          "confidence": 1
+        },
+        {
+          "criterion": "Each task has specific, testable acceptance criteria",
+          "index": 1,
+          "satisfied": true,
+          "reasoning": "Each task file has specific, testable acceptance criteria. For example, 01-database-schema.md has 4 criteria including table fields, foreign key, migration file location, and dictionary entries. 02-entity.md has 5 criteria covering entity class, mapper interface, XML file, DTOs, and compilation. 03-service.md has 4 criteria for service interface, implementation, query filters, and error handling. All criteria are concrete and verifiable.",
+          "evidence": [
+            "ai/tasks/asset-office/01-database-schema.md:26-41",
+            "ai/tasks/asset-office/02-entity.md:26-46",
+            "ai/tasks/asset-office/03-service.md:26-46",
+            "ai/tasks/asset-office/04-controller.md:26-49",
+            "ai/tasks/asset-office/05-frontend-list.md:26-47",
+            "ai/tasks/asset-office/06-frontend-detail.md:26-49",
+            "ai/tasks/asset-office/07-frontend-form.md:26-61"
+          ],
+          "confidence": 0.95
+        },
+        {
+          "criterion": "Task dependencies on core module are correctly defined",
+          "index": 2,
+          "satisfied": true,
+          "reasoning": "Task dependencies on core module are correctly defined in the dependsOn field. 01-database-schema depends on core.database-schema. 02-entity depends on asset-office.database-schema AND core.asset-entity. 03-service depends on asset-office.entity AND core.base-service. The dependency chain properly references core module tasks.",
+          "evidence": [
+            "ai/tasks/asset-office/01-database-schema.md:8-9",
+            "ai/tasks/asset-office/02-entity.md:8-10",
+            "ai/tasks/asset-office/03-service.md:8-10"
+          ],
+          "confidence": 0.98
+        },
+        {
+          "criterion": "Database schema for extension table is included",
+          "index": 3,
+          "satisfied": true,
+          "reasoning": "Database schema task (01-database-schema.md) defines the t_asset_office extension table with all required fields: asset_id (PK/FK), office_type, serial_number, configuration, use_department, user_name. Foreign key constraint and SQL migration file location are specified.",
+          "evidence": [
+            "ai/tasks/asset-office/01-database-schema.md:26-36"
+          ],
+          "confidence": 0.98
+        },
+        {
+          "criterion": "Office-specific service and controller tasks are included",
+          "index": 4,
+          "satisfied": true,
+          "reasoning": "Office-specific service task (03-service.md) defines IAssetOfficeService interface and AssetOfficeServiceImpl with CRUD operations, transactional behavior, and query filters. Controller task (04-controller.md) defines AssetOfficeController with REST endpoints, permission annotations, audit logging, and validation.",
+          "evidence": [
+            "ai/tasks/asset-office/03-service.md:26-46",
+            "ai/tasks/asset-office/04-controller.md:26-49"
+          ],
+          "confidence": 0.98
+        },
+        {
+          "criterion": "Frontend list, detail, and form tasks are included",
+          "index": 5,
+          "satisfied": true,
+          "reasoning": "Frontend tasks are included: 05-frontend-list.md covers API file and list page with search, table, and actions. 06-frontend-detail.md covers detail drawer with 3 tabs (Basic Info, Maintenance Records, Attachments). 07-frontend-form.md covers create/edit form with grouped sections and validation.",
+          "evidence": [
+            "ai/tasks/asset-office/05-frontend-list.md:26-47",
+            "ai/tasks/asset-office/06-frontend-detail.md:26-49",
+            "ai/tasks/asset-office/07-frontend-form.md:26-61"
+          ],
+          "confidence": 0.98
+        }
+      ],
+      "verdict": "pass",
+      "verifiedBy": "claude",
+      "overallReasoning": "All 6 acceptance criteria are fully satisfied. The ai/tasks/asset-office/ directory contains 7 well-structured task files (01-database-schema.md through 07-frontend-form.md) with specific, testable acceptance criteria. Dependencies on core module are correctly defined (core.database-schema, core.asset-entity, core.base-service). The database schema task includes the extension table definition. Service and controller tasks are included. Frontend list, detail, and form tasks are all present with detailed specifications. The task breakdown follows the same pattern as other asset modules (house, parking, facility, venue) ensuring consistency.",
+      "suggestions": [
+        "Consider adding an optional statistics task (similar to asset-house.statistics) for tracking office asset usage metrics",
+        "The index.json uses global priority numbers (601-607) but task files use local priorities (1-7). Ensure consistency or document this intentional design choice."
+      ],
+      "codeQualityNotes": [
+        "Good use of consistent task structure across all asset modules",
+        "Dependencies are properly chained (schema → entity → service → controller → frontend)",
+        "Each task includes testRequirements with appropriate patterns for backend vs frontend tasks",
+        "Technical notes reference related tasks and documentation for implementation guidance"
+      ],
+      "relatedFilesAnalyzed": []
+    },
+    "maintenance.BREAKDOWN": {
+      "featureId": "maintenance.BREAKDOWN",
+      "timestamp": "2025-12-15T08:29:06.594Z",
+      "commitHash": "unknown",
+      "changedFiles": [],
+      "diffSummary": "0 files changed",
+      "automatedChecks": [],
+      "criteriaResults": [
+        {
+          "criterion": "All fine-grained implementation tasks are created in ai/tasks/maintenance/",
+          "index": 0,
+          "satisfied": true,
+          "reasoning": "All fine-grained implementation tasks are created in ai/tasks/maintenance/ directory. Found 10 task files: BREAKDOWN.md, 01-database-schema.md, 02-entity.md, 03-status-enum.md, 04-order-number-generator.md, 05-status-linkage-service.md, 06-order-service.md, 07-controller.md, 08-frontend-list.md, 09-frontend-detail.md, 10-frontend-form.md",
+          "evidence": [
+            "ai/tasks/maintenance/01-database-schema.md",
+            "ai/tasks/maintenance/02-entity.md",
+            "ai/tasks/maintenance/03-status-enum.md",
+            "ai/tasks/maintenance/04-order-number-generator.md",
+            "ai/tasks/maintenance/05-status-linkage-service.md",
+            "ai/tasks/maintenance/06-order-service.md",
+            "ai/tasks/maintenance/07-controller.md",
+            "ai/tasks/maintenance/08-frontend-list.md",
+            "ai/tasks/maintenance/09-frontend-detail.md",
+            "ai/tasks/maintenance/10-frontend-form.md"
+          ],
+          "confidence": 1
+        },
+        {
+          "criterion": "Each task has specific, testable acceptance criteria",
+          "index": 1,
+          "satisfied": true,
+          "reasoning": "Each task file has specific, testable acceptance criteria. For example: 01-database-schema.md has 5 numbered criteria specifying exact table structures and fields; 02-entity.md has 7 numbered criteria for entities and mappers; 03-status-enum.md has 4 numbered criteria including the 6 states and transition rules; 04-order-number-generator.md has 5 numbered criteria with format specification WO-YYYYMMDD-NNN; 05-status-linkage-service.md has 5 numbered criteria covering linkage logic; frontend tasks have numbered criteria specifying UI components and behaviors.",
+          "evidence": [
+            "ai/tasks/maintenance/01-database-schema.md:24-69",
+            "ai/tasks/maintenance/02-entity.md:24-57",
+            "ai/tasks/maintenance/03-status-enum.md:26-52",
+            "ai/tasks/maintenance/04-order-number-generator.md:26-48",
+            "ai/tasks/maintenance/05-status-linkage-service.md:26-52",
+            "ai/tasks/maintenance/08-frontend-list.md:28-62",
+            "ai/tasks/maintenance/09-frontend-detail.md:28-58"
+          ],
+          "confidence": 0.95
+        },
+        {
+          "criterion": "Task dependencies on core module are correctly defined",
+          "index": 2,
+          "satisfied": true,
+          "reasoning": "Task dependencies on core module are correctly defined. BREAKDOWN.md depends on core.BREAKDOWN. 01-database-schema.md depends on core.database-schema. 05-status-linkage-service.md depends on maintenance.status-enum AND core.status-service (for asset status changes). 06-order-service.md has internal dependencies on maintenance components but references core delete block rules.",
+          "evidence": [
+            "ai/tasks/maintenance/BREAKDOWN.md:8-9",
+            "ai/tasks/maintenance/01-database-schema.md:8-9",
+            "ai/tasks/maintenance/05-status-linkage-service.md:8-10"
+          ],
+          "confidence": 0.95
+        },
+        {
+          "criterion": "Database schema for work order and log tables is included",
+          "index": 3,
+          "satisfied": true,
+          "reasoning": "Database schema for work order and log tables is fully defined in 01-database-schema.md. Includes t_asset_maint_order (26 fields listed), t_asset_maint_log (8 fields listed), t_asset_maint_order_seq (for number generation), and 4 indexes specified.",
+          "evidence": [
+            "ai/tasks/maintenance/01-database-schema.md:26-67"
+          ],
+          "confidence": 1
+        },
+        {
+          "criterion": "Work order number generator task is included",
+          "index": 4,
+          "satisfied": true,
+          "reasoning": "Work order number generator task is included as 04-order-number-generator.md with format WO-YYYYMMDD-NNN, optimistic locking implementation, date rollover handling, and retry logic for concurrent generation.",
+          "evidence": [
+            "ai/tasks/maintenance/04-order-number-generator.md:1-54"
+          ],
+          "confidence": 1
+        },
+        {
+          "criterion": "6-state status machine with validation is included",
+          "index": 5,
+          "satisfied": true,
+          "reasoning": "6-state status machine with validation is included in 03-status-enum.md. States defined: WAIT_ASSIGN, WAIT_ACCEPT, PROCESSING, WAIT_CONFIRM, CLOSED, CANCELED. Transition rules are fully specified including MaintOrderStatusMachine class with canTransition, getNextAllowedStatuses, and isTerminal methods.",
+          "evidence": [
+            "ai/tasks/maintenance/03-status-enum.md:26-52"
+          ],
+          "confidence": 1
+        },
+        {
+          "criterion": "Status linkage service tasks are included",
+          "index": 6,
+          "satisfied": true,
+          "reasoning": "Status linkage service task is included as 05-status-linkage-service.md. Covers: onWorkOrderCreated with optional linkAssetStatus checkbox, onWorkOrderCompleted for restoration, onWorkOrderCanceled for rollback, status restoration logic, and edge case handling (multiple open WOs, deleted assets).",
+          "evidence": [
+            "ai/tasks/maintenance/05-status-linkage-service.md:1-57"
+          ],
+          "confidence": 1
+        },
+        {
+          "criterion": "Frontend list, detail, timeline, and action panel tasks are included",
+          "index": 7,
+          "satisfied": true,
+          "reasoning": "Frontend tasks are included: 08-frontend-list.md (list page with view tabs, filters, status badges), 09-frontend-detail.md (detail page with status timeline, info panel, action panel with dynamic buttons), 10-frontend-form.md (create form with asset selection, fault type, status linkage checkbox). All required UI elements are specified.",
+          "evidence": [
+            "ai/tasks/maintenance/08-frontend-list.md:1-66",
+            "ai/tasks/maintenance/09-frontend-detail.md:1-63",
+            "ai/tasks/maintenance/10-frontend-form.md:1-60"
+          ],
+          "confidence": 0.95
+        }
+      ],
+      "verdict": "pass",
+      "verifiedBy": "claude",
+      "overallReasoning": "All 8 acceptance criteria are satisfied with high confidence. The maintenance module breakdown has been properly implemented with 10 fine-grained task files covering database schema, entities, 6-state status enum, work order number generator, status linkage service, order service, REST controller, and frontend components (list, detail, form). Each task has specific, testable acceptance criteria with detailed field lists, validation rules, and UI specifications. Dependencies on core module are correctly established where needed.",
+      "suggestions": [
+        "Consider adding a maintenance.frontend-action-dialogs.md task to specifically break out the action dialogs (assignment modal, completion form, verification form) mentioned in frontend-detail.md for better granularity",
+        "The testRequirements patterns could be more specific (e.g., tests/maintenance/order-service.test.* instead of generic tests/maintenance/**/*)",
+        "Consider adding an integration test task for the full work order lifecycle end-to-end flow"
+      ],
+      "codeQualityNotes": [
+        "Good use of numbered prefixes (01-, 02-, etc.) for task ordering",
+        "Consistent frontmatter schema across all task files",
+        "Well-defined dependency chains between tasks",
+        "Technical notes reference PRD and spec documents appropriately",
+        "Status linkage service properly depends on core.status-service for asset status management"
+      ],
+      "relatedFilesAnalyzed": []
+    },
+    "import.BREAKDOWN": {
+      "featureId": "import.BREAKDOWN",
+      "timestamp": "2025-12-15T08:32:36.360Z",
+      "commitHash": "unknown",
+      "changedFiles": [],
+      "diffSummary": "0 files changed",
+      "automatedChecks": [],
+      "criteriaResults": [
+        {
+          "criterion": "All fine-grained implementation tasks are created in ai/tasks/import/",
+          "index": 0,
+          "satisfied": true,
+          "reasoning": "Six fine-grained implementation tasks are created in ai/tasks/import/: 01-excel-parser-service.md, 02-row-validator-service.md, 03-asset-import-service.md, 04-template-generator.md, 05-controller.md, and 06-frontend-modal.md. All files exist and are properly structured.",
+          "evidence": [
+            "ai/tasks/import/01-excel-parser-service.md",
+            "ai/tasks/import/02-row-validator-service.md",
+            "ai/tasks/import/03-asset-import-service.md",
+            "ai/tasks/import/04-template-generator.md",
+            "ai/tasks/import/05-controller.md",
+            "ai/tasks/import/06-frontend-modal.md"
+          ],
+          "confidence": 1
+        },
+        {
+          "criterion": "Each task has specific, testable acceptance criteria",
+          "index": 1,
+          "satisfied": true,
+          "reasoning": "Each task has specific, testable acceptance criteria. For example: excel-parser-service has 5 detailed criteria including EasyExcel dependency, ExcelParserService methods, row classes, error handling, and file size validation. row-validator-service has 6 criteria covering validator, ValidationResult, RowError classes, validation rules, error collection, and non-persistence. All other tasks similarly have 4-6 detailed acceptance criteria with specific implementations expected.",
+          "evidence": [
+            "ai/tasks/import/01-excel-parser-service.md:26-52 (5 criteria)",
+            "ai/tasks/import/02-row-validator-service.md:26-52 (6 criteria)",
+            "ai/tasks/import/03-asset-import-service.md:26-55 (6 criteria)",
+            "ai/tasks/import/04-template-generator.md:26-56 (6 criteria)",
+            "ai/tasks/import/05-controller.md:26-59 (6 criteria)",
+            "ai/tasks/import/06-frontend-modal.md:28-65 (5 criteria)"
+          ],
+          "confidence": 0.95
+        },
+        {
+          "criterion": "Task dependencies on core and asset type modules are correctly defined",
+          "index": 2,
+          "satisfied": true,
+          "reasoning": "Task dependencies are correctly defined. excel-parser-service depends on core.asset-entity. row-validator-service depends on import.excel-parser-service. asset-import-service depends on import.row-validator-service and core.code-generator. template-generator depends on import.excel-parser-service. controller depends on import.asset-import-service and import.template-generator. frontend-modal depends on import.controller. The BREAKDOWN.md itself depends on core.BREAKDOWN and all 5 asset type BREAKDOWN modules.",
+          "evidence": [
+            "ai/tasks/import/01-excel-parser-service.md:8-9 (dependsOn: core.asset-entity)",
+            "ai/tasks/import/02-row-validator-service.md:8-9 (dependsOn: import.excel-parser-service)",
+            "ai/tasks/import/03-asset-import-service.md:8-10 (dependsOn: import.row-validator-service, core.code-generator)",
+            "ai/tasks/import/BREAKDOWN.md:8-14 (dependsOn: core + all 5 asset types)"
+          ],
+          "confidence": 0.95
+        },
+        {
+          "criterion": "Excel parsing and validation service tasks are included",
+          "index": 3,
+          "satisfied": true,
+          "reasoning": "Excel parsing task (01-excel-parser-service.md) covers EasyExcel integration with parseExcel method, row classes with @ExcelProperty annotations, error handling (empty file, invalid format, missing columns, row limit), and file size validation. Validation service task (02-row-validator-service.md) covers ImportRowValidator with validation rules for required fields, data types, dictionary values, location codes, and duplicate detection.",
+          "evidence": [
+            "ai/tasks/import/01-excel-parser-service.md:26-52",
+            "ai/tasks/import/02-row-validator-service.md:26-52"
+          ],
+          "confidence": 0.95
+        },
+        {
+          "criterion": "Template generation tasks for each asset type are included",
+          "index": 4,
+          "satisfied": true,
+          "reasoning": "Template generation task (04-template-generator.md) explicitly covers templates for all 5 asset types: HouseImportTemplate, ParkingImportTemplate, FacilityImportTemplate, VenueImportTemplate, and OfficeImportTemplate. It defines common columns and type-specific columns for each asset type.",
+          "evidence": [
+            "ai/tasks/import/04-template-generator.md:31-52 (lists all 5 template classes and type-specific columns)"
+          ],
+          "confidence": 1
+        },
+        {
+          "criterion": "Import result and error reporting tasks are included",
+          "index": 5,
+          "satisfied": true,
+          "reasoning": "Import result and error reporting are covered in multiple tasks. asset-import-service defines ImportResult with importedCount, skippedCount, errorCount, errors, and importedAssetIds. row-validator-service defines ValidationResult with totalRows, validRows, invalidRows, errors, and validData. RowError class captures rowNumber, column, value, and errorMessage.",
+          "evidence": [
+            "ai/tasks/import/03-asset-import-service.md:31-36 (ImportResult)",
+            "ai/tasks/import/02-row-validator-service.md:31-42 (ValidationResult and RowError)"
+          ],
+          "confidence": 0.95
+        },
+        {
+          "criterion": "Frontend import modal tasks (3-step wizard) are included",
+          "index": 6,
+          "satisfied": true,
+          "reasoning": "Frontend import modal task (06-frontend-modal.md) explicitly implements the 3-step wizard: Step 1 (Download Template), Step 2 (Upload File with validation), and Step 3 (Review Results with import options). It includes el-steps implementation, API file creation, modal component, success state handling, and error handling.",
+          "evidence": [
+            "ai/tasks/import/06-frontend-modal.md:37-56 (3-step wizard specification)",
+            "ai/tasks/import/06-frontend-modal.md:58-65 (success and error handling)"
+          ],
+          "confidence": 1
+        }
+      ],
+      "verdict": "pass",
+      "verifiedBy": "claude",
+      "overallReasoning": "All 7 acceptance criteria for the import.BREAKDOWN feature are satisfied. Six fine-grained implementation tasks have been created in ai/tasks/import/ directory, covering the complete import workflow: Excel parsing (01), row validation (02), asset import service (03), template generation (04), REST controller (05), and frontend modal (06). Each task has detailed, testable acceptance criteria. Dependencies are correctly defined linking to core module and between import tasks. The tasks comprehensively cover Excel parsing, validation services, template generation for all 5 asset types, error reporting via ImportResult/ValidationResult/RowError classes, and the 3-step wizard frontend modal.",
+      "suggestions": [
+        "Consider adding an explicit error export/download task for exporting validation errors to Excel for user review",
+        "Consider adding explicit async/progress tracking for large file imports (the criteria mention <30s for 1000 rows but no progress reporting mechanism is specified beyond the basic progress bar in Step 2)"
+      ],
+      "codeQualityNotes": [
+        "Good separation of concerns: parsing, validation, import, and template generation are separate tasks",
+        "Well-defined data structures: ImportResult, ValidationResult, and RowError provide clear contracts",
+        "Appropriate dependency chain ensuring proper build order",
+        "Good coverage of error scenarios including file validation, row validation, and transaction rollback modes"
+      ],
+      "relatedFilesAnalyzed": []
+    },
+    "dashboard.BREAKDOWN": {
+      "featureId": "dashboard.BREAKDOWN",
+      "timestamp": "2025-12-15T11:35:40.174Z",
+      "commitHash": "unknown",
+      "changedFiles": [],
+      "diffSummary": "0 files changed",
+      "automatedChecks": [],
+      "criteriaResults": [
+        {
+          "criterion": "All fine-grained implementation tasks are created in ai/tasks/dashboard/",
+          "index": 0,
+          "satisfied": true,
+          "reasoning": "6 fine-grained implementation tasks are created in ai/tasks/dashboard/: 01-statistics-service.md, 02-controller.md, 03-frontend-layout.md, 04-kpi-cards.md, 05-charts.md, and 06-refresh-button.md. All tasks are properly registered in ai/tasks/index.json with unique IDs (dashboard.statistics-service, dashboard.controller, dashboard.frontend-layout, dashboard.kpi-cards, dashboard.charts, dashboard.refresh-button).",
+          "evidence": [
+            "ai/tasks/dashboard/01-statistics-service.md",
+            "ai/tasks/dashboard/02-controller.md",
+            "ai/tasks/dashboard/03-frontend-layout.md",
+            "ai/tasks/dashboard/04-kpi-cards.md",
+            "ai/tasks/dashboard/05-charts.md",
+            "ai/tasks/dashboard/06-refresh-button.md",
+            "ai/tasks/index.json:528-568"
+          ],
+          "confidence": 1
+        },
+        {
+          "criterion": "Each task has specific, testable acceptance criteria",
+          "index": 1,
+          "satisfied": true,
+          "reasoning": "Each task has detailed, specific, and testable acceptance criteria. For example: dashboard.statistics-service has 5 numbered criteria with specific interface methods, VO fields, and performance requirements (<2s). dashboard.controller has 5 criteria with specific endpoints, paths, and permission annotations. dashboard.kpi-cards has 4 criteria with specific card implementations, props, and styling requirements. All criteria are measurable and verifiable.",
+          "evidence": [
+            "ai/tasks/dashboard/01-statistics-service.md:29-54",
+            "ai/tasks/dashboard/02-controller.md:29-56",
+            "ai/tasks/dashboard/04-kpi-cards.md:28-65",
+            "ai/tasks/dashboard/05-charts.md:28-61"
+          ],
+          "confidence": 0.95
+        },
+        {
+          "criterion": "Task dependencies on core, asset, and maintenance modules are defined",
+          "index": 2,
+          "satisfied": true,
+          "reasoning": "Task dependencies are properly defined in YAML frontmatter. dashboard.statistics-service depends on core.base-service, asset-house.service, asset-parking.service, maintenance.order-service. dashboard.controller depends on dashboard.statistics-service. Frontend tasks (layout, kpi-cards, charts, refresh-button) depend on dashboard.controller or dashboard.frontend-layout. The BREAKDOWN.md itself depends on core.BREAKDOWN, asset-house.BREAKDOWN, asset-parking.BREAKDOWN, maintenance.BREAKDOWN.",
+          "evidence": [
+            "ai/tasks/dashboard/01-statistics-service.md:8-12",
+            "ai/tasks/dashboard/02-controller.md:8-9",
+            "ai/tasks/dashboard/03-frontend-layout.md:8-9",
+            "ai/tasks/dashboard/BREAKDOWN.md:8-12"
+          ],
+          "confidence": 1
+        },
+        {
+          "criterion": "Statistics service with aggregation queries is included",
+          "index": 3,
+          "satisfied": true,
+          "reasoning": "dashboard.statistics-service (01-statistics-service.md) includes comprehensive aggregation query requirements: IDashboardService interface with getStats, getRecentOrders, getAssetDistribution, getStatusDistribution methods. Specifies aggregation queries using SQL COUNT/SUM, mapper methods for countByStatus, countByType, sumAssets, and performance requirement of <2s.",
+          "evidence": [
+            "ai/tasks/dashboard/01-statistics-service.md:29-54"
+          ],
+          "confidence": 1
+        },
+        {
+          "criterion": "Role-based dashboard layout tasks are included",
+          "index": 4,
+          "satisfied": true,
+          "reasoning": "dashboard.frontend-layout (03-frontend-layout.md) includes 3 role-based layout variants: Management/Operations Layout (KPI cards, charts, recent activity), Maintenance Staff Layout (simplified view, work order queue, no charts), and Asset Manager Layout (asset counts, distribution charts, recent additions). Role detection from Vuex store is specified.",
+          "evidence": [
+            "ai/tasks/dashboard/03-frontend-layout.md:38-57"
+          ],
+          "confidence": 1
+        },
+        {
+          "criterion": "KPI cards and charts tasks are included",
+          "index": 5,
+          "satisfied": true,
+          "reasoning": "KPI cards task (04-kpi-cards.md) specifies reusable KpiCard.vue component with props (title, value, suffix, icon, trend, color) and 4 specific cards (Total Assets, Vacancy Rate, Pending Work Orders, Completed This Month). Charts task (05-charts.md) specifies ECharts integration with StatusPieChart.vue, AssetTypePieChart.vue, TrendLineChart.vue, and ChartWrapper.vue components.",
+          "evidence": [
+            "ai/tasks/dashboard/04-kpi-cards.md:28-65",
+            "ai/tasks/dashboard/05-charts.md:28-61"
+          ],
+          "confidence": 1
+        },
+        {
+          "criterion": "Manual refresh functionality is included",
+          "index": 6,
+          "satisfied": true,
+          "reasoning": "dashboard.refresh-button (06-refresh-button.md) includes comprehensive manual refresh functionality: refresh button in header, loading state during fetch, button disable during loading, 'Last updated: HH:mm' timestamp, refresh logic calling all dashboard APIs, success/error toasts, optional keyboard shortcuts, and visual feedback (spin animation, fade-in effect).",
+          "evidence": [
+            "ai/tasks/dashboard/06-refresh-button.md:28-52"
+          ],
+          "confidence": 1
+        }
+      ],
+      "verdict": "pass",
+      "verifiedBy": "claude",
+      "overallReasoning": "All 7 acceptance criteria for the Dashboard Module Breakdown are satisfied with high confidence. The ai/tasks/dashboard/ directory contains 6 fine-grained implementation tasks plus the BREAKDOWN.md file. Each task has specific, testable acceptance criteria with clear requirements. Dependencies on core, asset, and maintenance modules are properly defined in the YAML frontmatter. The statistics service task includes aggregation queries and performance requirements. Role-based layout variants are specified for 3 user roles. KPI cards and ECharts integration are detailed. Manual refresh functionality is comprehensively specified.",
+      "suggestions": [],
+      "codeQualityNotes": [
+        "Task structure follows the project's established patterns",
+        "Dependencies are well-organized in a logical order (backend → frontend)",
+        "Test requirements are specified with appropriate patterns for each task type",
+        "Priority ordering (1-6) reflects correct implementation sequence"
+      ],
+      "relatedFilesAnalyzed": []
+    },
+    "core.database-schema": {
+      "featureId": "core.database-schema",
+      "timestamp": "2025-12-15T11:39:14.981Z",
+      "commitHash": "unknown",
+      "changedFiles": [],
+      "diffSummary": "0 files changed",
+      "automatedChecks": [],
+      "criteriaResults": [
+        {
+          "criterion": "Create `t_asset` table with all common fields:",
+          "index": 0,
+          "satisfied": true,
+          "reasoning": "Verified by strategy execution",
+          "confidence": 0.8
+        },
+        {
+          "criterion": "Create `t_asset_location` table for 3-level hierarchy:",
+          "index": 1,
+          "satisfied": true,
+          "reasoning": "Verified by strategy execution",
+          "confidence": 0.8
+        },
+        {
+          "criterion": "Create `t_asset_code_seq` table for sequence management:",
+          "index": 2,
+          "satisfied": true,
+          "reasoning": "Verified by strategy execution",
+          "confidence": 0.8
+        },
+        {
+          "criterion": "Create `t_asset_attachment` table:",
+          "index": 3,
+          "satisfied": true,
+          "reasoning": "Verified by strategy execution",
+          "confidence": 0.8
+        },
+        {
+          "criterion": "Add indexes: idx_asset_code, idx_project_type_status on t_asset",
+          "index": 4,
+          "satisfied": true,
+          "reasoning": "Verified by strategy execution",
+          "confidence": 0.8
+        },
+        {
+          "criterion": "SQL migration file created at `sql/asset_core.sql`",
+          "index": 5,
+          "satisfied": true,
+          "reasoning": "Verified by strategy execution",
+          "confidence": 0.8
+        }
+      ],
+      "verdict": "pass",
+      "verifiedBy": "strategy-framework",
+      "overallReasoning": "[TEST] ✗ FAIL\n  No test framework detected in project",
+      "relatedFilesAnalyzed": [],
+      "strategyResults": [
+        {
+          "type": "test",
+          "required": false,
+          "success": false,
+          "output": "No test framework detected in project",
+          "duration": 30974
+        }
+      ]
+    }
+  },
+  "updatedAt": "2025-12-15T11:39:14.991Z",
+  "version": "1.0.0"
+}

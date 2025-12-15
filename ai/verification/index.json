@@ -1,0 +1,96 @@
+{
+  "features": {
+    "core.BREAKDOWN": {
+      "featureId": "core.BREAKDOWN",
+      "latestRun": 1,
+      "latestTimestamp": "2025-12-15T08:00:42.525Z",
+      "latestVerdict": "pass",
+      "totalRuns": 1,
+      "passCount": 1,
+      "failCount": 0
+    },
+    "asset-house.BREAKDOWN": {
+      "featureId": "asset-house.BREAKDOWN",
+      "latestRun": 1,
+      "latestTimestamp": "2025-12-15T08:04:41.203Z",
+      "latestVerdict": "pass",
+      "totalRuns": 1,
+      "passCount": 1,
+      "failCount": 0
+    },
+    "asset-parking.BREAKDOWN": {
+      "featureId": "asset-parking.BREAKDOWN",
+      "latestRun": 1,
+      "latestTimestamp": "2025-12-15T08:08:12.110Z",
+      "latestVerdict": "pass",
+      "totalRuns": 1,
+      "passCount": 1,
+      "failCount": 0
+    },
+    "asset-facility.BREAKDOWN": {
+      "featureId": "asset-facility.BREAKDOWN",
+      "latestRun": 1,
+      "latestTimestamp": "2025-12-15T08:18:13.000Z",
+      "latestVerdict": "pass",
+      "totalRuns": 1,
+      "passCount": 1,
+      "failCount": 0
+    },
+    "asset-venue.BREAKDOWN": {
+      "featureId": "asset-venue.BREAKDOWN",
+      "latestRun": 1,
+      "latestTimestamp": "2025-12-15T08:21:31.165Z",
+      "latestVerdict": "pass",
+      "totalRuns": 1,
+      "passCount": 1,
+      "failCount": 0
+    },
+    "asset-office.BREAKDOWN": {
+      "featureId": "asset-office.BREAKDOWN",
+      "latestRun": 1,
+      "latestTimestamp": "2025-12-15T08:24:46.844Z",
+      "latestVerdict": "pass",
+      "totalRuns": 1,
+      "passCount": 1,
+      "failCount": 0
+    },
+    "maintenance.BREAKDOWN": {
+      "featureId": "maintenance.BREAKDOWN",
+      "latestRun": 1,
+      "latestTimestamp": "2025-12-15T08:29:06.594Z",
+      "latestVerdict": "pass",
+      "totalRuns": 1,
+      "passCount": 1,
+      "failCount": 0
+    },
+    "import.BREAKDOWN": {
+      "featureId": "import.BREAKDOWN",
+      "latestRun": 1,
+      "latestTimestamp": "2025-12-15T08:32:36.360Z",
+      "latestVerdict": "pass",
+      "totalRuns": 1,
+      "passCount": 1,
+      "failCount": 0
+    },
+    "dashboard.BREAKDOWN": {
+      "featureId": "dashboard.BREAKDOWN",
+      "latestRun": 2,
+      "latestTimestamp": "2025-12-15T11:35:40.174Z",
+      "latestVerdict": "pass",
+      "totalRuns": 2,
+      "passCount": 2,
+      "failCount": 0
+    },
+    "core.database-schema": {
+      "featureId": "core.database-schema",
+      "latestRun": 1,
+      "latestTimestamp": "2025-12-15T11:39:14.981Z",
+      "latestVerdict": "pass",
+      "totalRuns": 1,
+      "passCount": 1,
+      "failCount": 0
+    }
+  },
+  "updatedAt": "2025-12-15T11:39:14.989Z",
+  "version": "2.0.0"
+}

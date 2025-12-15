@@ -1,0 +1,55 @@
+{
+  "featureId": "dashboard.BREAKDOWN",
+  "runNumber": 1,
+  "timestamp": "2025-12-15T08:35:55.629Z",
+  "commitHash": "unknown",
+  "changedFiles": [],
+  "diffSummary": "0 files changed",
+  "automatedChecks": [],
+  "criteriaResults": [
+    {
+      "criterion": "All fine-grained implementation tasks are created in ai/tasks/dashboard/",
+      "index": 0,
+      "satisfied": true,
+      "confidence": 1
+    },
+    {
+      "criterion": "Each task has specific, testable acceptance criteria",
+      "index": 1,
+      "satisfied": true,
+      "confidence": 0.95
+    },
+    {
+      "criterion": "Task dependencies on core, asset, and maintenance modules are defined",
+      "index": 2,
+      "satisfied": true,
+      "confidence": 0.98
+    },
+    {
+      "criterion": "Statistics service with aggregation queries is included",
+      "index": 3,
+      "satisfied": true,
+      "confidence": 0.98
+    },
+    {
+      "criterion": "Role-based dashboard layout tasks are included",
+      "index": 4,
+      "satisfied": true,
+      "confidence": 0.98
+    },
+    {
+      "criterion": "KPI cards and charts tasks are included",
+      "index": 5,
+      "satisfied": true,
+      "confidence": 0.98
+    },
+    {
+      "criterion": "Manual refresh functionality is included",
+      "index": 6,
+      "satisfied": true,
+      "confidence": 0.98
+    }
+  ],
+  "verdict": "pass",
+  "verifiedBy": "claude"
+}
