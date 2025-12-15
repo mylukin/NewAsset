@@ -2,8 +2,8 @@
 id: import.BREAKDOWN
 module: import
 priority: 8
-status: failing
-version: 3
+status: passing
+version: 4
 origin: spec-workflow
 dependsOn:
   - core.BREAKDOWN
