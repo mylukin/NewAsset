@@ -2,8 +2,8 @@
 id: dashboard.controller
 module: dashboard
 priority: 902
-status: failing
-version: 2
+status: passing
+version: 3
 origin: spec-workflow
 dependsOn:
   - dashboard.statistics-service
