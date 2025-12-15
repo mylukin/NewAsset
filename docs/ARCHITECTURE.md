@@ -2,7 +2,7 @@
 
 ## Summary
 
-Asset Management System (MVP) - A comprehensive property/facility management platform built with Spring Boot backend and Vue 2 frontend. The system manages 5 asset types (House, Parking, Facility, Venue, Office) with a 9-state lifecycle status machine. Core infrastructure including code generation, status transitions, location hierarchy, and attachments is implemented. House and Parking modules have complete backend services and controllers, while Facility/Venue/Office/Maintenance/Import modules remain stubs.
+NewAsset is an Asset Management System MVP for property/facility management, built with Vue 2 frontend and Spring Boot backend (RuoYi framework). It manages 5 asset types (House, Parking, Facility, Venue, Office) with a 9-state status machine and maintenance work order workflow. Currently, the frontend house module is mostly implemented, SQL schemas are defined, but backend services and most other frontend modules are placeholder stubs awaiting implementation.
 
 > Analyzed by: claude
 
@@ -10,9 +10,9 @@ Asset Management System (MVP) - A comprehensive property/facility management pla
 
 | Aspect | Value |
 |--------|-------|
-| Language | Java + JavaScript |
-| Framework | Spring Boot + Vue 2 |
-| Build Tool | Maven + npm |
+| Language | JavaScript/TypeScript |
+| Framework | Vue 2.7 + Spring Boot 3.1 (RuoYi) |
+| Build Tool | Vue CLI + Maven |
 | Test Framework | Vitest + Playwright |
 | Package Manager | npm |
 
@@ -27,54 +27,54 @@ Asset Management System (MVP) - A comprehensive property/facility management pla
 ## Modules
 
 ### core
-- **Path**: `src/main/java/com/ruoyi/asset`
+- **Path**: `src/types, src/utils, sql/asset_core.sql`
 - **Status**: partial
-- **Description**: Core asset management - base entity, code generator, 9-state status machine, location hierarchy, attachments
+- **Description**: Base asset entity, code generator, status machine, attachments, location hierarchy
 
 ### asset-house
-- **Path**: `src/main/java/com/ruoyi/asset (house)`
+- **Path**: `src/views/asset/house`
 - **Status**: partial
-- **Description**: House asset module - residential properties with vacancy/rental statistics and copy feature
+- **Description**: House/residential property management with vacancy/rental statistics
 
 ### asset-parking
-- **Path**: `src/main/java/com/ruoyi/asset (parking)`
-- **Status**: partial
-- **Description**: Parking asset module - vehicle spots with utilization statistics and zone stats
+- **Path**: `src/views/asset/parking`
+- **Status**: stub
+- **Description**: Vehicle parking space management with utilization statistics
 
 ### asset-facility
 - **Path**: `src/views/asset/facility`
 - **Status**: stub
-- **Description**: Facility asset module - building equipment with warranty tracking (frontend stub)
+- **Description**: Building equipment management with warranty tracking
 
 ### asset-venue
 - **Path**: `src/views/asset/venue`
 - **Status**: stub
-- **Description**: Venue asset module - community spaces with availability status (frontend stub)
+- **Description**: Community spaces management with availability status
 
 ### asset-office
 - **Path**: `src/views/asset/office`
 - **Status**: stub
-- **Description**: Office asset module - furniture and IT equipment (frontend stub)
+- **Description**: Furniture and IT equipment management
 
 ### maintenance
 - **Path**: `src/views/maintenance`
 - **Status**: stub
-- **Description**: Maintenance module - work order lifecycle with 6-state flow (frontend stub)
+- **Description**: Work order lifecycle management with 6-state flow and asset status linkage
 
 ### dashboard
 - **Path**: `src/views/Dashboard.vue`
 - **Status**: partial
-- **Description**: Dashboard module - KPI cards, charts, quick actions (frontend partial)
+- **Description**: Role-based KPIs, charts, and statistics overview
 
 ### import
 - **Path**: `ai/tasks/import`
 - **Status**: stub
-- **Description**: Excel import module with validation and template download
+- **Description**: Excel import with validation and template download (planned)
 
-### frontend-common
-- **Path**: `src`
+### auth
+- **Path**: `src/views/Login.vue, src/store`
 - **Status**: partial
-- **Description**: Vue 2 frontend with Element UI - router, store, API layer, views
+- **Description**: User authentication, session management, permissions
 
 ## Feature Completion Status
 
@@ -174,30 +174,28 @@ Asset Management System (MVP) - A comprehensive property/facility management pla
 
 ## Recommendations
 
-- Complete asset-facility, asset-venue, asset-office backend modules following house/parking patterns
-- Implement maintenance work order module with 6-state workflow
-- Implement Excel import module with EasyExcel
-- Complete dashboard with ECharts integration for real statistics
-- Add frontend detail/form pages for house module
-- Implement frontend pages for parking, facility, venue, office modules
-- Add attachment controller REST API
-- Configure RuoYi dictionaries and menu permissions
-- Implement data scope filtering for multi-tenant support
+- Prioritize implementing the Spring Boot backend - no Java source code exists yet despite pom.xml
+- Complete the core module services (status-service, location-service, base-service) before asset-specific modules
+- Implement the remaining 4 asset type frontends using the house module as a template
+- Add missing backend API endpoints that the frontend already calls
+- Set up proper dev environment with backend server (currently frontend-only)
+- Consider adding TypeScript configuration for better type safety in Vue components
+- Implement the import module for bulk asset creation via Excel
 
 ## Commands
 
 ```bash
 # Install dependencies
-npm install && mvn clean install
+npm install
 
 # Start development server
-npm run serve
+npm run dev
 
 # Build for production
-npm run build && mvn clean package
+npm run build
 
 # Run tests
-npm run test && npm run test:e2e
+npm run test
 ```
 
 ---

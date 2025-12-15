@@ -3,7 +3,7 @@ id: core.status-enum
 module: core
 priority: 103
 status: passing
-version: 7
+version: 8
 origin: spec-workflow
 dependsOn: []
 supersedes: []
