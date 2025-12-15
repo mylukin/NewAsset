@@ -2,8 +2,8 @@
 id: asset-parking.frontend-form
 module: asset-parking
 priority: 308
-status: failing
-version: 2
+status: passing
+version: 3
 origin: spec-workflow
 dependsOn:
   - asset-parking.frontend-list
