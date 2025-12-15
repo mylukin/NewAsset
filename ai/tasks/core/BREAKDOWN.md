@@ -2,8 +2,8 @@
 id: core.BREAKDOWN
 module: core
 priority: 1
-status: failing
-version: 6
+status: passing
+version: 7
 origin: spec-workflow
 dependsOn: []
 supersedes: []
