@@ -17,14 +17,14 @@
       "Java",
       "TypeScript"
     ],
-    "detectedAt": "2025-12-15T13:04:55.499Z",
+    "detectedAt": "2025-12-15T13:06:09.189Z",
     "testInfo": {
       "available": true,
       "command": "npx vitest run",
       "framework": "vitest",
       "confidence": 0.95,
       "selectiveFileTemplate": "npx vitest run {files}",
-      "selectiveNameTemplate": "npx vitest run -t \"{pattern}\"",
+      "selectiveNameTemplate": "npx vitest run --testNamePattern \"{pattern}\"",
       "packageManager": "none"
     },
     "e2eInfo": {
@@ -52,6 +52,6 @@
       "confidence": 0
     }
   },
-  "commitHash": "e42939eea8649cc9be422a0171116d5f686c5107",
+  "commitHash": "96183823449aa5b14e0ac004815c98cd0595ba2e",
   "trackedFiles": []
 }

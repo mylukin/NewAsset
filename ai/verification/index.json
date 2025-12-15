@@ -125,8 +125,17 @@
       "totalRuns": 1,
       "passCount": 1,
       "failCount": 0
+    },
+    "asset-house.database-schema": {
+      "featureId": "asset-house.database-schema",
+      "latestRun": 2,
+      "latestTimestamp": "2025-12-15T13:08:36.230Z",
+      "latestVerdict": "pass",
+      "totalRuns": 2,
+      "passCount": 2,
+      "failCount": 0
     }
   },
-  "updatedAt": "2025-12-15T13:05:04.284Z",
+  "updatedAt": "2025-12-15T13:08:36.231Z",
   "version": "2.0.0"
 }
