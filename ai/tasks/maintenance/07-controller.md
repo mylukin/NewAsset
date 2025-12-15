@@ -2,8 +2,8 @@
 id: maintenance.controller
 module: maintenance
 priority: 707
-status: failing
-version: 2
+status: passing
+version: 3
 origin: spec-workflow
 dependsOn:
   - maintenance.order-service
