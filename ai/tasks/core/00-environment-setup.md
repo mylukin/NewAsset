@@ -3,7 +3,7 @@ id: core.environment-setup
 module: core
 priority: 1
 status: failing
-version: 1
+version: 2
 origin: manual
 dependsOn: []
 supersedes: []
@@ -15,9 +15,11 @@ tags:
 
 ## Context
 
-Configure complete development environment for Asset Management System with SQLite for local development.
+Configure complete development environment for Asset Management System with Spring Boot backend and Vue 3 frontend using SQLite for local development.
 
 ## Acceptance Criteria
+
+### Backend (Spring Boot)
 
 1. Create Spring Boot project structure:
    - `pom.xml` or `build.gradle` build configuration
@@ -35,20 +37,66 @@ Configure complete development environment for Asset Management System with SQLi
    - Add @SpringBootApplication annotation
    - Enable transaction management
 
-4. Create development documentation:
-   - `README.md` with setup instructions
+### Frontend (Vue 3)
+
+4. Initialize Vue 3 project structure:
+   - `package.json` with Vue 3, Vite, Element Plus dependencies
+   - `vite.config.js` for build configuration
+   - `src/main.js` entry point
+   - `src/App.vue` root component
+
+5. Configure Vue development environment:
+   - Set up Vue Router for SPA routing
+   - Configure Element Plus UI framework
+   - Set up API client for backend communication
+   - Configure proxy for backend API calls
+
+6. Create frontend structure:
+   - `src/views/` for page components
+   - `src/api/` for API calls
+   - `src/components/` for reusable components
+   - `src/utils/` for utility functions
+
+### Development Setup
+
+7. Create development documentation:
+   - `README.md` with complete setup instructions
+   - Backend setup steps (Spring Boot + SQLite)
+   - Frontend setup steps (Vue 3 + Vite)
    - Environment variables configuration
    - Database initialization steps
 
-5. Add development tools:
-   - Database browser tool recommendation
-   - API testing tool setup
-   - Hot reload configuration
+8. Add development tools configuration:
+   - Hot reload for both backend and frontend
+   - Database browser tool recommendation (SQLite)
+   - API testing tool setup (Postman/Insomnia)
+   - IDE configuration files (.vscode/settings.json)
 
-## Technical Notes
+9. Create start scripts:
+   - `package.json` scripts for frontend dev server
+   - Backend dev server configuration
+   - Concurrent startup script for both services
 
-- Use SQLite for local development (file-based, no server required)
-- JPA/Hibernate for ORM
+## Technical Stack
+
+### Backend
+- Spring Boot 3.x
 - MyBatis-Plus for data access
+- SQLite for local development
 - Port: 8080 (default Spring Boot)
 - Database file location: `./data/asset.db`
+
+### Frontend
+- Vue 3 with Composition API
+- Vite for build tooling
+- Element Plus for UI components
+- Vue Router for routing
+- Axios for API calls
+- Port: 5173 (default Vite dev server)
+
+## Development Workflow
+
+1. Start backend: `mvn spring-boot:run` or `./mvnw spring-boot:run`
+2. Start frontend: `npm run dev` or `pnpm dev`
+3. Access application: http://localhost:5173
+4. Backend API: http://localhost:8080
