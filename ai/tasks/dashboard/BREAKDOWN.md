@@ -2,8 +2,8 @@
 id: dashboard.BREAKDOWN
 module: dashboard
 priority: 9
-status: failing
-version: 7
+status: passing
+version: 8
 origin: spec-workflow
 dependsOn:
   - core.BREAKDOWN
