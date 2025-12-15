@@ -65,7 +65,7 @@
       "filePath": "core/06-location-service.md"
     },
     "core.attachment-service": {
-      "status": "failing",
+      "status": "passing",
       "priority": 109,
       "module": "core",
       "description": "Implement file attachment management service",

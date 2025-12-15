@@ -2,7 +2,7 @@
 id: core.attachment-service
 module: core
 priority: 107
-status: failed
+status: passing
 version: 2
 origin: spec-workflow
 dependsOn:
